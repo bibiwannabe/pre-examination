@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="exa-common" />
+        <module name="portal-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin" target="6" />
+      <module name="admin-api" target="6" />
+      <module name="exa-common" target="6" />
+      <module name="exa-common-1" target="6" />
+      <module name="exacommon1" target="6" />
+      <module name="portal-api" target="6" />
+      <module name="server" target="6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
