@@ -47,4 +47,28 @@ public class ThriftServerProxy {
             }
         }.start();
     }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
+    public String getServiceInterface() {
+        return serviceInterface;
+    }
+
+    public void setServiceInterface(String serviceInterface) {
+        this.serviceInterface = serviceInterface;
+    }
+
+    public Object getServiceImplObject() {
+        return serviceImplObject;
+    }
+
+    public void setServiceImplObject(Object serviceImplObject) {
+        this.serviceImplObject = serviceImplObject;
+    }
 }
