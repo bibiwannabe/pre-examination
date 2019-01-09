@@ -8,7 +8,11 @@ public enum CodeEnum {
     /**
      * 未知错误
      */
-    UNKNOWN_ERROR(3000, "未知错误");
+    UNKNOWN_ERROR(3000, "未知错误"),
+    /**
+     * 数据不合法
+     */
+    DATA_ILEAGLE(1001, "数据不合法");
 
     private Integer code;
 
@@ -39,6 +43,8 @@ public enum CodeEnum {
         switch (code){
             case 1000:
                 return SUCCESS;
+            case 1001:
+                return DATA_ILEAGLE;
             case 3000:
                 return UNKNOWN_ERROR;
             default:

@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="exa-common" />
+        <module name="exa-server" />
         <module name="portal-api" />
       </profile>
     </annotationProcessing>
@@ -15,6 +16,7 @@
       <module name="admin-api" target="6" />
       <module name="exa-common" target="6" />
       <module name="exa-common-1" target="6" />
+      <module name="exa-server" target="6" />
       <module name="exacommon1" target="6" />
       <module name="portal-api" target="6" />
       <module name="server" target="6" />

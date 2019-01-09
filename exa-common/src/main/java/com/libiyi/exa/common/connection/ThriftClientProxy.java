@@ -23,16 +23,15 @@ class ThriftClientProxy implements InvocationHandler {
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        List<ServerInstance> invalidInstances = new ArrayList<ServerInstance>();
         while (true) {
 
             if (serviceInstance == null) {
-                throw new RuntimeException("Can't find a valid server instance!");
+                throw new RuntimeException("Can't find a valid thriftServer instance!");
             }
             ConnectionKey connectionKey = new ConnectionKey(iClientClass, serviceInstance, config.getTimeout());
             TServiceClient client = this.connectionPool.borrowObject(connectionKey);
             if (client == null) {
-                throw new RuntimeException("Can't borrow client from server: " + serviceInstance);
+                throw new RuntimeException("Can't borrow client from thriftServer: " + serviceInstance);
             }
             boolean exceptionOccurred = false;
             try {

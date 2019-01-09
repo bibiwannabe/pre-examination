@@ -1,0 +1,11 @@
+/Users/libiyi/pre-examination/exa-server/src/main/java/com/libiyi/exa/server/core/ThriftServer.java
+/Users/libiyi/pre-examination/exa-server/src/main/java/com/libiyi/exa/server/thriftServer/ServerServiceImpl.java
+/Users/libiyi/pre-examination/exa-server/src/main/java/com/libiyi/exa/server/entity/UserInfo.java
+/Users/libiyi/pre-examination/exa-server/src/main/java/com/libiyi/exa/server/service/impl/UserServiceImpl.java
+/Users/libiyi/pre-examination/exa-server/src/main/java/com/libiyi/exa/server/utils/CodeUtil.java
+/Users/libiyi/pre-examination/exa-server/src/main/java/com/libiyi/exa/server/core/Initializer.java
+/Users/libiyi/pre-examination/exa-server/src/main/java/com/libiyi/exa/server/dao/UserInfoMapper.java
+/Users/libiyi/pre-examination/exa-server/src/main/java/com/libiyi/exa/server/core/ThriftServerStartBean.java
+/Users/libiyi/pre-examination/exa-server/src/main/java/com/libiyi/exa/server/service/UserService.java
+/Users/libiyi/pre-examination/exa-server/src/main/java/com/libiyi/exa/server/utils/RedisUtil.java
+/Users/libiyi/pre-examination/exa-server/src/main/java/com/libiyi/exa/server/utils/EmailUtil.java
