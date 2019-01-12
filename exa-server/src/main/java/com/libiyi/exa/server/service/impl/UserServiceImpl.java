@@ -63,6 +63,7 @@ public class UserServiceImpl implements UserService {
         String code = String.valueOf(tpUserInfo.getCode());
         String email = tpUserInfo.getEmail();
         if(redisUtil.get(email) == null || !redisUtil.get(email).toString().equals(code)){
+            logger.info("缓存中获取code：", JSON.toJSONString(redisUtil.get(email)));
             return false;
         }
         return true;
@@ -109,16 +110,6 @@ public class UserServiceImpl implements UserService {
         return userCommonLogin(userLoginInfo);
     }
 
-    /**
-     * 教师登录
-     * @param userLoginInfo
-     * @return
-     */
-    @Override
-    public TRUserLoginInfo teacherLogin(TPUserLoginInfo userLoginInfo) {
-        return userCommonLogin(userLoginInfo);
-    }
-
     private TRUserLoginInfo userCommonLogin(TPUserLoginInfo userLoginInfo) {
         TRUserLoginInfo trUserLoginInfo = new TRUserLoginInfo();
         UserInfo userInfo = userInfoMapper.getByEmail(userLoginInfo.getEmail());
@@ -142,6 +133,7 @@ public class UserServiceImpl implements UserService {
         trUserLoginInfo.setAccType(userInfo.getAccType());
         trUserLoginInfo.setEmail(userInfo.getEmail());
         trUserLoginInfo.setName(userInfo.getName());
+        trUserLoginInfo.setId(userInfo.getId());
         return trUserLoginInfo;
     }
 
@@ -156,6 +148,7 @@ public class UserServiceImpl implements UserService {
         int code = CodeUtil.getCode();
         try {
             redisUtil.set(email, code, 300);
+            logger.info(" 发送验证码：{}到邮箱:{}", code, email);
             EmailUtil.sendCode(code, email);
         } catch (Exception e){
             logger.error("发送验证码失败，email：{} code:{}", email, code);

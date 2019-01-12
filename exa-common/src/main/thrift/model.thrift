@@ -16,7 +16,8 @@ struct TRUserLoginInfo {
         1: string name;
         2: string email;
         3: i32 accType;
-        4: TRResponse response;
+        4: i32 id;
+        5: TRResponse response;
 }
 
 struct TPUserLoginInfo {

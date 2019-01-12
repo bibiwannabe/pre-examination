@@ -9,8 +9,6 @@ service ExaServerService{
 
         model.TRUserLoginInfo userLogin(1:model.TPUserLoginInfo userLoginInfo);
 
-        model.TRUserLoginInfo teacherLogin(1:model.TPUserLoginInfo userLoginInfo);
-
         model.TRResponse sendEmail(1:string email);
 
 }

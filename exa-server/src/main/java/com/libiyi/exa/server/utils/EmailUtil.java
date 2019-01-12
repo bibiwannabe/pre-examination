@@ -12,7 +12,7 @@ public class EmailUtil {
 
     public static void sendCode(Integer code, String email) {
         JavaMailSenderImpl senderImpl = new JavaMailSenderImpl();
-        senderImpl.setHost("smtp.sina.com.cn");
+        senderImpl.setHost("smtp.sina.com");
         senderImpl.setUsername("bibiwannabe@sina.com");
         senderImpl.setPassword("LIBIYIlibiyi272");
         try {
@@ -25,7 +25,7 @@ public class EmailUtil {
             messageHelper.setText("您的验证码为："+code+"，该验证码5分钟内有效。", true);
             senderImpl.send(mailMessage);
         } catch (Exception e) {
-            logger.error("发送邮件失败，email:{}", email);
+            logger.error("发送邮件失败，email:{}", email, e);
         }
 
     }

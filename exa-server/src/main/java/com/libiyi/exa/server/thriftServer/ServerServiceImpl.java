@@ -18,7 +18,12 @@ public class ServerServiceImpl implements ExaServerService.Iface {
 
     @Override
     public TRResponse userRegister(TPUserRegisterInfo userInfo) throws TException {
-        return userService.userRegister(userInfo);
+        try {
+            return userService.userRegister(userInfo);
+        } catch (Exception e) {
+            logger.error(e);
+        }
+        return new TRResponse();
     }
 
     @Override
@@ -29,11 +34,6 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     @Override
     public TRUserLoginInfo userLogin(TPUserLoginInfo userLoginInfo) throws TException {
         return userService.userLogin(userLoginInfo);
-    }
-
-    @Override
-    public TRUserLoginInfo teacherLogin(TPUserLoginInfo userLoginInfo) throws TException {
-        return userService.teacherLogin(userLoginInfo);
     }
 
     @Override

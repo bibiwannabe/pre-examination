@@ -19,4 +19,7 @@
          SELECT COUNT(1) FROM user_info WHERE email = #{email}
     </select>
 
+    <select id="getByEmail" resultMap="BaseResultMap">
+        SELECT id, name, password, email, acc_type, create_time, update_time FROM user_info WHERE email = #{email}
+    </select>
 </mapper>

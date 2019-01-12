@@ -32,6 +32,8 @@ public enum AccountTypeEnum {
     private String desc;
 
     AccountTypeEnum(Integer code, String desc) {
+        this.code = code;
+        this.desc = desc;
     }
 
     public static AccountTypeEnum getByCode(Integer code) {

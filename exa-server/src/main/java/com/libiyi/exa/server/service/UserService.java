@@ -10,7 +10,5 @@ public interface UserService {
 
     TRUserLoginInfo userLogin(TPUserLoginInfo userLoginInfo);
 
-    TRUserLoginInfo teacherLogin(TPUserLoginInfo userLoginInfo);
-
     TRResponse sendEmail(String email);
 }

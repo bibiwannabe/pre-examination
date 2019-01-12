@@ -14,7 +14,8 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
   private static final org.apache.thrift.protocol.TField NAME_FIELD_DESC = new org.apache.thrift.protocol.TField("name", org.apache.thrift.protocol.TType.STRING, (short)1);
   private static final org.apache.thrift.protocol.TField EMAIL_FIELD_DESC = new org.apache.thrift.protocol.TField("email", org.apache.thrift.protocol.TType.STRING, (short)2);
   private static final org.apache.thrift.protocol.TField ACC_TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("accType", org.apache.thrift.protocol.TType.I32, (short)3);
-  private static final org.apache.thrift.protocol.TField RESPONSE_FIELD_DESC = new org.apache.thrift.protocol.TField("response", org.apache.thrift.protocol.TType.STRUCT, (short)4);
+  private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("id", org.apache.thrift.protocol.TType.I32, (short)4);
+  private static final org.apache.thrift.protocol.TField RESPONSE_FIELD_DESC = new org.apache.thrift.protocol.TField("response", org.apache.thrift.protocol.TType.STRUCT, (short)5);
 
   private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new TRUserLoginInfoStandardSchemeFactory();
   private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new TRUserLoginInfoTupleSchemeFactory();
@@ -22,6 +23,7 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
   public java.lang.String name; // required
   public java.lang.String email; // required
   public int accType; // required
+  public int id; // required
   public TRResponse response; // required
 
   /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
@@ -29,7 +31,8 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
     NAME((short)1, "name"),
     EMAIL((short)2, "email"),
     ACC_TYPE((short)3, "accType"),
-    RESPONSE((short)4, "response");
+    ID((short)4, "id"),
+    RESPONSE((short)5, "response");
 
     private static final java.util.Map<java.lang.String, _Fields> byName = new java.util.HashMap<java.lang.String, _Fields>();
 
@@ -50,7 +53,9 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
           return EMAIL;
         case 3: // ACC_TYPE
           return ACC_TYPE;
-        case 4: // RESPONSE
+        case 4: // ID
+          return ID;
+        case 5: // RESPONSE
           return RESPONSE;
         default:
           return null;
@@ -93,6 +98,7 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
 
   // isset id assignments
   private static final int __ACCTYPE_ISSET_ID = 0;
+  private static final int __ID_ISSET_ID = 1;
   private byte __isset_bitfield = 0;
   public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
   static {
@@ -102,6 +108,8 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
     tmpMap.put(_Fields.EMAIL, new org.apache.thrift.meta_data.FieldMetaData("email", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
     tmpMap.put(_Fields.ACC_TYPE, new org.apache.thrift.meta_data.FieldMetaData("accType", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+        new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
+    tmpMap.put(_Fields.ID, new org.apache.thrift.meta_data.FieldMetaData("id", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.I32)));
     tmpMap.put(_Fields.RESPONSE, new org.apache.thrift.meta_data.FieldMetaData("response", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, TRResponse.class)));
@@ -116,6 +124,7 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
     java.lang.String name,
     java.lang.String email,
     int accType,
+    int id,
     TRResponse response)
   {
     this();
@@ -123,6 +132,8 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
     this.email = email;
     this.accType = accType;
     setAccTypeIsSet(true);
+    this.id = id;
+    setIdIsSet(true);
     this.response = response;
   }
 
@@ -138,6 +149,7 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
       this.email = other.email;
     }
     this.accType = other.accType;
+    this.id = other.id;
     if (other.isSetResponse()) {
       this.response = new TRResponse(other.response);
     }
@@ -153,6 +165,8 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
     this.email = null;
     setAccTypeIsSet(false);
     this.accType = 0;
+    setIdIsSet(false);
+    this.id = 0;
     this.response = null;
   }
 
@@ -227,6 +241,29 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
     __isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __ACCTYPE_ISSET_ID, value);
   }
 
+  public int getId() {
+    return this.id;
+  }
+
+  public TRUserLoginInfo setId(int id) {
+    this.id = id;
+    setIdIsSet(true);
+    return this;
+  }
+
+  public void unsetId() {
+    __isset_bitfield = org.apache.thrift.EncodingUtils.clearBit(__isset_bitfield, __ID_ISSET_ID);
+  }
+
+  /** Returns true if field id is set (has been assigned a value) and false otherwise */
+  public boolean isSetId() {
+    return org.apache.thrift.EncodingUtils.testBit(__isset_bitfield, __ID_ISSET_ID);
+  }
+
+  public void setIdIsSet(boolean value) {
+    __isset_bitfield = org.apache.thrift.EncodingUtils.setBit(__isset_bitfield, __ID_ISSET_ID, value);
+  }
+
   public TRResponse getResponse() {
     return this.response;
   }
@@ -277,6 +314,14 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
       }
       break;
 
+    case ID:
+      if (value == null) {
+        unsetId();
+      } else {
+        setId((java.lang.Integer)value);
+      }
+      break;
+
     case RESPONSE:
       if (value == null) {
         unsetResponse();
@@ -299,6 +344,9 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
     case ACC_TYPE:
       return getAccType();
 
+    case ID:
+      return getId();
+
     case RESPONSE:
       return getResponse();
 
@@ -319,6 +367,8 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
       return isSetEmail();
     case ACC_TYPE:
       return isSetAccType();
+    case ID:
+      return isSetId();
     case RESPONSE:
       return isSetResponse();
     }
@@ -367,6 +417,15 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
         return false;
     }
 
+    boolean this_present_id = true;
+    boolean that_present_id = true;
+    if (this_present_id || that_present_id) {
+      if (!(this_present_id && that_present_id))
+        return false;
+      if (this.id != that.id)
+        return false;
+    }
+
     boolean this_present_response = true && this.isSetResponse();
     boolean that_present_response = true && that.isSetResponse();
     if (this_present_response || that_present_response) {
@@ -392,6 +451,8 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
       hashCode = hashCode * 8191 + email.hashCode();
 
     hashCode = hashCode * 8191 + accType;
+
+    hashCode = hashCode * 8191 + id;
 
     hashCode = hashCode * 8191 + ((isSetResponse()) ? 131071 : 524287);
     if (isSetResponse())
@@ -434,6 +495,16 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
     }
     if (isSetAccType()) {
       lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.accType, other.accType);
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+    }
+    lastComparison = java.lang.Boolean.valueOf(isSetId()).compareTo(other.isSetId());
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+    if (isSetId()) {
+      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.id, other.id);
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -486,6 +557,10 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
     if (!first) sb.append(", ");
     sb.append("accType:");
     sb.append(this.accType);
+    first = false;
+    if (!first) sb.append(", ");
+    sb.append("id:");
+    sb.append(this.id);
     first = false;
     if (!first) sb.append(", ");
     sb.append("response:");
@@ -567,7 +642,15 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case 4: // RESPONSE
+          case 4: // ID
+            if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+              struct.id = iprot.readI32();
+              struct.setIdIsSet(true);
+            } else { 
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+            }
+            break;
+          case 5: // RESPONSE
             if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
               struct.response = new TRResponse();
               struct.response.read(iprot);
@@ -604,6 +687,9 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
       oprot.writeFieldBegin(ACC_TYPE_FIELD_DESC);
       oprot.writeI32(struct.accType);
       oprot.writeFieldEnd();
+      oprot.writeFieldBegin(ID_FIELD_DESC);
+      oprot.writeI32(struct.id);
+      oprot.writeFieldEnd();
       if (struct.response != null) {
         oprot.writeFieldBegin(RESPONSE_FIELD_DESC);
         struct.response.write(oprot);
@@ -636,10 +722,13 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
       if (struct.isSetAccType()) {
         optionals.set(2);
       }
-      if (struct.isSetResponse()) {
+      if (struct.isSetId()) {
         optionals.set(3);
       }
-      oprot.writeBitSet(optionals, 4);
+      if (struct.isSetResponse()) {
+        optionals.set(4);
+      }
+      oprot.writeBitSet(optionals, 5);
       if (struct.isSetName()) {
         oprot.writeString(struct.name);
       }
@@ -649,6 +738,9 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
       if (struct.isSetAccType()) {
         oprot.writeI32(struct.accType);
       }
+      if (struct.isSetId()) {
+        oprot.writeI32(struct.id);
+      }
       if (struct.isSetResponse()) {
         struct.response.write(oprot);
       }
@@ -657,7 +749,7 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
     @Override
     public void read(org.apache.thrift.protocol.TProtocol prot, TRUserLoginInfo struct) throws org.apache.thrift.TException {
       org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
-      java.util.BitSet incoming = iprot.readBitSet(4);
+      java.util.BitSet incoming = iprot.readBitSet(5);
       if (incoming.get(0)) {
         struct.name = iprot.readString();
         struct.setNameIsSet(true);
@@ -671,6 +763,10 @@ public class TRUserLoginInfo implements org.apache.thrift.TBase<TRUserLoginInfo,
         struct.setAccTypeIsSet(true);
       }
       if (incoming.get(3)) {
+        struct.id = iprot.readI32();
+        struct.setIdIsSet(true);
+      }
+      if (incoming.get(4)) {
         struct.response = new TRResponse();
         struct.response.read(iprot);
         struct.setResponseIsSet(true);
