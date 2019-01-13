@@ -13,13 +13,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="admin-api" target="6" />
-      <module name="exa-common" target="6" />
-      <module name="exa-common-1" target="6" />
-      <module name="exa-server" target="6" />
-      <module name="exacommon1" target="6" />
-      <module name="portal-api" target="6" />
-      <module name="server" target="6" />
+      <module name="admin-api" target="8" />
+      <module name="exa-common" target="8" />
+      <module name="exa-server" target="8" />
+      <module name="portal-api" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

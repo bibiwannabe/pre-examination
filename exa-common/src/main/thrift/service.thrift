@@ -17,4 +17,8 @@ service ExaServerService{
 
         model.TRAdminInfo getAdminInfo(1:i32 userId);
 
+        model.TRResponse createSubjectTag(1:string tagName);
+
+        model.TRSubjectTagList getAllSubject();
+
 }

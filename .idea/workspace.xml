@@ -7,60 +7,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56fe1ab6-a580-4ad6-99bd-24ace18c4687" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/aop/LoginFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/AdminInfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/core/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/param/AdminInfoParam.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-api/src/main/resources/log4j2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TPAdminInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/dao/AdminInfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/entity/AdminInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/AdminInfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/AdminInfoServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exa-server/src/main/resources/mapper/AdminInfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exa-server/src/sql/question.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/admin_api_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/admin_api_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/admin_api_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/admin_api_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/exa_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/exa_server_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/server_war.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/server_war_exploded.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/SubjectTagController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/param/SubjectParam.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/SubjectTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRSubjectTagList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TSubjectTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/dao/QuestionInfMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/dao/SubjectTagMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/entity/QuestionInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/entity/SubjectTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/SubjectTagService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/SubjectTagServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exa-server/src/main/resources/mapper/QuestionInfoMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exa-server/src/main/resources/mapper/SubjectTagMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/controller/SubjectTagController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/param/SubjectParam.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b9d00571-4469-405c-8191-aa1b73560e0d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b9d00571-4469-405c-8191-aa1b73560e0d.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-api/admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/admin-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-api/admin-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/admin-api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-api/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-api/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/exa-common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/exa-common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/gen-java/com/libiyi/exa/common/service/ExaServerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/gen-java/com/libiyi/exa/common/thrift/TPUserInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/gen-java/com/libiyi/exa/common/thrift/TPUserLoginInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/gen-java/com/libiyi/exa/common/thrift/TPUserRegisterInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/gen-java/com/libiyi/exa/common/thrift/TRResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/gen-java/com/libiyi/exa/common/thrift/TRUserLoginInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRAdminInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/common/CodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/common/CodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/AdminInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/AdminInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/service/ExaServerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/service/ExaServerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/src/main/thrift/model.thrift" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/src/main/thrift/model.thrift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/src/main/thrift/service.thrift" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/src/main/thrift/service.thrift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/client/ExaServerClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/client/ExaServerClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/client/ThriftProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/client/ThriftProxy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/client/ThriftProxyFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/client/ThriftProxyFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/AccountTypeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/AccountTypeEnum.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/CodeEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/CodeEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/ConnectionProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/ConnectionProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/ConnectionProviderImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/ConnectionProviderImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/RequestConst.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/RequestConst.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/Result$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/Result$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/common/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ConnectionKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ConnectionKey.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ConnectionPoolConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ConnectionPoolConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/DefaultConnectionPoolFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/DefaultConnectionPoolFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/IConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/IConnectionPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/IConnectionPoolFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/IConnectionPoolFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ILoadBalancer.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ILoadBalancer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/MyLoadBalancer.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/MyLoadBalancer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ServerInstance.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ServerInstance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ThriftClientConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ThriftClientConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ThriftClientFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ThriftClientFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ThriftClientProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ThriftClientProxy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ThriftConnectionKeyedPooledObjectFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ThriftConnectionKeyedPooledObjectFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ThriftConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/connection/ThriftConnectionPool.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$Factory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$Factory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$checkEmailExist_call.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$checkEmailExist_call.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$createAdminInfo_call.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$createAdminInfo_call.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$getAdminInfo_call.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$getAdminInfo_call.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$sendEmail_call.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$sendEmail_call.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$teacherLogin_call.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$userLogin_call.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$userLogin_call.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$userRegister_call.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient$userRegister_call.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncIface.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncIface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$checkEmailExist$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$checkEmailExist$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$checkEmailExist.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$checkEmailExist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$createAdminInfo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$createAdminInfo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$createAdminInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$createAdminInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getAdminInfo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getAdminInfo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getAdminInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getAdminInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$sendEmail$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$sendEmail$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$sendEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$sendEmail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$teacherLogin$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$teacherLogin.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$userLogin$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$userLogin$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$userLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$userLogin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$userRegister$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$userRegister$1.class" afterDir="false" />
@@ -70,8 +81,9 @@
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Iface.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Iface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor$checkEmailExist.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor$checkEmailExist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor$createAdminInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor$createAdminInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor$getAdminInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor$getAdminInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor$sendEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor$sendEmail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor$teacherLogin.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor$userLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor$userLogin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor$userRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor$userRegister.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$Processor.class" afterDir="false" />
@@ -87,6 +99,30 @@
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$checkEmailExist_result$checkEmailExist_resultTupleScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$checkEmailExist_result$checkEmailExist_resultTupleScheme.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$checkEmailExist_result$checkEmailExist_resultTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$checkEmailExist_result$checkEmailExist_resultTupleSchemeFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$checkEmailExist_result.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$checkEmailExist_result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args$_Fields.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args$_Fields.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args$createAdminInfo_argsStandardScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args$createAdminInfo_argsStandardScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args$createAdminInfo_argsStandardSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args$createAdminInfo_argsStandardSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args$createAdminInfo_argsTupleScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args$createAdminInfo_argsTupleScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args$createAdminInfo_argsTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args$createAdminInfo_argsTupleSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result$_Fields.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result$_Fields.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result$createAdminInfo_resultStandardScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result$createAdminInfo_resultStandardScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result$createAdminInfo_resultStandardSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result$createAdminInfo_resultStandardSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result$createAdminInfo_resultTupleScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result$createAdminInfo_resultTupleScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result$createAdminInfo_resultTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result$createAdminInfo_resultTupleSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args$_Fields.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args$_Fields.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args$getAdminInfo_argsStandardScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args$getAdminInfo_argsStandardScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args$getAdminInfo_argsStandardSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args$getAdminInfo_argsStandardSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args$getAdminInfo_argsTupleScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args$getAdminInfo_argsTupleScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args$getAdminInfo_argsTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args$getAdminInfo_argsTupleSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result$_Fields.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result$_Fields.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result$getAdminInfo_resultStandardScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result$getAdminInfo_resultStandardScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result$getAdminInfo_resultStandardSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result$getAdminInfo_resultStandardSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result$getAdminInfo_resultTupleScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result$getAdminInfo_resultTupleScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result$getAdminInfo_resultTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result$getAdminInfo_resultTupleSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$sendEmail_args$_Fields.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$sendEmail_args$_Fields.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$sendEmail_args$sendEmail_argsStandardScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$sendEmail_args$sendEmail_argsStandardScheme.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$sendEmail_args$sendEmail_argsStandardSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$sendEmail_args$sendEmail_argsStandardSchemeFactory.class" afterDir="false" />
@@ -99,18 +135,6 @@
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$sendEmail_result$sendEmail_resultTupleScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$sendEmail_result$sendEmail_resultTupleScheme.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$sendEmail_result$sendEmail_resultTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$sendEmail_result$sendEmail_resultTupleSchemeFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$sendEmail_result.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$sendEmail_result.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$teacherLogin_args$_Fields.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$teacherLogin_args$teacherLogin_argsStandardScheme.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$teacherLogin_args$teacherLogin_argsStandardSchemeFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$teacherLogin_args$teacherLogin_argsTupleScheme.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$teacherLogin_args$teacherLogin_argsTupleSchemeFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$teacherLogin_args.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$teacherLogin_result$_Fields.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$teacherLogin_result$teacherLogin_resultStandardScheme.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$teacherLogin_result$teacherLogin_resultStandardSchemeFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$teacherLogin_result$teacherLogin_resultTupleScheme.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$teacherLogin_result$teacherLogin_resultTupleSchemeFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$teacherLogin_result.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$userLogin_args$_Fields.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$userLogin_args$_Fields.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$userLogin_args$userLogin_argsStandardScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$userLogin_args$userLogin_argsStandardScheme.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$userLogin_args$userLogin_argsStandardSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$userLogin_args$userLogin_argsStandardSchemeFactory.class" afterDir="false" />
@@ -136,67 +160,96 @@
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$userRegister_result$userRegister_resultTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$userRegister_result$userRegister_resultTupleSchemeFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$userRegister_result.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService$userRegister_result.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/service/ExaServerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/exa-common-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/exa-common-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo$TPAdminInfoStandardScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo$TPAdminInfoStandardScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo$TPAdminInfoStandardSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo$TPAdminInfoStandardSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo$TPAdminInfoTupleScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo$TPAdminInfoTupleScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo$TPAdminInfoTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo$TPAdminInfoTupleSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo$_Fields.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo$_Fields.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPAdminInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo$TPUserInfoStandardScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo$TPUserInfoStandardScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo$TPUserInfoStandardSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo$TPUserInfoStandardSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo$TPUserInfoTupleScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo$TPUserInfoTupleScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo$TPUserInfoTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo$TPUserInfoTupleSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo$_Fields.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo$_Fields.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo$TPUserLoginInfoStandardScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo$TPUserLoginInfoStandardScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo$TPUserLoginInfoStandardSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo$TPUserLoginInfoStandardSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo$TPUserLoginInfoTupleScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo$TPUserLoginInfoTupleScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo$TPUserLoginInfoTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo$TPUserLoginInfoTupleSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo$_Fields.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo$_Fields.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserLoginInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo$TPUserRegisterInfoStandardScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo$TPUserRegisterInfoStandardScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo$TPUserRegisterInfoStandardSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo$TPUserRegisterInfoStandardSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo$TPUserRegisterInfoTupleScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo$TPUserRegisterInfoTupleScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo$TPUserRegisterInfoTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo$TPUserRegisterInfoTupleSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo$_Fields.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo$_Fields.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TPUserRegisterInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo$TRAdminInfoStandardScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo$TRAdminInfoStandardScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo$TRAdminInfoStandardSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo$TRAdminInfoStandardSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo$TRAdminInfoTupleScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo$TRAdminInfoTupleScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo$TRAdminInfoTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo$TRAdminInfoTupleSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo$_Fields.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo$_Fields.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRAdminInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse$TRResponseStandardScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse$TRResponseStandardScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse$TRResponseStandardSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse$TRResponseStandardSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse$TRResponseTupleScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse$TRResponseTupleScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse$TRResponseTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse$TRResponseTupleSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse$_Fields.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse$_Fields.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo$TRUserLoginInfoStandardScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo$TRUserLoginInfoStandardScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo$TRUserLoginInfoStandardSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo$TRUserLoginInfoStandardSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo$TRUserLoginInfoTupleScheme.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo$TRUserLoginInfoTupleScheme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo$TRUserLoginInfoTupleSchemeFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo$TRUserLoginInfoTupleSchemeFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo$_Fields.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo$_Fields.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/thrift/TRUserLoginInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/util/DateUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/util/DateUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/util/PasswordUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/util/PasswordUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-server/exa-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/exa-server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/thriftServer/ServerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/thriftServer/ServerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/src/main/resources/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/src/main/resources/mapper/UserInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/src/sql/user.sql" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/src/sql/user.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/META-INF/exa-server.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/src/sql/question.sql" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/src/sql/question.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/core/Initializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/core/Initializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/core/ThriftServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/core/ThriftServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/core/ThriftServerStartBean$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/core/ThriftServerStartBean$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/core/ThriftServerStartBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/core/ThriftServerStartBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/dao/AdminInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/dao/AdminInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/dao/UserInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/dao/UserInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/entity/AdminInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/entity/AdminInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/entity/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/entity/UserInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/service/AdminInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/service/AdminInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/service/impl/AdminInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/service/impl/AdminInfoServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/service/impl/UserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/thriftServer/ServerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/thriftServer/ServerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/utils/CodeUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/utils/CodeUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/utils/EmailUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/utils/EmailUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/utils/RedisUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/utils/RedisUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/core/Initializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/core/Initializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/core/ThriftServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/core/ThriftServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/core/ThriftServerStartBean$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/core/ThriftServerStartBean$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/core/ThriftServerStartBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/core/ThriftServerStartBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/dao/AdminInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/dao/AdminInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/dao/UserInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/dao/UserInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/entity/AdminInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/entity/AdminInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/entity/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/entity/UserInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/service/AdminInfoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/service/AdminInfoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/service/impl/AdminInfoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/service/impl/AdminInfoServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/service/impl/UserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/thriftServer/ServerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/thriftServer/ServerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/utils/CodeUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/utils/CodeUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/utils/EmailUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/utils/EmailUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/utils/RedisUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/classes/com/libiyi/exa/server/utils/RedisUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/lib/exa-common-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0-SNAPSHOT/WEB-INF/lib/exa-common-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/common/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/common/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/param/UserParam.kt" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/parram/UserParam.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal-api/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/portal-api/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal-api/src/main/resources/dispatcherServlet-servlet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/animal-sniffer-annotations-1.14.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/aspectjweaver-1.8.13.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/c3p0-0.9.5.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/checker-qual-2.5.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/commons-codec-1.11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/commons-dbcp-1.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/commons-fileupload-1.3.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/commons-io-2.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/commons-pool-1.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/error_prone_annotations-2.1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/exa-common-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/fastjson-1.2.49.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/gson-2.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/guava-26.0-jre.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/j2objc-annotations-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/jackson-core-asl-1.9.13.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/jackson-mapper-asl-1.9.13.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/jsr305-3.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/log4j-1.2.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/mchange-commons-java-0.2.11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/mybatis-3.4.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/mybatis-spring-1.3.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/mysql-connector-java-8.0.12.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/protobuf-java-2.6.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/slf4j-api-1.7.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/spring-aop-5.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/spring-aspects-5.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/spring-beans-5.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/spring-context-5.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/spring-context-support-5.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/spring-core-5.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/spring-expression-5.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/spring-jcl-5.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/spring-jdbc-5.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/spring-tx-5.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/spring-web-5.0.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/target/server-1.0-SNAPSHOT/WEB-INF/lib/spring-webmvc-5.0.9.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/portal-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal-api/portal-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/portal-api/portal-api.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/portalapi/target/" />
     <ignored path="$PROJECT_DIR$/common/target/" />
@@ -254,10 +307,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/UserController.java">
+        <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/dao/SubjectTagMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-338">
-              <caret line="28" column="75" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="75" />
+            <state relative-caret-position="153">
+              <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -266,10 +319,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/AdminInfoServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/controller/SubjectTagController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="67" column="51" lean-forward="true" selection-start-line="67" selection-start-column="51" selection-end-line="67" selection-end-column="51" />
+            <state relative-caret-position="-98">
+              <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -277,52 +330,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/AdminInfoController.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/exa-server/src/main/resources/mapper/QuestionInfoMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-146">
-              <caret line="73" column="55" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="55" />
+            <state relative-caret-position="276">
+              <caret line="24" column="152" selection-start-line="24" selection-start-column="152" selection-end-line="24" selection-end-column="152" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/dao/QuestionInfMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/entity/AdminInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-              <folding>
-                <element signature="e#517#518#0" expanded="true" />
-                <element signature="e#553#554#0" expanded="true" />
-                <element signature="e#723#724#0" expanded="true" />
-                <element signature="e#753#754#0" expanded="true" />
-                <element signature="e#874#875#0" expanded="true" />
-                <element signature="e#906#907#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/aop/LoginFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin-api/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1547">
-              <caret line="91" column="24" lean-forward="true" selection-start-line="83" selection-end-line="91" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -330,26 +354,50 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exa-server/src/sql/question.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+            <state relative-caret-position="286">
+              <caret line="23" lean-forward="true" selection-start-line="8" selection-end-line="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="das://b9d00571-4469-405c-8191-aa1b73560e0d/schema/pre_examination/table/subject_tag">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b9d00571-4469-405c-8191-aa1b73560e0d/console.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="58" column="51" lean-forward="true" selection-start-line="58" selection-start-column="51" selection-end-line="58" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/exa-server/src/sql/user.sql">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/param/AdminInfoParam.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+            <state>
+              <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/SubjectTagService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/thriftServer/ServerServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -363,8 +411,8 @@
         <option value="Kotlin Class" />
         <option value="Enum" />
         <option value="Kotlin File" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -391,6 +439,7 @@
       <find>accType</find>
       <find>kot</find>
       <find>admin</find>
+      <find>TEXT</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -399,20 +448,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/server/ServerServiceImpl.java" />
-        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/core/ThriftServerStartBean.java" />
-        <option value="$PROJECT_DIR$/exa-server/pom.xml" />
-        <option value="$PROJECT_DIR$/exa-server/src/main/resources/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/exa-server/src/main/resources/db.properties" />
-        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/core/ThriftServerProxy.java" />
-        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/core/Initializer.java" />
-        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/utils/RedisUtil.java" />
-        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/entity/UserInfo.java" />
-        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/utils/CodeUtil.java" />
-        <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TPUserLoginInfo.java" />
-        <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TPUserInfo.java" />
-        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/dao/UserInfoMapper.java" />
-        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/UserService.java" />
         <option value="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/param/UserParam.kt" />
         <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRUserLoginInfo.java" />
         <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/common/RequestConst.java" />
@@ -427,14 +462,9 @@
         <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/common/CodeEnum.java" />
         <option value="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/param/AdminInfoParam.kt" />
         <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TPAdminInfo.java" />
-        <option value="$PROJECT_DIR$/exa-common/src/main/thrift/model.thrift" />
         <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRAdminInfo.java" />
         <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/entity/AdminInfo.java" />
-        <option value="$PROJECT_DIR$/exa-common/src/main/thrift/service.thrift" />
-        <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/service/ExaServerService.java" />
         <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/AdminInfoService.java" />
-        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/thriftServer/ServerServiceImpl.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b9d00571-4469-405c-8191-aa1b73560e0d/console.sql" />
         <option value="$PROJECT_DIR$/portal-api/src/main/resources/applicationContext.xml" />
         <option value="$PROJECT_DIR$/admin-api/src/main/resources/applicationContext.xml" />
         <option value="$PROJECT_DIR$/admin-api/pom.xml" />
@@ -442,14 +472,33 @@
         <option value="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/UserController.java" />
         <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/dao/AdminInfoMapper.java" />
         <option value="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/AdminInfoController.java" />
         <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/AdminInfoServiceImpl.java" />
         <option value="$PROJECT_DIR$/exa-server/src/main/resources/mapper/AdminInfoMapper.xml" />
         <option value="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/aop/LoginFilter.java" />
         <option value="$PROJECT_DIR$/admin-api/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/exa-server/src/sql/qusetion.sql" />
-        <option value="$PROJECT_DIR$/exa-server/src/sql/question.sql" />
         <option value="$PROJECT_DIR$/exa-server/src/sql/user.sql" />
+        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/entity/SubjectTag.java" />
+        <option value="$PROJECT_DIR$/exa-server/src/main/resources/mapper/SubjectTagMapper.xml" />
+        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/dao/SubjectTagMapper.java" />
+        <option value="$PROJECT_DIR$/exa-common/src/main/thrift/service.thrift" />
+        <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRSubjectTagList.java" />
+        <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/service/ExaServerService.java" />
+        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/thriftServer/ServerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/exa-common/src/main/thrift/model.thrift" />
+        <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TSubjectTag.java" />
+        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/SubjectTagService.java" />
+        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/SubjectTagServiceImpl.java" />
+        <option value="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/AdminInfoController.java" />
+        <option value="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/param/SubjectParam.kt" />
+        <option value="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/SubjectTagController.java" />
+        <option value="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/param/SubjectParam.kt" />
+        <option value="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/controller/SubjectTagController.java" />
+        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/dao/QuestionInfMapper.java" />
+        <option value="$PROJECT_DIR$/exa-server/src/sql/question.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b9d00571-4469-405c-8191-aa1b73560e0d/console.sql" />
+        <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/entity/QuestionInfo.java" />
+        <option value="$PROJECT_DIR$/exa-server/src/main/resources/mapper/QuestionInfoMapper.xml" />
       </list>
     </option>
   </component>
@@ -529,6 +578,42 @@
               <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
               <item name="exa-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="sql" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -565,17 +650,17 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547374468238" />
-    <property name="database.console.LAST_STATE" value="false" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547388445883" />
+    <property name="database.console.LAST_STATE" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="spring" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -583,8 +668,8 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/service" />
       <recent name="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift" />
+      <recent name="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/service" />
       <recent name="$PROJECT_DIR$/admin-api/src/main/resources" />
       <recent name="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/parram" />
       <recent name="$PROJECT_DIR$/exa-common/src/main/thrift" />
@@ -964,7 +1049,7 @@
       <workItem from="1546769974348" duration="85000" />
       <workItem from="1546925949992" duration="6339000" />
       <workItem from="1546934570069" duration="9153000" />
-      <workItem from="1547017706167" duration="60304000" />
+      <workItem from="1547017706167" duration="69582000" />
     </task>
     <servers />
   </component>
@@ -1001,13 +1086,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146949000" />
+    <option name="totallyTimeSpent" value="156227000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4992908" visible="true" weight="0.25107297" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4992908" visible="true" weight="0.24248926" />
       <window_info id="Structure" order="1" sideWeight="0.50070924" side_tool="true" weight="0.2532189" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1018,20 +1102,20 @@
       <window_info anchor="bottom" id="Duplicate detector" weight="0.32907802" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36737588" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49928468" visible="true" weight="0.41702127" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.50070924" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49928468" weight="0.41702127" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49928468" weight="0.3248227" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49928468" weight="0.25106382" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="bottom" id="Statistic" order="14" weight="0.32907802" />
-      <window_info anchor="bottom" id="Database Console" order="15" weight="0.3248227" />
+      <window_info anchor="bottom" id="Database Console" order="15" visible="true" weight="0.3248227" />
       <window_info anchor="bottom" id="Application Servers" order="16" weight="0.32907802" />
       <window_info anchor="bottom" id="Block forbidden dependencies" order="17" sideWeight="0.5007153" side_tool="true" weight="0.4807229" />
       <window_info anchor="bottom" id="Messages" order="18" weight="0.32765958" />
@@ -1049,6 +1133,49 @@
       <window_info anchor="right" id="Bean Validation" order="11" />
       <window_info anchor="right" id="Coverage" order="12" sideWeight="0.5052356" side_tool="true" weight="0.18240343" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4992908" visible="true" weight="0.25107297" />
+      <window_info id="Structure" order="1" sideWeight="0.50070924" side_tool="true" weight="0.2532189" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Duplicate detector" order="0" weight="0.32907802" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32907802" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.36737588" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49928468" weight="0.41702127" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Spring" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49928468" visible="true" weight="0.3248227" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="bottom" id="Statistic" order="15" weight="0.32907802" />
+      <window_info anchor="bottom" id="Database Console" order="16" weight="0.3248227" />
+      <window_info anchor="bottom" id="Application Servers" order="17" weight="0.32907802" />
+      <window_info anchor="bottom" id="Block forbidden dependencies" order="18" sideWeight="0.5007153" side_tool="true" weight="0.4807229" />
+      <window_info anchor="bottom" id="Messages" order="19" weight="0.32765958" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" sideWeight="0.4947644" weight="0.18240343" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="JSF" order="6" />
+      <window_info anchor="right" id="Database" order="7" visible="true" weight="0.20886981" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="CDI" order="10" />
+      <window_info anchor="right" id="Bean Validation" order="11" />
+      <window_info anchor="right" id="Coverage" order="12" sideWeight="0.5052356" side_tool="true" weight="0.18240343" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1114,163 +1241,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-common/src/main/thrift/ExaServerService.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRUserLoginInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-871">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/common/RequestConst.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="53" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/common/ConnectionProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/common/AccountTypeEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/utils/EmailUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/param/UserParam.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/common/Result.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/core/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal-api/src/main/resources/log4j2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin-api/src/main/resources/log4j2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-417" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/common/CodeEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
-          <folding>
-            <element signature="e#344#345#0" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#444#445#0" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
-            <element signature="e#502#503#0" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-common/src/main/thrift/model.thrift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="42" column="18" lean-forward="true" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRAdminInfo.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/entity/UserInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="28" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="15" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/thriftServer/ServerServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/service/ExaServerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-common/src/main/thrift/service.thrift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b9d00571-4469-405c-8191-aa1b73560e0d/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/AdminInfoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin-api/src/main/resources/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/portal-api/src/main/resources/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1365,20 +1335,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/dao/UserInfoMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-server/src/main/resources/mapper/UserInfoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="24" column="9" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TPAdminInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -1403,13 +1359,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/exa-server/src/sql/user.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-338">
-          <caret line="28" column="75" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="352">
+          <caret line="58" lean-forward="true" selection-start-line="32" selection-end-line="58" />
         </state>
       </provider>
     </entry>
@@ -1423,10 +1376,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-338">
+          <caret line="28" column="75" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/aop/LoginFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-api/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/entity/AdminInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+        <state relative-caret-position="102">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
           <folding>
             <element signature="e#517#518#0" expanded="true" />
             <element signature="e#553#554#0" expanded="true" />
@@ -1438,27 +1418,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/AdminInfoController.java">
+    <entry file="file://$PROJECT_DIR$/exa-server/src/main/resources/mapper/UserInfoMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-146">
-          <caret line="73" column="55" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/param/AdminInfoParam.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="18" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        <state relative-caret-position="230">
+          <caret line="17" column="53" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/exa-server/src/main/resources/mapper/AdminInfoMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="80" lean-forward="true" selection-start-line="3" selection-start-column="80" selection-end-line="3" selection-end-column="80" />
+        <state relative-caret-position="238">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1472,20 +1442,142 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/aop/LoginFilter.java">
+    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/entity/SubjectTag.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+        <state relative-caret-position="66">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding>
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#570#571#0" expanded="true" />
+            <element signature="e#699#700#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRSubjectTagList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="632">
+          <caret line="67" column="36" lean-forward="true" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-common/gen-java/com/libiyi/exa/common/service/ExaServerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/dao/UserInfoMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-common/src/main/thrift/model.thrift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="58" column="1" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/thrift/TSubjectTag.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/service/ExaServerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-common/src/main/thrift/service.thrift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/thriftServer/ServerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin-api/src/main/webapp/WEB-INF/web.xml">
+    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/SubjectTagService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="91" column="24" lean-forward="true" selection-start-line="83" selection-end-line="91" selection-end-column="24" />
+        <state relative-caret-position="119">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/AdminInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="34" column="110" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="34" selection-end-column="110" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/param/SubjectParam.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/param/SubjectParam.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="24" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="8" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/param/SubjectParam.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/SubjectTagController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="80" selection-start-line="24" selection-end-line="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/SubjectTagServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="77" column="25" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2532#2533#0" expanded="true" />
+            <element signature="e#2571#2572#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/dao/SubjectTagMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1496,17 +1588,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exa-server/src/sql/question.sql">
+    <entry file="file://$PROJECT_DIR$/exa-server/src/main/resources/mapper/SubjectTagMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
+        <state relative-caret-position="340">
+          <caret line="20" column="9" lean-forward="true" selection-end-line="20" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exa-server/src/sql/user.sql">
+    <entry file="file://$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/controller/SubjectTagController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="-98">
+          <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/param/AdminInfoParam.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b9d00571-4469-405c-8191-aa1b73560e0d/schema/pre_examination/table/question_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-server/src/sql/question.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="23" lean-forward="true" selection-start-line="8" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b9d00571-4469-405c-8191-aa1b73560e0d/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="58" column="51" lean-forward="true" selection-start-line="58" selection-start-column="51" selection-end-line="58" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/entity/QuestionInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="e#449#450#0" expanded="true" />
+            <element signature="e#479#480#0" expanded="true" />
+            <element signature="e#525#526#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/dao/QuestionInfMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-server/src/main/resources/mapper/QuestionInfoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="24" column="152" selection-start-line="24" selection-start-column="152" selection-end-line="24" selection-end-column="152" />
         </state>
       </provider>
     </entry>
@@ -1564,7 +1717,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>admin-api</last-edited>
+          <last-edited>exa-server</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

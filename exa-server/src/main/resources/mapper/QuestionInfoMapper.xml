@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.libiyi.exa.server.dao.SubjectTagMapper">
+    <resultMap id="BaseResultMap" type="com.libiyi.exa.server.entity.QuestionInfo">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="subject_id" jdbcType="INTEGER" property="subjectId" />
+        <result column="type" jdbcType="INTEGER" property="type" />
+        <result column="content" jdbcType="TEXT" property="content" />
+        <result column="answer" jdbcType="TEXT" property="answer" />
+        <result column="correct_num" jdbcType="INTEGER" property="correctNum" />
+        <result column="counts" jdbcType="INTEGER" property="counts" />
+        <result column="create_user" jdbcType="INTEGER" property="createUser" />
+        <result column="create_time" jdbcType="BIGINT" property="createTime" />
+        <result column="update_time" jdbcType="BIGINT" property="updateTime" />
+    </resultMap>
+    <insert id="createQuestionInfo">
+        INSERT INTO question_info(subject_id, type, content, options, answer, create_user, create_time, update_time) VALUE (#{q.subjectId}, #{q.type},  #{q.content}, #{q.options}, #{q.answer}, #{q.createUser},#{q.createTime},#{q.updateTime})
+    </insert>
+
+    <select id="getBySubjectOffset" resultMap="BaseResultMap">
+        SELECT id, subject_id, type, content, options, answer, correct_num, counts, create_user, create_time, update_time FROM question_info WHERE subject_id=#{subjectId} ORDER BY create_time DESC LIMIT #{offset},#{size}
+    </select>
+
+    <update id="updateById">
+        UPDATE question_info SET subject_id=#{q.subjectId}, content=#{q.content}, options=#{q.options}, answer=#{q.answer}, update_time=#{q.updateTime} WHERE id=#{q.id}
+    </update>
+
+    <update id="updateCorrectNumById">
+        UPDATE question_info SET correct_num = correct_num+1, counts = counts+1 WHERE id=#{id}
+    </update>
+
+    <update id="updateCountsById">
+        UPDATE question_info SET counts = counts+1 WHERE id=#{id}
+    </update>
+
+</mapper>

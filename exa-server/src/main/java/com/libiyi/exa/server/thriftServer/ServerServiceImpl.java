@@ -3,6 +3,7 @@ package com.libiyi.exa.server.thriftServer;
 import com.libiyi.exa.common.service.ExaServerService;
 import com.libiyi.exa.common.thrift.*;
 import com.libiyi.exa.server.service.AdminInfoService;
+import com.libiyi.exa.server.service.SubjectTagService;
 import com.libiyi.exa.server.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,6 +20,9 @@ public class ServerServiceImpl implements ExaServerService.Iface {
 
     @Autowired
     private AdminInfoService adminInfoService;
+
+    @Autowired
+    private SubjectTagService subjectTagService;
 
     @Override
     public TRResponse userRegister(TPUserRegisterInfo userInfo) throws TException {
@@ -49,5 +53,15 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     public TRAdminInfo getAdminInfo(int userId) throws TException {
         return adminInfoService.getAdminInfo(userId);
 
+    }
+
+    @Override
+    public TRResponse createSubjectTag(String tagName) throws TException {
+        return subjectTagService.createSubjectTag(tagName);
+    }
+
+    @Override
+    public TRSubjectTagList getAllSubject() throws TException {
+        return subjectTagService.getAllSubject();
     }
 }

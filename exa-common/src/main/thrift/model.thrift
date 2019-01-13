@@ -47,3 +47,13 @@ struct TRAdminInfo {
         5: i32 teachYear;
         6: TRResponse response;
 }
+
+struct TSubjectTag {
+        1: i32 id;
+        2: string subjectName;
+}
+
+struct TRSubjectTagList {
+        1: list<TSubjectTag> subjectTagList;
+        2: TRResponse response;
+}

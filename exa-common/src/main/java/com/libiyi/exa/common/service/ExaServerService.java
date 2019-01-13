@@ -24,6 +24,10 @@ public class ExaServerService {
 
     public com.libiyi.exa.common.thrift.TRAdminInfo getAdminInfo(int userId) throws org.apache.thrift.TException;
 
+    public com.libiyi.exa.common.thrift.TRResponse createSubjectTag(String tagName) throws org.apache.thrift.TException;
+
+    public com.libiyi.exa.common.thrift.TRSubjectTagList getAllSubject() throws org.apache.thrift.TException;
+
   }
 
   public interface AsyncIface {
@@ -39,6 +43,10 @@ public class ExaServerService {
     public void createAdminInfo(com.libiyi.exa.common.thrift.TPAdminInfo adminInfo, org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRResponse> resultHandler) throws org.apache.thrift.TException;
 
     public void getAdminInfo(int userId, org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRAdminInfo> resultHandler) throws org.apache.thrift.TException;
+
+    public void createSubjectTag(String tagName, org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRResponse> resultHandler) throws org.apache.thrift.TException;
+
+    public void getAllSubject(org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRSubjectTagList> resultHandler) throws org.apache.thrift.TException;
 
   }
 
@@ -198,6 +206,51 @@ public class ExaServerService {
         return result.success;
       }
       throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getAdminInfo failed: unknown result");
+    }
+
+    public com.libiyi.exa.common.thrift.TRResponse createSubjectTag(String tagName) throws org.apache.thrift.TException
+    {
+      send_createSubjectTag(tagName);
+      return recv_createSubjectTag();
+    }
+
+    public void send_createSubjectTag(String tagName) throws org.apache.thrift.TException
+    {
+      createSubjectTag_args args = new createSubjectTag_args();
+      args.setTagName(tagName);
+      sendBase("createSubjectTag", args);
+    }
+
+    public com.libiyi.exa.common.thrift.TRResponse recv_createSubjectTag() throws org.apache.thrift.TException
+    {
+      createSubjectTag_result result = new createSubjectTag_result();
+      receiveBase(result, "createSubjectTag");
+      if (result.isSetSuccess()) {
+        return result.success;
+      }
+      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "createSubjectTag failed: unknown result");
+    }
+
+    public com.libiyi.exa.common.thrift.TRSubjectTagList getAllSubject() throws org.apache.thrift.TException
+    {
+      send_getAllSubject();
+      return recv_getAllSubject();
+    }
+
+    public void send_getAllSubject() throws org.apache.thrift.TException
+    {
+      getAllSubject_args args = new getAllSubject_args();
+      sendBase("getAllSubject", args);
+    }
+
+    public com.libiyi.exa.common.thrift.TRSubjectTagList recv_getAllSubject() throws org.apache.thrift.TException
+    {
+      getAllSubject_result result = new getAllSubject_result();
+      receiveBase(result, "getAllSubject");
+      if (result.isSetSuccess()) {
+        return result.success;
+      }
+      throw new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.MISSING_RESULT, "getAllSubject failed: unknown result");
     }
 
   }
@@ -410,6 +463,67 @@ public class ExaServerService {
       }
     }
 
+    public void createSubjectTag(String tagName, org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRResponse> resultHandler) throws org.apache.thrift.TException {
+      checkReady();
+      createSubjectTag_call method_call = new createSubjectTag_call(tagName, resultHandler, this, ___protocolFactory, ___transport);
+      this.___currentMethod = method_call;
+      ___manager.call(method_call);
+    }
+
+    public static class createSubjectTag_call extends org.apache.thrift.async.TAsyncMethodCall<com.libiyi.exa.common.thrift.TRResponse> {
+      private String tagName;
+      public createSubjectTag_call(String tagName, org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRResponse> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+        super(client, protocolFactory, transport, resultHandler, false);
+        this.tagName = tagName;
+      }
+
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("createSubjectTag", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        createSubjectTag_args args = new createSubjectTag_args();
+        args.setTagName(tagName);
+        args.write(prot);
+        prot.writeMessageEnd();
+      }
+
+      public com.libiyi.exa.common.thrift.TRResponse getResult() throws org.apache.thrift.TException {
+        if (getState() != State.RESPONSE_READ) {
+          throw new IllegalStateException("Method call not finished!");
+        }
+        org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
+        org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+        return (new Client(prot)).recv_createSubjectTag();
+      }
+    }
+
+    public void getAllSubject(org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRSubjectTagList> resultHandler) throws org.apache.thrift.TException {
+      checkReady();
+      getAllSubject_call method_call = new getAllSubject_call(resultHandler, this, ___protocolFactory, ___transport);
+      this.___currentMethod = method_call;
+      ___manager.call(method_call);
+    }
+
+    public static class getAllSubject_call extends org.apache.thrift.async.TAsyncMethodCall<com.libiyi.exa.common.thrift.TRSubjectTagList> {
+      public getAllSubject_call(org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRSubjectTagList> resultHandler, org.apache.thrift.async.TAsyncClient client, org.apache.thrift.protocol.TProtocolFactory protocolFactory, org.apache.thrift.transport.TNonblockingTransport transport) throws org.apache.thrift.TException {
+        super(client, protocolFactory, transport, resultHandler, false);
+      }
+
+      public void write_args(org.apache.thrift.protocol.TProtocol prot) throws org.apache.thrift.TException {
+        prot.writeMessageBegin(new org.apache.thrift.protocol.TMessage("getAllSubject", org.apache.thrift.protocol.TMessageType.CALL, 0));
+        getAllSubject_args args = new getAllSubject_args();
+        args.write(prot);
+        prot.writeMessageEnd();
+      }
+
+      public com.libiyi.exa.common.thrift.TRSubjectTagList getResult() throws org.apache.thrift.TException {
+        if (getState() != State.RESPONSE_READ) {
+          throw new IllegalStateException("Method call not finished!");
+        }
+        org.apache.thrift.transport.TMemoryInputTransport memoryTransport = new org.apache.thrift.transport.TMemoryInputTransport(getFrameBuffer().array());
+        org.apache.thrift.protocol.TProtocol prot = client.getProtocolFactory().getProtocol(memoryTransport);
+        return (new Client(prot)).recv_getAllSubject();
+      }
+    }
+
   }
 
   public static class Processor<I extends Iface> extends org.apache.thrift.TBaseProcessor<I> implements org.apache.thrift.TProcessor {
@@ -429,6 +543,8 @@ public class ExaServerService {
       processMap.put("sendEmail", new sendEmail());
       processMap.put("createAdminInfo", new createAdminInfo());
       processMap.put("getAdminInfo", new getAdminInfo());
+      processMap.put("createSubjectTag", new createSubjectTag());
+      processMap.put("getAllSubject", new getAllSubject());
       return processMap;
     }
 
@@ -582,6 +698,56 @@ public class ExaServerService {
       }
     }
 
+    public static class createSubjectTag<I extends Iface> extends org.apache.thrift.ProcessFunction<I, createSubjectTag_args> {
+      public createSubjectTag() {
+        super("createSubjectTag");
+      }
+
+      public createSubjectTag_args getEmptyArgsInstance() {
+        return new createSubjectTag_args();
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      @Override
+      protected boolean handleRuntimeExceptions() {
+        return false;
+      }
+
+      public createSubjectTag_result getResult(I iface, createSubjectTag_args args) throws org.apache.thrift.TException {
+        createSubjectTag_result result = new createSubjectTag_result();
+        result.success = iface.createSubjectTag(args.tagName);
+        return result;
+      }
+    }
+
+    public static class getAllSubject<I extends Iface> extends org.apache.thrift.ProcessFunction<I, getAllSubject_args> {
+      public getAllSubject() {
+        super("getAllSubject");
+      }
+
+      public getAllSubject_args getEmptyArgsInstance() {
+        return new getAllSubject_args();
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      @Override
+      protected boolean handleRuntimeExceptions() {
+        return false;
+      }
+
+      public getAllSubject_result getResult(I iface, getAllSubject_args args) throws org.apache.thrift.TException {
+        getAllSubject_result result = new getAllSubject_result();
+        result.success = iface.getAllSubject();
+        return result;
+      }
+    }
+
   }
 
   public static class AsyncProcessor<I extends AsyncIface> extends org.apache.thrift.TBaseAsyncProcessor<I> {
@@ -601,6 +767,8 @@ public class ExaServerService {
       processMap.put("sendEmail", new sendEmail());
       processMap.put("createAdminInfo", new createAdminInfo());
       processMap.put("getAdminInfo", new getAdminInfo());
+      processMap.put("createSubjectTag", new createSubjectTag());
+      processMap.put("getAllSubject", new getAllSubject());
       return processMap;
     }
 
@@ -967,6 +1135,128 @@ public class ExaServerService {
 
       public void start(I iface, getAdminInfo_args args, org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRAdminInfo> resultHandler) throws org.apache.thrift.TException {
         iface.getAdminInfo(args.userId,resultHandler);
+      }
+    }
+
+    public static class createSubjectTag<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, createSubjectTag_args, com.libiyi.exa.common.thrift.TRResponse> {
+      public createSubjectTag() {
+        super("createSubjectTag");
+      }
+
+      public createSubjectTag_args getEmptyArgsInstance() {
+        return new createSubjectTag_args();
+      }
+
+      public org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRResponse> getResultHandler(final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+        final org.apache.thrift.AsyncProcessFunction fcall = this;
+        return new org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRResponse>() { 
+          public void onComplete(com.libiyi.exa.common.thrift.TRResponse o) {
+            createSubjectTag_result result = new createSubjectTag_result();
+            result.success = o;
+            try {
+              fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY,seqid);
+            } catch (org.apache.thrift.transport.TTransportException e) {
+              _LOGGER.error("TTransportException writing to internal frame buffer", e);
+              fb.close();
+            } catch (Exception e) {
+              _LOGGER.error("Exception writing to internal frame buffer", e);
+              onError(e);
+            }
+          }
+          public void onError(Exception e) {
+            byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+            org.apache.thrift.TSerializable msg;
+            createSubjectTag_result result = new createSubjectTag_result();
+            if (e instanceof org.apache.thrift.transport.TTransportException) {
+              _LOGGER.error("TTransportException inside handler", e);
+              fb.close();
+              return;
+            } else if (e instanceof org.apache.thrift.TApplicationException) {
+              _LOGGER.error("TApplicationException inside handler", e);
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = (org.apache.thrift.TApplicationException)e;
+            } else {
+              _LOGGER.error("Exception inside handler", e);
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+            }
+            try {
+              fcall.sendResponse(fb,msg,msgType,seqid);
+            } catch (Exception ex) {
+              _LOGGER.error("Exception writing to internal frame buffer", ex);
+              fb.close();
+            }
+          }
+        };
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      public void start(I iface, createSubjectTag_args args, org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRResponse> resultHandler) throws org.apache.thrift.TException {
+        iface.createSubjectTag(args.tagName,resultHandler);
+      }
+    }
+
+    public static class getAllSubject<I extends AsyncIface> extends org.apache.thrift.AsyncProcessFunction<I, getAllSubject_args, com.libiyi.exa.common.thrift.TRSubjectTagList> {
+      public getAllSubject() {
+        super("getAllSubject");
+      }
+
+      public getAllSubject_args getEmptyArgsInstance() {
+        return new getAllSubject_args();
+      }
+
+      public org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRSubjectTagList> getResultHandler(final org.apache.thrift.server.AbstractNonblockingServer.AsyncFrameBuffer fb, final int seqid) {
+        final org.apache.thrift.AsyncProcessFunction fcall = this;
+        return new org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRSubjectTagList>() { 
+          public void onComplete(com.libiyi.exa.common.thrift.TRSubjectTagList o) {
+            getAllSubject_result result = new getAllSubject_result();
+            result.success = o;
+            try {
+              fcall.sendResponse(fb, result, org.apache.thrift.protocol.TMessageType.REPLY,seqid);
+            } catch (org.apache.thrift.transport.TTransportException e) {
+              _LOGGER.error("TTransportException writing to internal frame buffer", e);
+              fb.close();
+            } catch (Exception e) {
+              _LOGGER.error("Exception writing to internal frame buffer", e);
+              onError(e);
+            }
+          }
+          public void onError(Exception e) {
+            byte msgType = org.apache.thrift.protocol.TMessageType.REPLY;
+            org.apache.thrift.TSerializable msg;
+            getAllSubject_result result = new getAllSubject_result();
+            if (e instanceof org.apache.thrift.transport.TTransportException) {
+              _LOGGER.error("TTransportException inside handler", e);
+              fb.close();
+              return;
+            } else if (e instanceof org.apache.thrift.TApplicationException) {
+              _LOGGER.error("TApplicationException inside handler", e);
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = (org.apache.thrift.TApplicationException)e;
+            } else {
+              _LOGGER.error("Exception inside handler", e);
+              msgType = org.apache.thrift.protocol.TMessageType.EXCEPTION;
+              msg = new org.apache.thrift.TApplicationException(org.apache.thrift.TApplicationException.INTERNAL_ERROR, e.getMessage());
+            }
+            try {
+              fcall.sendResponse(fb,msg,msgType,seqid);
+            } catch (Exception ex) {
+              _LOGGER.error("Exception writing to internal frame buffer", ex);
+              fb.close();
+            }
+          }
+        };
+      }
+
+      protected boolean isOneway() {
+        return false;
+      }
+
+      public void start(I iface, getAllSubject_args args, org.apache.thrift.async.AsyncMethodCallback<com.libiyi.exa.common.thrift.TRSubjectTagList> resultHandler) throws org.apache.thrift.TException {
+        iface.getAllSubject(resultHandler);
       }
     }
 
@@ -5346,6 +5636,1352 @@ public class ExaServerService {
         java.util.BitSet incoming = iprot.readBitSet(1);
         if (incoming.get(0)) {
           struct.success = new com.libiyi.exa.common.thrift.TRAdminInfo();
+          struct.success.read(iprot);
+          struct.setSuccessIsSet(true);
+        }
+      }
+    }
+
+    private static <S extends org.apache.thrift.scheme.IScheme> S scheme(org.apache.thrift.protocol.TProtocol proto) {
+      return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
+    }
+  }
+
+  public static class createSubjectTag_args implements org.apache.thrift.TBase<createSubjectTag_args, createSubjectTag_args._Fields>, java.io.Serializable, Cloneable, Comparable<createSubjectTag_args>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("createSubjectTag_args");
+
+    private static final org.apache.thrift.protocol.TField TAG_NAME_FIELD_DESC = new org.apache.thrift.protocol.TField("tagName", org.apache.thrift.protocol.TType.STRING, (short)1);
+
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new createSubjectTag_argsStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new createSubjectTag_argsTupleSchemeFactory();
+
+    public String tagName; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      TAG_NAME((short)1, "tagName");
+
+      private static final java.util.Map<String, _Fields> byName = new java.util.HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 1: // TAG_NAME
+            return TAG_NAME;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.TAG_NAME, new org.apache.thrift.meta_data.FieldMetaData("tagName", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
+      metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(createSubjectTag_args.class, metaDataMap);
+    }
+
+    public createSubjectTag_args() {
+    }
+
+    public createSubjectTag_args(
+      String tagName)
+    {
+      this();
+      this.tagName = tagName;
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public createSubjectTag_args(createSubjectTag_args other) {
+      if (other.isSetTagName()) {
+        this.tagName = other.tagName;
+      }
+    }
+
+    public createSubjectTag_args deepCopy() {
+      return new createSubjectTag_args(this);
+    }
+
+    @Override
+    public void clear() {
+      this.tagName = null;
+    }
+
+    public String getTagName() {
+      return this.tagName;
+    }
+
+    public createSubjectTag_args setTagName(String tagName) {
+      this.tagName = tagName;
+      return this;
+    }
+
+    public void unsetTagName() {
+      this.tagName = null;
+    }
+
+    /** Returns true if field tagName is set (has been assigned a value) and false otherwise */
+    public boolean isSetTagName() {
+      return this.tagName != null;
+    }
+
+    public void setTagNameIsSet(boolean value) {
+      if (!value) {
+        this.tagName = null;
+      }
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case TAG_NAME:
+        if (value == null) {
+          unsetTagName();
+        } else {
+          setTagName((String)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case TAG_NAME:
+        return getTagName();
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case TAG_NAME:
+        return isSetTagName();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof createSubjectTag_args)
+        return this.equals((createSubjectTag_args)that);
+      return false;
+    }
+
+    public boolean equals(createSubjectTag_args that) {
+      if (that == null)
+        return false;
+      if (this == that)
+        return true;
+
+      boolean this_present_tagName = true && this.isSetTagName();
+      boolean that_present_tagName = true && that.isSetTagName();
+      if (this_present_tagName || that_present_tagName) {
+        if (!(this_present_tagName && that_present_tagName))
+          return false;
+        if (!this.tagName.equals(that.tagName))
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      int hashCode = 1;
+
+      hashCode = hashCode * 8191 + ((isSetTagName()) ? 131071 : 524287);
+      if (isSetTagName())
+        hashCode = hashCode * 8191 + tagName.hashCode();
+
+      return hashCode;
+    }
+
+    @Override
+    public int compareTo(createSubjectTag_args other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+
+      lastComparison = Boolean.valueOf(isSetTagName()).compareTo(other.isSetTagName());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetTagName()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.tagName, other.tagName);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      scheme(iprot).read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      scheme(oprot).write(oprot, this);
+    }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("createSubjectTag_args(");
+      boolean first = true;
+
+      sb.append("tagName:");
+      if (this.tagName == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.tagName);
+      }
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class createSubjectTag_argsStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public createSubjectTag_argsStandardScheme getScheme() {
+        return new createSubjectTag_argsStandardScheme();
+      }
+    }
+
+    private static class createSubjectTag_argsStandardScheme extends org.apache.thrift.scheme.StandardScheme<createSubjectTag_args> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, createSubjectTag_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 1: // TAG_NAME
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
+                struct.tagName = iprot.readString();
+                struct.setTagNameIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, createSubjectTag_args struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.tagName != null) {
+          oprot.writeFieldBegin(TAG_NAME_FIELD_DESC);
+          oprot.writeString(struct.tagName);
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class createSubjectTag_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public createSubjectTag_argsTupleScheme getScheme() {
+        return new createSubjectTag_argsTupleScheme();
+      }
+    }
+
+    private static class createSubjectTag_argsTupleScheme extends org.apache.thrift.scheme.TupleScheme<createSubjectTag_args> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, createSubjectTag_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+        java.util.BitSet optionals = new java.util.BitSet();
+        if (struct.isSetTagName()) {
+          optionals.set(0);
+        }
+        oprot.writeBitSet(optionals, 1);
+        if (struct.isSetTagName()) {
+          oprot.writeString(struct.tagName);
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, createSubjectTag_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+        java.util.BitSet incoming = iprot.readBitSet(1);
+        if (incoming.get(0)) {
+          struct.tagName = iprot.readString();
+          struct.setTagNameIsSet(true);
+        }
+      }
+    }
+
+    private static <S extends org.apache.thrift.scheme.IScheme> S scheme(org.apache.thrift.protocol.TProtocol proto) {
+      return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
+    }
+  }
+
+  public static class createSubjectTag_result implements org.apache.thrift.TBase<createSubjectTag_result, createSubjectTag_result._Fields>, java.io.Serializable, Cloneable, Comparable<createSubjectTag_result>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("createSubjectTag_result");
+
+    private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.STRUCT, (short)0);
+
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new createSubjectTag_resultStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new createSubjectTag_resultTupleSchemeFactory();
+
+    public com.libiyi.exa.common.thrift.TRResponse success; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      SUCCESS((short)0, "success");
+
+      private static final java.util.Map<String, _Fields> byName = new java.util.HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 0: // SUCCESS
+            return SUCCESS;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, com.libiyi.exa.common.thrift.TRResponse.class)));
+      metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(createSubjectTag_result.class, metaDataMap);
+    }
+
+    public createSubjectTag_result() {
+    }
+
+    public createSubjectTag_result(
+      com.libiyi.exa.common.thrift.TRResponse success)
+    {
+      this();
+      this.success = success;
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public createSubjectTag_result(createSubjectTag_result other) {
+      if (other.isSetSuccess()) {
+        this.success = new com.libiyi.exa.common.thrift.TRResponse(other.success);
+      }
+    }
+
+    public createSubjectTag_result deepCopy() {
+      return new createSubjectTag_result(this);
+    }
+
+    @Override
+    public void clear() {
+      this.success = null;
+    }
+
+    public com.libiyi.exa.common.thrift.TRResponse getSuccess() {
+      return this.success;
+    }
+
+    public createSubjectTag_result setSuccess(com.libiyi.exa.common.thrift.TRResponse success) {
+      this.success = success;
+      return this;
+    }
+
+    public void unsetSuccess() {
+      this.success = null;
+    }
+
+    /** Returns true if field success is set (has been assigned a value) and false otherwise */
+    public boolean isSetSuccess() {
+      return this.success != null;
+    }
+
+    public void setSuccessIsSet(boolean value) {
+      if (!value) {
+        this.success = null;
+      }
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case SUCCESS:
+        if (value == null) {
+          unsetSuccess();
+        } else {
+          setSuccess((com.libiyi.exa.common.thrift.TRResponse)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case SUCCESS:
+        return getSuccess();
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case SUCCESS:
+        return isSetSuccess();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof createSubjectTag_result)
+        return this.equals((createSubjectTag_result)that);
+      return false;
+    }
+
+    public boolean equals(createSubjectTag_result that) {
+      if (that == null)
+        return false;
+      if (this == that)
+        return true;
+
+      boolean this_present_success = true && this.isSetSuccess();
+      boolean that_present_success = true && that.isSetSuccess();
+      if (this_present_success || that_present_success) {
+        if (!(this_present_success && that_present_success))
+          return false;
+        if (!this.success.equals(that.success))
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      int hashCode = 1;
+
+      hashCode = hashCode * 8191 + ((isSetSuccess()) ? 131071 : 524287);
+      if (isSetSuccess())
+        hashCode = hashCode * 8191 + success.hashCode();
+
+      return hashCode;
+    }
+
+    @Override
+    public int compareTo(createSubjectTag_result other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+
+      lastComparison = Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetSuccess()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      scheme(iprot).read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      scheme(oprot).write(oprot, this);
+      }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("createSubjectTag_result(");
+      boolean first = true;
+
+      sb.append("success:");
+      if (this.success == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.success);
+      }
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+      if (success != null) {
+        success.validate();
+      }
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class createSubjectTag_resultStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public createSubjectTag_resultStandardScheme getScheme() {
+        return new createSubjectTag_resultStandardScheme();
+      }
+    }
+
+    private static class createSubjectTag_resultStandardScheme extends org.apache.thrift.scheme.StandardScheme<createSubjectTag_result> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, createSubjectTag_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 0: // SUCCESS
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+                struct.success = new com.libiyi.exa.common.thrift.TRResponse();
+                struct.success.read(iprot);
+                struct.setSuccessIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, createSubjectTag_result struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.success != null) {
+          oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+          struct.success.write(oprot);
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class createSubjectTag_resultTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public createSubjectTag_resultTupleScheme getScheme() {
+        return new createSubjectTag_resultTupleScheme();
+      }
+    }
+
+    private static class createSubjectTag_resultTupleScheme extends org.apache.thrift.scheme.TupleScheme<createSubjectTag_result> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, createSubjectTag_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+        java.util.BitSet optionals = new java.util.BitSet();
+        if (struct.isSetSuccess()) {
+          optionals.set(0);
+        }
+        oprot.writeBitSet(optionals, 1);
+        if (struct.isSetSuccess()) {
+          struct.success.write(oprot);
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, createSubjectTag_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+        java.util.BitSet incoming = iprot.readBitSet(1);
+        if (incoming.get(0)) {
+          struct.success = new com.libiyi.exa.common.thrift.TRResponse();
+          struct.success.read(iprot);
+          struct.setSuccessIsSet(true);
+        }
+      }
+    }
+
+    private static <S extends org.apache.thrift.scheme.IScheme> S scheme(org.apache.thrift.protocol.TProtocol proto) {
+      return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
+    }
+  }
+
+  public static class getAllSubject_args implements org.apache.thrift.TBase<getAllSubject_args, getAllSubject_args._Fields>, java.io.Serializable, Cloneable, Comparable<getAllSubject_args>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getAllSubject_args");
+
+
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getAllSubject_argsStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getAllSubject_argsTupleSchemeFactory();
+
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+;
+
+      private static final java.util.Map<String, _Fields> byName = new java.util.HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+    public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getAllSubject_args.class, metaDataMap);
+    }
+
+    public getAllSubject_args() {
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public getAllSubject_args(getAllSubject_args other) {
+    }
+
+    public getAllSubject_args deepCopy() {
+      return new getAllSubject_args(this);
+    }
+
+    @Override
+    public void clear() {
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof getAllSubject_args)
+        return this.equals((getAllSubject_args)that);
+      return false;
+    }
+
+    public boolean equals(getAllSubject_args that) {
+      if (that == null)
+        return false;
+      if (this == that)
+        return true;
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      int hashCode = 1;
+
+      return hashCode;
+    }
+
+    @Override
+    public int compareTo(getAllSubject_args other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      scheme(iprot).read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      scheme(oprot).write(oprot, this);
+    }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("getAllSubject_args(");
+      boolean first = true;
+
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class getAllSubject_argsStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public getAllSubject_argsStandardScheme getScheme() {
+        return new getAllSubject_argsStandardScheme();
+      }
+    }
+
+    private static class getAllSubject_argsStandardScheme extends org.apache.thrift.scheme.StandardScheme<getAllSubject_args> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getAllSubject_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getAllSubject_args struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class getAllSubject_argsTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public getAllSubject_argsTupleScheme getScheme() {
+        return new getAllSubject_argsTupleScheme();
+      }
+    }
+
+    private static class getAllSubject_argsTupleScheme extends org.apache.thrift.scheme.TupleScheme<getAllSubject_args> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, getAllSubject_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, getAllSubject_args struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+      }
+    }
+
+    private static <S extends org.apache.thrift.scheme.IScheme> S scheme(org.apache.thrift.protocol.TProtocol proto) {
+      return (org.apache.thrift.scheme.StandardScheme.class.equals(proto.getScheme()) ? STANDARD_SCHEME_FACTORY : TUPLE_SCHEME_FACTORY).getScheme();
+    }
+  }
+
+  public static class getAllSubject_result implements org.apache.thrift.TBase<getAllSubject_result, getAllSubject_result._Fields>, java.io.Serializable, Cloneable, Comparable<getAllSubject_result>   {
+    private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("getAllSubject_result");
+
+    private static final org.apache.thrift.protocol.TField SUCCESS_FIELD_DESC = new org.apache.thrift.protocol.TField("success", org.apache.thrift.protocol.TType.STRUCT, (short)0);
+
+    private static final org.apache.thrift.scheme.SchemeFactory STANDARD_SCHEME_FACTORY = new getAllSubject_resultStandardSchemeFactory();
+    private static final org.apache.thrift.scheme.SchemeFactory TUPLE_SCHEME_FACTORY = new getAllSubject_resultTupleSchemeFactory();
+
+    public com.libiyi.exa.common.thrift.TRSubjectTagList success; // required
+
+    /** The set of fields this struct contains, along with convenience methods for finding and manipulating them. */
+    public enum _Fields implements org.apache.thrift.TFieldIdEnum {
+      SUCCESS((short)0, "success");
+
+      private static final java.util.Map<String, _Fields> byName = new java.util.HashMap<String, _Fields>();
+
+      static {
+        for (_Fields field : java.util.EnumSet.allOf(_Fields.class)) {
+          byName.put(field.getFieldName(), field);
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, or null if its not found.
+       */
+      public static _Fields findByThriftId(int fieldId) {
+        switch(fieldId) {
+          case 0: // SUCCESS
+            return SUCCESS;
+          default:
+            return null;
+        }
+      }
+
+      /**
+       * Find the _Fields constant that matches fieldId, throwing an exception
+       * if it is not found.
+       */
+      public static _Fields findByThriftIdOrThrow(int fieldId) {
+        _Fields fields = findByThriftId(fieldId);
+        if (fields == null) throw new IllegalArgumentException("Field " + fieldId + " doesn't exist!");
+        return fields;
+      }
+
+      /**
+       * Find the _Fields constant that matches name, or null if its not found.
+       */
+      public static _Fields findByName(String name) {
+        return byName.get(name);
+      }
+
+      private final short _thriftId;
+      private final String _fieldName;
+
+      _Fields(short thriftId, String fieldName) {
+        _thriftId = thriftId;
+        _fieldName = fieldName;
+      }
+
+      public short getThriftFieldId() {
+        return _thriftId;
+      }
+
+      public String getFieldName() {
+        return _fieldName;
+      }
+    }
+
+    // isset id assignments
+    public static final java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> metaDataMap;
+    static {
+      java.util.Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new java.util.EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
+      tmpMap.put(_Fields.SUCCESS, new org.apache.thrift.meta_data.FieldMetaData("success", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+          new org.apache.thrift.meta_data.StructMetaData(org.apache.thrift.protocol.TType.STRUCT, com.libiyi.exa.common.thrift.TRSubjectTagList.class)));
+      metaDataMap = java.util.Collections.unmodifiableMap(tmpMap);
+      org.apache.thrift.meta_data.FieldMetaData.addStructMetaDataMap(getAllSubject_result.class, metaDataMap);
+    }
+
+    public getAllSubject_result() {
+    }
+
+    public getAllSubject_result(
+      com.libiyi.exa.common.thrift.TRSubjectTagList success)
+    {
+      this();
+      this.success = success;
+    }
+
+    /**
+     * Performs a deep copy on <i>other</i>.
+     */
+    public getAllSubject_result(getAllSubject_result other) {
+      if (other.isSetSuccess()) {
+        this.success = new com.libiyi.exa.common.thrift.TRSubjectTagList(other.success);
+      }
+    }
+
+    public getAllSubject_result deepCopy() {
+      return new getAllSubject_result(this);
+    }
+
+    @Override
+    public void clear() {
+      this.success = null;
+    }
+
+    public com.libiyi.exa.common.thrift.TRSubjectTagList getSuccess() {
+      return this.success;
+    }
+
+    public getAllSubject_result setSuccess(com.libiyi.exa.common.thrift.TRSubjectTagList success) {
+      this.success = success;
+      return this;
+    }
+
+    public void unsetSuccess() {
+      this.success = null;
+    }
+
+    /** Returns true if field success is set (has been assigned a value) and false otherwise */
+    public boolean isSetSuccess() {
+      return this.success != null;
+    }
+
+    public void setSuccessIsSet(boolean value) {
+      if (!value) {
+        this.success = null;
+      }
+    }
+
+    public void setFieldValue(_Fields field, Object value) {
+      switch (field) {
+      case SUCCESS:
+        if (value == null) {
+          unsetSuccess();
+        } else {
+          setSuccess((com.libiyi.exa.common.thrift.TRSubjectTagList)value);
+        }
+        break;
+
+      }
+    }
+
+    public Object getFieldValue(_Fields field) {
+      switch (field) {
+      case SUCCESS:
+        return getSuccess();
+
+      }
+      throw new IllegalStateException();
+    }
+
+    /** Returns true if field corresponding to fieldID is set (has been assigned a value) and false otherwise */
+    public boolean isSet(_Fields field) {
+      if (field == null) {
+        throw new IllegalArgumentException();
+      }
+
+      switch (field) {
+      case SUCCESS:
+        return isSetSuccess();
+      }
+      throw new IllegalStateException();
+    }
+
+    @Override
+    public boolean equals(Object that) {
+      if (that == null)
+        return false;
+      if (that instanceof getAllSubject_result)
+        return this.equals((getAllSubject_result)that);
+      return false;
+    }
+
+    public boolean equals(getAllSubject_result that) {
+      if (that == null)
+        return false;
+      if (this == that)
+        return true;
+
+      boolean this_present_success = true && this.isSetSuccess();
+      boolean that_present_success = true && that.isSetSuccess();
+      if (this_present_success || that_present_success) {
+        if (!(this_present_success && that_present_success))
+          return false;
+        if (!this.success.equals(that.success))
+          return false;
+      }
+
+      return true;
+    }
+
+    @Override
+    public int hashCode() {
+      int hashCode = 1;
+
+      hashCode = hashCode * 8191 + ((isSetSuccess()) ? 131071 : 524287);
+      if (isSetSuccess())
+        hashCode = hashCode * 8191 + success.hashCode();
+
+      return hashCode;
+    }
+
+    @Override
+    public int compareTo(getAllSubject_result other) {
+      if (!getClass().equals(other.getClass())) {
+        return getClass().getName().compareTo(other.getClass().getName());
+      }
+
+      int lastComparison = 0;
+
+      lastComparison = Boolean.valueOf(isSetSuccess()).compareTo(other.isSetSuccess());
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+      if (isSetSuccess()) {
+        lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.success, other.success);
+        if (lastComparison != 0) {
+          return lastComparison;
+        }
+      }
+      return 0;
+    }
+
+    public _Fields fieldForId(int fieldId) {
+      return _Fields.findByThriftId(fieldId);
+    }
+
+    public void read(org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+      scheme(iprot).read(iprot, this);
+    }
+
+    public void write(org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
+      scheme(oprot).write(oprot, this);
+      }
+
+    @Override
+    public String toString() {
+      StringBuilder sb = new StringBuilder("getAllSubject_result(");
+      boolean first = true;
+
+      sb.append("success:");
+      if (this.success == null) {
+        sb.append("null");
+      } else {
+        sb.append(this.success);
+      }
+      first = false;
+      sb.append(")");
+      return sb.toString();
+    }
+
+    public void validate() throws org.apache.thrift.TException {
+      // check for required fields
+      // check for sub-struct validity
+      if (success != null) {
+        success.validate();
+      }
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+      try {
+        write(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(out)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+      try {
+        read(new org.apache.thrift.protocol.TCompactProtocol(new org.apache.thrift.transport.TIOStreamTransport(in)));
+      } catch (org.apache.thrift.TException te) {
+        throw new java.io.IOException(te);
+      }
+    }
+
+    private static class getAllSubject_resultStandardSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public getAllSubject_resultStandardScheme getScheme() {
+        return new getAllSubject_resultStandardScheme();
+      }
+    }
+
+    private static class getAllSubject_resultStandardScheme extends org.apache.thrift.scheme.StandardScheme<getAllSubject_result> {
+
+      public void read(org.apache.thrift.protocol.TProtocol iprot, getAllSubject_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TField schemeField;
+        iprot.readStructBegin();
+        while (true)
+        {
+          schemeField = iprot.readFieldBegin();
+          if (schemeField.type == org.apache.thrift.protocol.TType.STOP) { 
+            break;
+          }
+          switch (schemeField.id) {
+            case 0: // SUCCESS
+              if (schemeField.type == org.apache.thrift.protocol.TType.STRUCT) {
+                struct.success = new com.libiyi.exa.common.thrift.TRSubjectTagList();
+                struct.success.read(iprot);
+                struct.setSuccessIsSet(true);
+              } else { 
+                org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+              }
+              break;
+            default:
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+          }
+          iprot.readFieldEnd();
+        }
+        iprot.readStructEnd();
+
+        // check for required fields of primitive type, which can't be checked in the validate method
+        struct.validate();
+      }
+
+      public void write(org.apache.thrift.protocol.TProtocol oprot, getAllSubject_result struct) throws org.apache.thrift.TException {
+        struct.validate();
+
+        oprot.writeStructBegin(STRUCT_DESC);
+        if (struct.success != null) {
+          oprot.writeFieldBegin(SUCCESS_FIELD_DESC);
+          struct.success.write(oprot);
+          oprot.writeFieldEnd();
+        }
+        oprot.writeFieldStop();
+        oprot.writeStructEnd();
+      }
+
+    }
+
+    private static class getAllSubject_resultTupleSchemeFactory implements org.apache.thrift.scheme.SchemeFactory {
+      public getAllSubject_resultTupleScheme getScheme() {
+        return new getAllSubject_resultTupleScheme();
+      }
+    }
+
+    private static class getAllSubject_resultTupleScheme extends org.apache.thrift.scheme.TupleScheme<getAllSubject_result> {
+
+      @Override
+      public void write(org.apache.thrift.protocol.TProtocol prot, getAllSubject_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol oprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+        java.util.BitSet optionals = new java.util.BitSet();
+        if (struct.isSetSuccess()) {
+          optionals.set(0);
+        }
+        oprot.writeBitSet(optionals, 1);
+        if (struct.isSetSuccess()) {
+          struct.success.write(oprot);
+        }
+      }
+
+      @Override
+      public void read(org.apache.thrift.protocol.TProtocol prot, getAllSubject_result struct) throws org.apache.thrift.TException {
+        org.apache.thrift.protocol.TTupleProtocol iprot = (org.apache.thrift.protocol.TTupleProtocol) prot;
+        java.util.BitSet incoming = iprot.readBitSet(1);
+        if (incoming.get(0)) {
+          struct.success = new com.libiyi.exa.common.thrift.TRSubjectTagList();
           struct.success.read(iprot);
           struct.setSuccessIsSet(true);
         }
