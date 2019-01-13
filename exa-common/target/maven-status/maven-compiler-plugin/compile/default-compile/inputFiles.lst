@@ -5,6 +5,7 @@
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRUserLoginInfo.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/client/ExaServerClient.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TPUserInfo.java
+/Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/common/RequestConst.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/connection/MyLoadBalancer.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/connection/ThriftConnectionKeyedPooledObjectFactory.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TPUserRegisterInfo.java
@@ -18,6 +19,7 @@
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/connection/DefaultConnectionPoolFactory.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRResponse.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/connection/ConnectionPoolConfig.java
+/Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/common/Result.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TPUserLoginInfo.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/connection/ConnectionKey.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/connection/IConnectionPool.java

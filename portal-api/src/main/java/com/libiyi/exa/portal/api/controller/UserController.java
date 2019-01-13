@@ -3,13 +3,13 @@ package com.libiyi.exa.portal.api.controller;
 import com.libiyi.exa.common.common.AccountTypeEnum;
 import com.libiyi.exa.common.common.CodeEnum;
 import com.libiyi.exa.common.common.RequestConst;
+import com.libiyi.exa.common.common.Result;
+import com.libiyi.exa.common.parram.SendCodeParam;
+import com.libiyi.exa.common.parram.UserInfoParam;
+import com.libiyi.exa.common.parram.UserLoginParam;
+import com.libiyi.exa.common.parram.UserModel;
 import com.libiyi.exa.common.service.ExaServerService;
 import com.libiyi.exa.common.thrift.*;
-import com.libiyi.exa.portal.api.common.Result;
-import com.libiyi.exa.portal.api.param.SendCodeParam;
-import com.libiyi.exa.portal.api.param.UserInfoParam;
-import com.libiyi.exa.portal.api.param.UserLoginParam;
-import com.libiyi.exa.portal.api.param.UserModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
     static Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
 
@@ -38,7 +39,7 @@ public class UserController {
                 return new Result.Builder<String>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
             }
         } catch (Throwable e) {
-            logger.error("出错了", e);
+            logger.error("用户注册出错了", e);
             return new Result.Builder<String>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).build();
         }
         return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
@@ -69,7 +70,7 @@ public class UserController {
                 return new Result.Builder<String>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
             }
         } catch (Throwable e) {
-            logger.error("出错了", e);
+            logger.error(" 发送邮件出错了", e);
             return new Result.Builder<String>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).build();
         }
         return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
@@ -104,14 +105,14 @@ public class UserController {
         try {
             trUserLoginInfo = exaServerService.userLogin(tpUserInfo);
         }catch (Throwable e) {
-            logger.error("未知错误：", e);
+            logger.error("用户登录出错了：", e);
             return new Result.Builder<UserModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).build();
         }
         if(trUserLoginInfo.getResponse().getCode()!=CodeEnum.SUCCESS.getCode()){
             return new Result.Builder<UserModel>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
         }
         UserModel userModel = getUserModel(trUserLoginInfo);
-        request.setAttribute(RequestConst.USER_INFO, trUserLoginInfo);
+        request.getSession().setAttribute(RequestConst.USER_INFO, trUserLoginInfo);
         return new Result.Builder<UserModel>(userModel).setCode(CodeEnum.SUCCESS.getCode()).build();
     }
 

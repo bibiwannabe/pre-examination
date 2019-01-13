@@ -17,11 +17,12 @@ import com.libiyi.exa.server.utils.RedisUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 @Service("UserService")
 public class UserServiceImpl implements UserService {
-    static Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+    static Logger logger = LogManager.getLogger(UserServiceImpl.class);
 
 
     @Autowired
@@ -31,6 +32,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 用户注册
+     *
      * @param tpUserInfo
      * @return
      */
@@ -38,18 +40,15 @@ public class UserServiceImpl implements UserService {
     public TRResponse userRegister(TPUserRegisterInfo tpUserInfo) {
         logger.info("UserServiceImpl.userRegister:{}", JSON.toJSONString(tpUserInfo));
         TRResponse trResponse = new TRResponse();
-        if(!verifyCode(tpUserInfo)){
+        if (!verifyCode(tpUserInfo)) {
             trResponse.setCode(CodeEnum.DATA_ILEAGLE.getCode());
             trResponse.setDesc(CodeEnum.DATA_ILEAGLE.getDesc());
             return trResponse;
         }
         UserInfo userInfo = getUserInfo(tpUserInfo);
         try {
-            Integer id = userInfoMapper.insert(userInfo);
-            if(id<1) {
-                throw new Exception();
-            }
-        }catch (Exception e) {
+            userInfoMapper.insert(userInfo);
+        } catch (Exception e) {
             trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
             trResponse.setDesc(CodeEnum.UNKNOWN_ERROR.getDesc());
             return trResponse;
@@ -62,7 +61,7 @@ public class UserServiceImpl implements UserService {
     private boolean verifyCode(TPUserRegisterInfo tpUserInfo) {
         String code = String.valueOf(tpUserInfo.getCode());
         String email = tpUserInfo.getEmail();
-        if(redisUtil.get(email) == null || !redisUtil.get(email).toString().equals(code)){
+        if (redisUtil.get(email) == null || !redisUtil.get(email).toString().equals(code)) {
             logger.info("缓存中获取code：", JSON.toJSONString(redisUtil.get(email)));
             return false;
         }
@@ -71,6 +70,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 检查邮箱是否已注册
+     *
      * @param email
      * @return
      */
@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
     public TRResponse checkEmailExist(String email) {
         TRResponse trResponse = new TRResponse();
         Integer count = userInfoMapper.getEmailNumCount(email);
-        if(count>0){
+        if (count > 0) {
             trResponse.setDesc(CodeEnum.DATA_ILEAGLE.getDesc());
             trResponse.setCode(CodeEnum.DATA_ILEAGLE.getCode());
             return trResponse;
@@ -102,6 +102,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 用户登录
+     *
      * @param userLoginInfo
      * @return
      */
@@ -113,7 +114,7 @@ public class UserServiceImpl implements UserService {
     private TRUserLoginInfo userCommonLogin(TPUserLoginInfo userLoginInfo) {
         TRUserLoginInfo trUserLoginInfo = new TRUserLoginInfo();
         UserInfo userInfo = userInfoMapper.getByEmail(userLoginInfo.getEmail());
-        if(!userInfo.getPassword().equals(PasswordUtil.MD5EncodeUtf8(userLoginInfo.getPassword()))) {
+        if (userInfo == null || !userInfo.getPassword().equals(PasswordUtil.MD5EncodeUtf8(userLoginInfo.getPassword()))) {
             TRResponse trResponse = new TRResponse();
             trResponse.setCode(CodeEnum.DATA_ILEAGLE.getCode());
             trResponse.setDesc(CodeEnum.DATA_ILEAGLE.getDesc());
@@ -139,6 +140,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 发邮件
+     *
      * @param email
      * @return
      */
@@ -150,7 +152,7 @@ public class UserServiceImpl implements UserService {
             redisUtil.set(email, code, 300);
             logger.info(" 发送验证码：{}到邮箱:{}", code, email);
             EmailUtil.sendCode(code, email);
-        } catch (Exception e){
+        } catch (Exception e) {
             logger.error("发送验证码失败，email：{} code:{}", email, code);
             trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
             trResponse.setDesc(CodeEnum.UNKNOWN_ERROR.getDesc());

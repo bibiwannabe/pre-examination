@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="admin-api" />
         <module name="exa-common" />
         <module name="exa-server" />
         <module name="portal-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="admin" target="6" />
       <module name="admin-api" target="6" />
       <module name="exa-common" target="6" />
       <module name="exa-common-1" target="6" />

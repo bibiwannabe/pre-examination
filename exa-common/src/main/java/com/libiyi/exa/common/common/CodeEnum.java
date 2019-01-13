@@ -12,7 +12,11 @@ public enum CodeEnum {
     /**
      * 数据不合法
      */
-    DATA_ILEAGLE(1001, "数据不合法");
+    DATA_ILEAGLE(1001, "数据不合法"),
+    /**
+     * 用户未登录
+     */
+    NO_LOGIN(1002, "未登录");
 
     private Integer code;
 
@@ -47,6 +51,8 @@ public enum CodeEnum {
                 return DATA_ILEAGLE;
             case 3000:
                 return UNKNOWN_ERROR;
+            case 1002:
+                return NO_LOGIN;
             default:
                 return UNKNOWN_ERROR;
         }

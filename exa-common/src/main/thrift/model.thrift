@@ -31,3 +31,19 @@ struct TPUserRegisterInfo {
         3: i32 accType;
         4: string password;
 }
+
+struct TPAdminInfo {
+        1: i32 userId;
+        2: string title;
+        3: string subject;
+        4: i32 teachYear;
+}
+
+struct TRAdminInfo {
+        1: i32 id;
+        2: i32 userId;
+        3: string title;
+        4: string subject;
+        5: i32 teachYear;
+        6: TRResponse response;
+}
