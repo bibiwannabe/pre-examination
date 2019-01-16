@@ -136,3 +136,64 @@ struct TPortalWrongQuestionInfo {
         6: string answer;
         7: i32 wrongCounts;
 }
+
+struct TPaperInfo {
+        1: i32 id;
+        2: i32 subjectId;
+        3: string name;
+        4: string questionList;
+        5: i32 avgPoints;
+        6: i32 counts;
+        7: i32 createUser;
+        8: i64 createTime;
+        9: i64 updateTime;
+}
+
+struct TPortalPaperInfo {
+        1: i32 id;
+        2: i32 subjectId;
+        3: string name;
+        4: string questionList;
+}
+
+struct TRAdminPaperInfoList {
+        1: list<TPaperInfo> paperInfoList;
+        2: TRResponse response;
+        3: TPagination pagination;
+}
+
+struct TRAdminPaperInfo {
+        1: TPaperInfo paperInfo;
+        2: TRResponse response;
+}
+
+struct TPAdminCreatePaperInfo {
+        1: i32 subjectId;
+        2: string name;
+        3: string questionList;
+        4: i32 createUser;
+}
+
+struct TPAdminModifyPaperInfo {
+        1: i32 subjectId;
+        2: string name;
+        3: string questionList;
+        4: i32 id;
+}
+
+struct TPAdminQueryPaperInfo {
+        1: i32 subjectId;
+        2: i32 queryType;
+        3: TPagination pagination;
+}
+
+struct TPPortalQueryPaperInfo {
+        1: i32 subjectId;
+        2: TPagination pagination;
+}
+
+struct TRPortalPaperInfoList {
+        1: list<TPortalPaperInfo> paperInfoList;
+        2: TRResponse response;
+        3: TPagination pagination;
+}

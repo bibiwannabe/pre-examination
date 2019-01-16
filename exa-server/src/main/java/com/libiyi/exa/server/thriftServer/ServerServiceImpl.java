@@ -2,10 +2,7 @@ package com.libiyi.exa.server.thriftServer;
 
 import com.libiyi.exa.common.service.ExaServerService;
 import com.libiyi.exa.common.thrift.*;
-import com.libiyi.exa.server.service.AdminInfoService;
-import com.libiyi.exa.server.service.QuestionService;
-import com.libiyi.exa.server.service.SubjectTagService;
-import com.libiyi.exa.server.service.UserService;
+import com.libiyi.exa.server.service.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.thrift.TException;
@@ -27,6 +24,12 @@ public class ServerServiceImpl implements ExaServerService.Iface {
 
     @Autowired
     private QuestionService questionService;
+
+    @Autowired
+    private PortalPaperPaperService portalPaperPaperService;
+
+    @Autowired
+    private AdminPaperService adminPaperService;
 
     @Override
     public TRResponse userRegister(TPUserRegisterInfo userInfo) throws TException {
@@ -54,6 +57,11 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     }
 
     @Override
+    public TRPortalPaperInfoList getPaperListBySubjectId(TPPortalQueryPaperInfo queryPaperInfo) throws TException {
+        return portalPaperPaperService.getPaperListBySubjectId(queryPaperInfo);
+    }
+
+    @Override
     public TRResponse createAdminInfo(TPAdminInfo adminInfo) throws TException {
         return adminInfoService.createAdminInfo(adminInfo);
     }
@@ -61,7 +69,6 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     @Override
     public TRAdminInfo getAdminInfo(int userId) throws TException {
         return adminInfoService.getAdminInfo(userId);
-
     }
 
     @Override
@@ -87,5 +94,20 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     @Override
     public TRResponse modifyQuestion(TPAdminModifyQuestionInfo modifyParam) throws TException {
         return questionService.modifyQuestion(modifyParam);
+    }
+
+    @Override
+    public TRResponse createPaper(TPAdminCreatePaperInfo paperInfo) throws TException {
+        return adminPaperService.createPaper(paperInfo);
+    }
+
+    @Override
+    public TRResponse modifyPaper(TPAdminModifyPaperInfo modifyParam) throws TException {
+        return adminPaperService.modifyPaper(modifyParam);
+    }
+
+    @Override
+    public TRAdminPaperInfoList getPaperListByParam(TPAdminQueryPaperInfo queryParam) throws TException {
+        return adminPaperService.getPaperListByParam(queryParam);
     }
 }
