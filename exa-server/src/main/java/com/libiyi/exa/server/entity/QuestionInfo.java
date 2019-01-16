@@ -64,11 +64,11 @@ public class QuestionInfo {
         this.answer = answer;
     }
 
-    public Integer getCorrectRate() {
+    public Integer getCorrectNum() {
         return correctNum;
     }
 
-    public void setCorrectRate(Integer correctNum) {
+    public void setCorrectNum(Integer correctNum) {
         this.correctNum = correctNum;
     }
 

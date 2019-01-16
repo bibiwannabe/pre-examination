@@ -3,6 +3,7 @@ package com.libiyi.exa.server.thriftServer;
 import com.libiyi.exa.common.service.ExaServerService;
 import com.libiyi.exa.common.thrift.*;
 import com.libiyi.exa.server.service.AdminInfoService;
+import com.libiyi.exa.server.service.QuestionService;
 import com.libiyi.exa.server.service.SubjectTagService;
 import com.libiyi.exa.server.service.UserService;
 import org.apache.logging.log4j.LogManager;
@@ -23,6 +24,9 @@ public class ServerServiceImpl implements ExaServerService.Iface {
 
     @Autowired
     private SubjectTagService subjectTagService;
+
+    @Autowired
+    private QuestionService questionService;
 
     @Override
     public TRResponse userRegister(TPUserRegisterInfo userInfo) throws TException {
@@ -45,6 +49,11 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     }
 
     @Override
+    public TRPortalWrongQuestionInfoList getWrongQuestionBySubjectId(TPPortalWrongQuestionParam worngQuestionParam) throws TException {
+        return null;
+    }
+
+    @Override
     public TRResponse createAdminInfo(TPAdminInfo adminInfo) throws TException {
         return adminInfoService.createAdminInfo(adminInfo);
     }
@@ -63,5 +72,20 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     @Override
     public TRSubjectTagList getAllSubject() throws TException {
         return subjectTagService.getAllSubject();
+    }
+
+    @Override
+    public TRResponse addQuestion(TPAdminCreateQuestionInfo questionInfo) throws TException {
+        return questionService.createQuestion(questionInfo);
+    }
+
+    @Override
+    public TRAdminQuestionInfoList getQuestionListByParam(TPAdminQuerryQuestionInfo queryParam) throws TException {
+        return questionService.getQuestionListByParam(queryParam);
+    }
+
+    @Override
+    public TRResponse modifyQuestion(TPAdminModifyQuestionInfo modifyParam) throws TException {
+        return questionService.modifyQuestion(modifyParam);
     }
 }

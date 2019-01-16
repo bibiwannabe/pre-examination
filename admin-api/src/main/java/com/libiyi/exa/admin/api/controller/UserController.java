@@ -5,10 +5,10 @@ import com.libiyi.exa.common.common.AccountTypeEnum;
 import com.libiyi.exa.common.common.CodeEnum;
 import com.libiyi.exa.common.common.RequestConst;
 import com.libiyi.exa.common.common.Result;
-import com.libiyi.exa.common.parram.SendCodeParam;
-import com.libiyi.exa.common.parram.UserInfoParam;
-import com.libiyi.exa.common.parram.UserLoginParam;
-import com.libiyi.exa.common.parram.UserModel;
+import com.libiyi.exa.common.param.SendCodeParam;
+import com.libiyi.exa.common.param.UserInfoParam;
+import com.libiyi.exa.common.param.UserLoginParam;
+import com.libiyi.exa.common.param.UserModel;
 import com.libiyi.exa.common.service.ExaServerService;
 import com.libiyi.exa.common.thrift.TPUserLoginInfo;
 import com.libiyi.exa.common.thrift.TPUserRegisterInfo;
@@ -20,7 +20,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
