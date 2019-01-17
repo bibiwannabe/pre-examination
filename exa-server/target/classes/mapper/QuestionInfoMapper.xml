@@ -38,4 +38,12 @@
         UPDATE question_info SET counts = counts+1 WHERE id=#{id}
     </update>
 
+    <select id="getByIdList" resultMap="BaseResultMap">
+        SELECT id, subject_id, qtype, content, qoptions, answer, correct_num, counts, create_user, create_time, update_time FROM questions WHERE id IN
+        <foreach item="item" index="index" collection="idList" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+
 </mapper>

@@ -18,6 +18,8 @@ service ExaServerService{
         model.TRPortalWrongQuestionInfoList getWrongQuestionBySubjectId(1:model.TPPortalWrongQuestionParam worngQuestionParam);
         //用户获取试卷
         model.TRPortalPaperInfoList getPaperListBySubjectId(1:model.TPPortalQueryPaperInfo queryPaperInfo);
+        //根据id获取试卷试题
+        model.TRPortalPaperAndQuestionInfo portalGetPaperById(1:i32 id);
 
         /*后台模块*/
         model.TRResponse createAdminInfo(1:model.TPAdminInfo adminInfo);
@@ -39,6 +41,7 @@ service ExaServerService{
         model.TRResponse modifyPaper(1:model.TPAdminModifyPaperInfo modifyParam);
         //根据条件分页获取试卷列表
         model.TRAdminPaperInfoList getPaperListByParam(1:model.TPAdminQueryPaperInfo queryParam);
-
+        //根据id获取试卷及题目
+        model.TRAdminPaperAndQuestionInfo getPaperById(1:i32 id);
 
 }

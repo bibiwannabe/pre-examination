@@ -22,4 +22,5 @@ public interface QuestionInfoMapper {
 
     Integer updateCountsById(@Param("id") Integer id);
 
+    List<QuestionInfo> getByIdList(@Param("idList") List<Integer> idList);
 }

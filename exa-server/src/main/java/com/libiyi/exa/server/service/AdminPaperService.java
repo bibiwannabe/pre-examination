@@ -9,4 +9,6 @@ public interface AdminPaperService {
     TRResponse modifyPaper(TPAdminModifyPaperInfo modifyParam);
 
     TRAdminPaperInfoList getPaperListByParam(TPAdminQueryPaperInfo queryParam);
+
+    TRAdminPaperAndQuestionInfo getPaperById(int id);
 }

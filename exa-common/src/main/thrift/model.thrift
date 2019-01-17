@@ -125,6 +125,7 @@ struct TPortalQuestionInfo {
         2: i32 type;
         3: string content;
         4: string options;
+        5: i32 subjectId;
 }
 
 struct TPortalWrongQuestionInfo {
@@ -196,4 +197,39 @@ struct TRPortalPaperInfoList {
         1: list<TPortalPaperInfo> paperInfoList;
         2: TRResponse response;
         3: TPagination pagination;
+}
+
+struct TRAdminPaperAndQuestionInfo {
+        1: i32 id;
+        2: i32 subjectId;
+        3: string name;
+        4: TQuestionPointsAndInfoList choice;
+        5: TQuestionPointsAndInfoList selection;
+        6: TQuestionPointsAndInfoList filling;
+        7: i32 createUser;
+        8: i32 avgPoints;
+        9: i32 counts;
+        10: i64 createTime;
+        11: i64 updateTime;
+        12: TRResponse response;
+}
+
+struct TQuestionPointsAndInfoList {
+       1: list<TAdminQuestionInfo> questionInfoList;
+       2: i32 point;
+}
+
+struct TRPortalPaperAndQuestionInfo {
+        1: i32 id;
+        2: i32 subjectId;
+        3: string name;
+        4: TPortalQuestionPointsAndInfoList choice;
+        5: TPortalQuestionPointsAndInfoList selection;
+        6: TPortalQuestionPointsAndInfoList filling;
+        7: TRResponse response;
+}
+
+struct TPortalQuestionPointsAndInfoList {
+        1: list<TPortalQuestionInfo> questionInfoList;
+        2: i32 point;
 }

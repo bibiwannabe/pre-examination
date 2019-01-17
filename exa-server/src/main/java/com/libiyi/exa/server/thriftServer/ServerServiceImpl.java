@@ -62,6 +62,11 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     }
 
     @Override
+    public TRPortalPaperAndQuestionInfo portalGetPaperById(int id) throws TException {
+        return portalPaperPaperService.portalGetPaperById(id);
+    }
+
+    @Override
     public TRResponse createAdminInfo(TPAdminInfo adminInfo) throws TException {
         return adminInfoService.createAdminInfo(adminInfo);
     }
@@ -109,5 +114,10 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     @Override
     public TRAdminPaperInfoList getPaperListByParam(TPAdminQueryPaperInfo queryParam) throws TException {
         return adminPaperService.getPaperListByParam(queryParam);
+    }
+
+    @Override
+    public TRAdminPaperAndQuestionInfo getPaperById(int id) throws TException {
+        return adminPaperService.getPaperById(id);
     }
 }
