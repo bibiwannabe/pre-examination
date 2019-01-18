@@ -18,8 +18,9 @@ public interface PaperInfoMapper {
 
     Integer getCountsByParam(@Param("subjectId") Integer subjectId);
 
-    Integer updateAvgAndCountsByIdAndPoints(@Param("points") Integer points);
+    Integer updateAvgAndCountsByIdAndPoints(@Param("id") Integer id, @Param("points") Integer points);
 
     PaperInfo getById(@Param("id") Integer id);
 
+    List<PaperInfo> getThreeBySubjectId(@Param("subjectId") Integer subjectId, @Param("id") Integer id);
 }

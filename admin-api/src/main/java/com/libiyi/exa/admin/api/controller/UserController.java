@@ -137,4 +137,15 @@ public class UserController {
         return tpUserLoginInfo;
     }
 
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    @ResponseBody
+    public Result<String> userLogout(HttpSession session) {
+        Object object = session.getAttribute(RequestConst.USER_INFO);
+        TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class) ;
+        if(trUserLoginInfo == null || trUserLoginInfo.getAccType()!= AccountTypeEnum.TEACHER.getCode()) {
+            return new Result.Builder<String>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+        }
+        session.removeAttribute(RequestConst.USER_INFO);
+        return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
 }

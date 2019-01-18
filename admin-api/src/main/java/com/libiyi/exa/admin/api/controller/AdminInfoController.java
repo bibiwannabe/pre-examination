@@ -3,6 +3,7 @@ package com.libiyi.exa.admin.api.controller;
 import com.alibaba.fastjson.JSON;
 import com.libiyi.exa.admin.api.param.AdminInfoModel;
 import com.libiyi.exa.admin.api.param.AdminInfoParam;
+import com.libiyi.exa.common.common.AccountTypeEnum;
 import com.libiyi.exa.common.common.CodeEnum;
 import com.libiyi.exa.common.common.RequestConst;
 import com.libiyi.exa.common.common.Result;
@@ -33,7 +34,7 @@ public class AdminInfoController {
         Object object = session.getAttribute(RequestConst.USER_INFO);
         logger.info("获取到登录信息：{}", JSON.toJSONString(object));
         TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class) ;
-        if(trUserLoginInfo == null) {
+        if(trUserLoginInfo == null || trUserLoginInfo.getAccType()!= AccountTypeEnum.TEACHER.getCode()) {
             return new Result.Builder<String>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
         }
         Integer userId = trUserLoginInfo.getId();

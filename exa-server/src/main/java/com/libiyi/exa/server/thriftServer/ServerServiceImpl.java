@@ -31,6 +31,9 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     @Autowired
     private AdminPaperService adminPaperService;
 
+    @Autowired
+    private PortalWrongQuestionService portalWrongQuestionService;
+
     @Override
     public TRResponse userRegister(TPUserRegisterInfo userInfo) throws TException {
         return userService.userRegister(userInfo);
@@ -52,8 +55,8 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     }
 
     @Override
-    public TRPortalWrongQuestionInfoList getWrongQuestionBySubjectId(TPPortalWrongQuestionParam worngQuestionParam) throws TException {
-        return null;
+    public TRPortalWrongQuestionInfoList getWrongQuestionBySubjectId(TPPortalWrongQuestionParam wrongQuestionParam) throws TException {
+        return portalWrongQuestionService.getWrongQuestionBySubjectId(wrongQuestionParam);
     }
 
     @Override
@@ -64,6 +67,16 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     @Override
     public TRPortalPaperAndQuestionInfo portalGetPaperById(int id) throws TException {
         return portalPaperPaperService.portalGetPaperById(id);
+    }
+
+    @Override
+    public TREvaluateResult getEvaluateResult(TPCreatPracticeRecordParam practiceParam) throws TException {
+        return portalPaperPaperService.updateEvaluateResult(practiceParam);
+    }
+
+    @Override
+    public TRPortalPaperInfoList getRecommendPaperList(int userId) throws TException {
+        return portalPaperPaperService.getRecommendPaperList(userId);
     }
 
     @Override

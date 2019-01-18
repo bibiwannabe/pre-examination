@@ -233,3 +233,41 @@ struct TPortalQuestionPointsAndInfoList {
         1: list<TPortalQuestionInfo> questionInfoList;
         2: i32 point;
 }
+
+struct TPCreatPracticeRecordParam {
+        1:map<i32, string> choice;
+        2:map<i32, string> selection;
+        3:map<i32, string> filling;
+        4: i32 userId;
+        5: i32 paperId;
+}
+
+struct TPortalPaperAndQuestion {
+        1: i32 id;
+        2: i32 subjectId;
+        3: string name;
+        4: TEvaluateResultListAndPoints choice;
+        5: TEvaluateResultListAndPoints selection;
+        6: TEvaluateResultListAndPoints filling;
+}
+struct TREvaluateResult {
+        1: TPortalPaperAndQuestion tPortalPaperAndQuestion;
+        2: TRResponse response;
+        3: i32 grades;
+}
+
+struct TEvaluateResultListAndPoints {
+        1: i32 totalPoints;
+        2: list<TEvaluateResult> questionAndResult;
+}
+
+struct TEvaluateResult{
+        1: i32 id;
+        2: i32 subjectId;
+        3: i32 type;
+        4: string content;
+        5: string options;
+        6: string answer;
+        7: string wrongAnswer;
+        8: bool isCorrect;
+}

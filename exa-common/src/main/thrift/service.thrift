@@ -20,6 +20,10 @@ service ExaServerService{
         model.TRPortalPaperInfoList getPaperListBySubjectId(1:model.TPPortalQueryPaperInfo queryPaperInfo);
         //根据id获取试卷试题
         model.TRPortalPaperAndQuestionInfo portalGetPaperById(1:i32 id);
+        //判卷
+        model.TREvaluateResult getEvaluateResult(1:model.TPCreatPracticeRecordParam practiceParam);
+        //获取推荐试卷
+        model.TRPortalPaperInfoList getRecommendPaperList(1:i32 userId);
 
         /*后台模块*/
         model.TRResponse createAdminInfo(1:model.TPAdminInfo adminInfo);

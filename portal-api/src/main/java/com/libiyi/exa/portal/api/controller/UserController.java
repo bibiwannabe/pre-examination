@@ -1,5 +1,6 @@
 package com.libiyi.exa.portal.api.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.libiyi.exa.common.common.AccountTypeEnum;
 import com.libiyi.exa.common.common.CodeEnum;
 import com.libiyi.exa.common.common.RequestConst;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/user")
@@ -130,6 +132,18 @@ public class UserController {
         tpUserLoginInfo.setEmail(userLoginParam.getEmail());
         tpUserLoginInfo.setPassword(userLoginParam.getPassword());
         return tpUserLoginInfo;
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    @ResponseBody
+    public Result<String> userLogout(HttpSession session) {
+        Object object = session.getAttribute(RequestConst.USER_INFO);
+        TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class) ;
+        if(trUserLoginInfo == null) {
+            return new Result.Builder<String>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+        }
+        session.removeAttribute(RequestConst.USER_INFO);
+        return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
     }
 
 }
