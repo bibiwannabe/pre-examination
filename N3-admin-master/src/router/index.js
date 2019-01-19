@@ -26,7 +26,7 @@ import { STORAGE_KEY, MAX_LOGIN_AGE } from '../utils/const'
 router.beforeEach((to, from, next) => {
   NProgress.start()
   const shouldAuth = to.meta && to.meta.auth
-  if (to.name === 'login' || shouldAuth === false) {  // 无需拦截该路由
+  if (to.name === 'login' || shouldAuth === false ||to.name === 'register') {  // 无需拦截该路由
     return next()
   }
   let lastLoginTime = storage.getItem(STORAGE_KEY.LAST_LOGIN_TIME) || 0

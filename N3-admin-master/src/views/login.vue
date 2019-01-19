@@ -215,7 +215,9 @@
         this.account = storage.getItem(STORAGE_KEY.ACCOUNT) || ''
       },
       goRegister () {
-        this.submit()
+        this.$router.replace({
+          name: 'register'
+        })
       },
       check () {
         if (!this.account) {

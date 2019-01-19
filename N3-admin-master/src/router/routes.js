@@ -1,5 +1,6 @@
 import Login from '../views/login'
 import CommonLayout from '../layout'
+import Register from '../views/register'
 
 import NormalForm from '../views/form'
 import NormalTable from '../views/table'
@@ -10,6 +11,12 @@ const routes = [
     path: '/login',
     component: Login,
     name: 'login',
+    menu: false
+  },
+  {
+    path: '/register',
+    component: Register,
+    name: 'register',
     menu: false
   },
   // Normal View

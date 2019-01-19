@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "N3-components": "^2.2.3",
+    "axios": "^0.15.3",
     "es6-shim": "^0.35.3",
     "moment": "^2.18.1",
     "vue": "^2.1.0",

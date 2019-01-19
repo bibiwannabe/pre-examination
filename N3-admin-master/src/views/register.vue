@@ -4,8 +4,12 @@
       <h3>考前辅导系统后台注册</h3>
       <div class="fields">
         <n3-input class="field" v-model="email" placeholder="邮箱" width="320px"/>
-        <n3-input class="field" v-model="code" placeholder="发送验证码" width="320px">
+        <n3-input class="field" v-model="code" placeholder="发送验证码" width="240px" style="float:left">
         </n3-input>
+        <n3-button @click.native="checkEmail"
+          type="primary" style="margin-left:20px;margin-top: 5px"  width="80px">
+          发送
+        </n3-button>
         <n3-input class="field" v-model="password" type="password" placeholder="密码" width="320px"  @keyup.native.enter="check">
         </n3-input>
         <n3-input class="field" v-model="confirmPassword" type="password" placeholder="确认密码" width="320px"  @keyup.native.enter="check">
@@ -27,13 +31,12 @@
       </div>
       <div class="submit">
         <n3-button
-          @click.native="check"
-          type="primary"
+          @click.native="goLogin"
           :loading="loading"
           :disabled="loading"
           block
         >
-          {{ loading ? '' : '去注册' }}
+          {{ loading ? '' : '去登录' }}
         </n3-button>
       </div>
     </n3-form>
@@ -218,6 +221,32 @@
       getAccount () {
         this.email = storage.getItem(STORAGE_KEY.ACCOUNT) || ''
       },
+      checkEmail () {
+        if (!this.email) {
+          return this.n3Alert({
+            content: '请输入正确邮箱',
+            type: 'success',
+            placement: 'top-right',
+            duration: 2000,
+            width: '240px'
+          })
+        }
+        this.sendCode()
+      },
+      sendCode () {
+        this.$http({
+          method: 'post',
+          url: 'http://119.23.239.46:8080/admin-api-1.0/user/sendCode',
+          crossDomain: true,
+          data: '{"email":"' + this.email + '"}',
+          contentType: 'application/json'
+        })
+      },
+      goLogin () {
+        this.$router.replace({
+          name: 'login'
+        })
+      },
       check () {
         if (!this.email || !this.email.contains('@')) {
           return this.n3Alert({
@@ -270,7 +299,8 @@
         this.loading = true
         this.register({
           email: this.email,
-          password: this.password
+          password: this.password,
+          code: this.code
         })
           .then(data => {
             this.loading = false
@@ -337,7 +367,7 @@
     margin: auto;
     padding: 16px 20px 0;
     width: 360px;
-    height: 252px;
+    height: 400px;
     font-size: 14px;
     background: #fff;
     border: 1px solid #ccc;
