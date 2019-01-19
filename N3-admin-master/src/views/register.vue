@@ -1,6 +1,6 @@
 <template>
-  <section class="login-wrap">
-    <n3-form ref='form' class="login-form">
+  <section class="register-wrap">
+    <n3-form ref='form' class="register-form">
       <h3>考前辅导系统后台注册</h3>
       <div class="fields">
         <n3-input class="field" v-model="email" placeholder="邮箱" width="320px"/>
@@ -211,7 +211,7 @@
       }
     },
     methods: {
-      ...mapActions(['login']),
+      ...mapActions(['register']),
       saveAccount () {
         this.remember.length && storage.setItem(STORAGE_KEY.ACCOUNT, this.email)
       },
@@ -268,7 +268,7 @@
       },
       submit () {
         this.loading = true
-        this.login({
+        this.register({
           email: this.email,
           password: this.password
         })
@@ -297,7 +297,7 @@
     },
     watch: {
       '$route' () {
-        if (this.$route.name == 'login') {
+        if (this.$route.name == 'register') {
           this.render()
         }
       }
@@ -312,7 +312,7 @@
 </script>
 
 <style lang="less">
-  .login-wrap {
+  .register-wrap {
     position: fixed;
     z-index: 0;
     top: 0;
@@ -327,7 +327,7 @@
       position: absolute;
     }
   }
-  .login-form {
+  .register-form {
     position: absolute;
     z-index: 1;
     top: 0;

@@ -22,6 +22,16 @@
           {{ loading ? '登录中' : '登录' }}
         </n3-button>
       </div>
+      <div class="submit">
+        <n3-button
+          @click.native="goRegister"
+          :loading="loading"
+          :disabled="loading"
+          block
+        >
+          {{ loading ? '' : '去注册' }}
+        </n3-button>
+      </div>
     </n3-form>
     <canvas id="J_loginBackground"></canvas>
   </section>
@@ -29,6 +39,7 @@
 
 <script>
   import { mapActions } from 'vuex'
+    // import register from 'register'
   import {
     STORAGE_KEY
   } from '../utils/const'
@@ -194,6 +205,7 @@
         loading: false
       }
     },
+    // components:{register},
     methods: {
       ...mapActions(['login']),
       saveAccount () {
@@ -201,6 +213,9 @@
       },
       getAccount () {
         this.account = storage.getItem(STORAGE_KEY.ACCOUNT) || ''
+      },
+      goRegister () {
+        this.submit()
       },
       check () {
         if (!this.account) {
@@ -295,7 +310,7 @@
     margin: auto;
     padding: 16px 20px 0;
     width: 360px;
-    height: 252px;
+    height: 300px;
     font-size: 14px;
     background: #fff;
     border: 1px solid #ccc;
