@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.libiyi.exa.server.dao.QuestionInfoMapper">
+    <resultMap id="BaseResultMap" type="com.libiyi.exa.server.entity.QuestionInfo">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="subject_id" jdbcType="INTEGER" property="subjectId" />
+        <result column="qtype" jdbcType="INTEGER" property="type" />
+        <result column="content" jdbcType="LONGVARCHAR" property="content" />
+        <result column="answer" jdbcType="LONGVARCHAR" property="answer" />
+        <result column="qoptions" jdbcType="LONGVARCHAR" property="options" />
+        <result column="correct_num" jdbcType="INTEGER" property="correctNum" />
+        <result column="counts" jdbcType="INTEGER" property="counts" />
+        <result column="create_user" jdbcType="INTEGER" property="createUser" />
+        <result column="create_time" jdbcType="BIGINT" property="createTime" />
+        <result column="update_time" jdbcType="BIGINT" property="updateTime" />
+    </resultMap>
+    <insert id="addQuestionInfo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO questions(subject_id, qtype, content, qoptions, answer, create_user, create_time, update_time) VALUE (#{q.subjectId}, #{q.type},  #{q.content}, #{q.options}, #{q.answer}, #{q.createUser}, #{q.createTime}, #{q.updateTime})
+    </insert>
+
+    <select id="getByParam" resultMap="BaseResultMap">
+        SELECT id, subject_id, qtype, content, qoptions, answer, correct_num, counts, create_user, create_time, update_time FROM questions WHERE subject_id=#{subjectId} AND qtype =#{type} ORDER BY create_time DESC LIMIT #{offset},#{size}
+    </select>
+
+    <select id="getCountsByParam" resultType="Integer">
+        SELECT COUNT(1)FROM questions WHERE subject_id=#{subjectId} AND qtype =#{type}
+    </select>
+
+    <update id="updateById">
+        UPDATE questions SET subject_id=#{q.subjectId}, content=#{q.content}, qoptions=#{q.options}, answer=#{q.answer}, update_time=#{q.updateTime} WHERE id=#{q.id}
+    </update>
+
+    <update id="updateCorrectNumById">
+        UPDATE questions SET correct_num = correct_num+1, counts = counts+1 WHERE id=#{id}
+    </update>
+
+    <update id="updateCountsById">
+        UPDATE questions SET counts = counts+1 WHERE id=#{id}
+    </update>
+
+    <select id="getByIdList" resultMap="BaseResultMap">
+        SELECT id, subject_id, qtype, content, qoptions, answer, correct_num, counts, create_user, create_time, update_time FROM questions WHERE id IN
+        <foreach item="item" index="index" collection="idList" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+
+</mapper>

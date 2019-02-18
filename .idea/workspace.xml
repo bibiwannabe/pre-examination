@@ -2,158 +2,36 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="portal-api:war" />
-      <artifact name="portal-api:war exploded" />
+      <artifact name="exa-server:war" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56fe1ab6-a580-4ad6-99bd-24ace18c4687" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/N3-admin-master/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/N3-admin-master/src/views/account.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/N3-admin-master/src/views/paper.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/N3-admin-master/src/views/question.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/N3-admin-master/src/views/subject.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/N3-admin-master/src/views/teachInfo.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/aop/HeaderInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/core/Initializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/core/ThriftTransportPoolBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/core/coreConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/util/RedisUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin-api/src/main/resources/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/ServerInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/ThriftTransportPool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/TransfortWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/artifacts/portal_api_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/artifacts/portal_api_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__com_alibaba_fastjson_1_2_49.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__com_google_code_gson_gson_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__com_google_guava_guava_26_0_jre.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__com_google_protobuf_protobuf_java_2_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__com_libiyi_exa_common_1_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__com_mchange_c3p0_0_9_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__com_mchange_mchange_commons_java_0_2_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__com_sun_mail_javax_mail_1_6_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__commons_dbcp_commons_dbcp_1_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__commons_pool_commons_pool_1_5_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__javax_javaee_api_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_12.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_4_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_apache_logging_log4j_log4j_web_2_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_apache_thrift_libthrift_0_11_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_checkerframework_checker_qual_2_5_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_9_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_9_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_jetbrains_annotations_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_1_3_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_jdk7_1_3_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_jdk8_1_3_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_test_1_3_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_test_common_1_3_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_mybatis_mybatis_3_4_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_projectlombok_lombok_1_18_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_springframework_spring_aop_5_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_springframework_spring_aspects_5_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_springframework_spring_beans_5_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_springframework_spring_context_5_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_springframework_spring_context_support_5_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_springframework_spring_core_5_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_springframework_spring_expression_5_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_springframework_spring_jcl_5_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_springframework_spring_jdbc_5_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_springframework_spring_test_5_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_springframework_spring_tx_5_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_springframework_spring_web_5_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__org_springframework_spring_webmvc_5_0_9_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/thriftCompiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/core/ThriftTransportPoolBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/core/coreConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_libiyi_exa_common_1_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/admin_api_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/admin_api_war.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/admin_api_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/admin_api_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/exa_server_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/exa_server_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/exa_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/exa_server_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/portal_api_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/portal_api_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/portal_api_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/portal_api_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/N3-admin-master/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/N3-admin-master/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/docs/static/js/app.9c76dc4c5f868b5aedf3.js" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/docs/static/js/app.9c76dc4c5f868b5aedf3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/docs/static/js/app.9c76dc4c5f868b5aedf3.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/docs/static/js/app.9c76dc4c5f868b5aedf3.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/N3-admin-master/src/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/src/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/layout/container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/src/views/container.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/layout/header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/src/views/header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/layout/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/src/views/admin.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/layout/levelbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/src/views/levelbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/layout/navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/src/views/navbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/router/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/src/router/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/store/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/src/store/modules/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/utils/axios.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/utils/const.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/utils/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/utils/mock.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/utils/storage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/views/form/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/src/views/form/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/views/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/src/views/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/N3-admin-master/src/views/register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/N3-admin-master/src/views/register.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin-api/admin-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/admin-api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/aop/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/aop/LoginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/AdminInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/AdminInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/SubjectTagController.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/SubjectTagController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/core/Config.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-api/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-api/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/src/main/resources/log4j2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-api/src/main/webapp/WEB-INF/dispatcherServlet-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/src/main/webapp/WEB-INF/dispatcherServlet-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin-api/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin-api/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/ExaServerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/ExaServerClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/client/ExaServerClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/classes/com/libiyi/exa/common/client/ExaServerClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-common/target/exa-common-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/exa-common-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/maven-status/maven-compiler-plugin/compile/compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/maven-status/maven-compiler-plugin/compile/compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/core/ThriftServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/core/ThriftServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/SubjectTagServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/SubjectTagServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/utils/RedisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/utils/RedisUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/core/ThriftServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/core/ThriftServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/service/impl/SubjectTagServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/service/impl/SubjectTagServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/utils/RedisUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/classes/com/libiyi/exa/server/utils/RedisUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/exa-common/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/exa-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/exa-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0.war" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0/WEB-INF/classes/com/libiyi/exa/server/core/ThriftServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0/WEB-INF/classes/com/libiyi/exa/server/core/ThriftServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0/WEB-INF/classes/com/libiyi/exa/server/service/impl/SubjectTagServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0/WEB-INF/classes/com/libiyi/exa/server/service/impl/SubjectTagServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0/WEB-INF/classes/com/libiyi/exa/server/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0/WEB-INF/classes/com/libiyi/exa/server/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0/WEB-INF/classes/com/libiyi/exa/server/utils/RedisUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0/WEB-INF/classes/com/libiyi/exa/server/utils/RedisUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exa-server/target/exa-server-1.0/WEB-INF/lib/exa-common-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/exa-server/target/exa-server-1.0/WEB-INF/lib/exa-common-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal-api/.idea/artifacts/portal_api_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/portal-api/.idea/artifacts/portal_api_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__com_libiyi_exa_common_1_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/portal-api/.idea/libraries/Maven__com_libiyi_exa_common_1_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal-api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/portal-api/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/portal-api/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/portal-api/portal-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/portal-api/portal-api.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/core/Config.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/portalapi/target/" />
     <ignored path="$PROJECT_DIR$/common/target/" />
@@ -211,61 +89,67 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/core/Initializer.java">
+        <entry file="file://$PROJECT_DIR$/exa-common/pom.xml">
+          <provider editor-type-id="YarmPluginDependencyAnalyzer" />
+          <provider editor-type-id="YarmPluginDependencyUpdater" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="238">
+              <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/core/coreConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="58" lean-forward="true" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/ServerInfo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/ThriftTransportPool.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin-api/pom.xml">
           <provider editor-type-id="YarmPluginDependencyAnalyzer" />
           <provider editor-type-id="YarmPluginDependencyUpdater" />
-          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="84" column="32" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
+            <state relative-caret-position="136">
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
               <folding>
                 <element signature="n#build#0;n#project#0;n#!!top" />
               </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exa-server/pom.xml">
+          <provider editor-type-id="YarmPluginDependencyAnalyzer" />
+          <provider editor-type-id="YarmPluginDependencyUpdater" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/PaperInfoController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="das://b9d00571-4469-405c-8191-aa1b73560e0d/schema/pre_examination/table/paper_info">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/param/PaperParam.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="25" column="17" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -274,31 +158,19 @@
         <entry file="file://$PROJECT_DIR$/portal-api/pom.xml">
           <provider editor-type-id="YarmPluginDependencyAnalyzer" />
           <provider editor-type-id="YarmPluginDependencyUpdater" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+            </state>
+          </provider>
           <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="73" column="39" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/core/coreConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/core/ThriftTransportPoolBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="34">
+              <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -318,7 +190,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/ExaServerClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="204">
               <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -397,11 +269,8 @@
         <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/PortalPaperServiceImpl.java" />
         <option value="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/controller/PaperInfoController.java" />
         <option value="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/controller/WrongQuestionController.java" />
-        <option value="$PROJECT_DIR$/exa-server/pom.xml" />
-        <option value="$PROJECT_DIR$/portal-api/pom.xml" />
         <option value="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/controller/UserController.java" />
         <option value="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/util/ServerListUtil.java" />
-        <option value="$PROJECT_DIR$/exa-common/pom.xml" />
         <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/ServerClient.java" />
         <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/ServerInfo.java" />
         <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/TransfortWrapper.java" />
@@ -421,7 +290,6 @@
         <option value="$PROJECT_DIR$/admin-api/src/main/webapp/WEB-INF/dispatcherServlet-servlet.xml" />
         <option value="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/aop/HeaderInterceptor.java" />
         <option value="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/AdminInfoController.java" />
-        <option value="$PROJECT_DIR$/admin-api/pom.xml" />
         <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/utils/RedisUtil.java" />
         <option value="$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/impl/SubjectTagServiceImpl.java" />
         <option value="$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/util/RedisUtil.java" />
@@ -432,6 +300,10 @@
         <option value="$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/ExaServerClient.java" />
         <option value="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/core/coreConfig.java" />
         <option value="$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/core/ThriftTransportPoolBean.java" />
+        <option value="$PROJECT_DIR$/exa-common/pom.xml" />
+        <option value="$PROJECT_DIR$/portal-api/pom.xml" />
+        <option value="$PROJECT_DIR$/admin-api/pom.xml" />
+        <option value="$PROJECT_DIR$/exa-server/pom.xml" />
       </list>
     </option>
   </component>
@@ -500,6 +372,56 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin-api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-server" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
@@ -524,59 +446,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pre-examination" type="b2602c69:ProjectViewProjectNode" />
-              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550476702031" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550488171246" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
@@ -586,7 +462,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -627,7 +503,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.portal-api">
+  <component name="RunManager" selected="Tomcat Server.exa-server">
     <configuration name="UserInfoDaoTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -1045,7 +921,9 @@
       <workItem from="1548415376688" duration="1482000" />
       <workItem from="1548470523375" duration="1335000" />
       <workItem from="1548557498198" duration="2718000" />
-      <workItem from="1550473820146" duration="2762000" />
+      <workItem from="1550473820146" duration="3163000" />
+      <workItem from="1550477591097" duration="597000" />
+      <workItem from="1550478328877" duration="1369000" />
     </task>
     <servers />
   </component>
@@ -1082,13 +960,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="285537000" />
+    <option name="totallyTimeSpent" value="287904000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992908" visible="true" weight="0.29899856" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4992908" visible="true" weight="0.30329043" />
       <window_info id="Structure" order="1" sideWeight="0.50070924" side_tool="true" weight="0.2532189" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1098,7 +976,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32770744" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785408" visible="true" weight="0.37710842" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785408" weight="0.37710842" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49928468" weight="0.41051137" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1114,16 +992,16 @@
       <window_info anchor="bottom" id="Database Console" order="15" weight="0.4028369" />
       <window_info anchor="bottom" id="Application Servers" order="16" weight="0.32907802" />
       <window_info anchor="bottom" id="Block forbidden dependencies" order="17" sideWeight="0.5007153" side_tool="true" weight="0.4496454" />
-      <window_info anchor="bottom" id="Messages" order="18" weight="0.32386363" />
+      <window_info anchor="bottom" id="Messages" order="18" weight="0.32289156" />
       <window_info anchor="bottom" id="Duplicate detector" order="19" weight="0.32907802" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24964234" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="Maven" order="3" sideWeight="0.4947644" visible="true" weight="0.18240343" />
+      <window_info anchor="right" id="Maven" order="3" sideWeight="0.4947644" weight="0.18240343" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="JSF" order="6" />
-      <window_info anchor="right" id="Database" order="7" weight="0.16809729" />
+      <window_info active="true" anchor="right" id="Database" order="7" visible="true" weight="0.16809729" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="right" id="CDI" order="10" />
@@ -1239,44 +1117,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/exa-server/src/main/resources/db.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="23" selection-start-line="23" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-655">
-          <caret line="40" column="56" lean-forward="true" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4216">
-          <caret line="248" column="21" selection-start-line="239" selection-start-column="8" selection-end-line="248" selection-end-column="21" />
-        </state>
-      </provider>
-      <provider editor-type-id="YarmPluginDependencyUpdater" />
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-      <provider editor-type-id="YarmPluginDependencyAnalyzer" />
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../Documents/.m2/repository/org/springframework/data/spring-data-redis/1.6.2.RELEASE/spring-data-redis-1.6.2.RELEASE.jar!/org/springframework/data/redis/core/ListOperations.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/thriftServer/ServerServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
@@ -1401,20 +1241,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://b9d00571-4469-405c-8191-aa1b73560e0d/schema/pre_examination/table/admin_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b9d00571-4469-405c-8191-aa1b73560e0d/schema/pre_examination/table/user_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://b9d00571-4469-405c-8191-aa1b73560e0d/schema/pre_examination/table/admin_info" />
+    <entry file="das://b9d00571-4469-405c-8191-aa1b73560e0d/schema/pre_examination/table/user_info" />
     <entry file="file://$PROJECT_DIR$/exa-server/src/main/java/com/libiyi/exa/server/core/ThriftServerStartBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
@@ -1523,69 +1351,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/ExaServerClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/core/Initializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin-api/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="84" column="32" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
-          <folding>
-            <element signature="n#build#0;n#project#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="YarmPluginDependencyUpdater" />
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-      <provider editor-type-id="YarmPluginDependencyAnalyzer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/core/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal-api/pom.xml">
-      <provider editor-type-id="YarmPluginDependencyAnalyzer" />
-      <provider editor-type-id="YarmPluginDependencyUpdater" />
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="73" column="39" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/core/coreConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/core/Config.java" />
     <entry file="jar://$PROJECT_DIR$/../Documents/.m2/repository/org/springframework/spring-beans/5.0.9.RELEASE/spring-beans-5.0.9.RELEASE.jar!/org/springframework/beans/factory/support/SimpleInstantiationStrategy.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -1593,17 +1359,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/core/ThriftTransportPoolBean.java">
+    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/core/Initializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/core/ThriftTransportPoolBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="21" selection-start-line="21" selection-end-line="22" />
+        <state relative-caret-position="119">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1612,8 +1371,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/core/coreConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="58" lean-forward="true" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
+        <state relative-caret-position="221">
+          <caret line="18" column="58" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1629,11 +1388,112 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/ThriftTransportPool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
+        <state relative-caret-position="102">
           <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/core/coreConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/core/ThriftTransportPoolBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" selection-start-line="21" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-common/src/main/java/com/libiyi/exa/common/client/ExaServerClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-common/pom.xml">
+      <provider editor-type-id="YarmPluginDependencyAnalyzer" />
+      <provider editor-type-id="YarmPluginDependencyUpdater" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal-api/src/main/java/com/libiyi/exa/portal/api/core/ThriftTransportPoolBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-api/pom.xml">
+      <provider editor-type-id="YarmPluginDependencyAnalyzer" />
+      <provider editor-type-id="YarmPluginDependencyUpdater" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding>
+            <element signature="n#build#0;n#project#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exa-server/pom.xml">
+      <provider editor-type-id="YarmPluginDependencyAnalyzer" />
+      <provider editor-type-id="YarmPluginDependencyUpdater" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/param/PaperParam.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/portal-api/pom.xml">
+      <provider editor-type-id="YarmPluginDependencyAnalyzer" />
+      <provider editor-type-id="YarmPluginDependencyUpdater" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin-api/src/main/java/com/libiyi/exa/admin/api/controller/PaperInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b9d00571-4469-405c-8191-aa1b73560e0d/schema/pre_examination/table/paper_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>

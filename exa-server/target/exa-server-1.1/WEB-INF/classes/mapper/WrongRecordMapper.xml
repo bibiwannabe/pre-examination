@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.libiyi.exa.server.dao.WrongRecordMapper">
+    <resultMap id="BaseResultMap" type="com.libiyi.exa.server.entity.WrongRecord">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="subject_id" jdbcType="INTEGER" property="subjectId" />
+        <result column="user_id" jdbcType="INTEGER" property="userId" />
+        <result column="question_id" jdbcType="INTEGER" property="questionId" />
+        <result column="wrong_counts" jdbcType="INTEGER" property="wrongCounts" />
+        <result column="create_time" jdbcType="BIGINT" property="createTime" />
+        <result column="update_time" jdbcType="BIGINT" property="updateTime" />
+    </resultMap>
+    <insert id="createRecord" useGeneratedKeys="true" keyProperty="id" parameterType="WrongRecord">
+        INSERT INTO wrong_record(subject_id, user_id, question_id, wrong_counts, create_time, update_time) VALUE (#{r.subjectId}, #{r.userId},  #{r.questionId}, #{r.wrongCounts}, #{r.createTime}, #{r.updateTime})
+        ON DUPLICATE KEY UPDATE wrong_counts = wrong_counts+1
+    </insert>
+
+    <select id="getListByUserAndSubjectId" resultMap="BaseResultMap">
+        SELECT id, subject_id, user_id, question_id, wrong_counts, create_time, update_time FROM wrong_record WHERE user_id=#{userId} AND subject_id = #{subjectId} ORDER BY wrong_counts DESC LIMIT #{offset}, #{size}
+    </select>
+
+    <select id="getCountByUserAndSubjectId" resultType="Integer">
+        SELECT COUNT(1) FROM wrong_record WHERE user_id=#{userId} AND subject_id = #{subjectId} ORDER BY wrong_counts DESC
+    </select>
+
+</mapper>

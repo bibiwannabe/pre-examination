@@ -196,6 +196,7 @@ public class AdminPaperServiceImpl implements AdminPaperService {
         tPaperInfo.setName(paperInfo.getName());
         tPaperInfo.setQuestionList(paperInfo.getQuestionList());
         tPaperInfo.setUpdateTime(paperInfo.getUpdateTime());
+        tPaperInfo.setSubjectId(paperInfo.getSubjectId());
         return tPaperInfo;
     }
 }

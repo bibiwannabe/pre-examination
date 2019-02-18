@@ -4,7 +4,9 @@
       <div class="search-item" style="float: left">
         <div class="form-item">
           <label for="">科目：</label>
-          <n3-input v-model="searchKey.userId" @change="searchChange"></n3-input>
+          <select v-model="searchKey.subjectId" @change="searchChange" style="width: 80px;padding-left: 8px;padding-top: 5px; padding-bottom: 5px; border-color: #dddddd; background-color: white">
+            <option :value="item.id.toString()" v-for="item in subjectList">{{item.subjectName}}</option>
+          </select>
         </div>
         <div class="form-item">
           <label for="">排序方式：</label>
@@ -20,7 +22,7 @@
     </div>
     <n3-data-table
       :selection="selection"
-      :source="source"
+      :source="paperList"
       :columns="columns"
       :filter="false"
       :search="false"
@@ -46,6 +48,8 @@
   export default {
     data() {
       return {
+        subjectList: [],
+        paperList: [],
         loading: false,
         searchChanged: false,
         searchKey: {
@@ -75,46 +79,52 @@
             title: 'ID',
             dataIndex: 'queryRecordId',
             width: '100px',
-            render: text => Date.now()
+            render: (text, record, index) => {
+              var id = record.id
+              return `<div>${id}</div>`
+            }
           }, {
-            title: '操作时间',
+            title: '试卷标题',
             dataIndex: 'queryDate',
             width: '160px',
             render: (text, record, index) => {
-              return `<div>{{'${text}' | toDateTime}}</div>`
-            }
-          }, {
-            title: '操作用户',
-            dataIndex: 'userId',
-            width: '120px',
-            render: (text, record, index) => {
-              text = '测试用户'
-              return `<router-link to="/user/${text}" target="_blank">
-                        ${text}
-                      </router-link>`
-            }
-          }, {
-            title: 'IP',
-            dataIndex: 'ipAddress',
-            width: '160px',
-            render: text => {
-              return text || '127.0.0.1'
+              var name = record.name
+              return `<div>${name}</div>`
             }
           },
           {
-            title: '类型',
+            title: '科目',
             dataIndex: 'queryType',
-            width: '40px',
-            render: (text) => {
-              if (text == 2) {
-                return `<span>普通</span>`
-              }
-              return `<span style="color: red;">实时</span>`
+            width: '120px',
+            render: (text, record, index) => {
+              var subjectId = this.getSubjectName(record.subjectId)
+              return `<div>${subjectId}</div>`
             }
           }, {
-            title: '耗时(ms)',
+            title: '平均分',
+            dataIndex: 'userId',
+            width: '120px',
+            render: (text, record, index) => {
+              var points = record.avgPoints
+              return `<div>${points}</div>`
+            }
+          }, {
+            title: '做题人数',
+            dataIndex: 'ipAddress',
+            width: '120px',
+            render: (text, record, index) => {
+              var counts = record.counts
+              return `<div>${counts}</div>`
+            }
+          },
+          {
+            title: '创建时间',
             dataIndex: 'timeConsuming',
-            width: '100px'
+            width: '120px',
+            render: (text, record, index) => {
+              var createTime = new Date(record.createTime)
+              return `<div>${createTime}</div>`
+            }
           }, {
             title: '操作',
             dataIndex: 'queryRecordId',
@@ -184,17 +194,27 @@
           })
         })
       },
+      getSubjectName (id) {
+        for (let subject in this.subjectList) {
+          if (subject.id === id) {
+            return subject.subjectName
+          }
+        }
+        return '未知科目'
+      },
       reload () {
         var result = ''
         var msg = ''
+        this.$axios.get('/api/subject/list'
+        ).then(response => {
+          this.subjectList = response.data.data
+        }).catch((error) => {
+          alert('获取信息失败' + error.toString())
+        })
         this.$axios.get('/api/paper/list?subjectId=1'
         ).then(response => {
           result = JSON.stringify(response.data.code)
-          this.title = JSON.stringify(response.data.data.title)
-          this.subject = JSON.stringify(response.data.data.subject)
-          this.userId = JSON.stringify(response.data.data.userId)
-          this.id = JSON.stringify(response.data.data.id)
-          this.teachYear = JSON.stringify(response.data.data.teachYear)
+          this.paperList = response.data.data.paperList
         }).catch((error) => {
           this.alert('获取信息失败' + error.toString())
         })
