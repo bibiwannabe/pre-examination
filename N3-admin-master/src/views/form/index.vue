@@ -111,8 +111,7 @@
   import API from '../../api'
   import qs from 'qs'
   import { mapState } from 'vuex'
-  import { randomPassword, dateFormat } from '../../utils'
-  
+
   export default {
     computed: {
       ...mapState(['user'])
@@ -141,13 +140,11 @@
           priority: 1,
           limitType: '1',
           cacheExpireTime: '24',
-          expireDate: dateFormat(Date.now(), 'YYYY-MM-DD')
         }
         this.loading = false
       },
       // Random Pass
       randomPasswd () {
-        this.model.password = randomPassword(18)
       },
       addUser () {
         let cond = Object.assign({}, this.model)
@@ -172,7 +169,7 @@
               type: 'danger',
               placement: 'top-right',
               duration: 2000,
-              width:'240px' // 内容不确定，建议设置width
+              width: '240px' // 内容不确定，建议设置width
             })
           })
       },

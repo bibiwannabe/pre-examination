@@ -5,17 +5,15 @@ import 'es6-shim'
 import Vue from 'vue'
 import N3 from 'N3-components'
 import 'N3-components/dist/index.min.css'
-import axios from './utils/axios'
 import extend from './extend'
 
-Vue.use(axios)
 Vue.use(extend)
 Vue.use(N3)
 
 import App from './App'
 import router from './router'
-import store from './store'
 import './assets/styles/base.css'
+import axios from 'axios'
 
 /* eslint-disable */
 new Vue({
@@ -23,6 +21,9 @@ new Vue({
   template: '<App />',
   components: { App },
   router,
-  store
 })
+Vue.prototype.$userId = 0
+axios.defaults.withCredentials = true;
+axios.defaults.headers = {'Content-Type': 'application/json'}
+Vue.prototype.$axios = axios
 /* eslint-enable */

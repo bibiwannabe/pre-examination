@@ -112,6 +112,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private TRUserLoginInfo userCommonLogin(TPUserLoginInfo userLoginInfo) {
+        logger.info("用户登录：userLoginInfo：{}", JSON.toJSONString(userLoginInfo));
         TRUserLoginInfo trUserLoginInfo = new TRUserLoginInfo();
         UserInfo userInfo = userInfoMapper.getByEmail(userLoginInfo.getEmail());
         if (userInfo == null || !userInfo.getPassword().equals(PasswordUtil.MD5EncodeUtf8(userLoginInfo.getPassword()))) {

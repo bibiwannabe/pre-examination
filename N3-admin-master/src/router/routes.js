@@ -1,9 +1,12 @@
 import Login from '../views/login'
-import CommonLayout from '../layout'
+import Admin from '../views/admin'
 import Register from '../views/register'
 
-import NormalForm from '../views/form'
-import NormalTable from '../views/table'
+import Account from '../views/account'
+import TeachInfo from '../views/teachInfo'
+import Subject from '../views/subject'
+import Question from '../views/question'
+import Paper from '../views/paper'
 
 const routes = [
   // Login View
@@ -37,44 +40,76 @@ const routes = [
   },
   // Form View
   {
-    path: '/form',
-    name: 'form',
+    path: '/admin',
+    name: 'admin',
     icon: 'bars',
-    component: CommonLayout,
+    component: Admin,
     redirect: '/user/',
     meta: {
-      label: '表单组件'
+      label: '个人信息',
+      auth: false
     },
     children: [
       {
-        path: '/user/',
-        component: NormalForm,
-        name: 'normalForm',
+        path: '/account/',
+        component: Account,
+        name: 'account',
         meta: {
-          label: '普通表单'
+          label: '登录账号',
+          auth: false
+        }
+      },
+      {
+        path: '/teachInfo/',
+        component: TeachInfo,
+        name: 'teachInfo',
+        meta: {
+          label: '教师信息',
+          auth: false
         }
       }
     ]
   },
   // Table View
   {
-    path: '/table',
+    path: '/question',
     icon: 'table',
     name: 'table',
-    component: CommonLayout,
+    component: Admin,
     redirect: '/table/',
     meta: {
-      label: '表格组件'
+      label: '试题板块',
+      auth: false
     },
     children: [
       {
-        path: '/table/',
-        component: NormalTable,
-        name: 'normalTable',
+        path: '/subject/',
+        component: Subject,
+        name: 'subject',
         meta: {
-          label: '普通表格'
+          label: '科目管理',
+          auth: false
+        }
+      },
+      {
+        path: '/question/',
+        component: Question,
+        name: 'question',
+        meta: {
+          label: '试题管理',
+          auth: false
+        }
+      },
+      {
+        path: '/paper/',
+        component: Paper,
+        name: 'paper',
+        meta: {
+          label: '试卷管理',
+          auth: false
         }
       }
+
     ]
   },
   {

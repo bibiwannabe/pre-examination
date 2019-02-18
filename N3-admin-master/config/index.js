@@ -9,10 +9,6 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: './',
     productionSourceMap: true,
-    // Gzip off by default as many popular static hosts such as
-    // Surge or Netlify already gzip all static assets for you.
-    // Before setting to `true`, make sure to:
-    // npm install --save-dev compression-webpack-plugin
     productionGzip: false,
     productionGzipExtensions: ['js', 'css']
   },
@@ -23,15 +19,29 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://abc.com/',
-        changeOrigin: true
+        target: 'http://localhost:8083/admin_api_war_exploded',
+        //target: 'http://119.23.239.46:8080/admin-api-1.1',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        },
+        onProxyRes(proxyRes, req, res) {
+          var cookies = proxyRes.headers['set-cookie']
+          if (cookies == null || cookies.length == 0) {
+            delete proxyRes.headers['set-cookie']
+            return
+          }
+          for (var i = 0,n = cookies.length; i < n; i++) {
+            if(cookies[i].match(/^JSESSIONID=[^;]+;[\s\S]*Path=\/[^;]+/)){
+              cookies[i] = cookies[i].replace(/Path=\/[^;]+/,'Path=/');
+            }
+          }
+
+          proxyRes.headers['set-cookie'] = cookies;
+        }
       }
     },
-    // CSS Sourcemaps off by default because relative paths are "buggy"
-    // with this option, according to the CSS-Loader README
-    // (https://github.com/webpack/css-loader#sourcemaps)
-    // In our experience, they generally work as expected,
-    // just be aware of this issue when enabling this option.
-    cssSourceMap: false
+    cssSourceMap: false,
+    historyApiFallback: true
   }
 }

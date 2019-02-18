@@ -5,6 +5,7 @@
     <file type="web" url="file://$PROJECT_DIR$/exa-server" />
     <file type="web" url="file://$PROJECT_DIR$/portal-api" />
     <file type="web" url="file://$PROJECT_DIR$/server" />
+    <type id="Spring" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

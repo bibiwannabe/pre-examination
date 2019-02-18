@@ -3,11 +3,10 @@ import {
 } from './config'
 
 const API = {
-  // ROOT: IS_DEV ? '/api' : 'http://abc.com/api',
-  ROOT: '/api',
+  ROOT: 'http://119.23.239.46:8080/admin-api-1.0',
 
-  USER_LOGIN: 'http://119.23.239.46:8080/admin-api-1.0/user/login',
-  USER_LOGOUT: 'http://119.23.239.46:8080/admin-api-1.0/user/logout',
+  USER_LOGIN: '/user/login',
+  USER_LOGOUT: '/user/logout',
   USER_ADD: '/user/add',
   RECORD_LIST: '/user/getRecords',
   QUERY_LIST: '/user/getRecordsBy'

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f6ff2310-44ef-454d-98ae-26a0d9334c3e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../N3-admin-master/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/account.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/paper.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/question.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/subject.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/teachInfo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/artifacts/admin_api_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/artifacts/admin_api_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/artifacts/admin_api_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/artifacts/admin_api_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/docs/static/js/app.9c76dc4c5f868b5aedf3.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/docs/static/js/app.9c76dc4c5f868b5aedf3.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/layout/container.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/container.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/layout/header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/layout/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/admin.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/layout/levelbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/levelbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/layout/navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/navbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/router/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/router/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/store/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/store/modules/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/utils/axios.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/utils/const.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/utils/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/utils/mock.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/utils/storage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/views/form/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/form/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/views/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/views/register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin-api/admin-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-api/admin-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin-api/src/main/java/com/libiyi/exa/admin/api/core/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-api/src/main/java/com/libiyi/exa/admin/api/core/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.0.war" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/exa-server-1.0.war" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/client/ExaServerClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="8" column="55" lean-forward="true" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/client/ServerClient.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="797" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="exa-common" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f6ff2310-44ef-454d-98ae-26a0d9334c3e" name="Default Changelist" comment="" />
+      <created>1548148779202</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1548148779202</updated>
+      <workItem from="1548148782896" duration="144000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="144000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="797" extended-state="0" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Statistic" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/client/ServerClient.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/client/ExaServerClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="8" column="55" lean-forward="true" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

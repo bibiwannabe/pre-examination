@@ -60,7 +60,7 @@ public class AdminInfoController {
         return tpAdminInfo;
     }
 
-    @GetMapping("/")
+    @GetMapping("/info")
     @ResponseBody
     public Result<AdminInfoModel> getAdminInfo(HttpSession session) {
         Object object = session.getAttribute(RequestConst.USER_INFO);
@@ -80,17 +80,21 @@ public class AdminInfoController {
             return new Result.Builder<AdminInfoModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
         }
         AdminInfoModel adminInfoModel = getAdminInfoModel(trAdminInfo);
+        adminInfoModel.setUserId(trUserLoginInfo.getId());
         return new Result.Builder<AdminInfoModel>(adminInfoModel).setCode(CodeEnum.SUCCESS.getCode()).build();
 
     }
 
     private AdminInfoModel getAdminInfoModel(TRAdminInfo trAdminInfo) {
         AdminInfoModel adminInfoModel = new AdminInfoModel();
+        if(trAdminInfo == null) {
+            return adminInfoModel;
+        }
         adminInfoModel.setId(trAdminInfo.getId());
         adminInfoModel.setUserId(trAdminInfo.getUserId());
-        adminInfoModel.setSubject(trAdminInfo.getSubject());
+        adminInfoModel.setSubject(trAdminInfo.getSubject() == null ? "" : trAdminInfo.getSubject());
         adminInfoModel.setTeachYear(trAdminInfo.getTeachYear());
-        adminInfoModel.setTitle(trAdminInfo.getTitle());
+        adminInfoModel.setTitle(trAdminInfo.getTitle() == null ? "" : trAdminInfo.getTitle());
         return adminInfoModel;
     }
 

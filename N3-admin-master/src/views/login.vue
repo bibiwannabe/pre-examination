@@ -3,9 +3,10 @@
     <n3-form ref='form' class="login-form">
       <h3>考前辅导系统后台系统登录</h3>
       <div class="fields">
-        <n3-input class="field" v-model="account" placeholder="账号" width="320px">
+        <n3-input class="field" v-model="email" placeholder="账号" width="320px">
         </n3-input>
-        <n3-input class="field" v-model="password" type="password" placeholder="密码" width="320px"  @keyup.native.enter="check">
+        <n3-input class="field" v-model="password" type="password" placeholder="密码" width="320px"
+                  @keyup.native.enter="check">
         </n3-input>
         <n3-checkbox-group v-model="remember" class="save-account">
           <n3-checkbox label="remember">记住账号</n3-checkbox>
@@ -38,14 +39,11 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
-    // import register from 'register'
-  import {
-    STORAGE_KEY
-  } from '../utils/const'
-  import storage from '../utils/storage'
+  import {mapActions} from 'vuex'
 
-  function render() {
+  // import register from 'register'
+
+  function render () {
     var canvas = document.querySelector('#J_loginBackground');
     if (!canvas) {
       return;
@@ -71,29 +69,30 @@
       array: []
     };
 
-    function colorValue(min) {
+    function colorValue (min) {
       return Math.floor(Math.random() * 255 + min);
     }
 
-    function createColorStyle(r,g,b) {
+    function createColorStyle (r, g, b) {
       return 'rgba(' + r + ',' + g + ',' + b + ', 0.8)';
     }
 
-    function mixComponents(comp1, weight1, comp2, weight2) {
+    function mixComponents (comp1, weight1, comp2, weight2) {
       return (comp1 * weight1 + comp2 * weight2) / (weight1 + weight2);
     }
 
-    function averageColorStyles(dot1, dot2) {
-      var color1 = dot1.color,
-          color2 = dot2.color;
+    function averageColorStyles (dot1, dot2) {
+      var color1 = dot1.color;
+
+      var color2 = dot2.color;
 
       var r = mixComponents(color1.r, dot1.radius, color2.r, dot2.radius),
-          g = mixComponents(color1.g, dot1.radius, color2.g, dot2.radius),
-          b = mixComponents(color1.b, dot1.radius, color2.b, dot2.radius);
+        g = mixComponents(color1.g, dot1.radius, color2.g, dot2.radius),
+        b = mixComponents(color1.b, dot1.radius, color2.b, dot2.radius);
       return createColorStyle(Math.floor(r), Math.floor(g), Math.floor(b));
     }
 
-    function Color(min) {
+    function Color (min) {
       min = min || 0;
       this.r = colorValue(min);
       this.g = colorValue(min);
@@ -101,7 +100,7 @@
       this.style = createColorStyle(this.r, this.g, this.b);
     }
 
-    function Dot(){
+    function Dot () {
       this.x = Math.random() * canvas.width;
       this.y = Math.random() * canvas.height;
 
@@ -114,30 +113,29 @@
     }
 
     Dot.prototype = {
-      draw: function() {
+      draw: function () {
         ctx.beginPath();
         ctx.fillStyle = this.color.style;
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
         ctx.fill();
       }
-    };
+    }
 
-    function createDots(){
-      for(i = 0; i < dots.nb; i++) {
+    function createDots () {
+      for (i = 0; i < dots.nb; i++) {
         dots.array.push(new Dot());
       }
     }
 
-    function moveDots() {
-      for(i = 0; i < dots.nb; i++) {
+    function moveDots () {
+      for (i = 0; i < dots.nb; i++) {
 
         var dot = dots.array[i];
 
-        if(dot.y < 0 || dot.y > canvas.height) {
+        if (dot.y < 0 || dot.y > canvas.height) {
           dot.vx = dot.vx;
-          dot.vy = - dot.vy;
-        }
-        else if(dot.x < 0 || dot.x > canvas.width) {
+          dot.vy = -dot.vy;
+        } else if (dot.x < 0 || dot.x > canvas.width) {
           dot.vx = - dot.vx;
           dot.vy = dot.vy;
         }
@@ -146,16 +144,16 @@
       }
     }
 
-    function connectDots() {
-      for(i = 0; i < dots.nb; i++) {
-        for(j = 0; j < dots.nb; j++) {
+    function connectDots () {
+      for (i = 0; i < dots.nb; i++) {
+        for (j = 0; j < dots.nb; j++) {
           i_dot = dots.array[i];
           j_dot = dots.array[j];
 
-          if((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > - dots.distance && (i_dot.y - j_dot.y) > - dots.distance){
-            if((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > - dots.d_radius && (i_dot.y - mousePosition.y) > - dots.d_radius){
+          if ((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > -dots.distance && (i_dot.y - j_dot.y) > -dots.distance) {
+            if ((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > -dots.d_radius && (i_dot.y - mousePosition.y) > -dots.d_radius) {
               ctx.beginPath();
-              ctx.strokeStyle = averageColorStyles(i_dot, j_dot);
+              ctx.strokeStyle = averageColorStyles(i_dot, j_dot)
               ctx.moveTo(i_dot.x, i_dot.y);
               ctx.lineTo(j_dot.x, j_dot.y);
               ctx.stroke();
@@ -166,14 +164,14 @@
       }
     }
 
-    function drawDots() {
-      for(i = 0; i < dots.nb; i++) {
+    function drawDots () {
+      for (i = 0; i < dots.nb; i++) {
         var dot = dots.array[i];
         dot.draw();
       }
     }
 
-    function animateDots() {
+    function animateDots () {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       moveDots();
       connectDots();
@@ -182,15 +180,15 @@
       requestAnimationFrame(animateDots);
     }
 
-    canvas.onmousemove = function(e) {
+    canvas.onmousemove = function (e) {
       mousePosition.x = e.pageX;
       mousePosition.y = e.pageY;
-    };
+    }
 
-    canvas.onmouseleave = function(e) {
+    canvas.onmouseleave = function (e) {
       mousePosition.x = canvas.width / 2;
       mousePosition.y = canvas.height / 2;
-    };
+    }
 
     createDots();
     requestAnimationFrame(animateDots);
@@ -199,7 +197,7 @@
   export default {
     data () {
       return {
-        account: '',
+        email: '',
         password: '',
         remember: [],
         loading: false
@@ -208,19 +206,13 @@
     // components:{register},
     methods: {
       ...mapActions(['login']),
-      saveAccount () {
-        this.remember.length && storage.setItem(STORAGE_KEY.ACCOUNT, this.account)
-      },
-      getAccount () {
-        this.account = storage.getItem(STORAGE_KEY.ACCOUNT) || ''
-      },
       goRegister () {
         this.$router.replace({
           name: 'register'
         })
       },
       check () {
-        if (!this.account) {
+        if (!this.email) {
           return this.n3Alert({
             content: '请输入账号',
             type: 'success',
@@ -238,50 +230,40 @@
             width: '240px'
           })
         }
-        this.saveAccount()
-        this.submit()
-      },
-      submit () {
-        this.loading = true
-        this.login({
-          account: this.account,
-          password: this.password
+        var msg = ''
+        var result = '0'
+        this.$axios({
+          method: 'post',
+          url: '/api/user/login',
+          crossDomain: true,
+          data: JSON.stringify({email: this.email, password: this.password}),
+          contentType: 'application/json'
+        }).then(response => {
+          result = JSON.stringify(response.data.code)
+          if (result !== '1000') {
+            msg = JSON.stringify(response.data.message)
+            alert(msg)
+          }
+          if (result === '1000') {
+            var name = JSON.stringify(response.data.data.name)
+            var email = JSON.stringify(response.data.data.email)
+            var id = JSON.stringify(response.data.data.id)
+            var accType = JSON.stringify(response.data.data.accType)
+            alert(' 登录成功')
+            this.$userId = id
+            this.$router.push({name: 'account', params: {name: name, email: email, id: id, accType: accType}})
+          }
+        }).catch((error) => {
+          alert('登录失败' + error.toString())
+          return
         })
-          .then(data => {
-            this.loading = false
-            if (this.$route.query.back) {
-               this.$router.replace(this.$route.query.back)
-            } else {
-              this.$router.replace({
-                name: 'form'
-              })
-            }
-          })
-          .catch(error => {
-            this.loading = false
-            this.n3Alert({
-              content: error || '登录失败，请检查账号密码~',
-              type: 'success',
-              placement: 'top-right',
-              duration: 2000,
-              width: '240px'
-            })
-          })
-      },
-      render: render
-    },
-    watch: {
-      '$route' () {
-        if (this.$route.name == 'login') {
-          this.render()
-        }
       }
     },
     created () {
       this.getAccount()
     },
     mounted () {
-      this.render()
+      render()
     }
   }
 </script>
@@ -296,12 +278,14 @@
     width: 100%;
     height: 100%;
     background: #111;
+
     canvas {
       width: 100%;
       height: 100%;
       position: absolute;
     }
   }
+
   .login-form {
     position: absolute;
     z-index: 1;
@@ -319,6 +303,7 @@
     border-radius: 12px;
     box-shadow: 2px 2px 32px 1px rgba(0, 0, 0, .45);
     opacity: .75;
+
     h3 {
       margin-top: 0;
       margin-bottom: 0;
@@ -327,11 +312,13 @@
       font-size: 22px;
       text-align: center;
     }
+
     .field {
       display: block;
       margin: 0 auto;
       padding: 6px 0;
     }
+
     .submit {
       padding: 12px 0;
     }

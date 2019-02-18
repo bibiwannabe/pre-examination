@@ -21,4 +21,8 @@
     <!--两个标配-->
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
+    <mvc:interceptors>
+        <!-- 使用 bean 定义一个 Interceptor，直接定义在 mvc:interceptors 下面的 Interceptor 将拦截所有的请求 -->
+        <bean class="com.libiyi.exa.admin.api.aop.HeaderInterceptor"/>
+    </mvc:interceptors>
 </beans>

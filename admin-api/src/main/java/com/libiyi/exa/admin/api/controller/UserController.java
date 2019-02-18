@@ -63,7 +63,7 @@ public class UserController {
     @ResponseBody
     public Result<String> sendEmailCode(@RequestBody SendCodeParam sendCodeParam){
         try {
-            if(sendCodeParam.getEmail() == "") {
+            if(sendCodeParam.getEmail() == "" || sendCodeParam.getEmail() == null) {
                 return new Result.Builder<String>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
             }
             TRResponse response = exaServerService.sendEmail(sendCodeParam.getEmail());

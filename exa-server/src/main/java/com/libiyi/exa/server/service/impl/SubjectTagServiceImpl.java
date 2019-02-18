@@ -8,6 +8,7 @@ import com.libiyi.exa.common.util.DateUtil;
 import com.libiyi.exa.server.dao.SubjectTagMapper;
 import com.libiyi.exa.server.entity.SubjectTag;
 import com.libiyi.exa.server.service.SubjectTagService;
+import com.libiyi.exa.server.utils.RedisUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,11 @@ public class SubjectTagServiceImpl implements SubjectTagService {
 
     @Autowired
     private SubjectTagMapper subjectTagMapper;
+
+    @Autowired
+    private RedisUtil redisUtil;
+
+    private static final String SUBJECT_TAG = "SUBJECT_TAG";
 
     /**
      * 创建科目
@@ -41,6 +47,7 @@ public class SubjectTagServiceImpl implements SubjectTagService {
             trResponse.setDesc(CodeEnum.UNKNOWN_ERROR.getDesc());
             return trResponse;
         }
+        redisUtil.del(SUBJECT_TAG);
         trResponse.setCode(CodeEnum.SUCCESS.getCode());
         trResponse.setDesc(CodeEnum.SUCCESS.getDesc());
         return trResponse;

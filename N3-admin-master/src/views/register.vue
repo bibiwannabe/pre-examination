@@ -46,10 +46,7 @@
 
 <script>
   import { mapActions } from 'vuex'
-  import {
-    STORAGE_KEY
-  } from '../utils/const'
-  import storage from '../utils/storage'
+  import Vue from 'vue'
 
   function render() {
     var canvas = document.querySelector('#J_loginBackground');
@@ -210,17 +207,18 @@
         confirmPassword: '',
         password: '',
         remember: [],
-        loading: false
+        loading: false,
+        emailParam: new this.EmailParam(this.email)
       }
     },
     methods: {
       ...mapActions(['register']),
-      saveAccount () {
-        this.remember.length && storage.setItem(STORAGE_KEY.ACCOUNT, this.email)
+      EmailParam (email) {
+         this.email = email
       },
-      getAccount () {
-        this.email = storage.getItem(STORAGE_KEY.ACCOUNT) || ''
-      },
+    create () {
+        render()
+    },
       checkEmail () {
         if (!this.email) {
           return this.n3Alert({
@@ -231,15 +229,40 @@
             width: '240px'
           })
         }
-        this.sendCode()
+        var msg = '该邮箱已被注册'
+        var result = '0'
+        axios.get('/api/user/checkEmailExist',
+            {params: {email: this.email}}
+          ).then(response => {
+            result = JSON.stringify(response.data.code)
+          if (result == 1001) {
+            msg = '该邮箱已被注册'
+            alert(msg)
+          } else if (result == 1000) {
+            this.sendCode()
+          }
+          }).catch((error) => {
+            this.alert('发送失败' + error.toString())
+            return
+          })
       },
       sendCode () {
-        this.$http({
+        this.$axios({
           method: 'post',
-          url: 'http://119.23.239.46:8080/admin-api-1.0/user/sendCode',
+          url: '/api/user/sendCode',
           crossDomain: true,
-          data: '{"email":"' + this.email + '"}',
+          data: JSON.stringify({email: this.email}),
           contentType: 'application/json'
+        }).then(response => {
+          var result = JSON.stringify(response.data.code)
+          if (result !== 1000) {
+            result = JSON.stringify(response.data.message)
+          } else {
+            result = JSON.stringify(response.data.message)
+          }
+          alert(result)
+        }).catch((error) => {
+          alert('发送失败' + error.toString())
         })
       },
       goLogin () {
@@ -248,7 +271,7 @@
         })
       },
       check () {
-        if (!this.email || !this.email.contains('@')) {
+        if (!this.email) {
           return this.n3Alert({
             content: '请输入正确邮箱',
             type: 'success',
@@ -292,51 +315,37 @@
             duration: 2000,
             width: '240px'})
         }
-        this.saveAccount()
         this.submit()
       },
       submit () {
-        this.loading = true
-        this.register({
-          email: this.email,
-          password: this.password,
-          code: this.code
+        var msg = ''
+        var result = '0'
+        this.$axios({
+          method: 'post',
+          url: '/api/user/register',
+          crossDomain: true,
+          data: JSON.stringify({email: this.email, password: this.password, code: new Number(this.code)}),
+          contentType: 'application/json'
+        }).then(response => {
+          result = JSON.stringify(response.data.code)
+          if (result !== '1001') {
+            msg = JSON.stringify(response.data.message)
+            alert(msg)
+          }
+          if (result === '1000') {
+            this.$router.replace({name: 'login'})
+          }
+        }).catch((error) => {
+          this.alert('注册失败' + error.toString())
+          return
         })
-          .then(data => {
-            this.loading = false
-            if (this.$route.query.back) {
-              this.$router.replace(this.$route.query.back)
-            } else {
-              this.$router.replace({
-                name: 'form'
-              })
-            }
-          })
-          .catch(error => {
-            this.loading = false
-            this.n3Alert({
-              content: error || '登录失败，请检查账号密码~',
-              type: 'success',
-              placement: 'top-right',
-              duration: 2000,
-              width: '240px'
-            })
-          })
-      },
-      render: render
-    },
-    watch: {
-      '$route' () {
-        if (this.$route.name == 'register') {
-          this.render()
-        }
       }
     },
     created () {
       this.getAccount()
     },
     mounted () {
-      this.render()
+      render()
     }
   }
 </script>
