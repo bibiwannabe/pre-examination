@@ -101,6 +101,7 @@ public class AdminPaperServiceImpl implements AdminPaperService {
         queryParam.getPagination().setTotalNum(counts);
         trAdminPaperInfoList.setPagination(queryParam.getPagination());
         List<TPaperInfo> tPaperInfoList = paperInfoList.stream().map(this::getTPaperInfo).collect(Collectors.toList());
+        logger.info("获取到试卷列表：" + JSON.toJSONString(tPaperInfoList));
         trAdminPaperInfoList.setPaperInfoList(tPaperInfoList);
         trResponse.setCode(CodeEnum.SUCCESS.getCode());
         trAdminPaperInfoList.setResponse(trResponse);

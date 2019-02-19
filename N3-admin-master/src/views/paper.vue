@@ -4,15 +4,15 @@
       <div class="search-item" style="float: left">
         <div class="form-item">
           <label for="">科目：</label>
-          <select v-model="searchKey.subjectId" @change="searchChange" style="width: 80px;padding-left: 8px;padding-top: 5px; padding-bottom: 5px; border-color: #dddddd; background-color: white">
-            <option :value="item.id.toString()" v-for="item in subjectList">{{item.subjectName}}</option>
+          <select v-model="searchKey.subjectId" @change="keyChange" style="width: 80px;padding-left: 8px;padding-top: 5px; padding-bottom: 5px; border-color: #dddddd; background-color: white">
+            <option :value="item.id" v-for="item in subjectList">{{item.subjectName}}</option>
           </select>
         </div>
         <div class="form-item">
           <label for="">排序方式：</label>
-          <n3-select v-model="searchKey.queryResult" @change="searchChange">
-            <n3-option value="">最新</n3-option>
-            <n3-option value="1">平均分</n3-option>
+          <n3-select v-model="searchKey.queryType" @change="keyChange">
+            <n3-option value="1" selected>最新</n3-option>
+            <n3-option value="2">平均分</n3-option>
           </n3-select>
         </div>
       </div>
@@ -46,15 +46,15 @@
   import API from '../api'
 
   export default {
-    data() {
+    data () {
       return {
         subjectList: [],
         paperList: [],
         loading: false,
         searchChanged: false,
         searchKey: {
-          userId: '',
-          queryResult: '',
+          subjectId: 0,
+          queryType: '1',
           startDate: '',
           endDate: ''
         },
@@ -126,17 +126,12 @@
               return `<div>${createTime}</div>`
             }
           }, {
-            title: '操作',
+            title: '点击查看详情',
             dataIndex: 'queryRecordId',
             width: '120px',
             render: (text, record, index) => {
-              let type = 'primary'
-              if (!record.queryResult) {
-                type = 'warning'
-              }
-              return `<router-link to="/record/${text}" target="_blank">
-                        <n3-label type="${type}">详情</n3-label>
-                      </router-link>`
+              return `<div class="search-submit" style="width: 60px; margin-left: 10px;margin-top: 4px">
+                <n3-button  block @click.native="showDetail">详情</n3-button></div>`
             }
           }
         ],
@@ -148,54 +143,22 @@
         this.pagination.current = page
         this.searchRecord()
       },
-      searchChange () {
+      keyChange () {
         this.searchChanged = true
       },
       searchRecord () {
-        if (this.searchChanged) {
-          this.pagination.current = 1
-          this.searchChanged = false
-        }
-        let params = Object.assign({}, this.searchKey, {
-          page: this.pagination.current
-        })
-        if (params.queryResult === 1) {
-          params.queryResult = true
-        }
-        if (params.queryResult === 0) {
-          params.queryResult = false
-        }
-        Object.keys(params).forEach(key => {
-          let item = params[key]
-          if (item === '' || typeof item === 'undefined') {
-            delete params[key]
-          }
-        })
-        let url = API.RECORD_LIST
-        if (Object.keys(params).length < 2) {
-          url = API.QUERY_LIST
-        }
-        this.loading = true
-        this.$http.get(url, {
-          params
-        }).then(data => {
-          console.log(data)
-          this.source = data.result.data || []
-          this.pagination.total = data.result.total || 0
-          this.loading = false
-        }).catch(error => {
-          this.loading = false
-          this.n3Alert({
-            content: error || '加载失败，请刷新试试~',
-            type: 'danger',
-            placement: 'top-right',
-            duration: 2000,
-            width: '240px' // 内容不确定，建议设置width
-          })
+        this.$axios.get('/api/paper/list?subjectId=' + this.searchKey.subjectId
+        ).then(response => {
+          this.paperList = response.data.data.paperList
+          this.pagination.total = response.data.data.total
+          this.pagination.current = response.data.data.page
+          this.pagination.pagesize = response.data.data.size
+        }).catch((error) => {
+          this.alert('获取信息失败' + error.toString())
         })
       },
       getSubjectName (id) {
-        for (let subject in this.subjectList) {
+        for (let subject of this.subjectList) {
           if (subject.id === id) {
             return subject.subjectName
           }
@@ -208,6 +171,7 @@
         this.$axios.get('/api/subject/list'
         ).then(response => {
           this.subjectList = response.data.data
+          this.searchKey.subjectId = response.data.data[0].id
         }).catch((error) => {
           alert('获取信息失败' + error.toString())
         })
@@ -215,6 +179,9 @@
         ).then(response => {
           result = JSON.stringify(response.data.code)
           this.paperList = response.data.data.paperList
+          this.pagination.total = response.data.data.total
+          this.pagination.current = response.data.data.page
+          this.pagination.pagesize = response.data.data.size
         }).catch((error) => {
           this.alert('获取信息失败' + error.toString())
         })

@@ -55,6 +55,11 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     }
 
     @Override
+    public TRUserLoginInfo getUserInfo(int i) throws TException {
+        return userService.getUserInfo(i);
+    }
+
+    @Override
     public TRPortalWrongQuestionInfoList getWrongQuestionBySubjectId(TPPortalWrongQuestionParam wrongQuestionParam) throws TException {
         return portalWrongQuestionService.getWrongQuestionBySubjectId(wrongQuestionParam);
     }

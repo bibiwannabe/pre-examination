@@ -11,4 +11,6 @@ public interface UserService {
     TRUserLoginInfo userLogin(TPUserLoginInfo userLoginInfo);
 
     TRResponse sendEmail(String email);
+
+    TRUserLoginInfo getUserInfo(Integer userId);
 }

@@ -249,7 +249,6 @@
             var email = JSON.stringify(response.data.data.email)
             var id = JSON.stringify(response.data.data.id)
             var accType = JSON.stringify(response.data.data.accType)
-            alert(' 登录成功')
             this.$userId = id
             this.$router.push({name: 'account', params: {name: name, email: email, id: id, accType: accType}})
           }

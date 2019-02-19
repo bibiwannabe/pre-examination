@@ -12,6 +12,8 @@ service ExaServerService{
 
         model.TRResponse sendEmail(1:string email);
 
+        model.TRUserLoginInfo getUserInfo(1:i32 userId);
+
         /*用户获取题目模块*/
 
         //用户获取错题

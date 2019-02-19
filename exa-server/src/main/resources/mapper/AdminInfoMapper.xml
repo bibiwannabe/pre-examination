@@ -12,6 +12,7 @@
     </resultMap>
     <insert id="createAdminInfo">
         INSERT INTO admin_info(user_id, title, subject, teach_year, create_time, update_time) VALUE (#{i.userId}, #{i.title},#{i.subject}, #{i.teachYear},  #{i.createTime}, #{i.updateTime})
+        ON DUPLICATE KEY UPDATE title =  #{i.title}, subject = #{i.subject}, teach_year = #{i.teachYear},  update_time = #{i.updateTime}
     </insert>
 
     <select id="getByUserId" resultMap="BaseResultMap">

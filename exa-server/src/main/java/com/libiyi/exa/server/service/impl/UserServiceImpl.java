@@ -154,7 +154,8 @@ public class UserServiceImpl implements UserService {
             logger.info(" 发送验证码：{}到邮箱:{}", code, email);
             EmailUtil.sendCode(code, email);
         } catch (Exception e) {
-            logger.error("发送验证码失败，email：{} code:{}", email, code);
+            logger.error("发送验证码失败，email：{} ，code:{}", email, code, e);
+            logger.info("我就不信这个错打不出来" + e);
             trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
             trResponse.setDesc(CodeEnum.UNKNOWN_ERROR.getDesc());
             return trResponse;
@@ -162,5 +163,26 @@ public class UserServiceImpl implements UserService {
         trResponse.setCode(CodeEnum.SUCCESS.getCode());
         trResponse.setDesc(CodeEnum.SUCCESS.getDesc());
         return trResponse;
+    }
+
+    /**
+     * 获取用户信息
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public TRUserLoginInfo getUserInfo(Integer userId) {
+        TRUserLoginInfo trUserLoginInfo = new TRUserLoginInfo();
+        UserInfo userInfo = userInfoMapper.getById(userId);
+        if (userInfo == null) {
+            TRResponse trResponse = new TRResponse();
+            trResponse.setCode(CodeEnum.DATA_ILEAGLE.getCode());
+            trResponse.setDesc(CodeEnum.DATA_ILEAGLE.getDesc());
+            trUserLoginInfo.setResponse(trResponse);
+            return trUserLoginInfo;
+        }
+        trUserLoginInfo = getTrUserLoginInfo(userInfo);
+        return trUserLoginInfo;
     }
 }

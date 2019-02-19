@@ -1,6 +1,7 @@
 package com.libiyi.exa.admin.api.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.libiyi.exa.admin.api.util.RedisUtil;
 import com.libiyi.exa.common.common.AccountTypeEnum;
 import com.libiyi.exa.common.common.CodeEnum;
 import com.libiyi.exa.common.common.RequestConst;
@@ -29,6 +30,9 @@ public class UserController {
 
     @Autowired
     private ExaServerService.Iface exaServerService;
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
@@ -147,5 +151,34 @@ public class UserController {
         }
         session.removeAttribute(RequestConst.USER_INFO);
         return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+    @RequestMapping(value = "/myInfo", method = RequestMethod.GET)
+    @ResponseBody
+    public Result<UserModel> getLonginUserInfo(HttpSession session) {
+        Object object = session.getAttribute(RequestConst.USER_INFO);
+        TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class) ;
+        if(trUserLoginInfo == null || trUserLoginInfo.getAccType()!= AccountTypeEnum.TEACHER.getCode()) {
+            return new Result.Builder<UserModel>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+        }
+        UserModel userModel = getUserModel(trUserLoginInfo);
+        return new Result.Builder<UserModel>(userModel).setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+    @GetMapping(value = "/info/{userId}")
+    @ResponseBody
+    public Result<UserModel> getUserInfo(@PathVariable("userId") int userId) {
+        TRUserLoginInfo trUserLoginInfo = null;
+        try {
+            trUserLoginInfo = exaServerService.getUserInfo(userId);
+        }catch (Throwable e) {
+            logger.error("获取用户信息失败");
+            return new Result.Builder<UserModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).build();
+        }
+        if(trUserLoginInfo.getResponse().getCode()!=CodeEnum.SUCCESS.getCode()){
+            return new Result.Builder<UserModel>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
+        }
+        UserModel userModel = getUserModel(trUserLoginInfo);
+        return new Result.Builder<UserModel>(userModel).setCode(CodeEnum.SUCCESS.getCode()).build();
     }
 }

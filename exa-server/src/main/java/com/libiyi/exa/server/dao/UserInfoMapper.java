@@ -12,4 +12,6 @@ public interface UserInfoMapper {
    Integer getEmailNumCount(@Param("email") String email);
 
     UserInfo getByEmail(@Param("email") String email);
+
+    UserInfo getById(@Param("id") Integer id);
 }

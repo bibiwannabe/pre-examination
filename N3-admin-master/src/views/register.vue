@@ -231,7 +231,7 @@
         }
         var msg = '该邮箱已被注册'
         var result = '0'
-        axios.get('/api/user/checkEmailExist',
+        this.$axios('/api/user/checkEmailExist',
             {params: {email: this.email}}
           ).then(response => {
             result = JSON.stringify(response.data.code)
@@ -342,7 +342,6 @@
       }
     },
     created () {
-      this.getAccount()
     },
     mounted () {
       render()
