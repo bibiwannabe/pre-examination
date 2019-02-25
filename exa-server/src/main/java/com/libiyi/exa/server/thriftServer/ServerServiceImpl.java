@@ -60,6 +60,11 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     }
 
     @Override
+    public TRResponse updateUsername(String s, int i) throws TException {
+        return userService.updateUsername(s, i);
+    }
+
+    @Override
     public TRPortalWrongQuestionInfoList getWrongQuestionBySubjectId(TPPortalWrongQuestionParam wrongQuestionParam) throws TException {
         return portalWrongQuestionService.getWrongQuestionBySubjectId(wrongQuestionParam);
     }
@@ -105,7 +110,7 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     }
 
     @Override
-    public TRResponse addQuestion(TPAdminCreateQuestionInfo questionInfo) throws TException {
+    public TRIdResult addQuestion(TPAdminCreateQuestionInfo questionInfo) throws TException {
         return questionService.createQuestion(questionInfo);
     }
 
@@ -115,12 +120,22 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     }
 
     @Override
+    public TRAdminQuestionSearchList getQuestionListBySearchKey(TPAdminSearchQuestionParam tpAdminSearchQuestionParam) throws TException {
+        return questionService.getQuestionListBySearchKey(tpAdminSearchQuestionParam);
+    }
+
+    @Override
+    public TRAdminQuestionInfo getQuestionById(int i) throws TException {
+        return questionService.getQuestionById(i);
+    }
+
+    @Override
     public TRResponse modifyQuestion(TPAdminModifyQuestionInfo modifyParam) throws TException {
         return questionService.modifyQuestion(modifyParam);
     }
 
     @Override
-    public TRResponse createPaper(TPAdminCreatePaperInfo paperInfo) throws TException {
+    public TRIdResult createPaper(TPAdminCreatePaperInfo paperInfo) throws TException {
         return adminPaperService.createPaper(paperInfo);
     }
 

@@ -8,9 +8,6 @@
         <n3-input class="field" v-model="password" type="password" placeholder="密码" width="320px"
                   @keyup.native.enter="check">
         </n3-input>
-        <n3-checkbox-group v-model="remember" class="save-account">
-          <n3-checkbox label="remember">记住账号</n3-checkbox>
-        </n3-checkbox-group>
       </div>
       <div class="submit">
         <n3-button
@@ -241,8 +238,14 @@
         }).then(response => {
           result = JSON.stringify(response.data.code)
           if (result !== '1000') {
-            msg = JSON.stringify(response.data.message)
-            alert(msg)
+            msg = response.data.message
+            this.n3Alert({
+              content: msg,
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
           }
           if (result === '1000') {
             var name = JSON.stringify(response.data.data.name)
@@ -259,7 +262,6 @@
       }
     },
     created () {
-      this.getAccount()
     },
     mounted () {
       render()

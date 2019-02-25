@@ -13,4 +13,6 @@ public interface UserService {
     TRResponse sendEmail(String email);
 
     TRUserLoginInfo getUserInfo(Integer userId);
+
+    TRResponse updateUsername(String name, Integer id);
 }

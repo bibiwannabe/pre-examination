@@ -26,7 +26,7 @@
 
       </div>
       <div class="search-submit" style="float: right;width: 100px; margin-right: 50px">
-        <n3-button block @click.native="search">新建题目</n3-button>
+        <n3-button block @click.native="createQuestion">新建题目</n3-button>
       </div>
       <div class="search-submit" style="float: left;width: 100px; margin-left: 10px;margin-top: 4px">
         <n3-button type="primary" block @click.native="search">搜索</n3-button>
@@ -43,6 +43,8 @@
       :select-col="false"
       :loading="loading"
       responsive
+      v-model="questionList"
+      @change="load"
     >
     </n3-data-table>
     <n3-page
@@ -53,6 +55,7 @@
       @change="pageChange"
     >
     </n3-page>
+
   </section>
 </template>
 <script>
@@ -61,6 +64,10 @@
   export default {
     data () {
       return {
+        subject: {
+          id: 0,
+          name: ''
+        },
         subjectList: [],
         questionList: [],
         loading: false,
@@ -68,6 +75,12 @@
         subjectId: 0,
         queryType: 0,
         questionType: 0,
+        questionTypeName: '',
+        questionContent: '',
+        questionSelections: [],
+        questionAnswer: '',
+        readOnly: true,
+        subjectName: '',
         selection: {
           checkRows: [],
           onSelect (record, checked, checkRows) {},
@@ -87,14 +100,14 @@
         columns: [
           {
             title: 'ID',
-            dataIndex: 'queryRecordId',
+            dataIndex: 'id',
             width: '50px',
             render: (text, record, index) => {
               return `<div>${record.id}</div>`
             }
           }, {
             title: '题目描述',
-            dataIndex: 'queryDate',
+            dataIndex: 'content',
             width: '300px',
             render: (text, record, index) => {
               return `<div>${record.content}</div>`
@@ -102,7 +115,7 @@
           },
           {
             title: '科目',
-            dataIndex: 'queryType',
+            dataIndex: 'subject',
             width: '120px',
             render: (text, record, index) => {
               var subjectId = this.getSubjectName(record.subjectId)
@@ -110,16 +123,19 @@
             }
           }, {
             title: '做题人数',
-            dataIndex: 'userId',
+            dataIndex: 'counts',
             width: '120px',
             render: (text, record, index) => {
               return `<div>${record.counts}</div>`
             }
           }, {
             title: '正确率',
-            dataIndex: 'ipAddress',
+            dataIndex: 'rate',
             width: '120px',
             render: (text, record, index) => {
+              if (record.counts === 0) {
+                return `<div>暂无数据</div>`
+              }
               var rate = record.correctNum / record.counts * 100
               rate = rate.toFixed(2);
               return `<div>${rate}%</div>`
@@ -129,34 +145,8 @@
             dataIndex: 'detail',
             width: '100px',
             render: (text, record, index) => {
-              var isShow = false
-
-              var choiceAndSelectionAnswer = ''
-              var selectionAnswer = []
-              if (record.type === 0) {
-                choiceAndSelectionAnswer = record.answer
-              }
-              if (isShow) {
-                return `<div class="search-submit" style="width: 60px; margin-left: 10px;margin-top: 4px">
-        <n3-button  block @click.native="showDetail">详情</n3-button></div>
-        <div  style="width: 1080px;">
-      <n3-form-item
-        label="题目"
-        need
-        :label-col="3"
-      >
-        <n3-input
-          width="320px"
-          :rules="[{type:'required'}]"
-          :custom-validate="passwordValidate"
-          class="fl"
-        > ${record.content}
-        </n3-input>
-      </n3-form-item></div>`
-              }
               return `<div class="search-submit" style="width: 60px; margin-left: 10px;margin-top: 4px">
-        <n3-button  block @click.native="isShow = true">详情</n3-button>
-      </div>`
+        <n3-button  block @click.native="showDetail(${record.id})">详情</n3-button></div>`
             }
           }
         ],
@@ -164,6 +154,32 @@
       }
     },
     methods: {
+      load () {
+        var url = '/api/question/list?subjectId=' + this.subjectId + '&type=' + this.questionType + '&page=' + this.pagination.current
+        this.$axios.get(url
+        ).then(response => {
+          var result = response.data.code
+          if (result === 1002) {
+            this.n3Alert({
+              content: '登录失效',
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
+            this.$router.push({
+              name: 'login'
+            })
+          }
+          this.questionList = response.data.data.questionList
+          this.pagination.total = response.data.data.total
+          this.pagination.current = response.data.data.page
+          this.pagination.size = response.data.data.size
+        }).catch((error) => {
+          alert('获取信息失败' + error.toString())
+        })
+        this.loading = false
+      },
       getSubjectName (id) {
         for (let subject of this.subjectList) {
           if (subject.id === id) {
@@ -174,27 +190,42 @@
       },
       pageChange (page) {
         this.pagination.current = page
-        this.searchRecord()
+        this.search()
       },
       search () {
-        var url = '/api/question/list?subjectId=' + this.subjectId + '&type=' + this.questionType
-        this.$axios.get(url
-        ).then(response => {
-          this.questionList = response.data.data.questionList
-          this.pagination.total = response.data.data.total
-          this.pagination.current = response.data.data.page
-          this.pagination.size = response.data.data.size
-        }).catch((error) => {
-          this.alert('获取信息失败' + error.toString())
-        })
+        this.loading = true
+        this.load()
+      },
+      getQuestionTypeName () {
+        if (this.questionType === 0) {
+          return '单选题'
+        }
+        if (this.questionType === 1) {
+          return '多选题'
+        }
+        if (this.questionType === 2) {
+          return '填空题'
+        }
       },
       reload () {
-        var result = []
-        var msg = ''
         this.$axios.get('/api/subject/list'
         ).then(response => {
+          var result = response.data.code
+          if (result === 1002) {
+            this.n3Alert({
+              content: '登录失效',
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
+            this.$router.push({
+              name: 'login'
+            })
+          }
           this.subjectList = response.data.data
           this.subjectId = response.data.data[0].id
+          this.subject.id = this.subjectId
         }).catch((error) => {
           alert('获取信息失败' + error.toString())
         })
@@ -210,6 +241,7 @@
         this.pagination.current = response.data.data.page
         this.pagination.size = response.data.data.size
         this.questionType = '0'
+        this.questionTypeName = '单选题'
         this.queryType = '0'
       }).catch((error) => {
         this.alert('获取信息失败' + error.toString())
@@ -220,6 +252,23 @@
       },
       created () {
         this.reload()
+      },
+      deactivated () {
+        this.$destroy()
+      },
+      showDetail (id) {
+        if (this.questionType === '0') {
+          this.$router.push({name: 'choiceInfo', params: {id: id}})
+        }
+        if (this.questionType === '1') {
+          this.$router.push({name: 'selectionInfo', params: {id: id}})
+        }
+        if (this.questionType === '2') {
+          this.$router.push({name: 'fillingInfo', params: {id: id}})
+        }
+      },
+      createQuestion () {
+        this.$router.push({name: 'createQuestion'})
       }
     },
     watch: {

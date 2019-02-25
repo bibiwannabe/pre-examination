@@ -4,11 +4,11 @@
       <h3>考前辅导系统后台注册</h3>
       <div class="fields">
         <n3-input class="field" v-model="email" placeholder="邮箱" width="320px"/>
-        <n3-input class="field" v-model="code" placeholder="发送验证码" width="240px" style="float:left">
+        <n3-input class="field" v-model="code" placeholder="发送验证码" width="210px" style="float:left">
         </n3-input>
         <n3-button @click.native="checkEmail"
-          type="primary" style="margin-left:20px;margin-top: 5px"  width="80px">
-          发送
+          type="primary" style="margin-left:15px;margin-top: 5px"  width="150px" :disabled="sent" v-model="totalTime">
+          {{ sent ? totalTime+'s后重发' : '发送' }}
         </n3-button>
         <n3-input class="field" v-model="password" type="password" placeholder="密码" width="320px"  @keyup.native.enter="check">
         </n3-input>
@@ -202,12 +202,14 @@
   export default {
     data () {
       return {
+        totalTime: 60,
         email: '',
         code: '',
         confirmPassword: '',
         password: '',
         remember: [],
         loading: false,
+        sent: false,
         emailParam: new this.EmailParam(this.email)
       }
     },
@@ -224,7 +226,7 @@
           return this.n3Alert({
             content: '请输入正确邮箱',
             type: 'success',
-            placement: 'top-right',
+            placement: 'center',
             duration: 2000,
             width: '240px'
           })
@@ -237,7 +239,13 @@
             result = JSON.stringify(response.data.code)
           if (result == 1001) {
             msg = '该邮箱已被注册'
-            alert(msg)
+            this.n3Alert({
+              content: msg,
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width:'240px' // 内容不确定，建议设置width
+            })
           } else if (result == 1000) {
             this.sendCode()
           }
@@ -246,7 +254,17 @@
             return
           })
       },
+      countDown () {
+        if (this.totalTime > 0) {
+          this.totalTime = this.totalTime - 1
+          setTimeout(this.countDown, 1000)
+        } else {
+          this.sent = false
+          this.totalTime = 60
+        }
+      },
       sendCode () {
+        var result = 0
         this.$axios({
           method: 'post',
           url: '/api/user/sendCode',
@@ -254,13 +272,27 @@
           data: JSON.stringify({email: this.email}),
           contentType: 'application/json'
         }).then(response => {
-          var result = JSON.stringify(response.data.code)
-          if (result !== 1000) {
-            result = JSON.stringify(response.data.message)
+          result = response.data.code
+          if (result === 1000) {
+            this.n3Alert({
+              content: '发送成功',
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
+            this.sent = true
+            this.countDown()
           } else {
-            result = JSON.stringify(response.data.message)
+            result = response.data.message
+            this.n3Alert({
+              content: result,
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
           }
-          alert(result)
         }).catch((error) => {
           alert('发送失败' + error.toString())
         })
@@ -329,8 +361,14 @@
         }).then(response => {
           result = JSON.stringify(response.data.code)
           if (result !== '1001') {
-            msg = JSON.stringify(response.data.message)
-            alert(msg)
+            msg = response.data.message
+            this.n3Alert({
+              content: msg,
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px' // 内容不确定，建议设置width
+            })
           }
           if (result === '1000') {
             this.$router.replace({name: 'login'})

@@ -185,4 +185,24 @@ public class UserServiceImpl implements UserService {
         trUserLoginInfo = getTrUserLoginInfo(userInfo);
         return trUserLoginInfo;
     }
+
+    /**
+     * 更改用户名
+     * @param name
+     * @param id
+     * @return
+     */
+    @Override
+    public TRResponse updateUsername(String name, Integer id) {
+        TRResponse trResponse = new TRResponse();
+        try{
+            userInfoMapper.updateNameById(name, id);
+        } catch (Exception e) {
+            trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
+            trResponse.setDesc(CodeEnum.UNKNOWN_ERROR.getDesc());
+        }
+        trResponse.setCode(CodeEnum.SUCCESS.getCode());
+        trResponse.setDesc(CodeEnum.SUCCESS.getDesc());
+        return trResponse;
+    }
 }

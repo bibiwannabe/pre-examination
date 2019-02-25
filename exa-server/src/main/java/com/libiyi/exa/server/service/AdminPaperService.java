@@ -4,7 +4,7 @@ import com.libiyi.exa.common.thrift.*;
 
 public interface AdminPaperService {
 
-    TRResponse createPaper(TPAdminCreatePaperInfo paperInfo);
+    TRIdResult createPaper(TPAdminCreatePaperInfo paperInfo);
 
     TRResponse modifyPaper(TPAdminModifyPaperInfo modifyParam);
 

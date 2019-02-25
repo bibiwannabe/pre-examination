@@ -19,6 +19,9 @@
       <div class="search-submit" style="float: left;width: 200px">
         <n3-button type="primary" block @click.native="searchRecord">搜索</n3-button>
       </div>
+      <div class="search-submit" style="float: right;width: 100px; margin-right: 50px">
+        <n3-button block @click.native="createPaper">新建试卷</n3-button>
+      </div>
     </div>
     <n3-data-table
       :selection="selection"
@@ -105,6 +108,9 @@
             dataIndex: 'userId',
             width: '120px',
             render: (text, record, index) => {
+              if (record.counts === 0) {
+                return `<div>暂无数据</div>`
+              }
               var points = record.avgPoints
               return `<div>${points}</div>`
             }
@@ -130,8 +136,9 @@
             dataIndex: 'queryRecordId',
             width: '120px',
             render: (text, record, index) => {
+              var id = record.id
               return `<div class="search-submit" style="width: 60px; margin-left: 10px;margin-top: 4px">
-                <n3-button  block @click.native="showDetail">详情</n3-button></div>`
+                <n3-button  block @click.native="showDetail(${id})">详情</n3-button></div>`
             }
           }
         ],
@@ -139,7 +146,10 @@
       }
     },
     methods: {
-      pageChange(page) {
+      showDetail (id) {
+        this.$router.push({name: 'paperInfo', params: {id: id}})
+      },
+      pageChange (page) {
         this.pagination.current = page
         this.searchRecord()
       },
@@ -147,7 +157,7 @@
         this.searchChanged = true
       },
       searchRecord () {
-        this.$axios.get('/api/paper/list?subjectId=' + this.searchKey.subjectId
+        this.$axios.get('/api/paper/list?subjectId=' + this.searchKey.subjectId + '&page=' + this.pagination.current
         ).then(response => {
           this.paperList = response.data.data.paperList
           this.pagination.total = response.data.data.total
@@ -170,6 +180,19 @@
         var msg = ''
         this.$axios.get('/api/subject/list'
         ).then(response => {
+          var result = response.data.code
+          if (result === 1002) {
+            this.n3Alert({
+              content: '登录失效',
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
+            this.$router.push({
+              name: 'login'
+            })
+          }
           this.subjectList = response.data.data
           this.searchKey.subjectId = response.data.data[0].id
         }).catch((error) => {
@@ -177,7 +200,7 @@
         })
         this.$axios.get('/api/paper/list?subjectId=1'
         ).then(response => {
-          result = JSON.stringify(response.data.code)
+          result = response.data.code
           this.paperList = response.data.data.paperList
           this.pagination.total = response.data.data.total
           this.pagination.current = response.data.data.page
@@ -186,12 +209,39 @@
           this.alert('获取信息失败' + error.toString())
         })
         this.loading = false
+      },
+      createPaper () {
+        this.$router.push({name: 'createPaper'})
       }
     },
     watch: {
       '$route' () {
-        if (this.$route.name == 'normalTable') {
+        if (this.$route.name === 'normalTable') {
           this.reload()
+        }
+      },
+      'subjectList' () {
+        if (this.subjectList.length === 0) {
+          this.$axios.get('/api/subject/list'
+          ).then(response => {
+            var result = response.data.code
+            if (result === 1002) {
+              this.n3Alert({
+                content: '登录失效',
+                type: 'success',
+                placement: 'center',
+                duration: 2000,
+                width: '240px'
+              })
+              this.$router.push({
+                name: 'login'
+              })
+            }
+            this.subjectList = response.data.data
+            this.searchKey.subjectId = response.data.data[0].id
+          }).catch((error) => {
+            alert('获取信息失败' + error.toString())
+          })
         }
       }
     },

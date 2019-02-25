@@ -21,3 +21,7 @@ class UserModel {
     var email = ""
     var accType = 0
 }
+
+class UserModifyNameParam {
+    var name = ""
+}

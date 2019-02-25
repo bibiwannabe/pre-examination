@@ -70,6 +70,16 @@ struct TRAdminQuestionInfoList {
         3: TPagination pagination;
 }
 
+struct TRAdminQuestionSearchList {
+        1: list<TAdminQuestionInfo> adminQuestionInfoList;
+        2: TRResponse response;
+}
+
+struct TRAdminQuestionInfo {
+        1: TAdminQuestionInfo adminQuestionInfo;
+        2: TRResponse response;
+}
+
 struct TAdminQuestionInfo {
         1: i32 id;
         2: i32 subjectId;
@@ -89,6 +99,12 @@ struct TPAdminQuerryQuestionInfo {
         2: i32 type;
         3: i32 querryType;
         4: TPagination pagination;
+}
+
+struct TPAdminSearchQuestionParam {
+        1: i32 subjectId;
+        2: i32 type;
+        3: string keyWords;
 }
 
 struct TPAdminCreateQuestionInfo {
@@ -270,4 +286,9 @@ struct TEvaluateResult{
         6: string answer;
         7: string wrongAnswer;
         8: bool isCorrect;
+}
+
+struct TRIdResult{
+        1: TRResponse response;
+        2: i32 id;
 }

@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface PaperInfoMapper {
 
-    Integer createPaperInfo(@Param("p") PaperInfo p);
+    Integer createPaperInfo(PaperInfo p);
 
     List<PaperInfo> getByParam(@Param("subjectId") Integer subjectId, @Param("offset") Integer offset, @Param("size") Integer size);
 

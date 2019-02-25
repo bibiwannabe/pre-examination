@@ -14,12 +14,16 @@
         <result column="create_time" jdbcType="BIGINT" property="createTime" />
         <result column="update_time" jdbcType="BIGINT" property="updateTime" />
     </resultMap>
-    <insert id="addQuestionInfo" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO questions(subject_id, qtype, content, qoptions, answer, create_user, create_time, update_time) VALUE (#{q.subjectId}, #{q.type},  #{q.content}, #{q.options}, #{q.answer}, #{q.createUser}, #{q.createTime}, #{q.updateTime})
+    <insert id="addQuestionInfo" useGeneratedKeys="true" keyProperty="id" parameterType="com.libiyi.exa.server.entity.QuestionInfo">
+        INSERT INTO questions(subject_id, qtype, content, qoptions, answer, create_user, create_time, update_time) VALUE (#{subjectId}, #{type},  #{content}, #{options}, #{answer}, #{createUser}, #{createTime}, #{updateTime})
     </insert>
 
     <select id="getByParam" resultMap="BaseResultMap">
         SELECT id, subject_id, qtype, content, qoptions, answer, correct_num, counts, create_user, create_time, update_time FROM questions WHERE subject_id=#{subjectId} AND qtype =#{type} ORDER BY create_time DESC LIMIT #{offset},#{size}
+    </select>
+
+    <select id="getBySearchKeywords" resultMap="BaseResultMap">
+        SELECT id, subject_id, qtype, content, qoptions, answer, correct_num, counts, create_user, create_time, update_time FROM questions WHERE subject_id=#{subjectId} AND qtype =#{type} AND content REGEXP #{keyWords} ORDER BY create_time DESC
     </select>
 
     <select id="getCountsByParam" resultType="Integer">
@@ -45,5 +49,8 @@
         </foreach>
     </select>
 
+    <select id="getById" resultMap="BaseResultMap">
+        SELECT id, subject_id, qtype, content, qoptions, answer, correct_num, counts, create_user, create_time, update_time FROM questions WHERE id=#{id}
+    </select>
 
 </mapper>

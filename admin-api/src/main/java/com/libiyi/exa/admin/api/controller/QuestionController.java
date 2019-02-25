@@ -25,24 +25,25 @@ public class QuestionController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Result<String> createQuestion(@RequestBody QuestionParam questionParam, HttpSession session) {
+    public Result<Integer> createQuestion(@RequestBody QuestionParam questionParam, HttpSession session) {
         Object object = session.getAttribute(RequestConst.USER_INFO);
         TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
         if (trUserLoginInfo == null || trUserLoginInfo.getAccType() != AccountTypeEnum.TEACHER.getCode()) {
-            return new Result.Builder<String>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+            return new Result.Builder<Integer>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
         }
         Integer userId = trUserLoginInfo.getId();
+        TRIdResult trIdResult;
         TPAdminCreateQuestionInfo createQuestionInfo = getTPAdminCreateQuestionInfo(questionParam, userId);
         try {
-            TRResponse trResponse = exaServerService.addQuestion(createQuestionInfo);
-            if (trResponse.getCode() != CodeEnum.SUCCESS.getCode()) {
-                return new Result.Builder<String>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+            trIdResult = exaServerService.addQuestion(createQuestionInfo);
+            if (trIdResult.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+                return new Result.Builder<Integer>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
             }
         } catch (Throwable e) {
             logger.error("创建题目失败", e);
-            return new Result.Builder<String>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+            return new Result.Builder<Integer>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
         }
-        return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
+        return new Result.Builder<Integer>(trIdResult.getId()).setCode(CodeEnum.SUCCESS.getCode()).build();
     }
 
     private TPAdminCreateQuestionInfo getTPAdminCreateQuestionInfo(QuestionParam questionParam, Integer userId) {
@@ -153,4 +154,61 @@ public class QuestionController {
     }
 
 
+    @GetMapping("/{questionId}")
+    @ResponseBody
+    public Result<QuestionModel> getQuestionInfo(@PathVariable("questionId") int questionId,
+                                                     HttpSession session) {
+        Object object = session.getAttribute(RequestConst.USER_INFO);
+        TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
+        if (trUserLoginInfo == null || trUserLoginInfo.getAccType() != AccountTypeEnum.TEACHER.getCode()) {
+            return new Result.Builder<QuestionModel>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+        }
+        TRAdminQuestionInfo trAdminQuestionInfo;
+        try {
+            trAdminQuestionInfo = exaServerService.getQuestionById(questionId);
+            if (trAdminQuestionInfo.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+                return new Result.Builder<QuestionModel>().setCode(trAdminQuestionInfo.getResponse().getCode()).build();
+            }
+        } catch (Throwable e) {
+            logger.error("获取题目失败", e);
+            return new Result.Builder<QuestionModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+        }
+        QuestionModel questionModel = getQuestionModle(trAdminQuestionInfo.getAdminQuestionInfo());
+        return new Result.Builder<QuestionModel>(questionModel).setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+
+    @GetMapping("/search")
+    @ResponseBody
+    public Result<List<QuestionModel>> searchQuestionList(@RequestParam("subjectId") int subjectId,
+                                                     @RequestParam("type") int type,
+                                                     @RequestParam(value = "key") String keywords,
+                                                     HttpSession session) {
+        Object object = session.getAttribute(RequestConst.USER_INFO);
+        TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
+        if (trUserLoginInfo == null || trUserLoginInfo.getAccType() != AccountTypeEnum.TEACHER.getCode()) {
+            return new Result.Builder<List<QuestionModel>>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+        }
+        TPAdminSearchQuestionParam searchQuestionParam = getTPAdminSearchQuestionParam(keywords, subjectId, type);
+        TRAdminQuestionSearchList trAdminQuestionSearchList;
+        try {
+            trAdminQuestionSearchList = exaServerService.getQuestionListBySearchKey(searchQuestionParam);
+            if (trAdminQuestionSearchList.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+                return new Result.Builder<List<QuestionModel>>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+            }
+        } catch (Throwable e) {
+            logger.error("获取题目失败", e);
+            return new Result.Builder<List<QuestionModel>>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+        }
+        List<QuestionModel> questionListModel = trAdminQuestionSearchList.getAdminQuestionInfoList().stream().map(this::getQuestionModle).collect(Collectors.toList());
+        return new Result.Builder<List<QuestionModel>>(questionListModel).setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+    private TPAdminSearchQuestionParam getTPAdminSearchQuestionParam(String keywords, int subjectId, int type) {
+        TPAdminSearchQuestionParam tpAdminSearchQuestionParam = new TPAdminSearchQuestionParam();
+        tpAdminSearchQuestionParam.setKeyWords(keywords);
+        tpAdminSearchQuestionParam.setType(type);
+        tpAdminSearchQuestionParam.setSubjectId(subjectId);
+        return tpAdminSearchQuestionParam;
+    }
 }

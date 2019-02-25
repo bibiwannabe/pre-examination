@@ -14,6 +14,8 @@ service ExaServerService{
 
         model.TRUserLoginInfo getUserInfo(1:i32 userId);
 
+        model.TRResponse updateUsername(1:string name, 2:i32 id)
+
         /*用户获取题目模块*/
 
         //用户获取错题
@@ -36,13 +38,17 @@ service ExaServerService{
 
         model.TRSubjectTagList getAllSubject();
         //创建题目
-        model.TRResponse addQuestion(1:model.TPAdminCreateQuestionInfo questionInfo);
+        model.TRIdResult addQuestion(1:model.TPAdminCreateQuestionInfo questionInfo);
         //根据条件分页获取题目列表
         model.TRAdminQuestionInfoList getQuestionListByParam(1:model.TPAdminQuerryQuestionInfo querryParam);
+        //根据关键词获取题目列表
+        model.TRAdminQuestionSearchList getQuestionListBySearchKey(1:model.TPAdminSearchQuestionParam searchParam);
+        //根据题目id获取题目详情
+        model.TRAdminQuestionInfo getQuestionById(1:i32 id);
         //修改题目
         model.TRResponse modifyQuestion(1:model.TPAdminModifyQuestionInfo modifyParam);
         //创建试卷
-        model.TRResponse createPaper(1:model.TPAdminCreatePaperInfo paperInfo);
+        model.TRIdResult createPaper(1:model.TPAdminCreatePaperInfo paperInfo);
         //修改试卷
         model.TRResponse modifyPaper(1:model.TPAdminModifyPaperInfo modifyParam);
         //根据条件分页获取试卷列表

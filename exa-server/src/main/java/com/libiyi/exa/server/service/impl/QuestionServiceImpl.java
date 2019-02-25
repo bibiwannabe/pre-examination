@@ -32,20 +32,27 @@ public class QuestionServiceImpl implements QuestionService {
      * @return
      */
     @Override
-    public TRResponse createQuestion(TPAdminCreateQuestionInfo questionInfoParam) {
-            TRResponse trResponse = new TRResponse();
-            try {
-                QuestionInfo questionInfo = getQuestionInfo(questionInfoParam);
-                Integer id = questionInfoMapper.addQuestionInfo(questionInfo);
-            } catch (Exception e) {
-                logger.error("创建题目失败,e:", e);
-                trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
-                trResponse.setDesc(CodeEnum.UNKNOWN_ERROR.getDesc());
-                return trResponse;
-            }
-            trResponse.setCode(CodeEnum.SUCCESS.getCode());
-            trResponse.setDesc(CodeEnum.SUCCESS.getDesc());
-            return trResponse;
+    public TRIdResult createQuestion(TPAdminCreateQuestionInfo questionInfoParam) {
+        TRIdResult trIdResult = new TRIdResult();
+        TRResponse trResponse = new TRResponse();
+        Integer id = 0;
+        try {
+            QuestionInfo questionInfo = getQuestionInfo(questionInfoParam);
+            questionInfoMapper.addQuestionInfo(questionInfo);
+            id = questionInfo.getId();
+            logger.info("id:{}", questionInfo.getId());
+        } catch (Exception e) {
+            logger.error("创建题目失败,e:", e);
+            trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
+            trResponse.setDesc(CodeEnum.UNKNOWN_ERROR.getDesc());
+            trIdResult.setResponse(trResponse);
+            return trIdResult;
+        }
+        trResponse.setCode(CodeEnum.SUCCESS.getCode());
+        trResponse.setDesc(CodeEnum.SUCCESS.getDesc());
+        trIdResult.setResponse(trResponse);
+        trIdResult.setId(id);
+        return trIdResult;
     }
 
     private QuestionInfo getQuestionInfo(TPAdminCreateQuestionInfo questionInfoParam) {
@@ -67,6 +74,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     /**
      * 获取问题列表
+     *
      * @param queryParam
      * @return
      */
@@ -80,8 +88,8 @@ public class QuestionServiceImpl implements QuestionService {
             count = questionInfoMapper.getCountsByParam(queryParam.getSubjectId(), queryParam.getType());
             questionInfoList = questionInfoMapper.getByParam(queryParam.getSubjectId(), queryParam.getType(),
                     (queryParam.getPagination().getPage() - 1) * queryParam.getPagination().getSize(), queryParam.getPagination().getSize());
-        }catch (Exception e) {
-            logger.error("获取题目列表失败",e);
+        } catch (Exception e) {
+            logger.error("获取题目列表失败", e);
             trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
             trAdminQuestionInfoList.setResponse(trResponse);
             return trAdminQuestionInfoList;
@@ -113,6 +121,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     /**
      * 修改问题
+     *
      * @param modifyParam
      * @return
      */
@@ -129,6 +138,51 @@ public class QuestionServiceImpl implements QuestionService {
         }
         trResponse.setCode(CodeEnum.SUCCESS.getCode());
         return trResponse;
+    }
+
+    @Override
+    public TRAdminQuestionInfo getQuestionById(Integer id) {
+        TRAdminQuestionInfo trAdminQuestionInfo = new TRAdminQuestionInfo();
+        TRResponse trResponse = new TRResponse();
+        QuestionInfo questionInfo = null;
+        try {
+            questionInfo = questionInfoMapper.getById(id);
+        } catch (Exception e) {
+            logger.error("获取试题失败,id:{}", id, e);
+            trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
+            trAdminQuestionInfo.setResponse(trResponse);
+            return trAdminQuestionInfo;
+        }
+        if (questionInfo == null) {
+            trResponse.setCode(CodeEnum.DATA_ILEAGLE.getCode());
+            trAdminQuestionInfo.setResponse(trResponse);
+            return trAdminQuestionInfo;
+        }
+        trResponse.setCode(CodeEnum.SUCCESS.getCode());
+        trAdminQuestionInfo.setResponse(trResponse);
+        TAdminQuestionInfo tAdminQuestionInfo = getTAdminQuestionInfo(questionInfo);
+        trAdminQuestionInfo.setAdminQuestionInfo(tAdminQuestionInfo);
+        return trAdminQuestionInfo;
+    }
+
+    @Override
+    public TRAdminQuestionSearchList getQuestionListBySearchKey(TPAdminSearchQuestionParam tpAdminSearchQuestionParam) {
+        TRAdminQuestionSearchList trAdminQuestionSearchList = new TRAdminQuestionSearchList();
+        TRResponse trResponse = new TRResponse();
+        List<QuestionInfo> questionInfoList;
+        try {
+            questionInfoList = questionInfoMapper.getBySearchKeywords(tpAdminSearchQuestionParam.getSubjectId(), tpAdminSearchQuestionParam.getType(), tpAdminSearchQuestionParam.getKeyWords());
+        } catch (Exception e) {
+            logger.error("查找列表失败，{}", JSON.toJSONString(tpAdminSearchQuestionParam));
+            trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
+            trAdminQuestionSearchList.setResponse(trResponse);
+            return trAdminQuestionSearchList;
+        }
+        trResponse.setCode(CodeEnum.SUCCESS.getCode());
+        List<TAdminQuestionInfo> tAdminQuestionInfo = questionInfoList.stream().map(this::getTAdminQuestionInfo).collect(Collectors.toList());
+        trAdminQuestionSearchList.setAdminQuestionInfoList(tAdminQuestionInfo);
+        trAdminQuestionSearchList.setResponse(trResponse);
+        return trAdminQuestionSearchList;
     }
 
     private QuestionModifyDto getQuestionModifyDto(TPAdminModifyQuestionInfo modifyParam) {

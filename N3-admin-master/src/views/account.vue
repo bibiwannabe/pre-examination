@@ -13,7 +13,6 @@
           :rules="[{type:'required'}]"
           v-model="username"
           width="320px"
-          :custom-validate="usernameValidate"
         >{{username}}
         </n3-input>
       </n3-form-item>
@@ -26,8 +25,7 @@
           v-model="email"
           width="320px"
           :rules="[{type:'required'}]"
-          :custom-validate="passwordValidate"
-          class="fl" readonly=true
+          class="fl" v-bind:readonly="isReadonly"
         >{{email}}
         </n3-input>
       </n3-form-item>
@@ -35,7 +33,7 @@
         :label-col="3"
       >
         <n3-button
-          @click.native="submit"
+          @click.native="submitUserInfo"
           type="primary"
           :loading="loading"
           class="submit-btn"
@@ -48,8 +46,6 @@
 </template>
 
 <script>
-  import API from '../api'
-  import qs from 'qs'
   import { mapState } from 'vuex'
 
   export default {
@@ -58,81 +54,64 @@
     },
     data () {
       return {
-        username: this.$route.params.name.replace('"', '').replace('"', ''),
-        email: this.$route.params.email.replace('"', '').replace('"', ''),
-        loading: false
+        username: '',
+        email: '',
+        loading: false,
+        isReadonly: true
       }
     },
     methods: {
       reload () {
-        var msg = ''
-        var result = '0'
-        this.$axios({
-          method: 'post',
-          url: '/api/user/userInfo',
-          crossDomain: true,
-          data: JSON.stringify({email: this.email, password: this.password}),
-          contentType: 'application/json'
-        }).then(response => {
-          result = JSON.stringify(response.data.code)
-          if (result === '1000') {
-            this.username = JSON.stringify(response.data.data.name)
-            this.email = JSON.stringify(response.data.data.email)
+        var result = 0
+        this.$axios.get(
+          '/api/user/myInfo'
+        ).then(response => {
+          result = response.data.code
+          if (result === 1000) {
+            this.username = response.data.data.name
+            this.email = response.data.data.email
+          }
+          if (result === 1002) {
+            this.n3Alert({
+              content: '登录失效',
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
+            this.$router.push({
+              name: 'login'
+            })
           }
         }).catch((error) => {
-          this.alert('登录失败' + error.toString())
+          alert('获取信息失败' + error.toString())
           return
         })
-        // 重置表单
-        this.model = {
-          username: '',
-          password: ''
-        }
-        this.loading = false
       },
-      submit () {
-        this.$refs.form.validateFields(result => {
-          if (!result.isvalid) {
-            return
+      submitUserInfo () {
+        var result = 0
+        this.$axios({
+          method: 'post',
+          url: '/api/user/info',
+          crossDomain: true,
+          data: JSON.stringify({name: this.username}),
+          contentType: 'application/json'
+        }).then(response => {
+          result = response.data.code
+          if (result === 1000) {
+            this.n3Alert({
+              content: '修改成功',
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
+            this.reload()
           }
-          return this.addUser()
+        }).catch((error) => {
+          this.alert('修改失败' + error.toString())
+          return
         })
-      },
-      passwordValidate (val) {
-        if (val && val.length > 5 && val.length < 19) {
-          return {
-            validStatus: 'success'
-          }
-        } else {
-          return {
-            validStatus: 'error',
-            tips: '密码长度为6-18位'
-          }
-        }
-      },
-      phoneValidate (val) {
-        if (/^\d{11}$/.test(val)) {
-          return {
-            validStatus: 'success'
-          }
-        } else {
-          return {
-            validStatus: 'error',
-            tips: '请输入11位手机号'
-          }
-        }
-      },
-      usernameValidate (val) {
-        if (val && val.length > 5 && val.length < 19) {
-          return {
-            validStatus: 'success'
-          }
-        } else {
-          return {
-            validStatus: 'error',
-            tips: '账户名长度为6-18位'
-          }
-        }
       }
     },
     watch: {

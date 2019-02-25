@@ -8,7 +8,7 @@ public interface QuestionService {
      * @param questionInfo
      * @return
      */
-    TRResponse createQuestion(TPAdminCreateQuestionInfo questionInfo);
+    TRIdResult createQuestion(TPAdminCreateQuestionInfo questionInfo);
 
     /**
      * 获取题目列表
@@ -23,4 +23,18 @@ public interface QuestionService {
      * @return
      */
     TRResponse modifyQuestion(TPAdminModifyQuestionInfo modifyParam);
+
+    /**
+     * 获取题目
+     * @param id
+     * @return
+     */
+    TRAdminQuestionInfo getQuestionById(Integer id);
+
+    /**
+     * 根据关键词搜索题目
+     * @param tpAdminSearchQuestionParam
+     * @return
+     */
+    TRAdminQuestionSearchList getQuestionListBySearchKey(TPAdminSearchQuestionParam tpAdminSearchQuestionParam);
 }

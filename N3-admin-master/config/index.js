@@ -20,7 +20,7 @@ module.exports = {
     proxyTable: {
       '/api': {
         //target: 'http://localhost:8083/admin_api_war_exploded',
-        target: 'http://119.23.239.46:8080/admin-api-1.4',
+        target: 'http://119.23.239.46:8083/admin-api-1.4.5',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''

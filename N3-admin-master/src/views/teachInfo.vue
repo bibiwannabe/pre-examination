@@ -13,7 +13,6 @@
           :rules="[{type:'required'}]"
           v-model="title"
           width="320px"
-          :custom-validate="usernameValidate"
         >{{title}}
         </n3-input>
       </n3-form-item>
@@ -26,7 +25,6 @@
           v-model="subject"
           width="320px"
           :rules="[{type:'required'}]"
-          :custom-validate="passwordValidate"
           class="fl"
         >{{subject}}
         </n3-input>
@@ -38,7 +36,6 @@
       >
         <n3-input
           :rules="[{type:'required'}]"
-          :custom-validate="phoneValidate"
           v-model="teachYear"
           width="320px"
           type="number"
@@ -96,12 +93,24 @@
         var msg = ''
         this.$axios.get('/api/admin_info/info'
         ).then(response => {
-          result = JSON.stringify(response.data.code)
-          this.title = JSON.stringify(response.data.data.title).replace('"', '').replace('"', '')
-          this.subject = JSON.stringify(response.data.data.subject).replace('"', '').replace('"', '')
-          this.userId = JSON.stringify(response.data.data.userId)
-          this.id = JSON.stringify(response.data.data.id)
-          this.teachYear = JSON.stringify(response.data.data.teachYear)
+          result = response.data.code
+          if (result === 1002) {
+            this.n3Alert({
+              content: '登录失效',
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
+            this.$router.push({
+              name: 'login'
+            })
+          }
+          this.title = response.data.data.title
+          this.subject = response.data.data.subject
+          this.userId = response.data.data.userId
+          this.id = response.data.data.id
+          this.teachYear = response.data.data.teachYear
         }).catch((error) => {
           this.alert('发送失败' + error.toString())
           return
@@ -117,33 +126,6 @@
         }
         this.loading = false
       },
-      addUser () {
-        let cond = Object.assign({}, this.model)
-        // cond.expireDate = new Date(cond.expireDate).valueOf()
-        this.loading = true
-        this.$http.post(API.USER_ADD, qs.stringify(cond))
-          .then(data => {
-            this.loading = false
-            this.n3Alert({
-              content: '添加成功~',
-              type: 'success',
-              placement: 'top-right',
-              duration: 2000,
-              width:'240px' // 内容不确定，建议设置width
-            })
-            this.$router.push('/table/')
-          })
-          .catch(error => {
-            this.loading = false
-            this.n3Alert({
-              content: '添加失败，请刷新重试~',
-              type: 'danger',
-              placement: 'top-right',
-              duration: 2000,
-              width: '240px' // 内容不确定，建议设置width
-            })
-          })
-      },
       submit () {
         var result = ''
         var msg = ''
@@ -156,40 +138,28 @@
         }).then(response => {
           result = JSON.stringify(response.data.code)
           if (result !== '1000') {
-            msg = JSON.stringify(response.data.message)
-            alert(msg)
+            msg = response.data.message
+            this.n3Alert({
+              content: msg,
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
           }
           if (result === '1000') {
-            alert('修改成功')
+            this.n3Alert({
+              content: '修改成功',
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
           }
         }).catch((error) => {
-          alert('登录失败' + error.toString())
+          alert('修改失败' + error.toString())
           return
         })
-      },
-      phoneValidate (val) {
-        if (/^\d{11}$/.test(val)) {
-          return {
-            validStatus: 'success'
-          }
-        } else {
-          return {
-            validStatus: 'error',
-            tips: '请输入11位手机号'
-          }
-        }
-      },
-      usernameValidate (val) {
-        if (val && val.length > 5 && val.length < 19) {
-          return {
-            validStatus: 'success'
-          }
-        } else {
-          return {
-            validStatus: 'error',
-            tips: '账户名长度为6-18位'
-          }
-        }
       }
     },
     watch: {

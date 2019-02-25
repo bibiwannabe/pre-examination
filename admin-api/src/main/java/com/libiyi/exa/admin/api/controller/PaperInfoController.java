@@ -29,24 +29,25 @@ public class PaperInfoController {
 
     @PostMapping("/create")
     @ResponseBody
-    public Result<String> createPaper(@RequestBody PaperCreateParam paperCreateParam, HttpSession session) {
+    public Result<Integer> createPaper(@RequestBody PaperCreateParam paperCreateParam, HttpSession session) {
         Object object = session.getAttribute(RequestConst.USER_INFO);
         TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
         if (trUserLoginInfo == null || trUserLoginInfo.getAccType() != AccountTypeEnum.TEACHER.getCode()) {
-            return new Result.Builder<String>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+            return new Result.Builder<Integer>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
         }
         Integer userId = trUserLoginInfo.getId();
         TPAdminCreatePaperInfo createPaperInfo = getTPAdminCreatePaperInfo(paperCreateParam, userId);
+        TRIdResult trIdResult;
         try {
-            TRResponse trResponse = exaServerService.createPaper(createPaperInfo);
-            if (trResponse.getCode() != CodeEnum.SUCCESS.getCode()) {
-                return new Result.Builder<String>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+            trIdResult = exaServerService.createPaper(createPaperInfo);
+            if (trIdResult.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+                return new Result.Builder<Integer>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
             }
         } catch (Throwable e) {
             logger.error("创建试卷失败", e);
-            return new Result.Builder<String>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+            return new Result.Builder<Integer>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
         }
-        return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
+        return new Result.Builder<Integer>(trIdResult.getId()).setCode(CodeEnum.SUCCESS.getCode()).build();
     }
 
     private TPAdminCreatePaperInfo getTPAdminCreatePaperInfo(PaperCreateParam paperCreateParam, Integer userId) {

@@ -12,8 +12,8 @@
         <result column="create_time" jdbcType="BIGINT" property="createTime" />
         <result column="update_time" jdbcType="BIGINT" property="updateTime" />
     </resultMap>
-    <insert id="createPaperInfo" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO paper_info(subject_id, pname, question_list, create_user, create_time, update_time) VALUE (#{p.subjectId}, #{p.name},  #{p.questionList}, #{p.createUser}, #{p.createTime}, #{p.updateTime})
+    <insert id="createPaperInfo" useGeneratedKeys="true" keyProperty="id" parameterType="com.libiyi.exa.server.entity.PaperInfo">
+        INSERT INTO paper_info(subject_id, pname, question_list, create_user, create_time, update_time) VALUE (#{subjectId}, #{name},  #{questionList}, #{createUser}, #{createTime}, #{updateTime})
     </insert>
 
     <select id="getByParam" resultMap="BaseResultMap">
@@ -25,7 +25,7 @@
     </select>
 
     <update id="updateById">
-        UPDATE paper_info SET subject_id=#{p.subjectId}, pname=#{p.name}, question_list=#{p.questionList}, update_time=#{q.updateTime} WHERE id=#{p.id}
+        UPDATE paper_info SET subject_id=#{p.subjectId}, pname=#{p.name}, question_list=#{p.questionList}, update_time=#{p.updateTime} WHERE id=#{p.id}
     </update>
 
     <update id="updateAvgAndCountsByIdAndPoints">

@@ -5,6 +5,26 @@ public class PaperInfoModifyDto {
     private Integer subjectId;
     private String questionList;
 
+    public Long getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Long updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    private Long updateTime;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String name;
+
     public PaperInfoModifyDto() {
     }
 

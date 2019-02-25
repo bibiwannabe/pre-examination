@@ -14,4 +14,6 @@ public interface UserInfoMapper {
     UserInfo getByEmail(@Param("email") String email);
 
     UserInfo getById(@Param("id") Integer id);
+
+    Integer updateNameById(@Param("name") String name, @Param("id") Integer id);
 }

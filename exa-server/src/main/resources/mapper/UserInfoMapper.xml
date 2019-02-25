@@ -27,4 +27,8 @@
         SELECT id, name, password, email, acc_type, create_time, update_time FROM user_info WHERE id = #{id}
     </select>
 
+    <update id="updateNameById">
+        UPDATE user_info set name = #{name} WHERE id = #{id}
+    </update>
+
 </mapper>

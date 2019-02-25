@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface QuestionInfoMapper {
 
-    Integer addQuestionInfo(@Param("q") QuestionInfo q);
+    Integer addQuestionInfo(QuestionInfo q);
 
     List<QuestionInfo> getByParam(@Param("subjectId") Integer subjectId, @Param("type") Integer type ,@Param("offset") Integer offset,  @Param("size") Integer size);
 
@@ -23,4 +23,8 @@ public interface QuestionInfoMapper {
     Integer updateCountsById(@Param("id") Integer id);
 
     List<QuestionInfo> getByIdList(@Param("idList") List<Integer> idList);
+
+    QuestionInfo getById(@Param("id")Integer id);
+
+    List<QuestionInfo> getBySearchKeywords(@Param("subjectId") Integer subjectId, @Param("type") Integer type ,@Param("keyWords") String keyWords);
 }

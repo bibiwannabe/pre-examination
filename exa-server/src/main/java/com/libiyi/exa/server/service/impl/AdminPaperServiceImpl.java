@@ -32,7 +32,8 @@ public class AdminPaperServiceImpl implements AdminPaperService {
     private QuestionInfoMapper questionInfoMapper;
 
     @Override
-    public TRResponse createPaper(TPAdminCreatePaperInfo paperInfo) {
+    public TRIdResult createPaper(TPAdminCreatePaperInfo paperInfo) {
+        TRIdResult trIdResult = new TRIdResult();
         TRResponse trResponse = new TRResponse();
         PaperInfo paperInfo1 = getPaperInfo(paperInfo);
         try {
@@ -40,11 +41,14 @@ public class AdminPaperServiceImpl implements AdminPaperService {
         } catch (Exception e) {
             logger.error("创建试卷错误,{}", JSON.toJSONString(paperInfo1), e);
             trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
-            return trResponse;
+            trIdResult.setResponse(trResponse);
+            return trIdResult;
         }
         trResponse.setCode(CodeEnum.SUCCESS.getCode());
         trResponse.setDesc(CodeEnum.SUCCESS.getDesc());
-        return trResponse;
+        trIdResult.setResponse(trResponse);
+        trIdResult.setId(paperInfo1.getId());
+        return trIdResult;
     }
 
     private PaperInfo getPaperInfo(TPAdminCreatePaperInfo createPaperInfo) {
@@ -78,7 +82,9 @@ public class AdminPaperServiceImpl implements AdminPaperService {
         PaperInfoModifyDto paperInfoModifyDto = new PaperInfoModifyDto();
         paperInfoModifyDto.setId(modifyParam.getId());
         paperInfoModifyDto.setQuestionList(modifyParam.getQuestionList());
+        paperInfoModifyDto.setName(modifyParam.getName());
         paperInfoModifyDto.setSubjectId(modifyParam.getSubjectId());
+        paperInfoModifyDto.setUpdateTime(DateUtil.getNow());
         return paperInfoModifyDto;
     }
 

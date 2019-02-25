@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bc9165f0-5318-42ee-825b-5c6fcf43e4e4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/choiceInfo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/createQuestion.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/fillingInfo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/paperInfo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/selectionInfo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift/TPAdminSearchQuestionParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift/TRAdminQuestionInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift/TRAdminQuestionSearchList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift/TRIdResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/artifacts/admin_api_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/artifacts/admin_api_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/artifacts/admin_api_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/artifacts/admin_api_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/artifacts/exa_server_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/artifacts/exa_server_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/artifacts/exa_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/artifacts/exa_server_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/router/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/router/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/views/account.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/account.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/views/header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/views/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/views/paper.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/paper.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/views/question.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/question.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/views/register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../N3-admin-master/src/views/teachInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../N3-admin-master/src/views/teachInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin-api/.idea/artifacts/admin_api_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-api/.idea/artifacts/admin_api_war.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin-api/.idea/artifacts/admin_api_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-api/.idea/artifacts/admin_api_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin-api/.idea/libraries/Maven__com_libiyi_exa_common_1_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/.idea/libraries/Maven__com_libiyi_exa_common_1_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin-api/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-api/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin-api/admin-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-api/admin-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin-api/src/main/java/com/libiyi/exa/admin/api/controller/PaperInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-api/src/main/java/com/libiyi/exa/admin/api/controller/PaperInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin-api/src/main/java/com/libiyi/exa/admin/api/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-api/src/main/java/com/libiyi/exa/admin/api/controller/QuestionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../admin-api/src/main/java/com/libiyi/exa/admin/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../admin-api/src/main/java/com/libiyi/exa/admin/api/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exa-common.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/param/UserParam.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/param/UserParam.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/service/ExaServerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/service/ExaServerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/thrift/model.thrift" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/thrift/model.thrift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/thrift/service.thrift" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/thrift/service.thrift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/exa-server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/dao/PaperInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/dao/PaperInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/dao/QuestionInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/dao/QuestionInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/dao/UserInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/dao/UserInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/service/AdminPaperService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/service/AdminPaperService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/service/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/service/impl/AdminPaperServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/service/impl/AdminPaperServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/service/impl/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/service/impl/QuestionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/thriftServer/ServerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/src/main/java/com/libiyi/exa/server/thriftServer/ServerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/src/main/resources/mapper/PaperInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/src/main/resources/mapper/PaperInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/src/main/resources/mapper/QuestionInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/src/main/resources/mapper/QuestionInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/src/main/resources/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/src/main/resources/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/dao/PaperInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/dao/PaperInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/dao/QuestionInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/dao/QuestionInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/dao/UserInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/dao/UserInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/service/AdminPaperService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/service/AdminPaperService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/service/QuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/service/QuestionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/service/impl/AdminPaperServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/service/impl/AdminPaperServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/service/impl/QuestionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/service/impl/QuestionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/thriftServer/ServerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/classes/com/libiyi/exa/server/thriftServer/ServerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/classes/mapper/PaperInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/classes/mapper/PaperInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/classes/mapper/QuestionInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/classes/mapper/QuestionInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/classes/mapper/UserInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../exa-server/target/classes/mapper/UserInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/core/Initializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/core/ThriftServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/core/ThriftServerStartBean$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/core/ThriftServerStartBean.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/dao/AdminInfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/dao/PaperInfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/dao/PracticeRecordMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/dao/QuestionInfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/dao/SubjectTagMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/dao/UserInfoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/dao/WrongRecordMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/dto/PaperInfoModifyDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/dto/QuestionModifyDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/entity/AdminInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/entity/PaperInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/entity/PracticeRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/entity/QuestionInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/entity/SubjectTag.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/entity/UserInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/entity/WrongRecord.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/AdminInfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/AdminPaperService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/PortalPaperPaperService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/PortalWrongQuestionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/QuestionService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/SubjectTagService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/impl/AdminInfoServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/impl/AdminPaperServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/impl/PortalPaperServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/impl/PortalWrongQuestionServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/impl/QuestionServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/impl/SubjectTagServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/service/impl/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/thriftServer/ServerServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/utils/CodeUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/utils/EmailUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/com/libiyi/exa/server/utils/RedisUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/mapper/AdminInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/mapper/PaperInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/mapper/PracticeRecordMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/mapper/QuestionInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/mapper/SubjectTagMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/mapper/UserInfoMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/mapper/WrongRecordMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/classes/mybatis-config.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/activation-1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/animal-sniffer-annotations-1.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/annotations-13.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/aspectjweaver-1.8.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/c3p0-0.9.5.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/checker-qual-2.5.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/commons-codec-1.11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/commons-dbcp-1.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/commons-fileupload-1.3.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/commons-io-2.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/commons-logging-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/commons-pool-1.5.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/commons-pool2-2.4.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/error_prone_annotations-2.1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/exa-common-1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/fastjson-1.2.49.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/gson-2.8.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/guava-26.0-jre.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/httpclient-4.4.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/httpcore-4.4.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/j2objc-annotations-1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/jackson-core-asl-1.9.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/jackson-mapper-asl-1.9.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/javax.mail-1.5.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/jedis-2.8.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/jsr305-3.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/kotlin-stdlib-1.3.11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/kotlin-stdlib-common-1.3.11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/kotlin-stdlib-jdk7-1.3.11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/kotlin-stdlib-jdk8-1.3.11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/libthrift-0.11.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/log4j-1.2.17.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/log4j-api-2.10.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/log4j-core-2.10.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/log4j-web-2.10.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/mchange-commons-java-0.2.11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/mybatis-3.4.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/mybatis-spring-1.3.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/mysql-connector-java-8.0.12.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/protobuf-java-2.6.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/slf4j-api-1.7.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/spring-aop-5.0.9.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/spring-aspects-5.0.9.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/spring-beans-5.0.9.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/spring-context-5.0.9.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/spring-context-support-5.0.9.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/spring-core-5.0.9.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/spring-data-redis-1.6.2.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/spring-expression-5.0.9.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/spring-jcl-5.0.9.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/spring-jdbc-5.0.9.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/spring-tx-5.0.9.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/spring-web-5.0.9.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/lib/spring-webmvc-5.0.9.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exa-server/target/exa-server-1.4/WEB-INF/web.xml" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/thrift/service.thrift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="455">
+              <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/service/ExaServerService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="523" column="7" selection-start-line="523" selection-start-column="7" selection-end-line="523" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift/TRAdminQuestionSearchList.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift/TPAdminSearchQuestionParam.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/param/UserParam.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="25" column="12" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider editor-type-id="YarmPluginDependencyAnalyzer" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            </state>
+          </provider>
+          <provider editor-type-id="YarmPluginDependencyUpdater" />
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/thrift/model.thrift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="103" column="33" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift/TRIdResult.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/param/UserParam.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift/TRIdResult.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/thrift/model.thrift" />
+        <option value="$PROJECT_DIR$/src/main/thrift/service.thrift" />
+        <option value="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/service/ExaServerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift/TRAdminQuestionSearchList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift/TPAdminSearchQuestionParam.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="$USER_HOME$/Documents/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Profiles" type="6783ec58:MavenProjectsStructure$ProfilesNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="exa-common" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="exa-common" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="exa-common" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exa-common" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exa-common" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exa-common" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exa-common" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exa-common" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="exa-common" type="b2602c69:ProjectViewProjectNode" />
+              <item name="exa-common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="thrift" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/service" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bc9165f0-5318-42ee-825b-5c6fcf43e4e4" name="Default Changelist" comment="" />
+      <created>1550576855023</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1550576855023</updated>
+      <workItem from="1550576857648" duration="960000" />
+      <workItem from="1550651197135" duration="653000" />
+      <workItem from="1550984712340" duration="40000" />
+      <workItem from="1550984756993" duration="6000" />
+      <workItem from="1550984796586" duration="503000" />
+      <workItem from="1551003646311" duration="515000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2677000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26752505" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27951807" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Statistic" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32891566" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" visible="true" weight="0.21888413" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/param/UserParam.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="12" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift/TRIdResult.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider editor-type-id="YarmPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+      <provider editor-type-id="YarmPluginDependencyUpdater" />
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/thrift/model.thrift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="103" column="33" selection-start-line="103" selection-start-column="7" selection-end-line="103" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/thrift/service.thrift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/service/ExaServerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="523" column="7" selection-start-line="523" selection-start-column="7" selection-end-line="523" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift/TRAdminQuestionSearchList.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/libiyi/exa/common/thrift/TPAdminSearchQuestionParam.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

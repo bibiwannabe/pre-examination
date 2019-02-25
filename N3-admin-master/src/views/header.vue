@@ -17,9 +17,33 @@
     methods: {
       ...mapActions(['logout']),
       submit () {
-        this.logout()
-        this.$router.push({
-          name: 'login'
+        var msg = ''
+        var result = 0
+        this.$axios({
+          method: 'post',
+          url: '/api/user/logout',
+          crossDomain: true,
+          contentType: 'application/json'
+        }).then(response => {
+          result = response.data.code
+          if (result !== 1000) {
+            msg = response.data.message
+            this.n3Alert({
+              content: msg,
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
+          }
+          if (result === 1000 || result === 1002) {
+            this.$router.push({
+              name: 'login'
+            })
+          }
+        }).catch((error) => {
+          alert('登录失败' + error.toString())
+          return
         })
       }
     }
