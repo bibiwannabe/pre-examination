@@ -14,4 +14,6 @@ public interface PracticeRecordMapper {
     PracticeRecord getById(@Param("id")Integer id);
 
     PracticeRecord getRecentOne(@Param("userId")Integer userId);
+
+    List<PracticeRecord> getRecentFive(@Param("userId")Integer userId);
 }

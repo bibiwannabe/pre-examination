@@ -140,6 +140,8 @@ public class PortalPaperServiceImpl implements PortalPaperPaperService {
         tPortalPaperInfo.setName(paperInfo.getName());
         tPortalPaperInfo.setQuestionList(paperInfo.getQuestionList());
         tPortalPaperInfo.setSubjectId(paperInfo.getSubjectId());
+        tPortalPaperInfo.setAvgPoints(paperInfo.getAvgPoints());
+        tPortalPaperInfo.setCounts(paperInfo.getCounts());
         return tPortalPaperInfo;
     }
 
@@ -192,20 +194,108 @@ public class PortalPaperServiceImpl implements PortalPaperPaperService {
      */
     @Override
     public TRPortalPaperInfoList getRecommendPaperList(int userId) {
-        PracticeRecord practiceRecord = practiceRecordMapper.getRecentOne(userId);
-        TRPortalPaperInfoList trPortalPaperInfoList = new TRPortalPaperInfoList();
+        List<PaperInfo> paperInfoList;
         TRResponse trResponse = new TRResponse();
-        List<PaperInfo> paperInfoList = paperInfoMapper.getThreeBySubjectId(practiceRecord.getSubjectId(), practiceRecord.getPaperId());
+        TRPortalPaperInfoList trPortalPaperInfoList = new TRPortalPaperInfoList();
+        PracticeRecord practiceRecord = practiceRecordMapper.getRecentOne(userId);
+        if (practiceRecord == null) {
+            paperInfoList = paperInfoMapper.getMostCountsThree();
+        }else {
+            paperInfoList = paperInfoMapper.getThreeBySubjectId(practiceRecord.getSubjectId(), practiceRecord.getPaperId());
+        }
         List<TPortalPaperInfo> tPortalPaperInfos = paperInfoList.stream().map(this::getTPortalPaperInfo).collect(Collectors.toList());
         if (tPortalPaperInfos != null) {
             trPortalPaperInfoList.setPaperInfoList(tPortalPaperInfos);
-        }else {
+        } else {
             trPortalPaperInfoList.setPaperInfoList(new ArrayList<>());
         }
         trResponse.setCode(CodeEnum.SUCCESS.getCode());
         trPortalPaperInfoList.setResponse(trResponse);
         return trPortalPaperInfoList;
     }
+
+    /**
+     * 根据id获取做卷记录
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public TREvaluateResult getEvaluateResult(int id) {
+        TREvaluateResult trEvaluateResult = new TREvaluateResult();
+        TRResponse response = new TRResponse();
+        PaperInfo paperInfo;
+        PracticeRecord practiceRecord;
+        try{
+            practiceRecord = practiceRecordMapper.getById(id);
+            paperInfo = paperInfoMapper.getById(practiceRecord.getPaperId());
+            if (paperInfo == null) {
+                response.setCode(CodeEnum.DATA_ILEAGLE.getCode());
+                trEvaluateResult.setResponse(response);
+                return trEvaluateResult;
+            }
+            trEvaluateResult.setGrades(practiceRecord.getPoints());
+        } catch (Exception e) {
+            logger.error("获取做题记录失败", e);
+            response.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
+            trEvaluateResult.setResponse(response);
+            return trEvaluateResult;
+        }
+        response.setCode(CodeEnum.SUCCESS.getCode());
+        try {
+            TPortalPaperAndQuestion tPortalPaperAndQuestion = getTPortalPaperAndQuestion(paperInfo, practiceRecord);
+            trEvaluateResult.setTPortalPaperAndQuestion(tPortalPaperAndQuestion);
+            trEvaluateResult.setResponse(response);
+        } catch (Exception e){
+            logger.error("转化出错", e);
+        }
+        return trEvaluateResult;
+    }
+
+    /**
+     *  获取最热门的试卷
+     *
+     * @return
+     */
+    @Override
+    public TRPortalPaperInfoList getHotestPaperList() {
+        TRPortalPaperInfoList trPortalPaperInfoList = new TRPortalPaperInfoList();
+        TRResponse trResponse = new TRResponse();
+        try {
+            List<PaperInfo> paperInfoList = paperInfoMapper.getMostCountsThree();
+            List<TPortalPaperInfo> portalPaperInfos = paperInfoList.stream().map(this::getTPortalPaperInfo).collect(Collectors.toList());
+            trPortalPaperInfoList.setPaperInfoList(portalPaperInfos);
+        } catch (Exception e) {
+            logger.error("获取最热门的试卷列表失败", e);
+            trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
+            trPortalPaperInfoList.setResponse(trResponse);
+            return trPortalPaperInfoList;
+        }
+        trResponse.setCode(CodeEnum.SUCCESS.getCode());
+        trPortalPaperInfoList.setResponse(trResponse);
+        return trPortalPaperInfoList;
+    }
+
+    /**
+     * 根据做卷记录和试卷信息获取返回的答案
+     *
+     * @param paperInfo
+     * @param practiceRecord
+     * @return
+     */
+    private TPortalPaperAndQuestion getTPortalPaperAndQuestion(PaperInfo paperInfo, PracticeRecord practiceRecord){
+        TPortalPaperAndQuestion tPortalPaperAndQuestion = new TPortalPaperAndQuestion();
+        tPortalPaperAndQuestion.setId(paperInfo.getId());
+        tPortalPaperAndQuestion.setSubjectId(paperInfo.getSubjectId());
+        tPortalPaperAndQuestion.setName(paperInfo.getName());
+        TPCreatPracticeRecordParam creatPracticeRecordParam = ParseUserAnswer.getTPCreatPracticeRecordParam(practiceRecord.getAnswer());
+        PaperQuestionListModel paperQuestionListModel = JSON.parseObject(paperInfo.getQuestionList(), PaperQuestionListModel.class);
+        tPortalPaperAndQuestion.setFilling(checkAnswerCorrect(creatPracticeRecordParam.getFilling(), paperQuestionListModel.getFilling().getPoint()));
+        tPortalPaperAndQuestion.setSelection(checkAnswerCorrect(creatPracticeRecordParam.getSelection(), paperQuestionListModel.getSelection().getPoint()));
+        tPortalPaperAndQuestion.setChoice(checkAnswerCorrect(creatPracticeRecordParam.getChoice(), paperQuestionListModel.getChoice().getPoint()));
+        return tPortalPaperAndQuestion;
+    }
+
 
     private PracticeRecord getPracticeRecord(TPCreatPracticeRecordParam practiceParam, Integer points, Integer subjectId) {
         PracticeRecord practiceRecord = new PracticeRecord();
@@ -219,10 +309,69 @@ public class PortalPaperServiceImpl implements PortalPaperPaperService {
         return practiceRecord;
     }
 
+
+    /**
+     * 只检查答案并填充返回信息，不记录
+     * @param tQuestionAnswerMap
+     * @param eachPoint
+     * @return
+     */
+    private TEvaluateResultListAndPoints checkAnswerCorrect(Map<Integer, String> tQuestionAnswerMap, Integer eachPoint) {
+        Integer grades = 0;
+        TEvaluateResultListAndPoints tEvaluateResultListAndPoints = new TEvaluateResultListAndPoints();
+        List<Integer> idList = new ArrayList<>(tQuestionAnswerMap.keySet());
+        if (CollectionUtils.isEmpty(idList)){
+           return tEvaluateResultListAndPoints;
+        }
+        List<QuestionInfo> questionInfoList = questionInfoMapper.getByIdList(idList);
+        List<TEvaluateResult> tEvaluateResults = new ArrayList<>();
+        for (QuestionInfo questionInfo : questionInfoList) {
+            Boolean isCorrect = false;
+            TEvaluateResult tEvaluateResult = new TEvaluateResult();
+            String userAnswer = tQuestionAnswerMap.get(questionInfo.getId());
+            tEvaluateResult.setAnswer(questionInfo.getAnswer());
+            tEvaluateResult.setId(questionInfo.getId());
+            tEvaluateResult.setContent(questionInfo.getContent());
+            tEvaluateResult.setOptions(questionInfo.getOptions());
+            tEvaluateResult.setSubjectId(questionInfo.getSubjectId());
+            if (questionInfo.getType().intValue() == QuestionTypeEnum.MULTIPLE_CHOICE.getCode().intValue()){
+                isCorrect = checkChoiceIsCorrect(tQuestionAnswerMap.get(questionInfo.getId()), questionInfo);
+            }
+            if (questionInfo.getType().intValue() == QuestionTypeEnum.MULTIPLE_SELECTION.getCode().intValue()) {
+                isCorrect = checkSelectionIsCorrect(tQuestionAnswerMap.get(questionInfo.getId()), questionInfo);
+            }
+            if (questionInfo.getType().intValue() == QuestionTypeEnum.BLANK_FILLING.getCode().intValue()) {
+                isCorrect = checkFillingIsCorrect(tQuestionAnswerMap.get(questionInfo.getId()), questionInfo);
+            }
+            tEvaluateResult.setIsCorrect(isCorrect);
+            tEvaluateResult.setType(questionInfo.getType());
+            if (isCorrect) {
+                grades += eachPoint;
+            }else {
+                tEvaluateResult.setWrongAnswer(userAnswer);
+            }
+            tEvaluateResults.add(tEvaluateResult);
+        }
+        tEvaluateResultListAndPoints.setQuestionAndResult(tEvaluateResults);
+        tEvaluateResultListAndPoints.setTotalPoints(grades);
+        return tEvaluateResultListAndPoints;
+    }
+
+
+    /**
+     * 检查答案 并保存记录
+     * @param tQuestionAnswerMap
+     * @param userId
+     * @param eachPoints
+     * @return
+     */
     private TEvaluateResultListAndPoints checkAnswerCorrectAndSaveRecord(Map<Integer, String> tQuestionAnswerMap, Integer userId, Integer eachPoints) {
         Integer grades = 0;
         TEvaluateResultListAndPoints tEvaluateResultListAndPoints = new TEvaluateResultListAndPoints();
         List<Integer> idList = new ArrayList<>(tQuestionAnswerMap.keySet());
+        if(CollectionUtils.isEmpty(idList)) {
+            return tEvaluateResultListAndPoints;
+        }
         List<QuestionInfo> questionInfoList = questionInfoMapper.getByIdList(idList);
         List<TEvaluateResult> tEvaluateResults = new ArrayList<>();
         for (QuestionInfo questionInfo : questionInfoList) {
@@ -287,6 +436,7 @@ public class PortalPaperServiceImpl implements PortalPaperPaperService {
         }
     }
 
+
     /**
      * 检查多选题是否正确并保存记录
      * @param userAnswer
@@ -338,5 +488,49 @@ public class PortalPaperServiceImpl implements PortalPaperPaperService {
         wrongRecord.setWrongCounts(1);
         return wrongRecord;
     }
+
+    /**
+     * 检查填空题是否正确
+     * @param userAnswer
+     * @param questionInfo
+     * @return
+     */
+    private Boolean checkFillingIsCorrect(String userAnswer, QuestionInfo questionInfo) {
+        if (userAnswer.equals(questionInfo.getAnswer())) {
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * 检查多选题是否正确
+     *
+     * @param userAnswer
+     * @param questionInfo
+     * @return
+     */
+    private Boolean checkSelectionIsCorrect(String userAnswer, QuestionInfo questionInfo) {
+        List<String> userAnswerList = JSON.parseArray(userAnswer, String.class);
+        Set userAnswerSet = new HashSet(userAnswerList);
+        List<String> answerList = JSON.parseArray(questionInfo.getAnswer(), String.class);
+        Set answerSet = new HashSet(answerList);
+
+        if (SetUtil.isSetEqual(userAnswerSet, answerSet)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 检查单选题是否正确并保存记录
+     * @param userAnswer
+     * @param questionInfo
+     * @return
+     */
+    private Boolean checkChoiceIsCorrect(String userAnswer, QuestionInfo questionInfo) {
+        return checkFillingIsCorrect(userAnswer, questionInfo);
+    }
+
 
 }

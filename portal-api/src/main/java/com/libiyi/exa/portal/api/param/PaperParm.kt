@@ -4,6 +4,8 @@ class PaperModel {
     var id = 0
     var subjectId = 0
     var name = ""
+    var avgPoints = 0
+    var count = 0
 }
 
 class PaperListModel {

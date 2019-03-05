@@ -171,6 +171,8 @@ struct TPortalPaperInfo {
         2: i32 subjectId;
         3: string name;
         4: string questionList;
+        5: i32 counts;
+        6: i32 avgPoints;
 }
 
 struct TRAdminPaperInfoList {
@@ -291,4 +293,35 @@ struct TEvaluateResult{
 struct TRIdResult{
         1: TRResponse response;
         2: i32 id;
+}
+
+struct TRPraticeSubject{
+        1: TRResponse response;
+        2: list<TSubjectQuestionCount> subjectQuestionCount;
+        3: TPagination pagination;
+}
+
+struct TPUserIdAndPageParam {
+        1: TPagination pagination;
+        2: i32 userId;
+}
+
+struct TSubjectQuestionCount {
+        1: i32 subjectId;
+        2: string subjectName;
+        3: i32 questionNum;
+}
+
+struct TRPracticeRecord {
+        1: TRResponse response;
+        2: list<TPracticeRecordAndPaperInfo>  practiceInfo;
+}
+
+struct TPracticeRecordAndPaperInfo {
+        1: i32 recordId;
+        2: i32 paperId;
+        3: string paperName;
+        4: i32 subjectId;
+        5: i32 avgCounts;
+        6: i32 counts;
 }

@@ -23,4 +23,6 @@ public interface PaperInfoMapper {
     PaperInfo getById(@Param("id") Integer id);
 
     List<PaperInfo> getThreeBySubjectId(@Param("subjectId") Integer subjectId, @Param("id") Integer id);
+
+    List<PaperInfo> getMostCountsThree();
 }

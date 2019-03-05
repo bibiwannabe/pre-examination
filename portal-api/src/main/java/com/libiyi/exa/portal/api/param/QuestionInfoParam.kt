@@ -16,3 +16,25 @@ class QuestionAnswerModel {
     var answer = ""
     var wrongCount = 0
 }
+
+class SubjectQuestionModel {
+    var subjectId= 0
+    var subjectName = ""
+    var questionCounts = 0
+}
+
+class SubjectQuestionPageModel {
+    var subjectList = listOf<SubjectQuestionModel>()
+    var page = 1
+    var size = 10
+    var total = 0
+}
+
+class PracticeRecordModel {
+    var paperId = 0
+    var subjectId = 0
+    var practiceId = 0
+    var paperName = ""
+    var avgPoints = 0
+    var counts = 0
+}

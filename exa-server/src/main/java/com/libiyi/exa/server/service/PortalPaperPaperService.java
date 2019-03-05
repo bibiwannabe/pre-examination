@@ -11,4 +11,8 @@ public interface PortalPaperPaperService {
     TREvaluateResult updateEvaluateResult(TPCreatPracticeRecordParam practiceParam);
 
     TRPortalPaperInfoList getRecommendPaperList(int userId);
+
+    TREvaluateResult getEvaluateResult(int id);
+
+    TRPortalPaperInfoList getHotestPaperList();
 }

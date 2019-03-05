@@ -76,6 +76,8 @@ public class PaperInfoController {
         paperModel.setName(tPaperInfo.getName());
         paperModel.setId(tPaperInfo.getId());
         paperModel.setSubjectId(tPaperInfo.getSubjectId());
+        paperModel.setAvgPoints(tPaperInfo.getAvgPoints());
+        paperModel.setCount(tPaperInfo.getAvgPoints());
         return paperModel;
     }
 
@@ -158,7 +160,7 @@ public class PaperInfoController {
         return new Result.Builder<EvaluateResultModel>(evaluateResultModel).setCode(CodeEnum.SUCCESS.getCode()).build();
     }
 
-    private EvaluateResultModel getEvaluateResultModel(TREvaluateResult trEvaluateResult) {
+    public EvaluateResultModel getEvaluateResultModel(TREvaluateResult trEvaluateResult) {
         TPortalPaperAndQuestion tPortalPaperAndQuestion = trEvaluateResult.getTPortalPaperAndQuestion();
         EvaluateResultModel evaluateResultModel = new EvaluateResultModel();
         if(tPortalPaperAndQuestion.getChoice()!=null && tPortalPaperAndQuestion.getChoice().getQuestionAndResult()!=null) {
@@ -200,6 +202,7 @@ public class PaperInfoController {
         questionResultModel.setCorrect(tEvaluateResult.isIsCorrect());
         questionResultModel.setOptions(tEvaluateResult.getOptions());
         questionResultModel.setType(tEvaluateResult.getType());
+        questionResultModel.setSubjectId(tEvaluateResult.getSubjectId());
         return questionResultModel;
     }
 
@@ -235,6 +238,28 @@ public class PaperInfoController {
         return new Result.Builder<PaperListModel>(paperListModel).setCode(CodeEnum.SUCCESS.getCode()).build();
     }
 
+    @GetMapping("/hot")
+    @ResponseBody
+    public Result<PaperListModel> getPaperHotList(HttpSession session) {
+        Object object = session.getAttribute(RequestConst.USER_INFO);
+        TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
+        if (trUserLoginInfo == null) {
+            return new Result.Builder<PaperListModel>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+        }
+        TRPortalPaperInfoList trPortalPaperInfoList;
+        try {
+            trPortalPaperInfoList = exaServerService.getHotestPaperList();
+            if (trPortalPaperInfoList.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+                return new Result.Builder<PaperListModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+            }
+        } catch (Throwable e) {
+            logger.error("获取试卷列表失败", e);
+            return new Result.Builder<PaperListModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+        }
+        PaperListModel paperListModel = getPaperRecommendListModel(trPortalPaperInfoList);
+        return new Result.Builder<PaperListModel>(paperListModel).setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
     private PaperListModel getPaperRecommendListModel(TRPortalPaperInfoList trPortalPaperInfoList) {
         PaperListModel paperListModel = new PaperListModel();
         List<PaperModel> paperModels = trPortalPaperInfoList.getPaperInfoList().stream().map(this::getPaperModel).collect(Collectors.toList());
@@ -247,6 +272,8 @@ public class PaperInfoController {
         paperModel.setId(tPortalPaperInfo.getId());
         paperModel.setName(tPortalPaperInfo.getName());
         paperModel.setSubjectId(tPortalPaperInfo.getSubjectId());
+        paperModel.setAvgPoints(tPortalPaperInfo.getAvgPoints());
+        paperModel.setCount(tPortalPaperInfo.getCounts());
         return paperModel;
     }
 

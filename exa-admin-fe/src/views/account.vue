@@ -1,0 +1,145 @@
+<template>
+  <section class="user-edit">
+    <n3-form
+      ref="form"
+      validate
+    >
+      <n3-form-item
+        label="用户名"
+        need
+        :label-col="3"
+      >
+        <n3-input
+          :rules="[{type:'required'}]"
+          v-model="username"
+          width="320px"
+        >{{username}}
+        </n3-input>
+      </n3-form-item>
+      <n3-form-item
+        label="邮箱"
+        need
+        :label-col="3"
+      >
+        <n3-input
+          v-model="email"
+          width="320px"
+          :rules="[{type:'required'}]"
+          class="fl" v-bind:readonly="isReadonly"
+        >{{email}}
+        </n3-input>
+      </n3-form-item>
+      <n3-form-item
+        :label-col="3"
+      >
+        <n3-button
+          @click.native="submitUserInfo"
+          type="primary"
+          :loading="loading"
+          class="submit-btn"
+        >
+          {{ loading ? '操作中' : '保存' }}
+        </n3-button>
+      </n3-form-item>
+    </n3-form>
+  </section>
+</template>
+
+<script>
+  import { mapState } from 'vuex'
+
+  export default {
+    computed: {
+      ...mapState(['user'])
+    },
+    data () {
+      return {
+        username: '',
+        email: '',
+        loading: false,
+        isReadonly: true
+      }
+    },
+    methods: {
+      reload () {
+        var result = 0
+        this.$axios.get(
+          '/admin-api-1.4.5/user/myInfo'
+        ).then(response => {
+          result = response.data.code
+          if (result === 1000) {
+            this.username = response.data.data.name
+            this.email = response.data.data.email
+          }
+          if (result === 1002) {
+            this.n3Alert({
+              content: '登录失效',
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
+            this.$router.push({
+              name: 'login'
+            })
+          }
+        }).catch((error) => {
+          alert('获取信息失败' + error.toString())
+          return
+        })
+      },
+      submitUserInfo () {
+        var result = 0
+        this.$axios({
+          method: 'post',
+          url: '/admin-api-1.4.5/user/info',
+          crossDomain: true,
+          data: JSON.stringify({name: this.username}),
+          contentType: 'application/json'
+        }).then(response => {
+          result = response.data.code
+          if (result === 1000) {
+            this.n3Alert({
+              content: '修改成功',
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
+            this.reload()
+          }
+        }).catch((error) => {
+          this.alert('修改失败' + error.toString())
+          return
+        })
+      }
+    },
+    watch: {
+      '$route' () {
+        if (this.$route.name === 'account') {
+          this.reload()
+        }
+      }
+    },
+    created () {
+      this.reload()
+    }
+  }
+</script>
+
+<style lang="less">
+  .user-edit {
+    background: #fff;
+    .submit-btn {
+      width: 320px;
+    }
+    .refresh {
+      cursor: pointer;
+    }
+    .i-tips {
+      float: left;
+      padding-left: 10px;
+      color: #999;
+    }
+  }
+</style>

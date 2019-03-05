@@ -5,10 +5,7 @@ import com.libiyi.exa.common.common.AccountTypeEnum;
 import com.libiyi.exa.common.common.CodeEnum;
 import com.libiyi.exa.common.common.RequestConst;
 import com.libiyi.exa.common.common.Result;
-import com.libiyi.exa.common.param.SendCodeParam;
-import com.libiyi.exa.common.param.UserInfoParam;
-import com.libiyi.exa.common.param.UserLoginParam;
-import com.libiyi.exa.common.param.UserModel;
+import com.libiyi.exa.common.param.*;
 import com.libiyi.exa.common.service.ExaServerService;
 import com.libiyi.exa.common.thrift.*;
 import org.apache.logging.log4j.LogManager;
@@ -146,4 +143,38 @@ public class UserController {
         return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
     }
 
+    @RequestMapping(value = "/info", method = RequestMethod.POST)
+    @ResponseBody
+    public Result<String> userModiftName(@RequestBody UserModifyNameParam userModifyNameParam, HttpSession session) {
+        Object object = session.getAttribute(RequestConst.USER_INFO);
+        TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
+        TRResponse trResponse;
+        if(trUserLoginInfo == null) {
+            return new Result.Builder<String>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+        }
+        try {
+            trResponse = exaServerService.updateUsername(userModifyNameParam.getName(), trUserLoginInfo.getId());
+            trUserLoginInfo = exaServerService.getUserInfo(trUserLoginInfo.getId());
+        }catch (Throwable e) {
+            logger.error("修改用户昵称出错：", e);
+            return new Result.Builder<String>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).build();
+        }
+        if(trResponse.getCode()!=CodeEnum.SUCCESS.getCode()){
+            return new Result.Builder<String>().setCode(trResponse.getCode()).build();
+        }
+        session.setAttribute(RequestConst.USER_INFO, trUserLoginInfo);
+        return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+    @RequestMapping(value = "/myInfo", method = RequestMethod.GET)
+    @ResponseBody
+    public Result<UserModel> getLonginUserInfo(HttpSession session) {
+        Object object = session.getAttribute(RequestConst.USER_INFO);
+        TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class) ;
+        if(trUserLoginInfo == null) {
+            return new Result.Builder<UserModel>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+        }
+        UserModel userModel = getUserModel(trUserLoginInfo);
+        return new Result.Builder<UserModel>(userModel).setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
 }

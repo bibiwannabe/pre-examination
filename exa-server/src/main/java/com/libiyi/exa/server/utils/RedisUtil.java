@@ -202,6 +202,22 @@ public class RedisUtil {
         }
     }
 
+    /**
+     * 获取list缓存的内容
+     * @param key 键
+     * @param start 开始
+     * @param end 结束  0 到 -1代表所有值
+     * @return
+     */
+    public List<Object> lGet(String key, long start, long end){
+        try {
+            return redisTemplate.opsForList().range(key, start, end);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
 
 }

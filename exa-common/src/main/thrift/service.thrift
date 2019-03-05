@@ -17,7 +17,8 @@ service ExaServerService{
         model.TRResponse updateUsername(1:string name, 2:i32 id)
 
         /*用户获取题目模块*/
-
+        //分页获取科目及错题数
+        model.TRPraticeSubject getSubjectQuestionCount(1:model.TPUserIdAndPageParam param);
         //用户获取错题
         model.TRPortalWrongQuestionInfoList getWrongQuestionBySubjectId(1:model.TPPortalWrongQuestionParam worngQuestionParam);
         //用户获取试卷
@@ -28,6 +29,12 @@ service ExaServerService{
         model.TREvaluateResult getEvaluateResult(1:model.TPCreatPracticeRecordParam practiceParam);
         //获取推荐试卷
         model.TRPortalPaperInfoList getRecommendPaperList(1:i32 userId);
+        //根据id获取做卷记录
+        model.TREvaluateResult getEvaluateResultById(1:i32 id);
+        //获取最近五次做题记录
+        model.TRPracticeRecord getPracticeRecordByUserId(1: i32 userId);
+        //获取最热门试卷
+        model.TRPortalPaperInfoList getHotestPaperList();
 
         /*后台模块*/
         model.TRResponse createAdminInfo(1:model.TPAdminInfo adminInfo);
