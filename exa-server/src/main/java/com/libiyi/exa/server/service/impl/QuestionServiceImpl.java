@@ -5,16 +5,22 @@ import com.libiyi.exa.common.common.CodeEnum;
 import com.libiyi.exa.common.common.QuestionTypeEnum;
 import com.libiyi.exa.common.thrift.*;
 import com.libiyi.exa.common.util.DateUtil;
+import com.libiyi.exa.server.dao.PaperQuestionDataMapper;
 import com.libiyi.exa.server.dao.QuestionInfoMapper;
 import com.libiyi.exa.server.dto.QuestionModifyDto;
+import com.libiyi.exa.server.entity.PaperQuestionData;
 import com.libiyi.exa.server.entity.QuestionInfo;
 import com.libiyi.exa.server.service.QuestionService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,6 +30,9 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Autowired
     private QuestionInfoMapper questionInfoMapper;
+
+    @Autowired
+    private PaperQuestionDataMapper paperQuestionDataMapper;
 
     /**
      * 创建问题
@@ -194,5 +203,58 @@ public class QuestionServiceImpl implements QuestionService {
         questionModifyDto.setSubjectId(modifyParam.getSubjectId());
         questionModifyDto.setUpdateTime(DateUtil.getNow());
         return questionModifyDto;
+    }
+
+    /**
+     * 获取问题列表
+     *
+     * @param paperId
+     * @return
+     */
+    @Override
+    public TRPaperQuestionDataList getQuestionListByPaperId(Integer paperId) {
+        TRPaperQuestionDataList trPaperQuestionDataList = new TRPaperQuestionDataList();
+        TRResponse trResponse = new TRResponse();
+        List<QuestionInfo> questionInfoList;
+        List<TPaperQuestionData> tPaperQuestionDataList = new ArrayList<>();
+        Map<Integer, PaperQuestionData> paperQuestionDataMap = new HashMap<>();
+        try {
+            List<PaperQuestionData> paperQuestionDataList = paperQuestionDataMapper.getFiveByPaperId(paperId);
+            paperQuestionDataList.forEach(paperQuestionData -> paperQuestionDataMap.put(paperQuestionData.getQuestionId(), paperQuestionData));
+            List<Integer> questionIdList = new ArrayList<>();
+            paperQuestionDataList.forEach(paperQuestionData -> questionIdList.add(paperQuestionData.getQuestionId()));
+            if (CollectionUtils.isEmpty(questionIdList)) {
+                trResponse.setCode(CodeEnum.SUCCESS.getCode());
+                trPaperQuestionDataList.setResponse(trResponse);
+                trPaperQuestionDataList.setPaperQuestionDataList(tPaperQuestionDataList);
+                return trPaperQuestionDataList;
+            }
+            questionInfoList = questionInfoMapper.getByIdList(questionIdList);
+        } catch (Exception e) {
+            logger.error("获取题目列表失败", e);
+            trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
+            trPaperQuestionDataList.setResponse(trResponse);
+            return trPaperQuestionDataList;
+        }
+        if (!CollectionUtils.isEmpty(questionInfoList)) {
+            questionInfoList.forEach(questionInfo -> {
+                TPaperQuestionData tPaperQuestionData = getTPaperQuestionData(paperQuestionDataMap, questionInfo, paperId);
+                tPaperQuestionDataList.add(tPaperQuestionData);
+            });
+        }
+        trResponse.setCode(CodeEnum.SUCCESS.getCode());
+        trPaperQuestionDataList.setResponse(trResponse);
+        trPaperQuestionDataList.setPaperQuestionDataList(tPaperQuestionDataList);
+        return trPaperQuestionDataList;
+    }
+
+    private TPaperQuestionData getTPaperQuestionData(Map<Integer, PaperQuestionData> paperQuestionDataMap, QuestionInfo questionInfo, Integer paperId) {
+        TPaperQuestionData tPaperQuestionData = new TPaperQuestionData();
+        tPaperQuestionData.setCount(paperQuestionDataMap.get(questionInfo.getId()).getCounts());
+        tPaperQuestionData.setPaperId(paperId);
+        tPaperQuestionData.setQuestionId(questionInfo.getId());
+        tPaperQuestionData.setSubjectId(questionInfo.getSubjectId());
+        tPaperQuestionData.setQuestionContent(questionInfo.getContent());
+        return tPaperQuestionData;
     }
 }

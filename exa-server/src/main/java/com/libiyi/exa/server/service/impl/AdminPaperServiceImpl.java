@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -152,6 +153,37 @@ public class AdminPaperServiceImpl implements AdminPaperService {
         response.setCode(CodeEnum.SUCCESS.getCode());
         trAdminPaperAndQuestionInfo.setResponse(response);
         return trAdminPaperAndQuestionInfo;
+    }
+
+    /**
+     * 获取平均分最低的五个试卷
+     * @param subjectId
+     * @return
+     */
+    @Override
+    public TRAdminPaperInfoList getAvgLowestFive(int subjectId) {
+        TRAdminPaperInfoList trAdminPaperInfoList = new TRAdminPaperInfoList();
+        TRResponse trResponse = new TRResponse();
+        List<TPaperInfo> tPaperInfoList = new ArrayList<>();
+        try {
+            List<PaperInfo> paperInfoList = paperInfoMapper.getAvgLowestFive(subjectId);
+            if (paperInfoList == null){
+                trResponse.setCode(CodeEnum.SUCCESS.getCode());
+                trAdminPaperInfoList.setPaperInfoList(tPaperInfoList);
+                trAdminPaperInfoList.setResponse(trResponse);
+                return trAdminPaperInfoList;
+            }
+            tPaperInfoList = paperInfoList.stream().map(this::getTPaperInfo).collect(Collectors.toList());
+            trAdminPaperInfoList.setPaperInfoList(tPaperInfoList);
+        } catch (Exception e) {
+            logger.error("获取试卷列表失败,", e);
+            trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
+            trAdminPaperInfoList.setResponse(trResponse);
+            return trAdminPaperInfoList;
+        }
+        trResponse.setCode(CodeEnum.SUCCESS.getCode());
+        trAdminPaperInfoList.setResponse(trResponse);
+        return trAdminPaperInfoList;
     }
 
     private TRAdminPaperAndQuestionInfo getTRAdminPaperAndQuestionInfo(PaperInfo paperInfo) {

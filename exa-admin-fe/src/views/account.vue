@@ -47,6 +47,7 @@
 
 <script>
   import { mapState } from 'vuex'
+  import axios from 'axios'
 
   export default {
     computed: {
@@ -63,7 +64,7 @@
     methods: {
       reload () {
         var result = 0
-        this.$axios.get(
+        axios.get(
           '/admin-api-1.4.5/user/myInfo'
         ).then(response => {
           result = response.data.code
@@ -74,7 +75,7 @@
           if (result === 1002) {
             this.n3Alert({
               content: '登录失效',
-              type: 'success',
+              type: 'danger',
               placement: 'center',
               duration: 2000,
               width: '240px'
@@ -90,7 +91,7 @@
       },
       submitUserInfo () {
         var result = 0
-        this.$axios({
+        axios({
           method: 'post',
           url: '/admin-api-1.4.5/user/info',
           crossDomain: true,

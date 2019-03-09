@@ -8,14 +8,8 @@ import com.libiyi.exa.common.thrift.*;
 import com.libiyi.exa.common.util.DateUtil;
 import com.libiyi.exa.common.util.ParseUserAnswer;
 import com.libiyi.exa.common.util.SetUtil;
-import com.libiyi.exa.server.dao.PaperInfoMapper;
-import com.libiyi.exa.server.dao.PracticeRecordMapper;
-import com.libiyi.exa.server.dao.QuestionInfoMapper;
-import com.libiyi.exa.server.dao.WrongRecordMapper;
-import com.libiyi.exa.server.entity.PaperInfo;
-import com.libiyi.exa.server.entity.PracticeRecord;
-import com.libiyi.exa.server.entity.QuestionInfo;
-import com.libiyi.exa.server.entity.WrongRecord;
+import com.libiyi.exa.server.dao.*;
+import com.libiyi.exa.server.entity.*;
 import com.libiyi.exa.server.service.PortalPaperPaperService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -41,6 +35,9 @@ public class PortalPaperServiceImpl implements PortalPaperPaperService {
 
     @Autowired
     private PracticeRecordMapper practiceRecordMapper;
+
+    @Autowired
+    private PaperQuestionDataMapper paperQuestionDataMapper;
 
     @Override
     public TRPortalPaperInfoList getPaperListBySubjectId(TPPortalQueryPaperInfo queryPaperInfo) {
@@ -156,17 +153,17 @@ public class PortalPaperServiceImpl implements PortalPaperPaperService {
         Integer userId = practiceParam.getUserId();
         TRResponse trResponse = new TRResponse();
         if(!CollectionUtils.isEmpty(practiceParam.getChoice())){
-            TEvaluateResultListAndPoints tEvaluateResultListAndPoints = checkAnswerCorrectAndSaveRecord(practiceParam.getChoice(), userId, paperQuestionListModel.getChoice().getPoint());
+            TEvaluateResultListAndPoints tEvaluateResultListAndPoints = checkAnswerCorrectAndSaveRecord(practiceParam.getChoice(), userId, paperQuestionListModel.getChoice().getPoint(), practiceParam.getPaperId());
             tPortalPaperAndQuestion.setChoice(tEvaluateResultListAndPoints);
             grades += tEvaluateResultListAndPoints.getTotalPoints();
         }
         if(!CollectionUtils.isEmpty(practiceParam.getSelection())){
-            TEvaluateResultListAndPoints tEvaluateResultListAndPoints = checkAnswerCorrectAndSaveRecord(practiceParam.getSelection(), userId, paperQuestionListModel.getSelection().getPoint());
+            TEvaluateResultListAndPoints tEvaluateResultListAndPoints = checkAnswerCorrectAndSaveRecord(practiceParam.getSelection(), userId, paperQuestionListModel.getSelection().getPoint(),  practiceParam.getPaperId());
             tPortalPaperAndQuestion.setSelection(tEvaluateResultListAndPoints);
             grades += tEvaluateResultListAndPoints.getTotalPoints();
         }
         if(!CollectionUtils.isEmpty(practiceParam.getFilling())){
-            TEvaluateResultListAndPoints tEvaluateResultListAndPoints = checkAnswerCorrectAndSaveRecord(practiceParam.getFilling(), userId, paperQuestionListModel.getFilling().getPoint());
+            TEvaluateResultListAndPoints tEvaluateResultListAndPoints = checkAnswerCorrectAndSaveRecord(practiceParam.getFilling(), userId, paperQuestionListModel.getFilling().getPoint(),  practiceParam.getPaperId());
             tPortalPaperAndQuestion.setFilling(tEvaluateResultListAndPoints);
             grades += tEvaluateResultListAndPoints.getTotalPoints();
         }
@@ -365,7 +362,7 @@ public class PortalPaperServiceImpl implements PortalPaperPaperService {
      * @param eachPoints
      * @return
      */
-    private TEvaluateResultListAndPoints checkAnswerCorrectAndSaveRecord(Map<Integer, String> tQuestionAnswerMap, Integer userId, Integer eachPoints) {
+    private TEvaluateResultListAndPoints checkAnswerCorrectAndSaveRecord(Map<Integer, String> tQuestionAnswerMap, Integer userId, Integer eachPoints, Integer paperId) {
         Integer grades = 0;
         TEvaluateResultListAndPoints tEvaluateResultListAndPoints = new TEvaluateResultListAndPoints();
         List<Integer> idList = new ArrayList<>(tQuestionAnswerMap.keySet());
@@ -389,12 +386,23 @@ public class PortalPaperServiceImpl implements PortalPaperPaperService {
                 grades += eachPoints;
             }else {
                 tEvaluateResult.setWrongAnswer(userAnswer);
+                PaperQuestionData paperQuestionData = getPaperQuestionData(questionInfo.getId(), questionInfo.getSubjectId(), paperId);
+                paperQuestionDataMapper.createData(paperQuestionData);
             }
             tEvaluateResults.add(tEvaluateResult);
         }
         tEvaluateResultListAndPoints.setQuestionAndResult(tEvaluateResults);
         tEvaluateResultListAndPoints.setTotalPoints(grades);
         return tEvaluateResultListAndPoints;
+    }
+
+    private PaperQuestionData getPaperQuestionData(Integer questionId, Integer subjectId, Integer paperId) {
+        PaperQuestionData paperQuestionData = new PaperQuestionData();
+        paperQuestionData.setCounts(1);
+        paperQuestionData.setPaperId(paperId);
+        paperQuestionData.setSubjectId(subjectId);
+        paperQuestionData.setQuestionId(questionId);
+        return paperQuestionData;
     }
 
     private Boolean checkIsCorrectAndSaveRecords(String userAnswer, QuestionInfo questionInfo, Integer userId) {

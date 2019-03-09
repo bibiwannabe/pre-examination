@@ -50,8 +50,7 @@
       <div v-for="(item,index) in this.choiceResultList">
         <n3-icon v-if="item.isCorrect == false" size="20px" type="times" color="red"></n3-icon>
         <span style="font-size: 18px; line-height: 40px">{{index + 1}}. {{item.content}}</span> <br/>
-        <n3-radio-group v-model="choiceAnswerMap[item.id]" type="primary"
-                        @change="choiceAnswerChange(choiceAnswerMap[item.id], item.id)">
+        <n3-radio-group v-model="choiceAnswerMap[item.id]" type="primary">
           <n3-radio v-for="option of JSON.parse(item.options)" :label="option.toString()" disabled=""
                     style="float: none; font-size: 16px; width: 100%; height: 40px; margin-left: 20px">{{option}}
           </n3-radio>
@@ -65,7 +64,7 @@
       <div v-for="(item,index) in this.selectionResultList">
         <n3-icon v-if="item.isCorrect == false" size="20px" type="times" color="red"></n3-icon>
         <span style="font-size: 18px; line-height: 40px">{{index + 1}}. {{item.content}}</span> <br/>
-        <n3-checkbox-group v-model="selectionAnswerMap[item.id]" @change="selectionAnswerChange(selectionAnswerMap[item.id], item.id)">
+        <n3-checkbox-group v-model="selectionAnswerMap[item.id]">
           <n3-checkbox v-for="option of JSON.parse(item.options)" :label="option" disabled
                            style="float: none; font-size: 16px; width: 100%; height: 40px; margin-left: 20px">{{option}}</n3-checkbox>
         </n3-checkbox-group>

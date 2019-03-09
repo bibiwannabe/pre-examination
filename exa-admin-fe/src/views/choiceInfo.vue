@@ -162,7 +162,6 @@
         ).then(response => {
           this.subjectList = response.data.data
           this.subjectId = response.data.data[0].id
-          this.subject.id = this.subjectId
         }).catch((error) => {
           alert('获取信息失败' + error.toString())
         })
@@ -175,6 +174,7 @@
           this.$set(this.subject, 'id', response.data.data.subjectId)
           var jsonObj = JSON.parse(response.data.data.options)
           this.options = JSON.parse(response.data.data.options)
+          this.subject.id = response.data.data.subjectId
           for (var i = 0; i < jsonObj.length; i++) {
             this.options[i] = jsonObj[i]
           }
@@ -183,13 +183,10 @@
         })
         this.loading = false
       },
-      created () {
-        this.reload1()
-      },
       submitQuestion () {
         var data = JSON.stringify({
           id: this.id,
-          subjectId: this.subjectId,
+          subjectId: this.subject.id,
           content: this.content,
           answer: this.answer,
           options: JSON.stringify(this.options)
@@ -242,10 +239,13 @@
     },
     watch: {
       '$route' () {
-        if (this.$route.name == 'choiceInfo') {
-          this.created()
+        if (this.$route.name === 'choiceInfo') {
+          this.reload1()
         }
       }
+    },
+    created () {
+      this.reload1()
     }
   }
 </script>

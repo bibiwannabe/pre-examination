@@ -179,9 +179,6 @@
         })
         this.loading = false
       },
-      created () {
-        this.reload3()
-      },
       submitQuestion () {
         var data = JSON.stringify({
           id: this.id,
@@ -244,10 +241,13 @@
     },
     watch: {
       '$route' () {
-        if (this.$route.name == 'selectionInfo') {
-          this.created()
+        if (this.$route.name === 'selectionInfo') {
+          this.reload3()
         }
       }
+    },
+    created () {
+      this.reload3()
     }
   }
 </script>

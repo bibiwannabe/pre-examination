@@ -211,4 +211,37 @@ public class QuestionController {
         tpAdminSearchQuestionParam.setSubjectId(subjectId);
         return tpAdminSearchQuestionParam;
     }
+
+
+    @GetMapping("/wrongMax")
+    @ResponseBody
+    public Result<List<PaperQuestionDataModel>> getQuestionListByPaperId(@RequestParam("paperId") int paperId, HttpSession session) {
+        Object object = session.getAttribute(RequestConst.USER_INFO);
+        TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
+        if (trUserLoginInfo == null || trUserLoginInfo.getAccType() != AccountTypeEnum.TEACHER.getCode()) {
+            return new Result.Builder<List<PaperQuestionDataModel>>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+        }
+        TRPaperQuestionDataList trPaperQuestionDataList;
+        try {
+            trPaperQuestionDataList = exaServerService.getPaperQuestionDataList(paperId);
+            if (trPaperQuestionDataList.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+                return new Result.Builder<List<PaperQuestionDataModel>>().setCode(trPaperQuestionDataList.getResponse().getCode()).build();
+            }
+        } catch (Throwable e) {
+            logger.error("获取题目失败", e);
+            return new Result.Builder<List<PaperQuestionDataModel>>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+        }
+        List<PaperQuestionDataModel> questionListModel = trPaperQuestionDataList.getPaperQuestionDataList().stream().map(this::getPaperQuestionDataModel).collect(Collectors.toList());
+        return new Result.Builder<List<PaperQuestionDataModel>>(questionListModel).setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+    private PaperQuestionDataModel getPaperQuestionDataModel(TPaperQuestionData tPaperQuestionData) {
+        PaperQuestionDataModel paperQuestionDataModel = new PaperQuestionDataModel();
+        paperQuestionDataModel.setCounts(tPaperQuestionData.getCount());
+        paperQuestionDataModel.setPaperId(tPaperQuestionData.getPaperId());
+        paperQuestionDataModel.setQuestionContent(tPaperQuestionData.getQuestionContent());
+        paperQuestionDataModel.setSubjectId(tPaperQuestionData.getSubjectId());
+        paperQuestionDataModel.setQuestionId(tPaperQuestionData.getQuestionId());
+        return paperQuestionDataModel;
+    }
 }

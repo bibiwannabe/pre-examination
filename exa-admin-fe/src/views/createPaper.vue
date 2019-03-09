@@ -388,8 +388,6 @@
         this.searchFillingContentList = []
         alert(JSON.stringify(this.fillingList))
       },
-      load () {
-      },
       deleteQuestion (index) {
         if (this.questionType === 0) {
           this.choiceList.splice(index, 1)
@@ -532,6 +530,9 @@
       fillingList () {
         this.sum = this.choiceEachPoint * this.choiceNum + this.selectionEachPoint * this.selectionNum + this.fillingEachPoint * this.fillingNum
       }
+    },
+    created () {
+      this.reload()
     }
   }
 </script>

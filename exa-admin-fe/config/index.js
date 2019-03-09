@@ -19,8 +19,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/admin-api-1.4.5': {
-        //target: 'http://localhost:8083/admin_api_war_exploded',
-        target: 'http://119.23.239.46:8083/admin-api-1.4.5',
+        target: 'http://localhost:8083/admin_api_war_exploded',
+        //target: 'http://119.23.239.46:8083/admin-api-1.4.5',
         changeOrigin: true,
         pathRewrite: {
           '^/admin-api-1.4.5': ''

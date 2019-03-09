@@ -16,19 +16,12 @@
             <n3-option value="2">填空题</n3-option>
           </n3-select>
         </div>
-        <div class="form-item">
-          <label for="">排序方式：</label>
-          <n3-select v-model="queryType" @change="searchChange">
-            <n3-option value="0">最新</n3-option>
-            <n3-option value="1">错误率</n3-option>
-          </n3-select>
-        </div>
 
       </div>
       <div class="search-submit" style="float: right;width: 100px; margin-right: 50px">
         <n3-button block @click.native="createQuestion">新建题目</n3-button>
       </div>
-      <div class="search-submit" style="float: left;width: 100px; margin-left: 10px;margin-top: 4px">
+      <div class="search-submit" style="float: left;width: 100px; margin-left: 30px;margin-top: 4px">
         <n3-button type="primary" block @click.native="search">搜索</n3-button>
       </div>
 
@@ -60,6 +53,7 @@
 </template>
 <script>
   import API from '../api'
+  import axios from 'axios'
 
   export default {
     data () {
@@ -156,7 +150,7 @@
     methods: {
       load () {
         var url = '/admin-api-1.4.5/question/list?subjectId=' + this.subjectId + '&type=' + this.questionType + '&page=' + this.pagination.current
-        this.$axios.get(url
+        axios.get(url
         ).then(response => {
           var result = response.data.code
           if (result === 1002) {
@@ -208,7 +202,7 @@
         }
       },
       reload () {
-        this.$axios.get('/admin-api-1.4.5/subject/list'
+        axios.get('/admin-api-1.4.5/subject/list'
         ).then(response => {
           var result = response.data.code
           if (result === 1002) {
@@ -234,7 +228,7 @@
         this.loading = false
       },
       getList () {
-        this.$axios.get('/admin-api-1.4.5/question/list?subjectId=1&type=0'
+        axios.get('/admin-api-1.4.5/question/list?subjectId=1&type=0'
       ).then(response => {
         this.questionList = response.data.data.questionList
         this.pagination.total = response.data.data.total
@@ -277,6 +271,9 @@
           this.reload()
         }
       }
+    },
+    created () {
+      this.reload()
     }
   }
 </script>

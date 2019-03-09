@@ -112,6 +112,7 @@
           this.content = response.data.data.content
           var jsonObj = JSON.parse(response.data.data.options)
           this.options = JSON.parse(response.data.data.options)
+          this.subject.id = response.data.data.subjectId
           for (var i = 0; i < jsonObj.length; i++) {
             this.options[i] = jsonObj[i]
           }
@@ -141,9 +142,6 @@
         var millisec = 100
         setTimeout(this.getFilling, millisec)
         this.loading = false
-      },
-      created () {
-        this.reload2()
       },
       submitQuestion () {
         var data = JSON.stringify({
@@ -196,9 +194,12 @@
     watch: {
       '$route' () {
         if (this.$route.name === 'fillingInfo') {
-          this.created()
+          this.reload2()
         }
       }
+    },
+    created () {
+      this.reload2()
     }
   }
 </script>

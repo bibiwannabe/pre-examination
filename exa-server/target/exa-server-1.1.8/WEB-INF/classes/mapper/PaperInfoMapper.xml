@@ -44,4 +44,8 @@
         SELECT id, subject_id, pname, question_list, avg_points, counts, create_user, create_time, update_time FROM paper_info ORDER BY counts DESC LIMIT 0,3
     </select>
 
+    <select id="getAvgLowestFive" resultMap="BaseResultMap">
+        SELECT id, subject_id, pname, question_list, avg_points, counts, create_user, create_time, update_time FROM paper_info WHERE subject_id = #{subjectId} ORDER BY avg_points LIMIT 0,5
+    </select>
+
 </mapper>

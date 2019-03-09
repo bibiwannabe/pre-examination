@@ -10,6 +10,7 @@ com/libiyi/exa/common/service/ExaServerService$getUserInfo_result$getUserInfo_re
 com/libiyi/exa/common/service/ExaServerService$modifyQuestion_args.class
 com/libiyi/exa/common/thrift/TSubjectTag$TSubjectTagStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getEvaluateResultById.class
+com/libiyi/exa/common/service/ExaServerService$getPaperQuestionDataList_args$getPaperQuestionDataList_argsStandardSchemeFactory.class
 com/libiyi/exa/common/thrift/TRAdminPaperInfo.class
 com/libiyi/exa/common/service/ExaServerService$Processor$createPaper.class
 com/libiyi/exa/common/thrift/TPortalQuestionPointsAndInfoList$TPortalQuestionPointsAndInfoListStandardScheme.class
@@ -21,7 +22,9 @@ com/libiyi/exa/common/thrift/TRResponse.class
 com/libiyi/exa/common/service/ExaServerService$AsyncClient$getHotestPaperList_call.class
 com/libiyi/exa/common/thrift/TPAdminCreateQuestionInfo$TPAdminCreateQuestionInfoTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$checkEmailExist_args$checkEmailExist_argsStandardScheme.class
+com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getAvgLowestFive$1.class
 com/libiyi/exa/common/service/ExaServerService$getPracticeRecordByUserId_args$getPracticeRecordByUserId_argsStandardSchemeFactory.class
+com/libiyi/exa/common/thrift/TRPaperQuestionDataList$TRPaperQuestionDataListStandardScheme.class
 com/libiyi/exa/common/thrift/TPagination$TPaginationTupleScheme.class
 com/libiyi/exa/common/thrift/TRIdResult$TRIdResultTupleScheme.class
 com/libiyi/exa/common/thrift/TRPortalWrongQuestionInfoList$TRPortalWrongQuestionInfoListTupleScheme.class
@@ -55,6 +58,7 @@ com/libiyi/exa/common/service/ExaServerService$getPaperListByParam_result.class
 com/libiyi/exa/common/service/ExaServerService$modifyPaper_result$_Fields.class
 com/libiyi/exa/common/thrift/TRAdminInfo$1.class
 com/libiyi/exa/common/thrift/TRPraticeSubject$_Fields.class
+com/libiyi/exa/common/thrift/TPaperQuestionData$1.class
 com/libiyi/exa/common/service/ExaServerService$getPaperById_result.class
 com/libiyi/exa/common/thrift/TAdminQuestionInfo.class
 com/libiyi/exa/common/service/ExaServerService$getPaperListBySubjectId_args$getPaperListBySubjectId_argsTupleSchemeFactory.class
@@ -77,6 +81,7 @@ com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$createSubjectTag.c
 com/libiyi/exa/common/thrift/TRUserLoginInfo$TRUserLoginInfoStandardScheme.class
 com/libiyi/exa/common/service/ExaServerService$userRegister_result$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$updateUsername_result$updateUsername_resultStandardSchemeFactory.class
+com/libiyi/exa/common/thrift/TPaperQuestionData$TPaperQuestionDataTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$getQuestionListByParam_result$getQuestionListByParam_resultStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$createPaper.class
 com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result$getAdminInfo_resultStandardSchemeFactory.class
@@ -133,6 +138,7 @@ com/libiyi/exa/common/service/ExaServerService$getEvaluateResult_args$getEvaluat
 com/libiyi/exa/common/thrift/TPortalQuestionInfo$TPortalQuestionInfoStandardScheme.class
 com/libiyi/exa/common/thrift/TRIdResult.class
 com/libiyi/exa/common/thrift/TPAdminQuerryQuestionInfo$TPAdminQuerryQuestionInfoStandardScheme.class
+com/libiyi/exa/common/service/ExaServerService$getPaperQuestionDataList_args.class
 com/libiyi/exa/common/connection/ServerInstance.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getPaperById$1.class
 com/libiyi/exa/common/thrift/TRAdminPaperInfoList$TRAdminPaperInfoListTupleSchemeFactory.class
@@ -160,6 +166,7 @@ com/libiyi/exa/common/thrift/TRPortalPaperInfoList$TRPortalPaperInfoListTupleSch
 com/libiyi/exa/common/service/ExaServerService$getSubjectQuestionCount_result$getSubjectQuestionCount_resultTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$Processor$createAdminInfo.class
 com/libiyi/exa/common/service/ExaServerService$getEvaluateResultById_result$getEvaluateResultById_resultStandardSchemeFactory.class
+com/libiyi/exa/common/service/ExaServerService$getPaperQuestionDataList_args$getPaperQuestionDataList_argsStandardScheme.class
 com/libiyi/exa/common/thrift/TEvaluateResult$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$modifyPaper.class
 com/libiyi/exa/common/thrift/TEvaluateResult$TEvaluateResultTupleSchemeFactory.class
@@ -182,7 +189,9 @@ com/libiyi/exa/common/service/ExaServerService$getQuestionListBySearchKey_args$g
 com/libiyi/exa/common/service/ExaServerService$getPaperListByParam_result$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$modifyQuestion_args$modifyQuestion_argsTupleSchemeFactory.class
 com/libiyi/exa/common/thrift/TPAdminSearchQuestionParam.class
+com/libiyi/exa/common/thrift/TPaperQuestionData.class
 com/libiyi/exa/common/thrift/TRPortalPaperInfoList$TRPortalPaperInfoListStandardSchemeFactory.class
+com/libiyi/exa/common/service/ExaServerService$getPaperQuestionDataList_args$getPaperQuestionDataList_argsTupleScheme.class
 com/libiyi/exa/common/thrift/TPracticeRecordAndPaperInfo$TPracticeRecordAndPaperInfoTupleSchemeFactory.class
 com/libiyi/exa/common/thrift/TSubjectTag$1.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$modifyQuestion.class
@@ -194,6 +203,7 @@ com/libiyi/exa/common/thrift/TPAdminQueryPaperInfo$TPAdminQueryPaperInfoTupleSch
 com/libiyi/exa/common/thrift/TQuestionPointsAndInfoList$_Fields.class
 com/libiyi/exa/common/thrift/TPPortalWrongQuestionParam$TPPortalWrongQuestionParamStandardScheme.class
 com/libiyi/exa/common/thrift/TEvaluateResultListAndPoints$TEvaluateResultListAndPointsTupleScheme.class
+com/libiyi/exa/common/service/ExaServerService$getAvgLowestFive_result$_Fields.class
 com/libiyi/exa/common/common/AccountTypeEnum.class
 com/libiyi/exa/common/service/ExaServerService$getQuestionListByParam_args$getQuestionListByParam_argsTupleSchemeFactory.class
 com/libiyi/exa/common/thrift/TAdminQuestionInfo$1.class
@@ -206,9 +216,11 @@ com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getSubjectQuestion
 com/libiyi/exa/common/service/ExaServerService$addQuestion_result$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getUserInfo$1.class
 com/libiyi/exa/common/service/ExaServerService$getUserInfo_args$getUserInfo_argsTupleSchemeFactory.class
+com/libiyi/exa/common/service/ExaServerService$getAvgLowestFive_result$getAvgLowestFive_resultStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$checkEmailExist_args$checkEmailExist_argsTupleSchemeFactory.class
 com/libiyi/exa/common/thrift/TRResponse$TRResponseTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$Iface.class
+com/libiyi/exa/common/service/ExaServerService$getAvgLowestFive_result.class
 com/libiyi/exa/common/service/ExaServerService$createSubjectTag_args$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$Processor$modifyPaper.class
 com/libiyi/exa/common/service/ExaServerService$updateUsername_result$_Fields.class
@@ -217,6 +229,7 @@ com/libiyi/exa/common/service/ExaServerService$getSubjectQuestionCount_result.cl
 com/libiyi/exa/common/thrift/TRAdminQuestionInfo$TRAdminQuestionInfoTupleScheme.class
 com/libiyi/exa/common/thrift/TQuestionPointsAndInfoList$TQuestionPointsAndInfoListTupleSchemeFactory.class
 com/libiyi/exa/common/connection/ThriftClientConfig.class
+com/libiyi/exa/common/service/ExaServerService$getAvgLowestFive_args$getAvgLowestFive_argsTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$getHotestPaperList_args$getHotestPaperList_argsTupleScheme.class
 com/libiyi/exa/common/thrift/TPAdminQueryPaperInfo$1.class
 com/libiyi/exa/common/service/ExaServerService$getRecommendPaperList_result$getRecommendPaperList_resultStandardScheme.class
@@ -227,6 +240,7 @@ com/libiyi/exa/common/service/ExaServerService$createSubjectTag_result.class
 com/libiyi/exa/common/thrift/TPUserRegisterInfo$TPUserRegisterInfoStandardScheme.class
 com/libiyi/exa/common/service/ExaServerService$getUserInfo_result.class
 com/libiyi/exa/common/service/ExaServerService$Processor$checkEmailExist.class
+com/libiyi/exa/common/thrift/TRPaperQuestionDataList$TRPaperQuestionDataListTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$getPaperListByParam_args$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$getRecommendPaperList_result$_Fields.class
 com/libiyi/exa/common/thrift/TRResponse$TRResponseTupleScheme.class
@@ -242,6 +256,7 @@ com/libiyi/exa/common/service/ExaServerService$AsyncClient$createSubjectTag_call
 com/libiyi/exa/common/thrift/TREvaluateResult.class
 com/libiyi/exa/common/service/ExaServerService$sendEmail_args$sendEmail_argsTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getAdminInfo.class
+com/libiyi/exa/common/service/ExaServerService$AsyncClient$getAvgLowestFive_call.class
 com/libiyi/exa/common/connection/ThriftConnectionPool.class
 com/libiyi/exa/common/service/ExaServerService$getEvaluateResult_args$getEvaluateResult_argsStandardScheme.class
 com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args$getAdminInfo_argsTupleSchemeFactory.class
@@ -278,6 +293,7 @@ com/libiyi/exa/common/service/ExaServerService$addQuestion_args$addQuestion_args
 com/libiyi/exa/common/service/ExaServerService$AsyncClient.class
 com/libiyi/exa/common/thrift/TRAdminPaperAndQuestionInfo$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$getHotestPaperList_result$getHotestPaperList_resultStandardScheme.class
+com/libiyi/exa/common/thrift/TRPaperQuestionDataList$TRPaperQuestionDataListTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$getPaperListByParam_result$getPaperListByParam_resultStandardSchemeFactory.class
 com/libiyi/exa/common/thrift/TRPortalWrongQuestionInfoList.class
 com/libiyi/exa/common/service/ExaServerService$Processor$createSubjectTag.class
@@ -291,6 +307,7 @@ com/libiyi/exa/common/service/ExaServerService$getPaperListBySubjectId_args$_Fie
 com/libiyi/exa/common/service/ExaServerService$updateUsername_result$updateUsername_resultTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$userRegister.class
 com/libiyi/exa/common/thrift/TPAdminCreatePaperInfo$TPAdminCreatePaperInfoTupleSchemeFactory.class
+com/libiyi/exa/common/service/ExaServerService$Processor$getPaperQuestionDataList.class
 com/libiyi/exa/common/service/ExaServerService$getEvaluateResultById_result$getEvaluateResultById_resultStandardScheme.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$addQuestion.class
 com/libiyi/exa/common/thrift/TRAdminQuestionInfoList$TRAdminQuestionInfoListTupleSchemeFactory.class
@@ -326,6 +343,7 @@ com/libiyi/exa/common/service/ExaServerService$createSubjectTag_result$createSub
 com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result.class
 com/libiyi/exa/common/thrift/TQuestionAnswer$TQuestionAnswerStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$getUserInfo_args$getUserInfo_argsTupleScheme.class
+com/libiyi/exa/common/thrift/TRPaperQuestionDataList$1.class
 com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args.class
 com/libiyi/exa/common/service/ExaServerService$getQuestionListByParam_result$getQuestionListByParam_resultTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$getAllSubject_result$getAllSubject_resultStandardScheme.class
@@ -335,12 +353,14 @@ com/libiyi/exa/common/thrift/TRUserLoginInfo.class
 com/libiyi/exa/common/model/PaperQuestionTypeModel.class
 com/libiyi/exa/common/thrift/TRPortalPaperAndQuestionInfo$_Fields.class
 com/libiyi/exa/common/thrift/TPAdminQueryPaperInfo$_Fields.class
+com/libiyi/exa/common/service/ExaServerService$getAvgLowestFive_args$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$userLogin_args$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$modifyQuestion_args$modifyQuestion_argsTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$getEvaluateResult_args$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$getPaperListBySubjectId_result$getPaperListBySubjectId_resultStandardSchemeFactory.class
 com/libiyi/exa/common/thrift/TAdminQuestionInfo$_Fields.class
 com/libiyi/exa/common/thrift/TPPortalWrongQuestionParam$1.class
+com/libiyi/exa/common/thrift/TPaperQuestionData$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$getPaperById_result$getPaperById_resultTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$updateUsername.class
 com/libiyi/exa/common/thrift/TPAdminSearchQuestionParam$_Fields.class
@@ -370,12 +390,16 @@ com/libiyi/exa/common/service/ExaServerService$updateUsername_args$_Fields.class
 com/libiyi/exa/common/thrift/TPortalWrongQuestionInfo$TPortalWrongQuestionInfoTupleScheme.class
 com/libiyi/exa/common/thrift/TRAdminPaperAndQuestionInfo$TRAdminPaperAndQuestionInfoTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$Processor$portalGetPaperById.class
+com/libiyi/exa/common/thrift/TRPaperQuestionDataList$_Fields.class
 com/libiyi/exa/common/thrift/TRAdminQuestionSearchList$TRAdminQuestionSearchListTupleScheme.class
 com/libiyi/exa/common/thrift/TRAdminInfo$TRAdminInfoTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$Processor$userLogin.class
 com/libiyi/exa/common/thrift/TPAdminCreateQuestionInfo$1.class
+com/libiyi/exa/common/service/ExaServerService$getAvgLowestFive_result$getAvgLowestFive_resultStandardScheme.class
 com/libiyi/exa/common/service/ExaServerService$addQuestion_result$addQuestion_resultStandardScheme.class
 com/libiyi/exa/common/service/ExaServerService$getPaperListBySubjectId_args$getPaperListBySubjectId_argsStandardScheme.class
+com/libiyi/exa/common/service/ExaServerService$getPaperQuestionDataList_args$_Fields.class
+com/libiyi/exa/common/service/ExaServerService$AsyncClient$getPaperQuestionDataList_call.class
 com/libiyi/exa/common/thrift/TRAdminQuestionInfo$TRAdminQuestionInfoStandardScheme.class
 com/libiyi/exa/common/thrift/TEvaluateResultListAndPoints$TEvaluateResultListAndPointsStandardSchemeFactory.class
 com/libiyi/exa/common/thrift/TRAdminPaperInfo$1.class
@@ -399,8 +423,10 @@ com/libiyi/exa/common/thrift/TRAdminPaperInfo$TRAdminPaperInfoStandardSchemeFact
 com/libiyi/exa/common/thrift/TRPortalWrongQuestionInfoList$TRPortalWrongQuestionInfoListTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$createAdminInfo$1.class
 com/libiyi/exa/common/service/ExaServerService$getEvaluateResultById_args$getEvaluateResultById_argsStandardScheme.class
+com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getPaperQuestionDataList$1.class
 com/libiyi/exa/common/service/ExaServerService$getRecommendPaperList_result$getRecommendPaperList_resultTupleSchemeFactory.class
 com/libiyi/exa/common/thrift/TPaperInfo$TPaperInfoStandardSchemeFactory.class
+com/libiyi/exa/common/service/ExaServerService$getPaperQuestionDataList_result.class
 com/libiyi/exa/common/thrift/TPortalPaperInfo$TPortalPaperInfoTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$getSubjectQuestionCount_args$getSubjectQuestionCount_argsStandardSchemeFactory.class
 com/libiyi/exa/common/thrift/TPortalPaperAndQuestion$TPortalPaperAndQuestionTupleSchemeFactory.class
@@ -433,6 +459,7 @@ com/libiyi/exa/common/service/ExaServerService$getUserInfo_result$getUserInfo_re
 com/libiyi/exa/common/service/ExaServerService$getSubjectQuestionCount_result$getSubjectQuestionCount_resultStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$getRecommendPaperList_args$getRecommendPaperList_argsStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$getEvaluateResult_result.class
+com/libiyi/exa/common/service/ExaServerService$getPaperQuestionDataList_result$getPaperQuestionDataList_resultStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$getEvaluateResult_result$getEvaluateResult_resultStandardSchemeFactory.class
 com/libiyi/exa/common/thrift/TEvaluateResult$TEvaluateResultTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$getPaperById_result$getPaperById_resultStandardSchemeFactory.class
@@ -451,6 +478,7 @@ com/libiyi/exa/common/service/ExaServerService$getEvaluateResultById_args$getEva
 com/libiyi/exa/common/service/ExaServerService$createPaper_result$createPaper_resultStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$sendEmail_result$_Fields.class
 com/libiyi/exa/common/connection/ConnectionKey.class
+com/libiyi/exa/common/service/ExaServerService$getAvgLowestFive_args$getAvgLowestFive_argsStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$addQuestion_args.class
 com/libiyi/exa/common/thrift/TSubjectQuestionCount$TSubjectQuestionCountTupleScheme.class
 com/libiyi/exa/common/thrift/TRSubjectTagList$TRSubjectTagListTupleScheme.class
@@ -474,10 +502,12 @@ com/libiyi/exa/common/service/ExaServerService$sendEmail_args$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$getEvaluateResult_result$_Fields.class
 com/libiyi/exa/common/thrift/TRPortalWrongQuestionInfoList$_Fields.class
 com/libiyi/exa/common/thrift/TPortalWrongQuestionInfo$1.class
+com/libiyi/exa/common/service/ExaServerService$getAvgLowestFive_result$getAvgLowestFive_resultTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$userLogin_args$userLogin_argsTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$userLogin_args.class
 com/libiyi/exa/common/thrift/TPortalPaperInfo$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$getAllSubject_args$getAllSubject_argsStandardScheme.class
+com/libiyi/exa/common/service/ExaServerService$Processor$getAvgLowestFive.class
 com/libiyi/exa/common/thrift/TRAdminPaperInfoList$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$getPaperById_args$getPaperById_argsStandardScheme.class
 com/libiyi/exa/common/thrift/TPCreatPracticeRecordParam.class
@@ -488,6 +518,7 @@ com/libiyi/exa/common/thrift/TPAdminQuerryQuestionInfo$1.class
 com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args$createAdminInfo_argsStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$AsyncClient$getPaperListBySubjectId_call.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$sendEmail$1.class
+com/libiyi/exa/common/service/ExaServerService$getPaperQuestionDataList_result$getPaperQuestionDataList_resultTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$getQuestionById_result$getQuestionById_resultTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$AsyncClient$getEvaluateResult_call.class
 com/libiyi/exa/common/service/ExaServerService$userRegister_args$userRegister_argsStandardSchemeFactory.class
@@ -496,6 +527,7 @@ com/libiyi/exa/common/service/ExaServerService$sendEmail_args.class
 com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result$getAdminInfo_resultTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$Processor$getPaperListByParam.class
 com/libiyi/exa/common/thrift/TREvaluateResult$TREvaluateResultTupleSchemeFactory.class
+com/libiyi/exa/common/service/ExaServerService$getAvgLowestFive_result$getAvgLowestFive_resultTupleScheme.class
 com/libiyi/exa/common/thrift/TRPraticeSubject.class
 com/libiyi/exa/common/thrift/TRPracticeRecord$TRPracticeRecordStandardScheme.class
 com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result.class
@@ -509,6 +541,7 @@ com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getAdminInfo$1.cla
 com/libiyi/exa/common/service/ExaServerService$getPaperListBySubjectId_result$getPaperListBySubjectId_resultTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getQuestionById.class
 com/libiyi/exa/common/thrift/TPAdminInfo$TPAdminInfoStandardScheme.class
+com/libiyi/exa/common/service/ExaServerService$getPaperQuestionDataList_result$getPaperQuestionDataList_resultStandardScheme.class
 com/libiyi/exa/common/service/ExaServerService$Processor$getPaperById.class
 com/libiyi/exa/common/service/ExaServerService$AsyncClient$updateUsername_call.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getSubjectQuestionCount$1.class
@@ -550,6 +583,7 @@ com/libiyi/exa/common/thrift/TRAdminPaperInfo$TRAdminPaperInfoTupleSchemeFactory
 com/libiyi/exa/common/thrift/TPUserRegisterInfo$1.class
 com/libiyi/exa/common/service/ExaServerService$checkEmailExist_result$checkEmailExist_resultStandardScheme.class
 com/libiyi/exa/common/thrift/TPUserInfo$TPUserInfoTupleSchemeFactory.class
+com/libiyi/exa/common/service/ExaServerService$getAvgLowestFive_args$getAvgLowestFive_argsStandardScheme.class
 com/libiyi/exa/common/service/ExaServerService$sendEmail_args$sendEmail_argsStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$createSubjectTag_args.class
 com/libiyi/exa/common/service/ExaServerService$getQuestionListByParam_result$getQuestionListByParam_resultTupleSchemeFactory.class
@@ -559,6 +593,7 @@ com/libiyi/exa/common/service/ExaServerService$createAdminInfo_result$createAdmi
 com/libiyi/exa/common/service/ExaServerService$getRecommendPaperList_result$getRecommendPaperList_resultTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$updateUsername_result.class
 com/libiyi/exa/common/thrift/TPortalQuestionPointsAndInfoList$TPortalQuestionPointsAndInfoListStandardSchemeFactory.class
+com/libiyi/exa/common/service/ExaServerService$getPaperQuestionDataList_result$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$getAllSubject_result$_Fields.class
 com/libiyi/exa/common/thrift/TRAdminPaperAndQuestionInfo$TRAdminPaperAndQuestionInfoStandardScheme.class
 com/libiyi/exa/common/service/ExaServerService$userRegister_args$_Fields.class
@@ -574,6 +609,7 @@ com/libiyi/exa/common/client/ExaServerClient.class
 com/libiyi/exa/common/thrift/TRPraticeSubject$TRPraticeSubjectStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$modifyPaper_result$modifyPaper_resultStandardSchemeFactory.class
 com/libiyi/exa/common/thrift/TRAdminQuestionInfo$1.class
+com/libiyi/exa/common/thrift/TPaperQuestionData$TPaperQuestionDataStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$getPracticeRecordByUserId_args$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$createSubjectTag_result$createSubjectTag_resultStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$modifyPaper_args$modifyPaper_argsStandardScheme.class
@@ -591,6 +627,7 @@ com/libiyi/exa/common/service/ExaServerService$getAdminInfo_result$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$getPracticeRecordByUserId_args.class
 com/libiyi/exa/common/service/ExaServerService$getQuestionListBySearchKey_result$getQuestionListBySearchKey_resultStandardScheme.class
 com/libiyi/exa/common/thrift/TPUserLoginInfo$1.class
+com/libiyi/exa/common/service/ExaServerService$getPaperQuestionDataList_args$getPaperQuestionDataList_argsTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$checkEmailExist_args$checkEmailExist_argsTupleScheme.class
 com/libiyi/exa/common/thrift/TPAdminCreatePaperInfo$TPAdminCreatePaperInfoTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$portalGetPaperById_args$portalGetPaperById_argsTupleSchemeFactory.class
@@ -642,6 +679,7 @@ com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getRecommendPaperL
 com/libiyi/exa/common/service/ExaServerService$portalGetPaperById_result$portalGetPaperById_resultStandardScheme.class
 com/libiyi/exa/common/service/ExaServerService$getQuestionById_args$getQuestionById_argsTupleSchemeFactory.class
 com/libiyi/exa/common/thrift/TPortalPaperAndQuestion$TPortalPaperAndQuestionTupleScheme.class
+com/libiyi/exa/common/service/ExaServerService$getAvgLowestFive_args$getAvgLowestFive_argsTupleSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$getHotestPaperList_result$getHotestPaperList_resultTupleScheme.class
 com/libiyi/exa/common/thrift/TPAdminInfo.class
 com/libiyi/exa/common/thrift/TRAdminPaperAndQuestionInfo$TRAdminPaperAndQuestionInfoTupleScheme.class
@@ -686,6 +724,7 @@ com/libiyi/exa/common/thrift/TPortalQuestionInfo$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$portalGetPaperById_args$portalGetPaperById_argsTupleScheme.class
 com/libiyi/exa/common/thrift/TRSubjectTagList.class
 com/libiyi/exa/common/thrift/TQuestionPointsAndInfoList$TQuestionPointsAndInfoListStandardScheme.class
+com/libiyi/exa/common/thrift/TRPaperQuestionDataList.class
 com/libiyi/exa/common/thrift/TPUserLoginInfo.class
 com/libiyi/exa/common/thrift/TPAdminSearchQuestionParam$TPAdminSearchQuestionParamStandardScheme.class
 com/libiyi/exa/common/thrift/TPAdminSearchQuestionParam$1.class
@@ -698,6 +737,7 @@ com/libiyi/exa/common/thrift/TAdminQuestionInfo$TAdminQuestionInfoTupleSchemeFac
 com/libiyi/exa/common/service/ExaServerService$portalGetPaperById_args$_Fields.class
 com/libiyi/exa/common/service/ExaServerService$getEvaluateResult_args$getEvaluateResult_argsStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$getQuestionListBySearchKey_result$getQuestionListBySearchKey_resultStandardSchemeFactory.class
+com/libiyi/exa/common/thrift/TRPaperQuestionDataList$TRPaperQuestionDataListStandardSchemeFactory.class
 com/libiyi/exa/common/thrift/TRUserLoginInfo$_Fields.class
 com/libiyi/exa/common/thrift/TRAdminInfo.class
 com/libiyi/exa/common/service/ExaServerService$userRegister_result$userRegister_resultTupleSchemeFactory.class
@@ -730,6 +770,7 @@ com/libiyi/exa/common/thrift/TPPortalQueryPaperInfo$TPPortalQueryPaperInfoStanda
 com/libiyi/exa/common/service/ExaServerService$getSubjectQuestionCount_result$getSubjectQuestionCount_resultTupleScheme.class
 com/libiyi/exa/common/thrift/TQuestionAnswer.class
 com/libiyi/exa/common/thrift/TPPortalQueryPaperInfo$_Fields.class
+com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getPaperQuestionDataList.class
 com/libiyi/exa/common/service/ExaServerService$getQuestionById_args.class
 com/libiyi/exa/common/service/ExaServerService$createAdminInfo_args.class
 com/libiyi/exa/common/service/ExaServerService$getQuestionListByParam_result.class
@@ -740,6 +781,7 @@ com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getWrongQuestionBy
 com/libiyi/exa/common/service/ExaServerService$AsyncClient$userLogin_call.class
 com/libiyi/exa/common/thrift/TPortalPaperAndQuestion$TPortalPaperAndQuestionStandardSchemeFactory.class
 com/libiyi/exa/common/thrift/TRAdminPaperAndQuestionInfo$1.class
+com/libiyi/exa/common/thrift/TPaperQuestionData$TPaperQuestionDataTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$getAdminInfo_args$getAdminInfo_argsTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$portalGetPaperById_result.class
 com/libiyi/exa/common/service/ExaServerService$getQuestionById_result.class
@@ -761,10 +803,12 @@ com/libiyi/exa/common/service/ExaServerService$sendEmail_result$sendEmail_result
 com/libiyi/exa/common/service/ExaServerService$createPaper_result$createPaper_resultStandardScheme.class
 com/libiyi/exa/common/thrift/TPAdminModifyQuestionInfo$TPAdminModifyQuestionInfoTupleScheme.class
 com/libiyi/exa/common/thrift/TPUserRegisterInfo$TPUserRegisterInfoTupleScheme.class
+com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getAvgLowestFive.class
 com/libiyi/exa/common/common/ConnectionProvider.class
 com/libiyi/exa/common/service/ExaServerService$AsyncProcessor$getPaperListBySubjectId$1.class
 com/libiyi/exa/common/service/ExaServerService$userLogin_args$userLogin_argsStandardScheme.class
 com/libiyi/exa/common/thrift/TREvaluateResult$TREvaluateResultStandardScheme.class
+com/libiyi/exa/common/thrift/TPaperQuestionData$TPaperQuestionDataStandardScheme.class
 com/libiyi/exa/common/service/ExaServerService$Processor$userRegister.class
 com/libiyi/exa/common/thrift/TPUserIdAndPageParam$1.class
 com/libiyi/exa/common/thrift/TAdminQuestionInfo$TAdminQuestionInfoStandardScheme.class
@@ -797,6 +841,7 @@ com/libiyi/exa/common/service/ExaServerService$getRecommendPaperList_result$getR
 com/libiyi/exa/common/thrift/TQuestionPointsAndInfoList.class
 com/libiyi/exa/common/thrift/SubjectTag$1.class
 com/libiyi/exa/common/service/ExaServerService$modifyPaper_result.class
+com/libiyi/exa/common/service/ExaServerService$getPaperQuestionDataList_result$getPaperQuestionDataList_resultTupleSchemeFactory.class
 com/libiyi/exa/common/thrift/TQuestionAnswer$TQuestionAnswerStandardScheme.class
 com/libiyi/exa/common/thrift/TRPortalPaperInfoList.class
 com/libiyi/exa/common/service/ExaServerService$getPracticeRecordByUserId_result$getPracticeRecordByUserId_resultTupleScheme.class
@@ -813,6 +858,7 @@ com/libiyi/exa/common/service/ExaServerService$userRegister_result$userRegister_
 com/libiyi/exa/common/service/ExaServerService$AsyncClient$getRecommendPaperList_call.class
 com/libiyi/exa/common/client/ServerInfo.class
 com/libiyi/exa/common/common/Result$Builder.class
+com/libiyi/exa/common/service/ExaServerService$getAvgLowestFive_args.class
 com/libiyi/exa/common/thrift/TPortalPaperInfo$TPortalPaperInfoStandardSchemeFactory.class
 com/libiyi/exa/common/service/ExaServerService$getEvaluateResultById_args$getEvaluateResultById_argsTupleScheme.class
 com/libiyi/exa/common/service/ExaServerService$getQuestionListByParam_args$getQuestionListByParam_argsStandardScheme.class

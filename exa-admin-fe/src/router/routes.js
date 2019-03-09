@@ -13,6 +13,7 @@ import FillingInfo from '../views/fillingInfo'
 import PaperInfo from '../views/paperInfo'
 import CreateQuestion from '../views/createQuestion'
 import CreatePaper from '../views/createPaper'
+import Data from '../views/data'
 
 const routes = [
   // Login View
@@ -152,6 +153,15 @@ const routes = [
         name: 'paper',
         meta: {
           label: '试卷管理',
+          auth: false
+        }
+      },
+      {
+        path: '/data/',
+        component: Data,
+        name: 'data',
+        meta: {
+          label: '数据大盘',
           auth: false
         }
       },

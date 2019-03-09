@@ -11,4 +11,6 @@ public interface AdminPaperService {
     TRAdminPaperInfoList getPaperListByParam(TPAdminQueryPaperInfo queryParam);
 
     TRAdminPaperAndQuestionInfo getPaperById(int id);
+
+    TRAdminPaperInfoList getAvgLowestFive(int subjectId);
 }

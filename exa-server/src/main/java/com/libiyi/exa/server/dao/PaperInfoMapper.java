@@ -25,4 +25,6 @@ public interface PaperInfoMapper {
     List<PaperInfo> getThreeBySubjectId(@Param("subjectId") Integer subjectId, @Param("id") Integer id);
 
     List<PaperInfo> getMostCountsThree();
+
+    List<PaperInfo> getAvgLowestFive(@Param("subjectId") Integer subjectId);
 }

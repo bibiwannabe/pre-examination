@@ -37,4 +37,11 @@ public interface QuestionService {
      * @return
      */
     TRAdminQuestionSearchList getQuestionListBySearchKey(TPAdminSearchQuestionParam tpAdminSearchQuestionParam);
+
+    /**
+     * 根据试卷id获取错误最多的试题
+     * @param paperId
+     * @return
+     */
+    TRPaperQuestionDataList getQuestionListByPaperId(Integer paperId);
 }

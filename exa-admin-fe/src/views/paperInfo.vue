@@ -99,7 +99,7 @@
           </div>
         </div>
         <div class="search-submit" style="float: left;width: 100px; margin-left: 10px;margin-top: 4px">
-          <n3-button type="primary" block @click.native="addChoiceList">添加题目</n3-button>
+          <n3-button type="primary" block @click.native="addSelectionList">添加题目</n3-button>
         </div>
 
       </div>
@@ -136,7 +136,7 @@
           </div>
         </div>
         <div class="search-submit" style="float: left;width: 100px; margin-left: 10px;margin-top: 4px">
-          <n3-button type="primary" block @click.native="addChoiceList">添加题目</n3-button>
+          <n3-button type="primary" block @click.native="addFillingList">添加题目</n3-button>
         </div>
       </div>
       <n3-data-table
@@ -373,8 +373,27 @@
         this.keywords = ''
         this.searchContentList = []
       },
-
-      load () {
+      addSelectionList () {
+        for (var question of this.searchList) {
+          if (this.keywords === question.content) {
+            this.selectionList.push(question)
+            break
+          }
+        }
+        this.searchList = []
+        this.keywords = ''
+        this.searchContentList = []
+      },
+      addFillingList () {
+        for (var question of this.searchList) {
+          if (this.keywords === question.content) {
+            this.fillingList.push(question)
+            break
+          }
+        }
+        this.searchList = []
+        this.keywords = ''
+        this.searchContentList = []
       },
       deleteQuestion (index) {
         if (this.questionType === 0) {
@@ -460,7 +479,7 @@
     },
     watch: {
       '$route' () {
-        if (this.$route.name == 'paperInfo') {
+        if (this.$route.name === 'paperInfo') {
           this.create()
         }
       },
@@ -478,23 +497,26 @@
         }
       },
       choiceEachPoint () {
-        this.sum = this.choiceEachPoint * this.choiceNum + this.selectionEachPoint * this.selectionNum + this.fillingEachPoint * this.fillingNum
+        this.sum = this.choiceEachPoint * this.choiceList.length + this.selectionEachPoint * this.selectionList.length + this.fillingEachPoint * this.fillingList.length
       },
       choiceList () {
-        this.sum = this.choiceEachPoint * this.choiceNum + this.selectionEachPoint * this.selectionNum + this.fillingEachPoint * this.fillingNum
+        this.sum = this.choiceEachPoint * this.choiceList.length + this.selectionEachPoint * this.selectionList.length + this.fillingEachPoint * this.fillingList.length
       },
       selectionEachPoint () {
-        this.sum = this.choiceEachPoint * this.choiceNum + this.selectionEachPoint * this.selectionNum + this.fillingEachPoint * this.fillingNum
+        this.sum = this.choiceEachPoint * this.choiceList.length + this.selectionEachPoint * this.selectionList.length + this.fillingEachPoint * this.fillingList.length
       },
       selectionList () {
-        this.sum = this.choiceEachPoint * this.choiceNum + this.selectionEachPoint * this.selectionNum + this.fillingEachPoint * this.fillingNum
+        this.sum = this.choiceEachPoint * this.choiceList.length + this.selectionEachPoint * this.selectionList.length + this.fillingEachPoint * this.fillingList.length
       },
       fillingEachPoint () {
-        this.sum = this.choiceEachPoint * this.choiceNum + this.selectionEachPoint * this.selectionNum + this.fillingEachPoint * this.fillingNum
+        this.sum = this.choiceEachPoint * this.choiceList.length + this.selectionEachPoint * this.selectionList.length + this.fillingEachPoint * this.fillingList.length
       },
       fillingList () {
-        this.sum = this.choiceEachPoint * this.choiceNum + this.selectionEachPoint * this.selectionNum + this.fillingEachPoint * this.fillingNum
+        this.sum = this.choiceEachPoint * this.choiceList.length + this.selectionEachPoint * this.selectionList.length + this.fillingEachPoint * this.fillingList.length
       }
+    },
+    created () {
+      this.reload4()
     }
   }
 </script>

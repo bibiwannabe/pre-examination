@@ -56,3 +56,11 @@ class QuestionModel {
     var correctNum = 0
     var counts = 0
 }
+
+class PaperQuestionDataModel {
+    var questionId = 0
+    var paperId = 0
+    var questionContent = ""
+    var counts = 0
+    var subjectId = 0
+}

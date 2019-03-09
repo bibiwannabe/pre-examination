@@ -22,6 +22,7 @@
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TPAdminQueryPaperInfo.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/common/ConnectionProvider.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TPAdminModifyPaperInfo.java
+/Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TPaperQuestionData.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TPPortalQueryPaperInfo.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRAdminPaperInfo.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/connection/DefaultConnectionPoolFactory.java
@@ -66,6 +67,7 @@
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TPaperInfo.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/model/PaperQuestionTypeModel.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRPortalPaperAndQuestionInfo.java
+/Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRPaperQuestionDataList.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRAdminQuestionSearchList.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/thrift/TRPortalWrongQuestionInfoList.java
 /Users/libiyi/pre-examination/exa-common/src/main/java/com/libiyi/exa/common/common/QuestionTypeEnum.java

@@ -62,5 +62,9 @@ service ExaServerService{
         model.TRAdminPaperInfoList getPaperListByParam(1:model.TPAdminQueryPaperInfo queryParam);
         //根据id获取试卷及题目
         model.TRAdminPaperAndQuestionInfo getPaperById(1:i32 id);
+        //根据科目获取5个平均分最低的试卷
+        model.TRAdminPaperInfoList getAvgLowestFive(1:i32 subjectId);
+        //根据试卷获取错误率最高的5个试题
+        model.TRPaperQuestionDataList getPaperQuestionDataList(1:i32 paperId);
 
 }

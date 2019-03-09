@@ -14,6 +14,8 @@ import App from './App'
 import router from './router'
 import './assets/styles/base.css'
 import axios from 'axios'
+import VCharts from 'v-charts'
+Vue.use(VCharts)
 
 /* eslint-disable */
 new Vue({

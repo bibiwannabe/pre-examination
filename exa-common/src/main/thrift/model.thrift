@@ -325,3 +325,16 @@ struct TPracticeRecordAndPaperInfo {
         5: i32 avgCounts;
         6: i32 counts;
 }
+
+struct TRPaperQuestionDataList {
+        1: TRResponse response;
+        2: list<TPaperQuestionData> paperQuestionDataList;
+}
+
+struct TPaperQuestionData {
+        1: i32 paperId;
+        2: i32 subjectId;
+        3: i32 questionId;
+        4: string questionContent;
+        5: i32 count;
+}

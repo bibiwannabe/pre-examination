@@ -14,8 +14,10 @@
   "dependencies": {
     "N3-components": "^2.2.3",
     "axios": "^0.15.3",
+    "echarts": "^4.1.0",
     "es6-shim": "^0.35.3",
     "moment": "^2.18.1",
+    "v-charts": "^1.19.0",
     "vue": "^2.1.0",
     "vue-router": "^2.1.1",
     "vuex": "^2.1.1"

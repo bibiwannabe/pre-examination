@@ -43,9 +43,9 @@ public class ThriftServer {
             // 设置处理器工厂,只返回一个单例实例
             args.processorFactory(new TProcessorFactory(tProcessor));
             // 多个线程，主要负责客户端的IO处理
-            args.selectorThreads(2);
+            args.selectorThreads(10);
             // 工作线程池
-            ExecutorService pool = Executors.newFixedThreadPool(3);
+            ExecutorService pool = Executors.newFixedThreadPool(11);
             args.executorService(pool);
             TThreadedSelectorServer server = new TThreadedSelectorServer(args);
             server.serve();

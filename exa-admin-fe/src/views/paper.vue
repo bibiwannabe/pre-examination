@@ -8,15 +8,8 @@
             <option :value="item.id" v-for="item in subjectList">{{item.subjectName}}</option>
           </select>
         </div>
-        <div class="form-item">
-          <label for="">排序方式：</label>
-          <n3-select v-model="searchKey.queryType" @change="keyChange">
-            <n3-option value="1" selected>最新</n3-option>
-            <n3-option value="2">平均分</n3-option>
-          </n3-select>
-        </div>
       </div>
-      <div class="search-submit" style="float: left;width: 200px">
+      <div class="search-submit" style="float: left;width: 100px; margin-top: 3px">
         <n3-button type="primary" block @click.native="searchRecord">搜索</n3-button>
       </div>
       <div class="search-submit" style="float: right;width: 100px; margin-right: 50px">
@@ -216,7 +209,7 @@
     },
     watch: {
       '$route' () {
-        if (this.$route.name === 'normalTable') {
+        if (this.$route.name === 'paper') {
           this.reload()
         }
       },

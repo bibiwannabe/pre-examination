@@ -176,4 +176,14 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     public TRAdminPaperAndQuestionInfo getPaperById(int id) throws TException {
         return adminPaperService.getPaperById(id);
     }
+
+    @Override
+    public TRAdminPaperInfoList getAvgLowestFive(int subjectId) throws TException {
+        return adminPaperService.getAvgLowestFive(subjectId);
+    }
+
+    @Override
+    public TRPaperQuestionDataList getPaperQuestionDataList(int paperId) throws TException {
+        return questionService.getQuestionListByPaperId(paperId);
+    }
 }

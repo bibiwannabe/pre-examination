@@ -13,10 +13,9 @@ import org.apache.thrift.transport.*;
 public class ExaServerClient {
     public static ExaServerService.Client getClient(TSocket socket) {
         //使用非阻塞方式，按块的大小进行传输，类似于Java中的NIO。记得调用close释放资源
-        TTransport transport =
-                new TFramedTransport(socket);
+        TTransport transport = new TFramedTransport(socket);
         //高效率的、密集的二进制编码格式进行数据传输协议
         TProtocol protocol = new TCompactProtocol(transport);
-            return new ExaServerService.Client(protocol);
+        return new ExaServerService.Client(protocol);
     }
 }

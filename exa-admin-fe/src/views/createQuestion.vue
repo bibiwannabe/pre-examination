@@ -192,9 +192,6 @@
         })
         this.loading = false
       },
-      created () {
-        this.reload1()
-      },
       submitQuestion () {
         var result = 0
         var data = ''
@@ -237,6 +234,11 @@
               duration: 2000,
               width: '240px' // 内容不确定，建议设置width
             })
+            this.answer = ''
+            this.answers = []
+            this.options = []
+            this.content = ''
+            this.subject.id = 0
             if (this.questionType === 0) {
               this.$router.push({name: 'choiceInfo', params: {id: id}})
             }
@@ -273,10 +275,13 @@
     },
     watch: {
       '$route' () {
-        if (this.$route.name == 'createQuestion') {
-          this.created()
+        if (this.$route.name === 'createQuestion') {
+          this.reload1()
         }
       }
+    },
+    created () {
+      this.reload1()
     }
   }
 </script>

@@ -13,9 +13,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -212,5 +214,32 @@ public class PaperInfoController {
         questionModel.setCounts(tAdminQuestionInfo.getCounts());
         questionModel.setAnswer(tAdminQuestionInfo.getAnswer());
         return questionModel;
+    }
+
+    @GetMapping("/lowestList")
+    @ResponseBody
+    public Result<List<PaperModel>> getLowestFivePaper(@RequestParam("subjectId") int subjectId, HttpSession session) {
+        Object object = session.getAttribute(RequestConst.USER_INFO);
+        TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
+        if (trUserLoginInfo == null || trUserLoginInfo.getAccType() != AccountTypeEnum.TEACHER.getCode()) {
+            return new Result.Builder<List<PaperModel>>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+        }
+        TRAdminPaperInfoList trAdminPaperInfoList;
+        List<PaperModel> paperListModel;
+        try {
+            trAdminPaperInfoList = exaServerService.getAvgLowestFive(subjectId);
+            if (trAdminPaperInfoList.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+                return new Result.Builder<List<PaperModel>>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+            }
+        } catch (Throwable e) {
+            logger.error("获取试卷列表失败", e);
+            return new Result.Builder<List<PaperModel>>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+        }
+        if (!CollectionUtils.isEmpty(trAdminPaperInfoList.getPaperInfoList())) {
+            paperListModel = trAdminPaperInfoList.getPaperInfoList().stream().map(this::getPaperModel).collect(Collectors.toList());
+        } else {
+            paperListModel = new ArrayList<>();
+        }
+        return new Result.Builder<List<PaperModel>>(paperListModel).setCode(CodeEnum.SUCCESS.getCode()).build();
     }
 }

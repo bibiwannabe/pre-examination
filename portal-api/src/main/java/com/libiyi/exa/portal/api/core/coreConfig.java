@@ -6,6 +6,7 @@ import org.apache.thrift.transport.TSocket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class coreConfig {
@@ -14,6 +15,7 @@ public class coreConfig {
     private ThriftTransportPoolBean thriftTransportPoolBean;
 
     @Bean("ExaServerService")
+    @Scope("prototype")
     public ExaServerService.Iface exaServerService() {
         TSocket socket = (TSocket)thriftTransportPoolBean.getPool().get();
         ExaServerService.Iface client = ExaServerClient.getClient(socket);
