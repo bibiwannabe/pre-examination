@@ -14,9 +14,6 @@
         </n3-input>
         <n3-input class="field" v-model="confirmPassword" type="password" placeholder="确认密码" width="320px"  @keyup.native.enter="check">
         </n3-input>
-        <n3-checkbox-group v-model="remember" class="save-account">
-          <n3-checkbox label="remember">记住账号</n3-checkbox>
-        </n3-checkbox-group>
       </div>
       <div class="submit">
         <n3-button
@@ -46,9 +43,8 @@
 
 <script>
   import { mapActions } from 'vuex'
-  import Vue from 'vue'
 
-  function render() {
+  function render () {
     var canvas = document.querySelector('#J_loginBackground');
     if (!canvas) {
       return;
