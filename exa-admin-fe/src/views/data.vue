@@ -10,8 +10,8 @@
       <div style="float: left; width: 400px">
         <ve-histogram :data="paperData" width="400px"> </ve-histogram>
       </div>
-      <div style="float: left; width: 400px; margin-left: 200px">
-        <ve-radar :data="paperInfoData"  width="400px"></ve-radar>
+      <div style="float: left; width: 500px; margin-left: 100px">
+        <ve-radar :data="paperInfoData"  width="500px"></ve-radar>
       </div>
     </div>
     <div class="search-item" style=" margin-left: 100px; margin-top: 40px; width: 1000px">
@@ -24,8 +24,6 @@
   </section>
 </template>
 <script>
-  import API from '../api'
-  import VCharts from 'v-charts'
   import axios from 'axios'
 
   export default {
@@ -143,6 +141,7 @@
           this.subjectList = response.data.data
           this.searchKey.subjectId = response.data.data[0].id
           this.chooseSubjectId = response.data.data[0].id
+          this.subjectNameList = []
           for (var subject of this.subjectList) {
             this.subjectNameList.push({value: subject.id, label: subject.subjectName})
           }

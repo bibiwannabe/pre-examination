@@ -18,7 +18,7 @@ public class ParserPaperQuestionUtil {
         PaperQuestionParam selectionList = paperCreateParam.getSelectionList();
         PaperQuestionParam fillingList = paperCreateParam.getFillingList();
         String questionList = "{\"" + CHOICE + "\":" + getQuestionModelStr(choiceList) + ",\"" + FILLING + "\":"
-                + getQuestionModelStr(selectionList) + ",\"" + SELECTION + "\":" + getQuestionModelStr(fillingList) + "}";
+                + getQuestionModelStr(fillingList) + ",\"" + SELECTION + "\":" + getQuestionModelStr(selectionList) + "}";
         return questionList;
     }
     public static String getModifyQuestionList(PaperModifyParam paperModifyParam) {
@@ -26,7 +26,7 @@ public class ParserPaperQuestionUtil {
         PaperQuestionParam selectionList = paperModifyParam.getSelectionList();
         PaperQuestionParam fillingList = paperModifyParam.getFillingList();
         String questionList = "{\"" + CHOICE + "\":" + getQuestionModelStr(choiceList) + ",\"" + FILLING + "\":"
-                + getQuestionModelStr(selectionList) + ",\"" + SELECTION + "\":" + getQuestionModelStr(fillingList) + "}";
+                + getQuestionModelStr(fillingList) + ",\"" + SELECTION + "\":" + getQuestionModelStr(selectionList) + "}";
         return questionList;
     }
 

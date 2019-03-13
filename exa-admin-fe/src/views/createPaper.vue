@@ -36,10 +36,9 @@
     <n3-tabs :value="0" @change="getQuestionType">
       <n3-tab header="单选题">
       </n3-tab>
-      <n3-tab header="多选题" :badge="selectionNum" v-model="selectionNum">
-
+      <n3-tab header="多选题" v-model="selectionNum">
       </n3-tab>
-      <n3-tab header="填空题" v-bind:badge="fillingNum" @change="fillingNum">
+      <n3-tab header="填空题" v-model="fillingNum">
       </n3-tab>
     </n3-tabs>
     <div v-if="questionType === 0">
@@ -324,7 +323,6 @@
             for (var filling of this.searchFillingList) {
               this.searchFillingContentList.push(filling.content)
             }
-           alert(JSON.stringify(this.searchFillingList))
           }
         }).catch((error) => {
           alert('获取信息失败' + error.toString())
@@ -386,7 +384,6 @@
         this.searchFillingList = []
         this.keywords = ''
         this.searchFillingContentList = []
-        alert(JSON.stringify(this.fillingList))
       },
       deleteQuestion (index) {
         if (this.questionType === 0) {
