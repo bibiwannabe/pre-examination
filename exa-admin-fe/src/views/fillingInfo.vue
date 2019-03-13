@@ -107,7 +107,7 @@
         this.$axios.get(url
         ).then(response => {
           this.answer = response.data.data.answer
-          this.questionTypeName = this.getQuestionTypeName(response.data.data.subjectId)
+          this.questionTypeName = this.getQuestionTypeName()
           this.$set(this.subject, 'id', response.data.data.subjectId)
           this.content = response.data.data.content
           var jsonObj = JSON.parse(response.data.data.options)
@@ -121,15 +121,7 @@
         })
       },
       getQuestionTypeName () {
-        if(this.questionType === 0) {
-          return '单选题'
-        }
-        if(this.questionType === 1) {
-          return '多选题'
-        }
-        if(this.questionType === 2) {
-          return '填空题'
-        }
+        return '填空题'
       },
       reload2 () {
         this.id = this.$route.params.id
