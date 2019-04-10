@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/admin-api" />
+    <file type="web" url="file://$PROJECT_DIR$/exa-server" />
+    <file type="web" url="file://$PROJECT_DIR$/portal-api" />
+    <file type="web" url="file://$PROJECT_DIR$/server" />
+    <type id="Spring" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/admin/pom.xml" />
+        <option value="$PROJECT_DIR$/portalapi/pom.xml" />
+        <option value="$PROJECT_DIR$/common/pom.xml" />
+        <option value="$PROJECT_DIR$/portal-api/pom.xml" />
+        <option value="$PROJECT_DIR$/admin-api/pom.xml" />
+        <option value="$PROJECT_DIR$/examination-common/pom.xml" />
+        <option value="$PROJECT_DIR$/exa-common/pom.xml" />
+        <option value="$PROJECT_DIR$/exa-server/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/exa-common-1/pom.xml" />
+        <option value="$PROJECT_DIR$/server/exa-common-1/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

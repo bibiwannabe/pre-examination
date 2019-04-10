@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.libiyi.exa.server.dao.PaperQuestionDataMapper">
+    <resultMap id="BaseResultMap" type="com.libiyi.exa.server.entity.PaperQuestionData">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="subject_id" jdbcType="INTEGER" property="subjectId" />
+        <result column="question_id" jdbcType="INTEGER" property="questionId" />
+        <result column="paper_id" jdbcType="INTEGER" property="paperId" />
+        <result column="counts" jdbcType="INTEGER" property="counts" />
+    </resultMap>
+    <insert id="createData" >
+        INSERT INTO paper_question_data(subject_id, question_id, paper_id, counts) VALUE (#{d.subjectId}, #{d.questionId},  #{d.paperId}, #{d.counts}) ON DUPLICATE KEY UPDATE counts = counts+1
+    </insert>
+
+    <select id="getFiveByPaperId" resultMap="BaseResultMap">
+        SELECT id, subject_id, question_id, paper_id, counts FROM paper_question_data WHERE paper_id=#{paperId} ORDER BY counts DESC LIMIT 0, 5
+    </select>
+
+</mapper>
