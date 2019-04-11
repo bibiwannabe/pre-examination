@@ -1,6 +1,9 @@
 package com.libiyi.exa.server.thriftServer;
 
+<<<<<<< HEAD
 import com.libiyi.exa.common.common.CodeEnum;
+=======
+>>>>>>> f5270fb3a8e5fedcc12d216f97da5090c0012ab5
 import com.libiyi.exa.common.service.ExaServerService;
 import com.libiyi.exa.common.thrift.*;
 import com.libiyi.exa.server.service.*;
@@ -50,6 +53,7 @@ public class ServerServiceImpl implements ExaServerService.Iface {
 
     @Override
     public TRUserLoginInfo userLogin(TPUserLoginInfo userLoginInfo) throws TException {
+<<<<<<< HEAD
         try {
             return userService.userLogin(userLoginInfo);
         } catch (Exception e){
@@ -60,6 +64,9 @@ public class ServerServiceImpl implements ExaServerService.Iface {
             trUserLoginInfo.setResponse(trResponse);
             return trUserLoginInfo;
         }
+=======
+        return userService.userLogin(userLoginInfo);
+>>>>>>> f5270fb3a8e5fedcc12d216f97da5090c0012ab5
     }
 
     @Override

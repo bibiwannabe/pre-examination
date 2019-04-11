@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/admin-api/admin-api.iml" filepath="$PROJECT_DIR$/admin-api/admin-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/exa-common/exa-common.iml" filepath="$PROJECT_DIR$/exa-common/exa-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/exa-server/exa-server.iml" filepath="$PROJECT_DIR$/exa-server/exa-server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/portal-api/portal-api.iml" filepath="$PROJECT_DIR$/portal-api/portal-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pre-examination-master.iml" filepath="$PROJECT_DIR$/.idea/pre-examination-master.iml" />
     </modules>
   </component>
 </project>
