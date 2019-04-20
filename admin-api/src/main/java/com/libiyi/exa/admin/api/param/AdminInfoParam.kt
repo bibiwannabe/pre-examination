@@ -64,3 +64,11 @@ class PaperQuestionDataModel {
     var counts = 0
     var subjectId = 0
 }
+
+class UserCookieModel {
+    var name = ""
+    var id = 0
+    var email = ""
+    var accType = 0
+    var uid = ""
+}

@@ -19,8 +19,7 @@ public class LoginFilter implements Filter {
 //            httpServletResponse.sendError(403," 未登录");
 //            httpServletResponse.sendRedirect(httpServletRequest.getContextPath());
 //            return;
-//        }
-        ((HttpServletResponse) servletResponse).setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:8088");
+//       }
         filterChain.doFilter(servletRequest, servletResponse);
     }
 }

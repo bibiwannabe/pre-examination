@@ -21,4 +21,7 @@
     <!--两个标配-->
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
+    <mvc:interceptors>
+        <bean class="com.libiyi.exa.portal.api.aop.LoginInterceptor"/>
+    </mvc:interceptors>
 </beans>

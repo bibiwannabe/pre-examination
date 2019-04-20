@@ -253,6 +253,10 @@
             var email = JSON.stringify(response.data.data.email)
             var id = response.data.data.id
             var accType = response.data.data.accType
+            var uuid = response.data.data.sid
+            var exdate = new Date()
+            exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * 100)
+            window.document.cookie = 'sid' + '=' + uuid + ';path=/;expires=' + exdate.toGMTString()
             this.$router.push({name: 'index', params: {name: name, email: email, id: id, accType: accType}})
           }
         }).catch((error) => {

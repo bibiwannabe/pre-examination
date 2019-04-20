@@ -1,6 +1,7 @@
 package com.libiyi.exa.admin.api.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.libiyi.exa.admin.api.param.UserCookieModel;
 import com.libiyi.exa.admin.api.util.RedisUtil;
 import com.libiyi.exa.common.common.AccountTypeEnum;
 import com.libiyi.exa.common.common.CodeEnum;
@@ -12,13 +13,15 @@ import com.libiyi.exa.common.thrift.TPUserLoginInfo;
 import com.libiyi.exa.common.thrift.TPUserRegisterInfo;
 import com.libiyi.exa.common.thrift.TRResponse;
 import com.libiyi.exa.common.thrift.TRUserLoginInfo;
+import com.libiyi.exa.common.util.IdUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -98,29 +101,41 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public Result<UserModel> userLogin(@RequestBody UserLoginParam userLoginParam, HttpSession session) {
+    public Result<UserCookieModel> userLogin(@RequestBody UserLoginParam userLoginParam, HttpSession session, HttpServletResponse response) {
         TPUserLoginInfo tpUserInfo = getTPUserLoginInfo(userLoginParam);
         TRUserLoginInfo trUserLoginInfo = new TRUserLoginInfo();
         if(userLoginParam.getEmail() == "" ) {
-            return new Result.Builder<UserModel>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
+            return new Result.Builder<UserCookieModel>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
         }
         try {
             trUserLoginInfo = exaServerService.userLogin(tpUserInfo);
         }catch (Throwable e) {
             logger.error("用户登录出错：", e);
-            return new Result.Builder<UserModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).build();
+            return new Result.Builder<UserCookieModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).build();
         }
         if(trUserLoginInfo.getResponse().getCode()!=CodeEnum.SUCCESS.getCode()){
-            return new Result.Builder<UserModel>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
+            return new Result.Builder<UserCookieModel>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
         }
         if(trUserLoginInfo.getAccType()!=AccountTypeEnum.TEACHER.getCode()) {
-            return new Result.Builder<UserModel>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
+            return new Result.Builder<UserCookieModel>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
         }
-        UserModel userModel = getUserModel(trUserLoginInfo);
+        UserCookieModel userModel = getUserCookieModel(trUserLoginInfo);
         session.setAttribute(RequestConst.USER_INFO, trUserLoginInfo);
         logger.info("存储登录信息：{}", JSON.toJSONString(session.getAttribute(RequestConst.USER_INFO)));
-        return new Result.Builder<UserModel>(userModel).setCode(CodeEnum.SUCCESS.getCode()).build();
+        return new Result.Builder<UserCookieModel>(userModel).setCode(CodeEnum.SUCCESS.getCode()).build();
     }
+
+    private UserCookieModel getUserCookieModel(TRUserLoginInfo trUserLoginInfo) {
+        UserCookieModel userCookieModel = new UserCookieModel();
+        userCookieModel.setAccType(trUserLoginInfo.getAccType());
+        userCookieModel.setEmail(trUserLoginInfo.getEmail());
+        userCookieModel.setId(trUserLoginInfo.getId());
+        String uid = IdUtil.getUUID();
+        userCookieModel.setUid(uid);
+        redisUtil.set(RequestConst.USER_UUID+uid, trUserLoginInfo);
+        return userCookieModel;
+    }
+
 
     private UserModel getUserModel(TRUserLoginInfo trUserLoginInfo) {
         UserModel userModel = new UserModel();
@@ -140,19 +155,31 @@ public class UserController {
 
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     @ResponseBody
-    public Result<String> userLogout(HttpSession session) {
+    public Result<String> userLogout(HttpSession session, HttpServletRequest request) {
         Object object = session.getAttribute(RequestConst.USER_INFO);
         TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class) ;
         if(trUserLoginInfo == null || trUserLoginInfo.getAccType()!= AccountTypeEnum.TEACHER.getCode()) {
             return new Result.Builder<String>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
         }
         session.removeAttribute(RequestConst.USER_INFO);
+        delUserInfo(request);
         return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+    private void delUserInfo(HttpServletRequest request){
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("uuid")){
+                    redisUtil.del(cookie.getValue()+RequestConst.USER_UUID);
+                }
+            }
+        }
     }
 
     @RequestMapping(value = "/myInfo", method = RequestMethod.GET)
     @ResponseBody
-    public Result<UserModel> getLonginUserInfo(HttpSession session) {
+    public Result<UserModel> getLoginUserInfo(HttpSession session) {
         Object object = session.getAttribute(RequestConst.USER_INFO);
         TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class) ;
         if(trUserLoginInfo == null || trUserLoginInfo.getAccType()!= AccountTypeEnum.TEACHER.getCode()) {
@@ -181,7 +208,7 @@ public class UserController {
 
     @RequestMapping(value = "/info", method = RequestMethod.POST)
     @ResponseBody
-    public Result<String> userModiftName(@RequestBody UserModifyNameParam userModifyNameParam, HttpSession session) {
+    public Result<String> userModifyName(@RequestBody UserModifyNameParam userModifyNameParam, HttpSession session, HttpServletRequest request) {
         Object object = session.getAttribute(RequestConst.USER_INFO);
         TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
         TRResponse trResponse;
@@ -199,6 +226,18 @@ public class UserController {
             return new Result.Builder<String>().setCode(trResponse.getCode()).build();
         }
         session.setAttribute(RequestConst.USER_INFO, trUserLoginInfo);
+        setUserInfo(request, trUserLoginInfo);
         return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+    private void setUserInfo(HttpServletRequest request, TRUserLoginInfo trUserLoginInfo){
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("uuid")){
+                    redisUtil.set(cookie.getValue()+RequestConst.USER_UUID, trUserLoginInfo);
+                }
+            }
+        }
     }
 }

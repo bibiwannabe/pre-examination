@@ -8,12 +8,16 @@ import com.libiyi.exa.common.common.Result;
 import com.libiyi.exa.common.param.*;
 import com.libiyi.exa.common.service.ExaServerService;
 import com.libiyi.exa.common.thrift.*;
+import com.libiyi.exa.common.util.IdUtil;
+import com.libiyi.exa.portal.api.param.UserLoginCookieModel;
+import com.libiyi.exa.portal.api.utils.RedisUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -24,6 +28,9 @@ public class UserController {
 
     @Autowired
     private ExaServerService.Iface exaServerService;
+
+    @Autowired
+    private RedisUtil redisUtil;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
@@ -95,24 +102,35 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public Result<UserModel> userLogin(@RequestBody UserLoginParam userLoginParam, HttpServletRequest request) {
+    public Result<UserLoginCookieModel> userLogin(@RequestBody UserLoginParam userLoginParam, HttpServletRequest request) {
         TPUserLoginInfo tpUserInfo = getTPUserLoginInfo(userLoginParam);
         TRUserLoginInfo trUserLoginInfo = new TRUserLoginInfo();
         if(userLoginParam.getEmail() == "" ) {
-            return new Result.Builder<UserModel>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
+            return new Result.Builder<UserLoginCookieModel>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
         }
         try {
             trUserLoginInfo = exaServerService.userLogin(tpUserInfo);
         }catch (Throwable e) {
             logger.error("用户登录出错了：", e);
-            return new Result.Builder<UserModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).build();
+            return new Result.Builder<UserLoginCookieModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).build();
         }
         if(trUserLoginInfo.getResponse().getCode()!=CodeEnum.SUCCESS.getCode()){
-            return new Result.Builder<UserModel>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
+            return new Result.Builder<UserLoginCookieModel>().setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
         }
-        UserModel userModel = getUserModel(trUserLoginInfo);
+        UserLoginCookieModel userModel = getUserCookieModel(trUserLoginInfo);
         request.getSession().setAttribute(RequestConst.USER_INFO, trUserLoginInfo);
-        return new Result.Builder<UserModel>(userModel).setCode(CodeEnum.SUCCESS.getCode()).build();
+        return new Result.Builder<UserLoginCookieModel>(userModel).setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+    private UserLoginCookieModel getUserCookieModel(TRUserLoginInfo trUserLoginInfo) {
+        UserLoginCookieModel userCookieModel = new UserLoginCookieModel();
+        userCookieModel.setAccType(trUserLoginInfo.getAccType());
+        userCookieModel.setEmail(trUserLoginInfo.getEmail());
+        userCookieModel.setId(trUserLoginInfo.getId());
+        String sid = IdUtil.getUUID();
+        userCookieModel.setSid(sid);
+        redisUtil.set(RequestConst.USER_UUID + sid, trUserLoginInfo);
+        return userCookieModel;
     }
 
     private UserModel getUserModel(TRUserLoginInfo trUserLoginInfo) {
@@ -133,19 +151,31 @@ public class UserController {
 
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     @ResponseBody
-    public Result<String> userLogout(HttpSession session) {
+    public Result<String> userLogout(HttpSession session, HttpServletRequest request) {
         Object object = session.getAttribute(RequestConst.USER_INFO);
         TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class) ;
         if(trUserLoginInfo == null) {
             return new Result.Builder<String>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
         }
         session.removeAttribute(RequestConst.USER_INFO);
+        delUserInfo(request);
         return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+    private void delUserInfo(HttpServletRequest request){
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("sid")){
+                    redisUtil.del(cookie.getValue()+RequestConst.USER_UUID);
+                }
+            }
+        }
     }
 
     @RequestMapping(value = "/info", method = RequestMethod.POST)
     @ResponseBody
-    public Result<String> userModiftName(@RequestBody UserModifyNameParam userModifyNameParam, HttpSession session) {
+    public Result<String> userModifyName(@RequestBody UserModifyNameParam userModifyNameParam, HttpSession session, HttpServletRequest request) {
         Object object = session.getAttribute(RequestConst.USER_INFO);
         TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
         TRResponse trResponse;
@@ -163,7 +193,20 @@ public class UserController {
             return new Result.Builder<String>().setCode(trResponse.getCode()).build();
         }
         session.setAttribute(RequestConst.USER_INFO, trUserLoginInfo);
+        setUserInfo(request, trUserLoginInfo);
         return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+
+    private void setUserInfo(HttpServletRequest request, TRUserLoginInfo trUserLoginInfo){
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("sid")){
+                    redisUtil.set(cookie.getValue()+RequestConst.USER_UUID, trUserLoginInfo);
+                }
+            }
+        }
     }
 
     @RequestMapping(value = "/myInfo", method = RequestMethod.GET)

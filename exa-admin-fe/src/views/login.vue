@@ -252,8 +252,12 @@
             var email = JSON.stringify(response.data.data.email)
             var id = JSON.stringify(response.data.data.id)
             var accType = JSON.stringify(response.data.data.accType)
+            var uuid = response.data.data.uid
             this.$userId = id
             this.$router.push({name: 'account', params: {name: name, email: email, id: id, accType: accType}})
+            var exdate = new Date()
+            exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * 100)
+            window.document.cookie = 'uuid' + '=' + uuid + ';path=/;expires=' + exdate.toGMTString()
           }
         }).catch((error) => {
           alert('登录失败' + error.toString())

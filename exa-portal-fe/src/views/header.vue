@@ -107,6 +107,9 @@
             })
           }
           if (result === 1000 || result === 1002) {
+            var exdate = new Date()
+            exdate.setTime(exdate.getTime() + 24 * 60 * 60 * 1000 * -1)
+            window.document.cookie = 'sid' + '=' + '' + ';path=/;expires=' + exdate.toGMTString();
             this.$router.push({
               name: 'login'
             })
