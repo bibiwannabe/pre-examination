@@ -20,7 +20,7 @@ public class ThriftServerStartBean {
             @Override
             public void run() {
                 TProcessor processor = new ExaServerService.Processor(serverService);
-                ThriftServer.start(processor, 7911);
+                ThriftServer.start(processor, 7932);
             }
         }.start();
     }

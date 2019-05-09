@@ -19,8 +19,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/portal-api-1.1.1': {
-        target: 'http://localhost:8080',
-        //target: 'http://119.23.239.46:8083/portal-api-1.1.1',
+        //target: 'http://localhost:8080',
+        target: 'http://119.23.239.46:8083/portal-api-1.1.1',
         changeOrigin: true,
         pathRewrite: {
           '^/portal-api-1.1.1': ''

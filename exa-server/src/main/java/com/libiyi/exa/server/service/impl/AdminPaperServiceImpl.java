@@ -11,6 +11,7 @@ import com.libiyi.exa.server.dto.PaperInfoModifyDto;
 import com.libiyi.exa.server.entity.PaperInfo;
 import com.libiyi.exa.server.entity.QuestionInfo;
 import com.libiyi.exa.server.service.AdminPaperService;
+import com.libiyi.exa.server.utils.ParserPaperQuestionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -184,6 +186,63 @@ public class AdminPaperServiceImpl implements AdminPaperService {
         trResponse.setCode(CodeEnum.SUCCESS.getCode());
         trAdminPaperInfoList.setResponse(trResponse);
         return trAdminPaperInfoList;
+    }
+
+    @Override
+    public TRResponse addQuestionToPaper(TAddQuestionParam tAddQuestionParam) {
+        TRResponse trResponse = new TRResponse();
+        try {
+            PaperInfo paperInfo = paperInfoMapper.getById(tAddQuestionParam.getPaperId());
+            if(paperInfo == null) {
+                trResponse.setCode(CodeEnum.DATA_ILEAGLE.getCode());
+                return trResponse;
+            }
+            paperInfo.setQuestionList(ParserPaperQuestionUtil.addQuestion(tAddQuestionParam.getQuestionId(),tAddQuestionParam.getQuestionType(),paperInfo.getQuestionList()));
+            PaperInfoModifyDto paperInfoModifyDto = getPaperInfoModifyDtoByPaperInfo(paperInfo);
+            paperInfoMapper.updateById(paperInfoModifyDto);
+        } catch (Exception e){
+            logger.error("添加题目到试卷失败", e);
+            trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
+            return trResponse;
+        }
+        trResponse.setCode(CodeEnum.SUCCESS.getCode());
+        return trResponse;
+    }
+
+    @Override
+    public TRAdminPaperList getPaperListBySubject(int i) {
+        TRResponse trResponse = new TRResponse();
+        TRAdminPaperList trAdminPaperList = new TRAdminPaperList();
+        List<PaperInfo> paperInfoList = new ArrayList<>();
+        List<TPaperInfo> tPaperInfoList = new ArrayList<>();
+        try{
+            paperInfoList = paperInfoMapper.getListBySubjectId(i);
+            if(CollectionUtils.isEmpty(paperInfoList)){
+                trResponse.setCode(CodeEnum.SUCCESS.getCode());
+                trAdminPaperList.setResponse(trResponse);
+                return trAdminPaperList;
+            }
+            tPaperInfoList = paperInfoList.stream().map(this::getTPaperInfo).collect(Collectors.toList());
+        }catch (Exception e) {
+            logger.error("获取试卷列表失败", e);
+            trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
+            trAdminPaperList.setResponse(trResponse);
+            return trAdminPaperList;
+        }
+        trResponse.setCode(CodeEnum.SUCCESS.getCode());
+        trAdminPaperList.setResponse(trResponse);
+        trAdminPaperList.setPaperInfoList(tPaperInfoList);
+        return trAdminPaperList;
+    }
+
+    private PaperInfoModifyDto getPaperInfoModifyDtoByPaperInfo(PaperInfo paperInfo) {
+        PaperInfoModifyDto paperInfoModifyDto = new PaperInfoModifyDto();
+        paperInfoModifyDto.setId(paperInfo.getId());
+        paperInfoModifyDto.setName(paperInfo.getName());
+        paperInfoModifyDto.setQuestionList(paperInfo.getQuestionList());
+        paperInfoModifyDto.setSubjectId(paperInfo.getSubjectId());
+        paperInfoModifyDto.setUpdateTime(DateUtil.getNow());
+        return paperInfoModifyDto;
     }
 
     private TRAdminPaperAndQuestionInfo getTRAdminPaperAndQuestionInfo(PaperInfo paperInfo) {

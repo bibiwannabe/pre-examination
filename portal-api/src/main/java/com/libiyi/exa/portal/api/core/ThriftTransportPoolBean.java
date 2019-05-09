@@ -25,7 +25,8 @@ public class ThriftTransportPoolBean {
 
     private static List<ServerInfo> getServers() {
         List<ServerInfo> servers = new ArrayList<ServerInfo>();
-        servers.add(new ServerInfo("119.23.239.46", 7911));
+        servers.add(new ServerInfo("localhost", 7911));
+        servers.add(new ServerInfo("localhost", 7932));
         return servers;
     }
 }

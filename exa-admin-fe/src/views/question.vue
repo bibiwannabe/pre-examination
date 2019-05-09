@@ -39,6 +39,19 @@
       v-model="questionList"
       @change="load"
     >
+      <n3-alert dismissable :show="false" icon="smile-o"
+                ref="alertPaper"
+                width="400px"
+                placement="center"
+                message="请选择要添加到的试卷"
+                description style="height: 350px">
+          <n3-select style="margin-top: 20px"
+                     v-model="readyToAddPaperId"
+                     search="" v-bind:options="paperList" width="300px">
+          </n3-select>
+        <n3-button type="primary" block @click.native="addQuestion" style="margin-top: 200px; width:300px" width="100px">添加到试卷</n3-button>
+      </n3-alert>
+
     </n3-data-table>
     <n3-page
       :total="pagination.total"
@@ -75,6 +88,7 @@
         questionAnswer: '',
         readOnly: true,
         subjectName: '',
+        showPaper: false,
         selection: {
           checkRows: [],
           onSelect (record, checked, checkRows) {},
@@ -86,6 +100,9 @@
             }
           }
         },
+        paperList: [],
+        readyToAddQuestionId: 0,
+        readyToAddPaperId: 0,
         pagination: {
           current: 1,
           total: 0,
@@ -102,7 +119,7 @@
           }, {
             title: '题目描述',
             dataIndex: 'content',
-            width: '300px',
+            width: '250px',
             render: (text, record, index) => {
               return `<div>${record.content}</div>`
             }
@@ -141,6 +158,14 @@
             render: (text, record, index) => {
               return `<div class="search-submit" style="width: 60px; margin-left: 10px;margin-top: 4px">
         <n3-button  block @click.native="showDetail(${record.id})">详情</n3-button></div>`
+            }
+          }, {
+            title: '添加到试卷',
+            dataIndex: 'addToPaper',
+            width: '100px',
+            render: (text, record, index) => {
+              return `<div class="search-submit" style="width: 120px; margin-left: 10px;margin-top: 4px">
+        <n3-button  block @click.native="addToPaper(${record.id})">添加到试卷</n3-button></div>`
             }
           }
         ],
@@ -260,6 +285,70 @@
         if (this.questionType === '2') {
           this.$router.push({name: 'fillingInfo', params: {id: id}})
         }
+      },
+      addToPaper (id) {
+        var url = '/admin-api-1.4.5/paper/all?subjectId=' + this.subjectId
+        axios.get(url
+        ).then(response => {
+            var result = response.data.code
+            if (result === 1002) {
+              this.n3Alert({
+                content: '登录失效',
+                type: 'success',
+                placement: 'center',
+                duration: 2000,
+                width: '240px'
+              })
+              this.$router.push({
+                name: 'login'
+              })
+            }
+          var papers = response.data.data
+          this.paperList = []
+          for (var paper of papers) {
+            this.paperList.push({value: paper.id, label: paper.name})
+          }
+        })
+        this.readyToAddQuestionId = id
+        this.$refs.alertPaper.open()
+      },
+      addQuestion () {
+        var data = JSON.stringify({id: this.readyToAddPaperId, questionType: this.questionType, questinId: this.readyToAddQuestionId})
+        this.$axios({
+          method: 'post',
+          url: '/admin-api-1.4.5/paper/addQuestion',
+          crossDomain: true,
+          data: data,
+          contentType: 'application/json'
+        }).then(response => {
+          var result = response.data.code
+          if (result !== 1000) {
+            this.n3Alert({
+              content: response.data.message,
+              type: 'danger',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
+            if (result === 1002) {
+              this.$router.push({
+                name: 'login'
+              })
+            }
+          } else {
+            this.$refs.alertPaper.close()
+            this.n3Alert({
+              content: '添加试题成功',
+              type: 'success',
+              placement: 'center',
+              duration: 2000,
+              width: '240px'
+            })
+          }
+        }).catch((error) => {
+          alert('添加试题失败' + error.toString())
+          return
+        })
       },
       createQuestion () {
         this.$router.push({name: 'createQuestion'})

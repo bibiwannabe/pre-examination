@@ -57,3 +57,9 @@ class QuestionInfoListAndPoints {
     var point = 0
     var questionList = listOf<QuestionModel>()
 }
+
+class PaperAddQuestionParam {
+    var id = 0
+    var questionType = 0
+    var questinId = 0
+}

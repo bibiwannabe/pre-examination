@@ -36,6 +36,10 @@
         SELECT id, subject_id, pname, question_list, avg_points, counts, create_user, create_time, update_time FROM paper_info WHERE id=#{id}
     </select>
 
+    <select id="getListBySubjectId" resultMap="BaseResultMap">
+        SELECT id, subject_id, pname, question_list, avg_points, counts, create_user, create_time, update_time FROM paper_info WHERE subject_id=#{subjectId}
+    </select>
+
     <select id="getThreeBySubjectId" resultMap="BaseResultMap">
         SELECT id, subject_id, pname, question_list, avg_points, counts, create_user, create_time, update_time FROM paper_info WHERE subject_id=#{subjectId} AND id != #{id} ORDER BY counts DESC LIMIT 0,3
     </select>

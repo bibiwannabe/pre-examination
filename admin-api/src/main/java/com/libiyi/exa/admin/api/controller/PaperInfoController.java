@@ -104,15 +104,17 @@ public class PaperInfoController {
         }
         TPAdminQueryPaperInfo queryPaperInfo = getTPAdminQueryPaperInfo(page, size, subjectId);
         TRAdminPaperInfoList trAdminPaperInfoList;
-        try {
-            trAdminPaperInfoList = exaServerService.getPaperListByParam(queryPaperInfo);
-            if (trAdminPaperInfoList.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
-                return new Result.Builder<PaperListModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+            synchronized (PaperInfoController.class){
+                try {
+                    trAdminPaperInfoList = exaServerService.getPaperListByParam(queryPaperInfo);
+                    if (trAdminPaperInfoList.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+                        return new Result.Builder<PaperListModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+                    }
+                } catch (Throwable e) {
+                    logger.error("获取试卷列表失败", e);
+                    return new Result.Builder<PaperListModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+                }
             }
-        } catch (Throwable e) {
-            logger.error("获取试卷列表失败", e);
-            return new Result.Builder<PaperListModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
-        }
         PaperListModel paperListModel = getPaperListModel(trAdminPaperInfoList);
         return new Result.Builder<PaperListModel>(paperListModel).setCode(CodeEnum.SUCCESS.getCode()).build();
     }
@@ -165,7 +167,7 @@ public class PaperInfoController {
                 return new Result.Builder<PaperAndQuestionInfoModel>().setCode(trAdminPaperAndQuestionInfo.getResponse().getCode()).build();
             }
         } catch (Throwable e) {
-            logger.error("获取试卷列表失败", e);
+            logger.error("获取试卷失败", e);
             return new Result.Builder<PaperAndQuestionInfoModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
         }
         PaperAndQuestionInfoModel paperAndQuestionInfoModel = getPaperAndQuestionInfoModel(trAdminPaperAndQuestionInfo);
@@ -241,5 +243,58 @@ public class PaperInfoController {
             paperListModel = new ArrayList<>();
         }
         return new Result.Builder<List<PaperModel>>(paperListModel).setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+    @GetMapping("/all")
+    @ResponseBody
+    public Result<List<PaperModel>> getAllPaperBySubject(@RequestParam("subjectId") int subjectId, HttpSession session) {
+        Object object = session.getAttribute(RequestConst.USER_INFO);
+        TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
+        if (trUserLoginInfo == null || trUserLoginInfo.getAccType() != AccountTypeEnum.TEACHER.getCode()) {
+            return new Result.Builder<List<PaperModel>>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+        }
+        TRAdminPaperList trAdminPaperInfoList;
+        synchronized (PaperInfoController.class){
+            try {
+                trAdminPaperInfoList = exaServerService.getAllPaperBySubject(subjectId);
+                if (trAdminPaperInfoList.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+                    return new Result.Builder<List<PaperModel>>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+                }
+            } catch (Throwable e) {
+                logger.error("获取试卷列表失败", e);
+                return new Result.Builder<List<PaperModel>>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+            }
+        }
+        List<PaperModel> paperListModel = trAdminPaperInfoList.getPaperInfoList().stream().map(this::getPaperModel).collect(Collectors.toList());
+        return new Result.Builder<List<PaperModel>>(paperListModel).setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+    @PostMapping("/addQuestion")
+    @ResponseBody
+    public Result<String> updatePaper(@RequestBody PaperAddQuestionParam paperAddQuestionParam, HttpSession session) {
+        Object object = session.getAttribute(RequestConst.USER_INFO);
+        TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
+        if (trUserLoginInfo == null || trUserLoginInfo.getAccType() != AccountTypeEnum.TEACHER.getCode()) {
+            return new Result.Builder<String>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+        }
+        TAddQuestionParam addQuestionParam = getTAddQuestionParam(paperAddQuestionParam);
+        try {
+            TRResponse trResponse = exaServerService.addQuestionToPaper(addQuestionParam);
+            if (trResponse.getCode() != CodeEnum.SUCCESS.getCode()) {
+                return new Result.Builder<String>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+            }
+        } catch (Throwable e) {
+            logger.error(" 添加试题到试卷失败", e);
+            return new Result.Builder<String>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+        }
+        return new Result.Builder<String>().setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+    private TAddQuestionParam getTAddQuestionParam(PaperAddQuestionParam paperAddQuestionParam) {
+        TAddQuestionParam tAddQuestionParam = new TAddQuestionParam();
+        tAddQuestionParam.setPaperId(paperAddQuestionParam.getId());
+        tAddQuestionParam.setQuestionId(paperAddQuestionParam.getQuestinId());
+        tAddQuestionParam.setQuestionType(paperAddQuestionParam.getQuestionType());
+        return tAddQuestionParam;
     }
 }

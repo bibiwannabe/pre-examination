@@ -13,4 +13,8 @@ public interface AdminPaperService {
     TRAdminPaperAndQuestionInfo getPaperById(int id);
 
     TRAdminPaperInfoList getAvgLowestFive(int subjectId);
+
+    TRResponse addQuestionToPaper(TAddQuestionParam tAddQuestionParam);
+
+    TRAdminPaperList getPaperListBySubject(int i);
 }

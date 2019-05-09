@@ -38,14 +38,16 @@ public class PaperInfoController {
         }
         TPAdminQueryPaperInfo queryPaperInfo = getTPPortalQueryPaperInfo(page, size, subjectId);
         TRAdminPaperInfoList trAdminPaperInfoList;
-        try {
-            trAdminPaperInfoList = exaServerService.getPaperListByParam(queryPaperInfo);
-            if (trAdminPaperInfoList.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+        synchronized (PaperInfoController.class) {
+            try {
+                trAdminPaperInfoList = exaServerService.getPaperListByParam(queryPaperInfo);
+                if (trAdminPaperInfoList.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+                    return new Result.Builder<PaperListModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+                }
+            } catch (Throwable e) {
+                logger.error("获取试卷列表失败", e);
                 return new Result.Builder<PaperListModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
             }
-        } catch (Throwable e) {
-            logger.error("获取试卷列表失败", e);
-            return new Result.Builder<PaperListModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
         }
         PaperListModel paperListModel = getPaperListModel(trAdminPaperInfoList);
         return new Result.Builder<PaperListModel>(paperListModel).setCode(CodeEnum.SUCCESS.getCode()).build();
@@ -147,14 +149,16 @@ public class PaperInfoController {
         }
         TPCreatPracticeRecordParam tpCreatPracticeRecordParam = getTPCreatPracticeRecordParam(practiceModel, trUserLoginInfo.getId());
         TREvaluateResult trEvaluateResult;
-        try {
-            trEvaluateResult = exaServerService.getEvaluateResult(tpCreatPracticeRecordParam);
-            if (trEvaluateResult.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
-                return new Result.Builder<EvaluateResultModel>().setCode(trEvaluateResult.getResponse().getCode()).build();
+        synchronized (PaperInfoController.class) {
+            try {
+                trEvaluateResult = exaServerService.getEvaluateResult(tpCreatPracticeRecordParam);
+                if (trEvaluateResult.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+                    return new Result.Builder<EvaluateResultModel>().setCode(trEvaluateResult.getResponse().getCode()).build();
+                }
+            } catch (Throwable e) {
+                logger.error("获取试卷列表失败", e);
+                return new Result.Builder<EvaluateResultModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
             }
-        } catch (Throwable e) {
-            logger.error("获取试卷列表失败", e);
-            return new Result.Builder<EvaluateResultModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
         }
         EvaluateResultModel evaluateResultModel = getEvaluateResultModel(trEvaluateResult);
         return new Result.Builder<EvaluateResultModel>(evaluateResultModel).setCode(CodeEnum.SUCCESS.getCode()).build();

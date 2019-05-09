@@ -1,23 +1,23 @@
 <template>
   <section class="app-slider" style="background-color: white; height: auto">
     <n3-carousel :interval="speed" style="height: 450px">
-      <n3-slide>
+      <n3-slide @click.native="showPaper(recommendHotList[0].id)">
         <p style="position: absolute;font-size: 60px; width: 100%;text-align:center; height: 320px; line-height:320px;text-shadow: -1px -1px white, 1px 1px #999">
-          今日热榜第一</p>
+          热门试卷第一</p>
         <p style="position: absolute;font-size: 40px; width: 100%;text-align:center; height: 550px; line-height:550px;text-shadow: -1px -1px white, 1px 1px #999">
           {{recommendHotList[0].name}}</p>
         <img class="slide-img" src="../assets/6.jpg">
       </n3-slide>
-      <n3-slide>
+      <n3-slide @click.native="showPaper(recommendHotList[1].id)">
         <p style="position: absolute;font-size: 60px; width: 100%;text-align:center; height: 320px; line-height:320px;text-shadow: -1px -1px white, 1px 1px #999">
-          今日热榜第二</p>
+          热门试卷第二</p>
         <p style="position: absolute;font-size: 40px; width: 100%;text-align:center; height: 550px; line-height:550px;text-shadow: -1px -1px white, 1px 1px #999">
           {{recommendHotList[1].name}}</p>
         <img class="slide-img" src="../assets/10.jpg">
       </n3-slide>
-      <n3-slide>
+      <n3-slide @click.native="showPaper(recommendHotList[2].id)">
         <p style="position: absolute;font-size: 60px; width: 100%;text-align:center; height: 320px; line-height:320px;text-shadow: -1px -1px white, 1px 1px #999">
-          今日热榜第三</p>
+          热门试卷第三</p>
         <p style="position: absolute;font-size: 40px; width: 100%;text-align:center; height: 550px; line-height:550px;text-shadow: -1px -1px white, 1px 1px #999">
           {{recommendHotList[2].name}}</p>
         <img class="slide-img" src="../assets/11.jpg">
@@ -43,7 +43,7 @@
     <div style="width: auto; height: auto">
       <div style="height: 60px">
         <p style="color: #5e5e5e; text-align:center;line-height: 60px; font-size: 16px; float: none">——  推荐试题 ——</p></div>
-      <div v-model="recommendPaperList">
+      <div v-if="allSubject!=[]" v-model="recommendPaperList">
         <n3-button v-for="item in recommendPaperList" style="width: 350px; margin-left: 96px; height: 150px; margin-bottom: 30px; color: #2d3035;float: left; padding: 0px; border: white;
       box-shadow:0px 0 10px #ddd" @click.native="showPaper(item.id)" class="back" >
           <p class="front" >点击进入答题</p>
@@ -80,6 +80,7 @@
         speed: 0,
         show: false,
         subjectList: [],
+        allSubject: [],
         userId: 0,
         recommendPaperList: [],
         recommendHotList: [],
@@ -89,7 +90,7 @@
     },
     methods: {
       getSubjectName (id) {
-        for (let subject of this.subjectList) {
+        for (let subject of this.allSubject) {
           if (subject.id === id) {
             return subject.subjectName
           }
@@ -140,6 +141,7 @@
             })
           } else {
             this.subjectList = response.data.data.slice(0, 4)
+            this.allSubject = response.data.data
           }
         }).catch((error) => {
           alert('获取信息失败' + error.toString())

@@ -1,17 +1,18 @@
 <template>
   <section class="history-list" style="position: absolute; width: 1240px; margin-top: 0">
+
     <h3 style="text-align: center; line-height: 80px">{{paperName}}</h3>
-    <p style="font-size: 18px; text-align: center; line-height: 40px;color: red;">你的得分：{{grades}}分</p>
-    <div v-if="this.choiceResultList.length >0 " style="padding-left: 140px; padding-right: 140px">
+    <p style="font-size: 18px; text-align: center; line-height: 40px;color: red;" v-model="grades">你的得分：{{grades}}分</p>
+    <div v-if="this.choiceResultList.length >0" style="padding-left: 140px; padding-right: 140px" v-model="this.choiceResultList">
       <h3 style="font-size: 22px; line-height: 40px; margin-top: 20px">单选题 <span style="color: red; font-size: 17px">你的得分：{{choiceGrades}} </span></h3>
       <div v-for="(item,index) in this.choiceResultList">
-        <n3-icon v-if="item.isCorrect === false" size="20px" type="times" color="red"></n3-icon>
+        <n3-icon v-if="item&&item.isCorrect === false" size="20px" type="times" color="red"></n3-icon>
         <span style="font-size: 18px; line-height: 40px">{{index + 1}}. {{item.content}}</span> <br/>
         <div v-if="item.isCorrect === false">
           <n3-radio-group v-model="item.wrongAnswer" type="primary" @change=""><n3-radio v-for="option of JSON.parse(item.options)" :label="option.toString()" disabled=""
                                                                                          style="float: none; font-size: 16px; width: 100%; height: 40px; margin-left: 20px">{{option}}</n3-radio></n3-radio-group>
         </div>
-        <div v-if="item.isCorrect === true">
+        <div v-if="item&&item.isCorrect === true">
           <n3-radio-group v-model="item.answer" type="primary" @change="">
             <n3-radio v-for="option of JSON.parse(item.options)" :label="option.toString()" disabled=""
                       style="float: none; font-size: 16px; width: 100%; height: 40px; margin-left: 20px">{{option}}
@@ -24,32 +25,28 @@
     <div v-if="this.selectionResultList.length >0" style="padding-left: 140px; padding-right: 140px; margin-top: 20px">
       <h3 style="font-size: 22px; line-height: 40px; margin-top: 20px">多选题 <span style="color: red; font-size: 17px">你的得分：{{selectionGrades}}</span></h3>
       <div v-for="(item, index) of this.selectionResultList">
-        <n3-icon v-if="item.isCorrect === false" size="20px" type="times" color="red"></n3-icon>
+        <n3-icon v-if="item&&item.isCorrect === false" size="20px" type="times" color="red"></n3-icon>
         <span style="font-size: 18px; line-height: 40px">{{index + 1}}. {{item.content}}</span> <br/>
-        <div v-if="item.isCorrect === false">
           <n3-checkbox-group  @change="" v-model="selectionAnswerMap[item.id]">
             <n3-checkbox v-for="option of JSON.parse(item.options)" :label="option" disabled
                          style="float: none; font-size: 16px; width: 100%; height: 40px; margin-left: 20px">{{option}}</n3-checkbox>
           </n3-checkbox-group>
+          <div v-if="item&&item.isCorrect === false">
+          <tr><td><p style="font-size: 18px">正确答案:&nbsp&nbsp</p></td>
+            <td><span style="font-size: 18px" v-for="answer of JSON.parse(item.answer)">{{answer}}&nbsp&nbsp</span></td></tr>
         </div>
-      </div>
-      <div v-if="item.isCorrect === true">
-        <n3-checkbox-group v-model="selectionAnswerMap[item.id]" @change="">
-          <n3-checkbox v-for="option of JSON.parse(item.options)" :label="option" disabled
-                       style="float: none; font-size: 16px; width: 100%; height: 40px; margin-left: 20px">{{option}}</n3-checkbox>
-        </n3-checkbox-group>
       </div>
 
     </div>
     <div v-if="this.fillingResultList.length >0" style="padding-left: 140px; padding-right: 140px;margin-top: 20px">
       <h3 style="font-size: 22px; line-height: 40px; margin-top: 20px">填空题 <span style="color: red; font-size: 17px">你的得分：{{fillingGrades}}</span></h3>
       <div v-for="(item,index) in this.fillingResultList">
-        <n3-icon v-if="item.isCorrect === false" size="20px" type="times" color="red"></n3-icon> <br/>
+        <n3-icon v-if="item&&item.isCorrect === false" size="20px" type="times" color="red"></n3-icon> <br/>
         <span style="font-size: 18px; line-height: 40px">{{index + 1}}. {{item.content.split('()')[0]}}</span>
-        <div v-if="item.isCorrect === false">
+        <div v-if="item&&item.isCorrect === false">
           <n3-input v-model="item.wrongAnswer" disabled=""></n3-input>
         </div>
-        <div v-if="item.isCorrect === true">
+        <div v-if="item&&item.isCorrect === true">
           <n3-input v-model="item.answer" disabled=""></n3-input>
         </div>
         <span v-if="item.content.split('()').length > 1" style="font-size: 18px; line-height: 40px">{{item.content.split('()')[1]}}</span>
@@ -79,6 +76,7 @@
           id: 0,
           name: ''
         },
+        showPage: false,
         selectionAnswerMap: {},
         paperName: '',
         loading: false,
@@ -123,6 +121,7 @@
           this.selectionGrades = response.data.data.selection.totalPoints
           this.fillingGrades = response.data.data.filling.totalPoints
           this.grades = response.data.data.grades
+          this.$forceUpdate()
         }).catch((error) => { this.alert('获取信息失败' + error.toString()) })
       },
       reload4 () {
@@ -137,6 +136,9 @@
           this.reload4()
         }
       }
+    },
+    created () {
+      this.reload4()
     }
   }
 </script>

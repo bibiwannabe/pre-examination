@@ -338,3 +338,14 @@ struct TPaperQuestionData {
         4: string questionContent;
         5: i32 count;
 }
+
+struct TAddQuestionParam {
+        1: i32 paperId;
+        2: i32 questionId;
+        3: i32 questionType;
+}
+
+struct TRAdminPaperList {
+        1: list<TPaperInfo> paperInfoList;
+        2: TRResponse response;
+}

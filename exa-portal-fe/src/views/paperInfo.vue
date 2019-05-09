@@ -149,12 +149,17 @@
         })
       },
       goPractice () {
-        this.$router.push({name: 'practiceRecord'})
+        this.$router.push({name: 'questionList'})
       },
       submitPaper () {
         var selectionAnswerMapStr = {}
         for (var key of Object.keys(this.selectionAnswerMap)) {
           selectionAnswerMapStr[key] = JSON.stringify(this.selectionAnswerMap[key])
+        }
+        for (var filling of this.fillingList) {
+          if (this.fillingAnswerMap[filling.id] === undefined || this.fillingAnswerMap[filling.id] === ''){
+            this.fillingAnswerMap[filling.id] = ''
+          }
         }
         var data = JSON.stringify({paperId: this.paperId, choice: this.choiceAnswerMap, selection: selectionAnswerMapStr, filling: this.fillingAnswerMap})
         var result = 0
@@ -236,6 +241,12 @@
           this.selectionEachPoint = response.data.data.selection.point
           this.fillingEachPoint = response.data.data.filling.point
           this.sum = this.choiceEachPoint * this.choiceNum + this.selectionEachPoint * this.selectionNum + this.fillingEachPoint * this.fillingNum
+          for (var choice of this.choiceList) {
+            this.choiceAnswerMap[choice.id] = ''
+          }
+          for (var selection of this.selectionList) {
+            this.selectionAnswerMap[selection.id] = []
+          }
         }).catch((error) => {
           alert('获取信息失败' + error.toString())
         })
