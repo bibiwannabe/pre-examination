@@ -15,18 +15,13 @@ public class coreConfig {
     @Autowired
     private ThriftTransportPoolBean thriftTransportPoolBean;
 
-    private TSocket client;
 
     @Bean(value = "ExaServerService")
     @Scope("prototype")
     public ExaServerService.Iface exaServerService() {
         TSocket socket = (TSocket)thriftTransportPoolBean.getPool().get();
-        client = socket;
         ExaServerService.Iface client = ExaServerClient.getClient(socket);
         return client;
     }
 
-    public void destroyClient() {
-        thriftTransportPoolBean.destroyClient(client);
-    }
 }

@@ -1,8 +1,11 @@
 package com.libiyi.exa.admin.api.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.libiyi.exa.admin.api.core.ExaServer;
+import com.libiyi.exa.admin.api.core.ThriftTransportPoolBean;
 import com.libiyi.exa.admin.api.param.*;
 import com.libiyi.exa.admin.api.util.ParserPaperQuestionUtil;
+import com.libiyi.exa.common.client.ExaServerClient;
 import com.libiyi.exa.common.common.AccountTypeEnum;
 import com.libiyi.exa.common.common.CodeEnum;
 import com.libiyi.exa.common.common.RequestConst;
@@ -11,6 +14,7 @@ import com.libiyi.exa.common.service.ExaServerService;
 import com.libiyi.exa.common.thrift.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.thrift.transport.TSocket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
@@ -28,6 +32,10 @@ public class PaperInfoController {
 
     @Autowired
     private ExaServerService.Iface exaServerService;
+
+    @Autowired
+    private ThriftTransportPoolBean thriftTransportPoolBean;
+
 
     @PostMapping("/create")
     @ResponseBody
@@ -102,19 +110,21 @@ public class PaperInfoController {
         if (trUserLoginInfo == null || trUserLoginInfo.getAccType() != AccountTypeEnum.TEACHER.getCode()) {
             return new Result.Builder<PaperListModel>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
         }
+        TSocket socket = (TSocket)thriftTransportPoolBean.getPool().get();
+        ExaServer exaServer = new ExaServer(socket, ExaServerClient.getClient(socket));
         TPAdminQueryPaperInfo queryPaperInfo = getTPAdminQueryPaperInfo(page, size, subjectId);
         TRAdminPaperInfoList trAdminPaperInfoList;
-            synchronized (PaperInfoController.class){
-                try {
-                    trAdminPaperInfoList = exaServerService.getPaperListByParam(queryPaperInfo);
-                    if (trAdminPaperInfoList.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
-                        return new Result.Builder<PaperListModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
-                    }
-                } catch (Throwable e) {
-                    logger.error("获取试卷列表失败", e);
-                    return new Result.Builder<PaperListModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
-                }
+        try {
+            trAdminPaperInfoList = exaServer.getIface().getPaperListByParam(queryPaperInfo);
+            if (trAdminPaperInfoList.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+                return new Result.Builder<PaperListModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
             }
+        } catch (Throwable e) {
+            logger.error("获取试卷列表失败", e);
+            return new Result.Builder<PaperListModel>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+        } finally {
+            thriftTransportPoolBean.destroyClient(socket);
+        }
         PaperListModel paperListModel = getPaperListModel(trAdminPaperInfoList);
         return new Result.Builder<PaperListModel>(paperListModel).setCode(CodeEnum.SUCCESS.getCode()).build();
     }
@@ -254,17 +264,20 @@ public class PaperInfoController {
             return new Result.Builder<List<PaperModel>>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
         }
         TRAdminPaperList trAdminPaperInfoList;
-        synchronized (PaperInfoController.class){
-            try {
-                trAdminPaperInfoList = exaServerService.getAllPaperBySubject(subjectId);
-                if (trAdminPaperInfoList.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
-                    return new Result.Builder<List<PaperModel>>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
-                }
-            } catch (Throwable e) {
-                logger.error("获取试卷列表失败", e);
+        TSocket socket = (TSocket)thriftTransportPoolBean.getPool().get();
+        ExaServer exaServer = new ExaServer(socket, ExaServerClient.getClient(socket));
+        try {
+            trAdminPaperInfoList = exaServer.getIface().getAllPaperBySubject(subjectId);
+            if (trAdminPaperInfoList.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
                 return new Result.Builder<List<PaperModel>>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
             }
+        } catch (Throwable e) {
+            logger.error("获取试卷列表失败", e);
+            return new Result.Builder<List<PaperModel>>().setCode(CodeEnum.UNKNOWN_ERROR.getCode()).setMessage(CodeEnum.UNKNOWN_ERROR.getDesc()).build();
+        } finally {
+            thriftTransportPoolBean.getPool().release(socket);
         }
+
         List<PaperModel> paperListModel = trAdminPaperInfoList.getPaperInfoList().stream().map(this::getPaperModel).collect(Collectors.toList());
         return new Result.Builder<List<PaperModel>>(paperListModel).setCode(CodeEnum.SUCCESS.getCode()).build();
     }

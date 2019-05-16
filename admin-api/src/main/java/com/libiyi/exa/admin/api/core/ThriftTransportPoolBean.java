@@ -7,6 +7,7 @@ import org.apache.thrift.transport.TTransport;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class ThriftTransportPoolBean {
 
     @PostConstruct
     public void init() {
-        pool = new ThriftTransportPool(20, 5, 5, 10, getServers());
+        pool = new ThriftTransportPool(200, 5, 5, 10, getServers());
         System.out.println("老子初始化了");
     }
 
@@ -29,6 +30,7 @@ public class ThriftTransportPoolBean {
         List<ServerInfo> servers = new ArrayList<ServerInfo>();
         servers.add(new ServerInfo("localhost", 7911));
         servers.add(new ServerInfo("localhost", 7932));
+        servers.add(new ServerInfo("120.79.64.147", 7932));
         return servers;
     }
 
