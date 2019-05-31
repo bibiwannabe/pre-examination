@@ -10,6 +10,8 @@ import org.apache.thrift.TException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ServerServiceImpl implements ExaServerService.Iface {
     static Logger logger = LogManager.getLogger(ServerServiceImpl.class);
@@ -145,6 +147,11 @@ public class ServerServiceImpl implements ExaServerService.Iface {
     @Override
     public TRIdResult addQuestion(TPAdminCreateQuestionInfo questionInfo) throws TException {
         return questionService.createQuestion(questionInfo);
+    }
+
+    @Override
+    public TRIdResult batchUploadQuestion(List<TPAdminCreateQuestionInfo> list) throws TException {
+        return questionService.batchUploadQuestion(list);
     }
 
     @Override

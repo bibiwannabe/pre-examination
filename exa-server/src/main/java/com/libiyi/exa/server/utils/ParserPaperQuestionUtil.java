@@ -20,10 +20,13 @@ public class ParserPaperQuestionUtil {
         switch (questionType){
             case 0:
                 questionListModel.getChoice().getIdList().add(questionId);
+                break;
             case 1:
                 questionListModel.getSelection().getIdList().add(questionId);
+                break;
             case 2:
                 questionListModel.getFilling().getIdList().add(questionId);
+                break;
         }
         String questionList = "{\"" + CHOICE + "\":" + getQuestionModelStr(questionListModel.getChoice()) + ",\"" + FILLING + "\":"
                 + getQuestionModelStr(questionListModel.getFilling()) + ",\"" + SELECTION + "\":" + getQuestionModelStr(questionListModel.getSelection()) + "}";

@@ -46,6 +46,8 @@ service ExaServerService{
         model.TRSubjectTagList getAllSubject();
         //创建题目
         model.TRIdResult addQuestion(1:model.TPAdminCreateQuestionInfo questionInfo);
+        //批量上传
+        model.TRIdResult batchUploadQuestion(1:list<model.TPAdminCreateQuestionInfo> questionInfos);
         //根据条件分页获取题目列表
         model.TRAdminQuestionInfoList getQuestionListByParam(1:model.TPAdminQuerryQuestionInfo querryParam);
         //根据关键词获取题目列表

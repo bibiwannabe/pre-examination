@@ -17,10 +17,7 @@
         label="科目"
         need
         :label-col="3">
-        <select v-model="subject.id"
-                style="width: 320px;padding-left: 8px;padding-top: 2px; padding-bottom: 2px; border-color: #dddddd; background-color: white">
-          <option :value="item.id" v-for="item in subjectList">{{item.subjectName}}</option>
-        </select>
+        <n3-select  v-model="subject.id" v-bind:options="subjectNameList"></n3-select>
       </n3-form-item>
 
       <n3-form-item label="题目" need :label-col="3">
@@ -62,10 +59,7 @@
       <n3-form-item
         label="答案" need
         :label-col="3">
-        <select v-model="answer"
-                style="width: 320px;padding-left: 8px;padding-top: 2px; padding-bottom: 2px; border-color: #dddddd; background-color: white">
-          <option :value="item" v-for="item in options">{{item}}</option>
-        </select>
+        <n3-select  v-model="answer" v-bind:options="optionNameList" width="320px" color="#2d3035" style="margin-bottom: 10px; color: #2d3035"></n3-select>
       </n3-form-item>
 
       <n3-form-item
@@ -110,6 +104,8 @@
         options: [],
         content: '',
         subjectList: [],
+        subjectNameList: [],
+        optionNameList: [],
         loading: false,
         subjectId: 0,
         questionType: 0,
@@ -162,6 +158,10 @@
         ).then(response => {
           this.subjectList = response.data.data
           this.subjectId = response.data.data[0].id
+          this.subjectNameList = []
+          for (var subject of this.subjectList) {
+            this.subjectNameList.push({value: subject.id, label: subject.subjectName})
+          }
         }).catch((error) => {
           alert('获取信息失败' + error.toString())
         })
@@ -175,8 +175,10 @@
           var jsonObj = JSON.parse(response.data.data.options)
           this.options = JSON.parse(response.data.data.options)
           this.subject.id = response.data.data.subjectId
+          this.optionNameList = []
           for (var i = 0; i < jsonObj.length; i++) {
             this.options[i] = jsonObj[i]
+            this.optionNameList.push({value: jsonObj[j], label: jsonObj[j]})
           }
         }).catch((error) => {
           this.alert('获取信息失败' + error.toString())
@@ -229,9 +231,17 @@
       },
       addOption () {
         this.options.push('')
+        this.optionNameList = []
+        for (var option of this.options) {
+          this.optionNameList.push({value: option, label: option})
+        }
       },
       deleteOption (id) {
         this.options.splice(id, 1)
+        this.optionNameList = []
+        for (var option of this.options) {
+          this.optionNameList.push({value: option, label: option})
+        }
       },
       cancelAndReturn () {
         this.$router.go(-1)
@@ -241,6 +251,12 @@
       '$route' () {
         if (this.$route.name === 'choiceInfo') {
           this.reload1()
+        }
+      },
+      'options' () {
+        this.optionNameList = []
+        for (var option of this.options) {
+          this.optionNameList.push({value: option, label: option})
         }
       }
     },

@@ -2,6 +2,8 @@ package com.libiyi.exa.server.service;
 
 import com.libiyi.exa.common.thrift.*;
 
+import java.util.List;
+
 public interface QuestionService {
     /**
      * 创建问题
@@ -44,4 +46,11 @@ public interface QuestionService {
      * @return
      */
     TRPaperQuestionDataList getQuestionListByPaperId(Integer paperId);
+
+    /**
+     * 批量上传题目
+     * @param list
+     * @return
+     */
+    TRIdResult batchUploadQuestion(List<TPAdminCreateQuestionInfo> list);
 }

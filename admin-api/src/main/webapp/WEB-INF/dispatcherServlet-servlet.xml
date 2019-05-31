@@ -13,14 +13,14 @@
     </conttext:component-scan>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/views/"></property>
-        <property name="suffix" value=".jsp"></property>
+        <property name="prefix" value="/WEB-INF/file/"></property>
     </bean>
 
 
     <!--两个标配-->
     <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
+    <mvc:resources mapping="/template/download/**" location="/WEB-INF/file/"></mvc:resources>
     <mvc:interceptors>
         <!-- 使用 bean 定义一个 Interceptor，直接定义在 mvc:interceptors 下面的 Interceptor 将拦截所有的请求 -->
         <bean class="com.libiyi.exa.admin.api.aop.HeaderInterceptor"/>

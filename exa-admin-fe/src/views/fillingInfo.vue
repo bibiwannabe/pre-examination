@@ -17,9 +17,7 @@
           label="科目"
           need
           :label-col="3">
-          <select v-model="subject.id" style="width: 320px;padding-left: 8px;padding-top: 2px; padding-bottom: 2px; border-color: #dddddd; background-color: white">
-            <option :value="item.id" v-for="item in subjectList">{{item.subjectName}}</option>
-          </select>
+          <n3-select  v-model="subject.id" v-bind:options="subjectNameList"></n3-select>
         </n3-form-item>
 
         <n3-form-item label="题目" need :label-col="3">
@@ -87,6 +85,7 @@
         searchChanged: false,
         subjectId: 0,
         questionType: 0,
+        subjectNameList: [],
         questionTypeName: '',
         readOnly: true,
         subjectName: '',
@@ -128,6 +127,10 @@
         this.$axios.get('/admin-api-1.4.5/subject/list'
         ).then(response => {
           this.subjectList = response.data.data
+          this.subjectNameList = []
+          for (var subject of this.subjectList) {
+            this.subjectNameList.push({value: subject.id, label: subject.subjectName})
+          }
         }).catch((error) => {
           alert('获取信息失败' + error.toString())
         })

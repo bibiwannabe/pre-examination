@@ -2,16 +2,21 @@ package com.libiyi.exa.admin.api.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.libiyi.exa.admin.api.param.*;
+import com.libiyi.exa.admin.api.util.ParseCSVUtil;
 import com.libiyi.exa.common.common.*;
 import com.libiyi.exa.common.service.ExaServerService;
 import com.libiyi.exa.common.thrift.*;
+import org.apache.http.HttpResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,7 +57,7 @@ public class QuestionController {
         tpAdminCreateQuestionInfo.setAnswer(questionParam.getAnswer());
         tpAdminCreateQuestionInfo.setContent(questionParam.getContent());
         tpAdminCreateQuestionInfo.setCreateUser(userId);
-        if(questionParam.getType() != QuestionTypeEnum.BLANK_FILLING.getCode()) {
+        if (questionParam.getType() != QuestionTypeEnum.BLANK_FILLING.getCode()) {
             tpAdminCreateQuestionInfo.setOptions(questionParam.getOptions());
         }
         tpAdminCreateQuestionInfo.setType(questionParam.getType());
@@ -95,7 +100,7 @@ public class QuestionController {
     @ResponseBody
     public Result<QuestionListModel> getQuestionList(@RequestParam("subjectId") int subjectId,
                                                      @RequestParam("type") int type,
-                                                     @RequestParam(value = "page",required = false, defaultValue = "1") int page,
+                                                     @RequestParam(value = "page", required = false, defaultValue = "1") int page,
                                                      @RequestParam(value = "size", required = false, defaultValue = "10") int size,
                                                      HttpSession session) {
         Object object = session.getAttribute(RequestConst.USER_INFO);
@@ -157,7 +162,7 @@ public class QuestionController {
     @GetMapping("/{questionId}")
     @ResponseBody
     public Result<QuestionModel> getQuestionInfo(@PathVariable("questionId") int questionId,
-                                                     HttpSession session) {
+                                                 HttpSession session) {
         Object object = session.getAttribute(RequestConst.USER_INFO);
         TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
         if (trUserLoginInfo == null || trUserLoginInfo.getAccType() != AccountTypeEnum.TEACHER.getCode()) {
@@ -181,9 +186,9 @@ public class QuestionController {
     @GetMapping("/search")
     @ResponseBody
     public Result<List<QuestionModel>> searchQuestionList(@RequestParam("subjectId") int subjectId,
-                                                     @RequestParam("type") int type,
-                                                     @RequestParam(value = "key") String keywords,
-                                                     HttpSession session) {
+                                                          @RequestParam("type") int type,
+                                                          @RequestParam(value = "key") String keywords,
+                                                          HttpSession session) {
         Object object = session.getAttribute(RequestConst.USER_INFO);
         TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
         if (trUserLoginInfo == null || trUserLoginInfo.getAccType() != AccountTypeEnum.TEACHER.getCode()) {
@@ -243,5 +248,60 @@ public class QuestionController {
         paperQuestionDataModel.setSubjectId(tPaperQuestionData.getSubjectId());
         paperQuestionDataModel.setQuestionId(tPaperQuestionData.getQuestionId());
         return paperQuestionDataModel;
+    }
+
+
+    @PostMapping("/batchUpload")
+    @ResponseBody
+    public Result<String> batchUploadQuestion(@RequestParam("files") MultipartFile file, HttpSession session) {
+        Object object = session.getAttribute(RequestConst.USER_INFO);
+        TRUserLoginInfo trUserLoginInfo = JSON.parseObject(JSON.toJSONString(object), TRUserLoginInfo.class);
+        if (trUserLoginInfo == null || trUserLoginInfo.getAccType() != AccountTypeEnum.TEACHER.getCode()) {
+            return new Result.Builder<String>().setCode(CodeEnum.NO_LOGIN.getCode()).setMessage(CodeEnum.NO_LOGIN.getDesc()).build();
+        }
+        Integer userId = trUserLoginInfo.getId();
+        TRIdResult trIdResult;
+        Integer count = 0;
+        try {
+            List<ParseCSVUtil.QuestionBean> questionList = ParseCSVUtil.parseCSV2QuestionList(file, userId);
+            List<TPAdminCreateQuestionInfo> questionInfoList = new ArrayList<>();
+            questionList.forEach(question -> {
+                questionInfoList.add(getTPAdminQuestionInfo(question, userId));
+                logger.info(JSON.toJSONString(questionInfoList));
+            });
+            trIdResult = exaServerService.batchUploadQuestion(questionInfoList);
+            count = trIdResult.getId();
+            if(trIdResult.getResponse().getCode() != CodeEnum.SUCCESS.getCode()) {
+                return new Result.Builder<String>("批量上传失败").setCode(trIdResult.getResponse().getCode()).build();
+            }
+        } catch (IOException e) {
+            logger.error("解析错误：", e);
+            return new Result.Builder<String>("批量上传失败, 请检查格式").setCode(CodeEnum.DATA_ILEAGLE.getCode()).build();
+        } catch (Exception e) {
+            logger.error("未知错误", e);
+            return new Result.Builder<String>("批量上传失败, 未知错误").setCode(CodeEnum.UNKNOWN_ERROR.getCode()).build();
+        }
+        return new Result.Builder<String>("批量上传成功, 成功上传" + count + "条").setCode(CodeEnum.SUCCESS.getCode()).build();
+    }
+
+    private TPAdminCreateQuestionInfo getTPAdminQuestionInfo(ParseCSVUtil.QuestionBean q, Integer userId) {
+        TPAdminCreateQuestionInfo tpAdminCreateQuestionInfo = new TPAdminCreateQuestionInfo();
+        tpAdminCreateQuestionInfo.setContent(q.getContent());
+        if (q.getType().intValue() == QuestionTypeEnum.MULTIPLE_CHOICE.getCode().intValue() || q.getType().intValue() == QuestionTypeEnum.MULTIPLE_SELECTION.getCode().intValue()) {
+            tpAdminCreateQuestionInfo.setOptions(JSON.toJSONString(q.getOptions().split(";")));
+        } else {
+            tpAdminCreateQuestionInfo.setOptions("");
+
+        }
+        if (q.getType().intValue() == QuestionTypeEnum.MULTIPLE_SELECTION.getCode().intValue()) {
+            tpAdminCreateQuestionInfo.setAnswer(JSON.toJSONString(q.getAnswer().split(";")));
+        } else {
+            tpAdminCreateQuestionInfo.setAnswer(q.getAnswer());
+
+        }
+        tpAdminCreateQuestionInfo.setCreateUser(userId);
+        tpAdminCreateQuestionInfo.setSubjectId(q.getSubjectId());
+        tpAdminCreateQuestionInfo.setType(q.getType());
+        return tpAdminCreateQuestionInfo;
     }
 }

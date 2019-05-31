@@ -7,19 +7,14 @@
           :label-col="3"
           need
         >
-          <select v-model="questionType" style="width: 320px;padding-left: 8px;padding-top: 2px; padding-bottom: 2px; border-color: #dddddd; background-color: white">
-            <option :value="0">单选题</option>
-            <option :value="1">多选题</option>
-            <option :value="2">填空题</option>
-          </select>
+          <n3-select v-model="questionType" v-bind:options="questionTypeList">
+          </n3-select>
         </n3-form-item>
         <n3-form-item
           label="科目"
           need
           :label-col="3">
-          <select v-model="subject.id" style="width: 320px;padding-left: 8px;padding-top: 2px; padding-bottom: 2px; border-color: #dddddd; background-color: white">
-            <option :value="item.id" v-for="item in subjectList">{{item.subjectName}}</option>
-          </select>
+          <n3-select  v-model="subject.id" v-bind:options="subjectNameList"></n3-select>
         </n3-form-item>
 
         <n3-form-item label="题目" need :label-col="3">
@@ -58,16 +53,15 @@
           </tr>
         </n3-form-item>
         <n3-form-item label="答案" need :label-col="3" v-if="questionType === 0">
-          <select v-model="answer" style="width: 320px;padding-left: 8px;padding-top: 2px; padding-bottom: 2px; border-color: #dddddd; background-color: white">
-            <option :value="item" v-for="item in options">{{item}}</option>
-          </select>
+          <n3-select  v-model="answer" v-bind:options="optionNameList" width="320px" color="#2d3035" style="margin-bottom: 10px; color: #2d3035"></n3-select>
         </n3-form-item>
         <n3-form-item label="答案" need :label-col="3" v-if="questionType === 1">
           <tr v-for="(item, index) in answers"  v-model="answers">
             <td>
-              <select v-model="answers[index]" style="width: 320px;padding-left: 8px;margin-bottom:10px; padding-top: 2px; padding-bottom: 2px; border-color: #dddddd; background-color: white">
+              <n3-select  v-model="answers[index]" v-bind:options="optionNameList" width="320px" color="#2d3035" style="margin-bottom: 10px; color: #2d3035"></n3-select>
+             <!-- <select v-model="answers[index]" style="width: 320px;padding-left: 8px;margin-bottom:10px; padding-top: 2px; padding-bottom: 2px; border-color: #dddddd; background-color: white">
                 <option :value="item" v-for="item in options">{{item}}</option>
-              </select></td>
+              </select>--></td>
             <td style="padding-left: 10px">
               <n3-button
                 @click.native="deleteAnswer(index)"
@@ -136,20 +130,22 @@
         answer: '',
         answers: [],
         options: [],
+        optionNameList: [],
         content: '',
         subjectList: [],
+        subjectNameList: [],
         questionTypeList: [
           {
-            id: 0,
-            name: '单选题'
+            value: 0,
+            label: '单选题'
           },
           {
-            id: 1,
-            name: '多选题'
+            value: 1,
+            label: '多选题'
           },
           {
-            id: 2,
-            name: '填空题'
+            value: 2,
+            label: '填空题'
           }
         ],
         loading: false,
@@ -187,6 +183,10 @@
           this.subjectList = response.data.data
           this.subjectId = response.data.data[0].id
           this.subject.id = this.subjectId
+          this.subjectNameList = []
+          for (var subject of this.subjectList) {
+            this.subjectNameList.push({value: subject.id, label: subject.subjectName})
+          }
         }).catch((error) => {
           alert('获取信息失败' + error.toString())
         })
@@ -256,9 +256,17 @@
       },
       addOption () {
         this.options.push('')
+        this.optionNameList = []
+        for (var option of this.options) {
+          this.optionNameList.push({value: option, label: option})
+        }
       },
       deleteOption (id) {
         this.options.splice(id, 1)
+        this.optionNameList = []
+        for (var option of this.options) {
+          this.optionNameList.push({value: option, label: option})
+        }
       },
       addAnswer () {
         this.answers.push('')
@@ -277,6 +285,12 @@
       '$route' () {
         if (this.$route.name === 'createQuestion') {
           this.reload1()
+        }
+      },
+      'options' () {
+        this.optionNameList = []
+        for (var option of this.options) {
+          this.optionNameList.push({value: option, label: option})
         }
       }
     },

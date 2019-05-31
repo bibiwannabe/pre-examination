@@ -248,6 +248,42 @@ public class QuestionServiceImpl implements QuestionService {
         return trPaperQuestionDataList;
     }
 
+    @Override
+    public TRIdResult batchUploadQuestion(List<TPAdminCreateQuestionInfo> list) {
+        TRIdResult trIdResult = new TRIdResult();
+        TRResponse trResponse = new TRResponse();
+        List<QuestionInfo> questionInfoList = new ArrayList<>();
+        Long createTime = DateUtil.getNow();
+        try {
+            list.forEach(q -> {
+                questionInfoList.add(getQuestionInfoBatch(q, createTime));
+            });
+            Integer count = questionInfoMapper.batchCreateQuestion(questionInfoList);
+            trIdResult.setId(count);
+        } catch (Exception e) {
+            logger.error("批量插入错误", e);
+            trResponse.setCode(CodeEnum.UNKNOWN_ERROR.getCode());
+            trIdResult.setResponse(trResponse);
+            return trIdResult;
+        }
+        trResponse.setCode(CodeEnum.SUCCESS.getCode());
+        trIdResult.setResponse(trResponse);
+        return trIdResult;
+    }
+
+    private QuestionInfo getQuestionInfoBatch(TPAdminCreateQuestionInfo adminCreateQuestionInfo, Long createTime) {
+        QuestionInfo questionInfo = new QuestionInfo();
+        questionInfo.setAnswer(adminCreateQuestionInfo.getAnswer());
+        questionInfo.setType(adminCreateQuestionInfo.getType());
+        questionInfo.setContent(adminCreateQuestionInfo.getContent());
+        questionInfo.setOptions(adminCreateQuestionInfo.getOptions());
+        questionInfo.setSubjectId(adminCreateQuestionInfo.getSubjectId());
+        questionInfo.setCreateUser(adminCreateQuestionInfo.getCreateUser());
+        questionInfo.setCreateTime(createTime);
+        questionInfo.setUpdateTime(createTime);
+        return questionInfo;
+    }
+
     private TPaperQuestionData getTPaperQuestionData(Map<Integer, PaperQuestionData> paperQuestionDataMap, QuestionInfo questionInfo, Integer paperId) {
         TPaperQuestionData tPaperQuestionData = new TPaperQuestionData();
         tPaperQuestionData.setCount(paperQuestionDataMap.get(questionInfo.getId()).getCounts());

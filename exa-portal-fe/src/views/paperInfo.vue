@@ -149,7 +149,7 @@
         })
       },
       goPractice () {
-        this.$router.push({name: 'questionList'})
+        this.$router.push({name: 'practiceSubject'})
       },
       submitPaper () {
         var selectionAnswerMapStr = {}

@@ -17,10 +17,7 @@
         label="科目"
         need
         :label-col="3">
-        <select v-model="subject.id"
-                style="width: 320px;padding-left: 8px;padding-top: 2px; padding-bottom: 2px; border-color: #dddddd; background-color: white">
-          <option :value="item.id" v-for="item in subjectList">{{item.subjectName}}</option>
-        </select>
+        <n3-select  v-model="subject.id" v-bind:options="subjectNameList"></n3-select>
       </n3-form-item>
 
       <n3-form-item label="题目" need :label-col="3">
@@ -62,10 +59,7 @@
       <n3-form-item label="答案" need :label-col="3">
         <tr v-for="(item, index) in answers">
           <td>
-            <select v-model="answers[index]"
-                    style="width: 320px;padding-left: 8px;margin-bottom:10px; padding-top: 2px; padding-bottom: 2px; border-color: #dddddd; background-color: white">
-              <option :value="item" v-for="item in options">{{item}}</option>
-            </select>
+            <n3-select  v-model="answers[index]" v-bind:options="optionNameList" width="320px" color="#2d3035" style="margin-bottom: 10px; color: #2d3035"></n3-select>
           </td>
           <td style="padding-left: 10px">
             <n3-button
@@ -132,11 +126,13 @@
         subjectList: [],
         loading: false,
         subjectId: 0,
+        subjectNameList: [],
         questionType: 0,
         questionTypeName: '',
         readOnly: true,
         subjectName: '',
-        questionId: 0
+        questionId: 0,
+        optionNameList: []
       }
     },
     methods: {
@@ -165,8 +161,10 @@
           this.$set(this.subject, 'id', response.data.data.subjectId)
           this.content = response.data.data.content
           var jsonObj = JSON.parse(response.data.data.options)
+          this.optionNameList = []
           for (var j = 0; j < jsonObj.length; j++) {
             this.options[j] = jsonObj[j]
+            this.optionNameList.push({value: jsonObj[j], label: jsonObj[j]})
           }
         }).catch((error) => {
           alert('获取信息失败' + error.toString())
@@ -174,6 +172,10 @@
         this.$axios.get('/admin-api-1.4.5/subject/list'
         ).then(response => {
           this.subjectList = response.data.data
+          this.subjectNameList = []
+          for (var subject of this.subjectList) {
+            this.subjectNameList.push({value: subject.id, label: subject.subjectName})
+          }
         }).catch((error) => {
           alert('获取信息失败' + error.toString())
         })
@@ -225,9 +227,17 @@
       },
       addOption () {
         this.options.push('')
+        this.optionNameList = []
+        for (var option of this.options) {
+          this.optionNameList.push({value: option, label: option})
+        }
       },
       deleteOption (id) {
         this.options.splice(id, 1)
+        this.optionNameList = []
+        for (var option of this.options) {
+          this.optionNameList.push({value: option, label: option})
+        }
       },
       addAnswer () {
         this.answers.push('')
@@ -243,6 +253,12 @@
       '$route' () {
         if (this.$route.name === 'selectionInfo') {
           this.reload3()
+        }
+      },
+      'options' () {
+        this.optionNameList = []
+        for (var option of this.options) {
+          this.optionNameList.push({value: option, label: option})
         }
       }
     },

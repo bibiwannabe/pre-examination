@@ -1,6 +1,6 @@
 <template>
   <section class="app-slider" style="background-color: white; height: auto">
-    <n3-carousel :interval="speed" style="height: 450px">
+    <n3-carousel :interval="speed">
       <n3-slide @click.native="showPaper(recommendHotList[0].id)">
         <p style="position: absolute;font-size: 60px; width: 100%;text-align:center; height: 320px; line-height:320px;text-shadow: -1px -1px white, 1px 1px #999">
           热门试卷第一</p>

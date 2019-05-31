@@ -4,9 +4,7 @@
       <div class="search-item" style="float: left">
         <div class="form-item">
           <label for="">科目：</label>
-          <select v-model="searchKey.subjectId" @change="keyChange" style="width: 80px;padding-left: 8px;padding-top: 5px; padding-bottom: 5px; border-color: #dddddd; background-color: white">
-            <option :value="item.id" v-for="item in subjectList">{{item.subjectName}}</option>
-          </select>
+          <n3-select  v-model="searchKey.subjectId" v-bind:options="subjectNameList"></n3-select>
         </div>
       </div>
       <div class="search-submit" style="float: left;width: 100px; margin-top: 3px">
@@ -48,6 +46,7 @@
         paperList: [],
         loading: false,
         searchChanged: false,
+        subjectNameList: [],
         searchKey: {
           subjectId: 0,
           queryType: '1',
@@ -188,6 +187,10 @@
           }
           this.subjectList = response.data.data
           this.searchKey.subjectId = response.data.data[0].id
+          this.subjectNameList = []
+          for (var subject of this.subjectList) {
+            this.subjectNameList.push({value: subject.id, label: subject.subjectName})
+          }
         }).catch((error) => {
           alert('获取信息失败' + error.toString())
         })
@@ -231,6 +234,10 @@
               })
             }
             this.subjectList = response.data.data
+            this.subjectNameList = []
+            for (var subject of this.subjectList) {
+              this.subjectNameList.push({value: subject.id, label: subject.subjectName})
+            }
             this.searchKey.subjectId = response.data.data[0].id
           }).catch((error) => {
             alert('获取信息失败' + error.toString())

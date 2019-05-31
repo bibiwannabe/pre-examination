@@ -26,6 +26,6 @@ new Vue({
 })
 Vue.prototype.$userId = 0
 axios.defaults.withCredentials = true;
-axios.defaults.headers = {'Content-Type': 'application/json'}
+axios.defaults.headers = {'Content-Type': 'application/json;charset=UTF-8'}
 Vue.prototype.$axios = axios
 /* eslint-enable */

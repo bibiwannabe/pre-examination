@@ -27,4 +27,6 @@ public interface QuestionInfoMapper {
     QuestionInfo getById(@Param("id")Integer id);
 
     List<QuestionInfo> getBySearchKeywords(@Param("subjectId") Integer subjectId, @Param("type") Integer type ,@Param("keyWords") String keyWords);
+
+    Integer batchCreateQuestion(List<QuestionInfo> questionInfoList);
 }

@@ -4,9 +4,7 @@
       <div class="search-item" style="float: left">
         <div class="form-item">
           <label for="">科目：</label>
-          <select v-model="subjectId" @change="searchChange" style="width: 80px;padding-left: 8px;padding-top: 5px; padding-bottom: 5px; border-color: #dddddd; background-color: white">
-            <option :value="item.id" v-for="item in subjectList">{{item.subjectName}}</option>
-          </select>
+          <n3-select  v-model="subjectId" v-bind:options="subjectNameList"></n3-select>
         </div>
         <div class="form-item">
           <label for="">题型：</label>
@@ -17,6 +15,9 @@
           </n3-select>
         </div>
 
+      </div>
+      <div class="search-submit" style="float: right;width: 100px; margin-right: 50px">
+        <n3-button block @click.native="showUploadWindow">批量上传</n3-button>
       </div>
       <div class="search-submit" style="float: right;width: 100px; margin-right: 50px">
         <n3-button block @click.native="createQuestion">新建题目</n3-button>
@@ -52,6 +53,16 @@
         <n3-button type="primary" block @click.native="addQuestion" style="margin-top: 200px; width:300px" width="100px">添加到试卷</n3-button>
       </n3-alert>
 
+      <n3-alert dismissable :show="false" icon="smile-o"
+                ref="alertUpload"
+                width="400px"
+                placement="center"
+                message="请上传CSV格式的试题文件"
+                description style="height: 380px">
+        <n3-uploader type="drag"  :multiple="false" url="/admin-api-1.4.5/question/batchUpload" @error="onError" @finish="closeUploadWindow" style="margin-top: 30px"></n3-uploader>
+        <n3-button type="primary" block @click.native="downloadCSV" style="margin-top: 30px; width:300px" width="100px">下载模板</n3-button>
+      </n3-alert>
+
     </n3-data-table>
     <n3-page
       :total="pagination.total"
@@ -77,6 +88,7 @@
         },
         subjectList: [],
         questionList: [],
+        subjectNameList: [],
         loading: false,
         searchChanged: false,
         subjectId: 0,
@@ -243,6 +255,10 @@
             })
           }
           this.subjectList = response.data.data
+          this.subjectNameList = []
+          for (var subject of this.subjectList) {
+            this.subjectNameList.push({value: subject.id, label: subject.subjectName})
+          }
           this.subjectId = response.data.data[0].id
           this.subject.id = this.subjectId
         }).catch((error) => {
@@ -312,6 +328,19 @@
         this.readyToAddQuestionId = id
         this.$refs.alertPaper.open()
       },
+      showUploadWindow () {
+        this.$refs.alertUpload.open()
+      },
+      closeUploadWindow () {
+        this.$refs.alertUpload.close()
+        this.n3Alert({
+          content: '上传成功',
+          type: 'success',
+          placement: 'center',
+          duration: 2000,
+          width: '240px'
+        })
+      },
       addQuestion () {
         var data = JSON.stringify({id: this.readyToAddPaperId, questionType: this.questionType, questinId: this.readyToAddQuestionId})
         this.$axios({
@@ -345,6 +374,28 @@
               width: '240px'
             })
           }
+        }).catch((error) => {
+          alert('添加试题失败' + error.toString())
+          return
+        })
+      },
+      downloadCSV () {
+        var url = '/admin-api-1.4.5/template/download/template.csv'
+        this.$axios({
+          method: 'get',
+          url: url,
+          crossDomain: true,
+          responseType: 'arraybuffer',
+          contentType: 'application/json'
+        }).then(response => {
+          let blob = new Blob([response.data], {
+            type: 'application/json'
+          })
+          let link = document.createElement('a');
+          link.href = window.URL.createObjectURL(blob);
+          var title = '批量上传模板.csv'
+          link.download = title
+          link.click()
         }).catch((error) => {
           alert('添加试题失败' + error.toString())
           return

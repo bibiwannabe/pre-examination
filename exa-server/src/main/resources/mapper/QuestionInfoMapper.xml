@@ -53,4 +53,11 @@
         SELECT id, subject_id, qtype, content, qoptions, answer, correct_num, counts, create_user, create_time, update_time FROM questions WHERE id=#{id}
     </select>
 
+    <insert id="batchCreateQuestion" parameterType="java.util.List"  useGeneratedKeys="false">
+        INSERT INTO questions(subject_id, qtype, content, qoptions, answer, create_user, create_time, update_time) VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+        (#{item.subjectId}, #{item.type},  #{item.content}, #{item.options}, #{item.answer}, #{item.createUser}, #{item.createTime}, #{item.updateTime})
+        </foreach>
+    </insert>
+
 </mapper>
